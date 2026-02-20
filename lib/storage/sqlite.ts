@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import type { Question, QuestionSet, UserProgress, TrainSession, MistakeSnapshot } from '../schema';
+import type { Question, QuestionSet, UserProgress, MistakeSnapshot } from '../schema';
 
 const prisma = new PrismaClient();
 
