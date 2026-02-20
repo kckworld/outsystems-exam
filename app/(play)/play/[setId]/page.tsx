@@ -176,7 +176,10 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
 
   const correctIndices = new Set(
     questions
-      .map((q, i) => (answers.get(q.id) === q.answer ? i : -1))
+      .map((q, i) => {
+        const userAnswer = answers.get(q.id);
+        return userAnswer !== undefined && userAnswer === q.answer ? i : -1;
+      })
       .filter((i) => i >= 0)
   );
 
