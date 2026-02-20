@@ -25,7 +25,8 @@ export function QuestionCard({
   isSubmitted = false,
   showTopics = true,
 }: QuestionCardProps) {
-  const isCorrect = selectedChoice === question.answer;
+  const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(question.answer);
+  const isCorrect = selectedChoice === correctAnswerIndex;
   const hasSelected = selectedChoice !== undefined;
 
   return (
@@ -65,7 +66,7 @@ export function QuestionCard({
         <div className="space-y-3 mb-6">
           {question.choices.map((choice, index) => {
             const isSelected = selectedChoice === index;
-            const isCorrectChoice = question.answer === index;
+            const isCorrectChoice = correctAnswerIndex === index;
             const showCorrect = showAnswer && isCorrectChoice;
             const showWrong = showAnswer && isSelected && !isCorrect;
 

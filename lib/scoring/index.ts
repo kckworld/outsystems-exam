@@ -33,10 +33,11 @@ export function checkAnswer(
   question: Question,
   selectedChoice: number
 ): AnswerResult {
-  const isCorrect = selectedChoice === question.answer;
+  const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(question.answer);
+  const isCorrect = selectedChoice === correctAnswerIndex;
   return {
     isCorrect,
-    correctAnswer: question.answer,
+    correctAnswer: correctAnswerIndex,
     userAnswer: selectedChoice,
     explanation: question.explanation,
   };
@@ -51,7 +52,8 @@ export function calculateSessionScore(
 
   questions.forEach((q) => {
     const userAnswer = answers.get(q.id);
-    if (userAnswer !== undefined && userAnswer === q.answer) {
+    const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+    if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
       correct++;
     }
   });
@@ -82,7 +84,8 @@ export function calculateTopicScores(
       stats.total++;
 
       const userAnswer = answers.get(q.id);
-      if (userAnswer !== undefined && userAnswer === q.answer) {
+      const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+      if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
         stats.correct++;
       }
     });
@@ -115,7 +118,8 @@ export function calculateDifficultyScores(
     stats.total++;
 
     const userAnswer = answers.get(q.id);
-    if (userAnswer !== undefined && userAnswer === q.answer) {
+    const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+    if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
       stats.correct++;
     }
   });

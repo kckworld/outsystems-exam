@@ -178,7 +178,8 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     questions
       .map((q, i) => {
         const userAnswer = answers.get(q.id);
-        return userAnswer !== undefined && userAnswer === q.answer ? i : -1;
+        const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+        return userAnswer !== undefined && userAnswer === correctAnswerIndex ? i : -1;
       })
       .filter((i) => i >= 0)
   );
