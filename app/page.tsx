@@ -1,64 +1,70 @@
+'use client';
+
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
+
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-8">
       <div className="text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          OutSystems Exam Trainer
+          {t('homeTitle')}
         </h1>
         <p className="text-xl text-gray-600 mb-8">
-          Master the OutSystems Associate Developer O11 certification
+          {t('homeDescription')}
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         <a href="/play" className="card hover:shadow-lg transition-shadow">
-          <h2 className="text-xl font-semibold mb-2">Practice</h2>
+          <h2 className="text-xl font-semibold mb-2">{t('practiceCard.title')}</h2>
           <p className="text-gray-600">
-            Take full exams with complete question sets
+            {t('practiceCard.description')}
           </p>
         </a>
 
         <a href="/train" className="card hover:shadow-lg transition-shadow">
-          <h2 className="text-xl font-semibold mb-2">Custom Training</h2>
+          <h2 className="text-xl font-semibold mb-2">{t('trainCard.title')}</h2>
           <p className="text-gray-600">
-            Focus on specific topics and difficulty levels
+            {t('trainCard.description')}
           </p>
         </a>
 
         <a href="/mistakes" className="card hover:shadow-lg transition-shadow">
-          <h2 className="text-xl font-semibold mb-2">Mistake Notebook</h2>
+          <h2 className="text-xl font-semibold mb-2">{t('mistakesCard.title')}</h2>
           <p className="text-gray-600">
-            Review and master your wrong answers
+            {t('mistakesCard.description')}
           </p>
         </a>
 
         <a href="/stats" className="card hover:shadow-lg transition-shadow">
-          <h2 className="text-xl font-semibold mb-2">Performance Stats</h2>
+          <h2 className="text-xl font-semibold mb-2">{t('statsCard.title')}</h2>
           <p className="text-gray-600">
-            Track progress toward 70%+ goal
+            {t('statsCard.description')}
           </p>
         </a>
       </div>
 
       <div className="card">
-        <h2 className="text-2xl font-semibold mb-4">Getting Started</h2>
+        <h2 className="text-2xl font-semibold mb-4">{t('gettingStarted')}</h2>
         <ol className="list-decimal list-inside space-y-2 text-gray-700">
-          <li>Import question sets via <a href="/admin" className="text-primary hover:underline">Admin</a></li>
-          <li>Start with <a href="/play" className="text-primary hover:underline">Practice</a> to take full exams</li>
-          <li>Check <a href="/stats" className="text-primary hover:underline">Stats</a> to identify weak topics</li>
-          <li>Use <a href="/train" className="text-primary hover:underline">Custom Training</a> to focus on problem areas</li>
-          <li>Review <a href="/mistakes" className="text-primary hover:underline">Mistakes</a> until auto-archived (2+ correct streaks)</li>
+          <li>{t('gettingStartedSteps.0')}</li>
+          <li>{t('gettingStartedSteps.1')}</li>
+          <li>{t('gettingStartedSteps.2')}</li>
+          <li>{t('gettingStartedSteps.3')}</li>
+          <li>{t('gettingStartedSteps.4')}</li>
         </ol>
       </div>
 
       <div className="card bg-blue-50 border border-blue-200">
-        <h2 className="text-xl font-semibold mb-2 text-blue-900">70% Goal Tracking</h2>
         <p className="text-blue-800">
-          This app helps you identify weak areas and provides targeted practice
-          to reach the 70% passing threshold. Check your Stats dashboard regularly
-          to see recommended training topics.
+          <strong>{t('tipTitle')}</strong> {t('tipDescription')}
         </p>
       </div>
+    </div>
+  );
+}
 
       <div className="card">
         <h2 className="text-2xl font-semibold mb-4">Features</h2>
