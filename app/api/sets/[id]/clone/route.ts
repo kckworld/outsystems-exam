@@ -15,33 +15,28 @@ export async function POST(
       );
     }
 
-    const originalQuestions = await storage.getQuestionsForSet(params.id);
-
     // Create new set with "(Copy)" suffix
     const newSetId = uuidv4();
-    const newSet = await storage.createQuestionSet({
-      id: newSetId,
-      name: `${originalSet.name} (Copy)`,
-      description: originalSet.description,
-      tags: originalSet.tags,
-      questionsCount: originalSet.questionsCount,
-      isLocked: false, // Clones are always unlocked
-    });
+    const newQuestions = originalSet.questions.map((q) => ({
+      ...q,
+      id: uuidv4(),
+    }));
 
-    // Clone all questions
-    const clonedQuestions = await Promise.all(
-      originalQuestions.map((q) =>
-        storage.createQuestion({
-          ...q,
-          id: uuidv4(),
-          setId: newSetId,
-        })
-      )
-    );
+    const newSet = await storage.createQuestionSet({
+      setId: newSetId,
+      title: `${originalSet.title} (Copy)`,
+      description: originalSet.description,
+      versionLabel: originalSet.versionLabel,
+      createdAt: new Date().toISOString(),
+      questionCount: originalSet.questionCount,
+      isLocked: false, // Clones are always unlocked
+      parentSetId: originalSet.setId,
+      questions: newQuestions,
+    });
 
     return NextResponse.json({
       set: newSet,
-      questions: clonedQuestions,
+      questions: newQuestions,
     });
   } catch (error) {
     console.error('Error cloning question set:', error);
