@@ -55,7 +55,7 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
 
       const result = await response.json();
       setSuccess(
-        `Successfully imported set: ${result.set.name} (${result.set.questionsCount} questions)`
+        `Successfully imported set: ${result.set.title} (${result.set.questionCount} questions)`
       );
       setFile(null);
       

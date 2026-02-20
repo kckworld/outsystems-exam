@@ -7,11 +7,10 @@ import { Button } from '@/components/ui/Button';
 import { formatDate } from '@/lib/utils/format';
 
 interface QuestionSet {
-  id: string;
-  name: string;
+  setId: string;
+  title: string;
   description: string;
-  questionsCount: number;
-  tags: string[];
+  questionCount: number;
   createdAt: string;
 }
 
@@ -39,9 +38,8 @@ export default function PlayPage() {
 
   const filteredSets = sets.filter(
     (set) =>
-      set.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      set.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      set.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      set.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      set.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   if (loading) {
@@ -86,28 +84,17 @@ export default function PlayPage() {
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredSets.map((set) => (
-            <Card key={set.id} className="hover:shadow-lg transition-shadow">
+            <Card key={set.setId} className="hover:shadow-lg transition-shadow">
               <CardHeader>
-                <CardTitle className="text-xl">{set.name}</CardTitle>
+                <CardTitle className="text-xl">{set.title}</CardTitle>
                 <CardDescription>{set.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {set.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
                 <p className="text-sm text-gray-600 mb-4">
-                  {set.questionsCount} questions
+                  {set.questionCount} questions
                 </p>
 
-                <Link href={`/play/${set.id}`}>
+                <Link href={`/play/${set.setId}`}>
                   <Button variant="primary" className="w-full">
                     Start Practice
                   </Button>

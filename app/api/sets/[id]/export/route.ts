@@ -14,23 +14,24 @@ export async function GET(
       );
     }
 
-    const questions = await storage.getQuestionsForSet(params.id);
-
     // Export in Format A (with setMeta)
     const exportData = {
       setMeta: {
-        name: set.name,
+        title: set.title,
         description: set.description,
-        tags: set.tags,
+        versionLabel: set.versionLabel,
       },
-      questions: questions.map((q) => ({
+      questions: set.questions.map((q) => ({
         id: q.id,
+        topic: q.topic,
         stem: q.stem,
         choices: q.choices,
         answer: q.answer,
         explanation: q.explanation,
-        topics: q.topics,
+        tags: q.tags,
         difficulty: q.difficulty,
+        source: q.source,
+        createdAt: q.createdAt,
       })),
     };
 

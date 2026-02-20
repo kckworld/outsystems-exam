@@ -12,10 +12,10 @@ import { calculateSessionScore } from '@/lib/scoring';
 import { formatScore, getScoreColor } from '@/lib/utils/format';
 
 interface QuestionSet {
-  id: string;
-  name: string;
+  setId: string;
+  title: string;
   description: string;
-  questionsCount: number;
+  questionCount: number;
 }
 
 export default function PlaySetPage({ params }: { params: { setId: string } }) {
@@ -187,7 +187,7 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">{set?.name}</h1>
+        <h1 className="text-2xl font-bold mb-2">{set?.title}</h1>
         <p className="text-gray-600">{set?.description}</p>
       </div>
 

@@ -76,19 +76,18 @@ export function calculateTopicScores(
   const topicMap = new Map<string, { total: number; correct: number }>();
 
   questions.forEach((q) => {
-    q.topics.forEach((topic) => {
-      if (!topicMap.has(topic)) {
-        topicMap.set(topic, { total: 0, correct: 0 });
-      }
-      const stats = topicMap.get(topic)!;
-      stats.total++;
+    const topic = q.topic;
+    if (!topicMap.has(topic)) {
+      topicMap.set(topic, { total: 0, correct: 0 });
+    }
+    const stats = topicMap.get(topic)!;
+    stats.total++;
 
-      const userAnswer = answers.get(q.id);
-      const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
-      if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
-        stats.correct++;
-      }
-    });
+    const userAnswer = answers.get(q.id);
+    const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+    if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
+      stats.correct++;
+    }
   });
 
   return Array.from(topicMap.entries())

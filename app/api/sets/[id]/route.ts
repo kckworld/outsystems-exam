@@ -14,11 +14,9 @@ export async function GET(
       );
     }
 
-    const questions = await storage.getQuestionsForSet(params.id);
-
     return NextResponse.json({
       set,
-      questions,
+      questions: set.questions,
     });
   } catch (error) {
     console.error('Error fetching question set:', error);

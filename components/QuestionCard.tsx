@@ -32,17 +32,14 @@ export function QuestionCard({
   return (
     <Card className="w-full">
       <CardHeader>
-        {/* Topics and Difficulty */}
+        {/* Topic and Difficulty */}
         {showTopics && (
           <div className="flex flex-wrap gap-2 mb-3">
-            {question.topics.map((topic) => (
-              <span
-                key={topic}
-                className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded"
-              >
-                {topic}
-              </span>
-            ))}
+            <span
+              className="px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded"
+            >
+              {question.topic}
+            </span>
             <span
               className={cn(
                 'px-2 py-1 text-xs font-medium rounded',

@@ -7,11 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { formatDate } from '@/lib/utils/format';
 
 interface QuestionSet {
-  id: string;
-  name: string;
+  setId: string;
+  title: string;
   description: string;
-  questionsCount: number;
-  tags: string[];
+  questionCount: number;
   isLocked: boolean;
   createdAt: string;
 }
@@ -113,12 +112,12 @@ export default function AdminPage() {
                 <div className="space-y-4">
                   {sets.map((set) => (
                     <div
-                      key={set.id}
+                      key={set.setId}
                       className="p-4 border border-gray-200 rounded-lg hover:border-gray-300 transition-colors"
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h3 className="font-semibold text-lg">{set.name}</h3>
+                          <h3 className="font-semibold text-lg">{set.title}</h3>
                           <p className="text-sm text-gray-600">{set.description}</p>
                         </div>
                         {set.isLocked && (
@@ -129,16 +128,8 @@ export default function AdminPage() {
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-3">
-                        {set.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded"
-                          >
-                            {tag}
-                          </span>
-                        ))}
                         <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
-                          {set.questionsCount} questions
+                          {set.questionCount} questions
                         </span>
                       </div>
 
@@ -150,21 +141,21 @@ export default function AdminPage() {
                         <Button
                           size="sm"
                           variant="secondary"
-                          onClick={() => handleClone(set.id)}
+                          onClick={() => handleClone(set.setId)}
                         >
                           Clone
                         </Button>
                         <Button
                           size="sm"
                           variant="secondary"
-                          onClick={() => handleExport(set.id)}
+                          onClick={() => handleExport(set.setId)}
                         >
                           Export
                         </Button>
                         <Button
                           size="sm"
                           variant="danger"
-                          onClick={() => handleDelete(set.id)}
+                          onClick={() => handleDelete(set.setId)}
                         >
                           Delete
                         </Button>
