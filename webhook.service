@@ -1,0 +1,21 @@
+[Unit]
+Description=OutSystems Exam Trainer Webhook Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/volume1/docker/outsystems-exam
+ExecStart=/usr/bin/node /volume1/docker/outsystems-exam/webhook-server.js
+Restart=always
+RestartSec=10
+
+Environment="WEBHOOK_PORT=9000"
+Environment="WEBHOOK_SECRET=change-this-webhook-secret-key"
+Environment="DEPLOY_SCRIPT=/volume1/docker/outsystems-exam/deploy.sh"
+
+StandardOutput=append:/volume1/docker/outsystems-exam/logs/webhook.log
+StandardError=append:/volume1/docker/outsystems-exam/logs/webhook-error.log
+
+[Install]
+WantedBy=multi-user.target

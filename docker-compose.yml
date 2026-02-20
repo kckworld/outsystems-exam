@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3651:3000"
+    environment:
+      - NODE_ENV=production
+      - STORAGE_MODE=sqlite
+      - DATABASE_URL=file:/app/data/prod.db
+      - ADMIN_KEY=${ADMIN_KEY:-change-this-key}
+      - NEXT_PUBLIC_APP_NAME=OutSystems Exam Trainer
+      - NEXT_PUBLIC_PASS_THRESHOLD=70
+    volumes:
+      - ./data:/app/data
+      - ./prisma:/app/prisma
+    restart: unless-stopped
+    command: sh -c "npx prisma db push && node server.js"

@@ -1,0 +1,57 @@
+{
+  "setMeta": {
+    "title": "OutSystems Basics - Practice Set 1",
+    "description": "Fundamental concepts for OutSystems Associate Developer certification covering client variables, screen lifecycle, and basic widgets.",
+    "versionLabel": "v1.0"
+  },
+  "questions": [
+    {
+      "id": "OSAD-1001",
+      "topic": "Client Variables",
+      "difficulty": 1,
+      "stem": "Where are Client Variables stored?",
+      "choices": [
+        "Server database",
+        "Browser local storage",
+        "Server memory",
+        "Application cache"
+      ],
+      "answer": "B",
+      "explanation": "Client Variables are stored in the browser's local storage, making them persistent across page reloads within the same browser session but not shared across different browsers or devices.",
+      "tags": ["client-variables", "storage", "basics"],
+      "source": "Generated"
+    },
+    {
+      "id": "OSAD-1002",
+      "topic": "Aggregates",
+      "difficulty": 2,
+      "stem": "What is the primary advantage of using Aggregates over SQL queries?",
+      "choices": [
+        "Aggregates are faster in all cases",
+        "Aggregates provide automatic optimization and are database-independent",
+        "Aggregates can only be used in screens",
+        "Aggregates require less memory"
+      ],
+      "answer": "B",
+      "explanation": "Aggregates are automatically optimized by the OutSystems platform and generate database-independent code, making applications portable across different database systems. They also provide built-in features like pagination and sorting.",
+      "tags": ["aggregates", "data", "optimization"],
+      "source": "Generated"
+    },
+    {
+      "id": "OSAD-1003",
+      "topic": "Logic Flow",
+      "difficulty": 2,
+      "stem": "What happens when an exception is raised in a Server Action?",
+      "choices": [
+        "The application crashes",
+        "The exception is caught by the nearest Exception Handler or propagates to the caller",
+        "The exception is logged but ignored",
+        "The user is automatically redirected to an error page"
+      ],
+      "answer": "B",
+      "explanation": "OutSystems follows standard exception handling patterns. When an exception is raised, it is caught by the nearest Exception Handler in the flow. If no handler is present, the exception propagates up to the calling action or screen.",
+      "tags": ["exceptions", "error-handling", "logic"],
+      "source": "Generated"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "OSAD-0001",
+    "topic": "Client Variables",
+    "difficulty": 2,
+    "stem": "What is the primary purpose of Client Variables in OutSystems?",
+    "choices": [
+      "Store data permanently in the database",
+      "Maintain state across screens during a client session",
+      "Cache server-side computation results",
+      "Share data between multiple users globally"
+    ],
+    "answer": "B",
+    "explanation": "Client Variables are designed to maintain state across different screens within a client-side session. They are stored in the browser's local storage and persist during the user's session but are not shared between users or permanently stored in the database.",
+    "tags": ["variables", "client-side", "state-management"],
+    "source": "Generated"
+  },
+  {
+    "id": "OSAD-0002",
+    "topic": "Screen Lifecycle",
+    "difficulty": 3,
+    "stem": "In which order are the following screen events executed when a screen loads?",
+    "choices": [
+      "OnInitialize -> OnReady -> OnRender",
+      "OnInitialize -> OnRender -> OnReady",
+      "OnRender -> OnInitialize ->OnReady",
+      "OnReady -> OnInitialize -> OnRender"
+    ],
+    "answer": "B",
+    "explanation": "The correct execution order is: OnInitialize (fetches data and initializes variables), OnRender (prepares the screen for display), and OnReady (executes after the screen is fully rendered and interactive). This order ensures data is available before rendering and allows for post-render logic.",
+    "tags": ["lifecycle", "events", "screen"],
+    "source": "Generated"
+  },
+  {
+    "id": "OSAD-0003",
+    "topic": "Data Widgets",
+    "difficulty": 1,
+    "stem": "Which widget provides built-in pagination support for displaying lists?",
+    "choices": [
+      "List widget",
+      "Table widget",
+      "Table Records widget",
+      "List Records widget"
+    ],
+    "answer": "D",
+    "explanation": "The List Records widget provides built-in pagination support and is the most common widget for displaying lists of data in OutSystems. It automatically handles pagination controls and data fetching for large datasets.",
+    "tags": ["widgets", "data", "pagination"],
+    "source": "Generated"
+  },
+  {
+    "id": "OSAD-0004",
+    "topic": "Server Actions",
+    "difficulty": 2,
+    "stem": "What is the main security advantage of using Server Actions instead of Client Actions?",
+    "choices": [
+      "Faster execution time",
+      "Better user interface responsiveness",
+      "Logic cannot be inspected or manipulated by end users",
+      "Automatic data encryption"
+    ],
+    "answer": "C",
+    "explanation": "Server Actions execute on the server side, making the business logic invisible and tamper-proof from the client side. This is crucial for security-sensitive operations, validations, and business rules that should not be exposed to end users.",
+    "tags": ["security", "server-actions", "best-practices"],
+    "source": "Generated"
+  },
+  {
+    "id": "OSAD-0005",
+    "topic": "RBAC",
+    "difficulty": 3,
+    "stem": "How does OutSystems implement Role-Based Access Control at the screen level?",
+    "choices": [
+      "By checking user roles in OnInitialize event",
+      "Through the Roles property in screen properties",
+      "Using If conditions in screen preparation",
+      "Via custom JavaScript security checks"
+    ],
+    "answer": "B",
+    "explanation": "OutSystems provides declarative RBAC through the Roles property available in screen properties. This ensures that access control is applied at the platform level before any screen logic executes, providing robust security without requiring manual implementation in every screen.",
+    "tags": ["rbac", "security", "roles", "screens"],
+    "source": "Generated"
+  }
+]

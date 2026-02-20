@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Question {
+  id          String   @id
+  topic       String
+  difficulty  Int      // 1, 2, or 3
+  stem        String
+  choices     String   // JSON array: string[4]
+  answer      String   // "A", "B", "C", or "D"
+  explanation String
+  tags        String   // JSON array: string[]
+  source      String
+  createdAt   String
+  
+  setId       String?
+  set         QuestionSet? @relation(fields: [setId], references: [setId])
+  
+  @@index([topic])
+  @@index([difficulty])
+  @@index([setId])
+}
+
+model QuestionSet {
+  setId         String      @id
+  title         String
+  description   String
+  versionLabel  String
+  createdAt     String
+  questionCount Int
+  isLocked      Boolean     @default(true)
+  parentSetId   String?
+  
+  questions     Question[]
+  
+  @@index([createdAt])
+}
+
+model UserProgress {
+  id              String   @id @default(uuid())
+  scope           String   // "set", "train", or "mistakeSnapshot"
+  scopeId         String
+  answers         String   // JSON: { [questionId]: { selected, isCorrect, answeredAt } }
+  lastQuestionIndex Int   @default(0)
+  updatedAt       String
+  
+  @@unique([scope, scopeId])
+  @@index([scope, scopeId])
+}
+
+model TrainSession {
+  trainSessionId      String   @id @default(uuid())
+  createdAt           String
+  config              String   // JSON: { topics, difficulties, questionCount, randomSeed, sourceSetIds }
+  selectedQuestionIds String   // JSON array: string[]
+  status              String   // "active" or "completed"
+  
+  @@index([status])
+  @@index([createdAt])
+}
+
+model MistakeSnapshot {
+  snapshotId       String   @id @default(uuid())
+  baseScope        String   // "set" or "train"
+  baseScopeId      String
+  createdAt        String
+  title            String
+  wrongQuestionIds String   // JSON array: string[]
+  correctStreak    String   // JSON: { [questionId]: number }
+  isArchived       Boolean  @default(false)
+  deletedAt        String?
+  
+  @@index([isArchived])
+  @@index([baseScope, baseScopeId])
+  @@index([createdAt])
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "deploy-outsystems-exam",
+    "execute-command": "/volume1/docker/outsystems-exam/deploy.sh",
+    "command-working-directory": "/volume1/docker/outsystems-exam",
+    "response-message": "Deployment started successfully",
+    "trigger-rule": {
+      "and": [
+        {
+          "match": {
+            "type": "payload-hash-sha256",
+            "secret": "change-this-webhook-secret-key",
+            "parameter": {
+              "source": "header",
+              "name": "X-Hub-Signature-256"
+            }
+          }
+        },
+        {
+          "match": {
+            "type": "value",
+            "value": "refs/heads/main",
+            "parameter": {
+              "source": "payload",
+              "name": "ref"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
