@@ -202,19 +202,21 @@ Git에 Push하면 자동으로 NAS에 배포됩니다.
 ```json
 {
   "setMeta": {
-    "name": "연습 세트 1",
+    "title": "연습 세트 1",
     "description": "기본 자격증 문제",
-    "tags": ["기초", "O11"]
+    "versionLabel": "v1.0"
   },
   "questions": [
     {
       "id": "OSAD-0001",
-      "topics": ["Client Variables"],
+      "topic": "Client Variables",
       "difficulty": 2,
       "stem": "클라이언트 변수란 무엇인가?",
       "choices": ["옵션 A", "옵션 B", "옵션 C", "옵션 D"],
-      "answer": 0,
-      "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다..."
+      "answer": "A",
+      "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다...",
+      "tags": ["기초", "변수"],
+      "source": "공식 문서"
     }
   ]
 }
@@ -225,16 +227,42 @@ Git에 Push하면 자동으로 NAS에 배포됩니다.
 [
   {
     "id": "OSAD-0001",
-    "topics": ["Client Variables"],
+    "topic": "Client Variables",
     "difficulty": 2,
     "stem": "클라이언트 변수란 무엇인가?",
     "choices": ["옵션 A", "옵션 B", "옵션 C", "옵션 D"],
-    "answer": 0,
-    "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다..."
+    "answer": "A",
+    "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다...",
+    "tags": ["기초", "변수"],
+    "source": "공식 문서"
   }
 ]
 ```
 *참고: 형식 B는 업로드 후 UI를 통해 setMeta 입력이 필요합니다*
+
+## 빌드 최적화
+
+### 빠른 재배포 (1-2분)
+일반적인 코드 변경 시:
+```bash
+cd /volume1/docker/outsystems-exam
+git pull origin main
+docker compose build        # 캐시 사용
+docker compose up -d
+```
+
+### 자동 배포 시 캐시 사용
+Webhook 배포는 기본적으로 캐시를 사용합니다 (빠름).
+
+전체 재빌드가 필요한 경우만:
+```bash
+./deploy.sh --no-cache     # dependencies 변경 시에만
+```
+
+### 전체 재빌드가 필요한 경우
+- `package.json` 변경 (새 라이브러리 설치)
+- `Dockerfile` 변경
+- 빌드 캐시 문제 발생 시
 
 ## API 참조
 

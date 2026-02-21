@@ -64,8 +64,15 @@ if [ $? -ne 0 ]; then
 fi
 
 # Build Docker image
-log "Building Docker image (this may take a few minutes)..."
-docker-compose build --no-cache
+log "Building Docker image (using cache for faster builds)..."
+# Use --no-cache only if explicitly requested: ./deploy.sh --no-cache
+if [ "$1" == "--no-cache" ]; then
+    log "Full rebuild requested (--no-cache)"
+    docker-compose build --no-cache
+else
+    log "Using build cache (much faster!)"
+    docker-compose build
+fi
 
 if [ $? -ne 0 ]; then
     log "ERROR: Docker build failed!"
