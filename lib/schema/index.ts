@@ -9,7 +9,7 @@ export const DifficultySchema = z.union([
 ]);
 
 export const QuestionSchema = z.object({
-  id: z.string().min(1, 'Question ID is required'),
+  id: z.string().min(1, 'Question ID is required').optional(),
   topic: z.string().min(1, 'Topic is required'),
   difficulty: DifficultySchema,
   stem: z.string().min(1, 'Question stem is required'),

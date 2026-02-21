@@ -26,11 +26,17 @@ export async function POST(req: NextRequest) {
     if (formatAResult.success) {
       const { setMeta, questions } = formatAResult.data;
 
+      // Generate IDs for questions without one
+      const questionsWithIds = questions.map((q, index) => ({
+        ...q,
+        id: q.id || `${randomUUID()}-${index}`,
+      }));
+
       // Validate all questions
       const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
       const questionIds = new Set<string>();
 
-      for (const q of questions) {
+      for (const q of questionsWithIds) {
         const result = QuestionSchema.safeParse(q);
         if (!result.success) {
           result.error.issues.forEach((issue) => {
@@ -68,9 +74,9 @@ export async function POST(req: NextRequest) {
         setId: randomUUID(),
         ...setMeta,
         createdAt: new Date().toISOString(),
-        questionCount: questions.length,
+        questionCount: questionsWithIds.length,
         isLocked: true,
-        questions,
+        questions: questionsWithIds,
       };
 
       await storage.createQuestionSet(newSet);
@@ -127,11 +133,17 @@ export async function PUT(req: NextRequest) {
       );
     }
 
+    // Generate IDs for questions without one
+    const questionsWithIds = questions.map((q: any, index: number) => ({
+      ...q,
+      id: q.id || `${randomUUID()}-${index}`,
+    }));
+
     // Validate all questions
     const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
     const questionIds = new Set<string>();
 
-    for (const q of questions) {
+    for (const q of questionsWithIds) {
       const result = QuestionSchema.safeParse(q);
       if (!result.success) {
         result.error.issues.forEach((issue) => {
@@ -168,9 +180,9 @@ export async function PUT(req: NextRequest) {
       setId: randomUUID(),
       ...metaResult.data,
       createdAt: new Date().toISOString(),
-      questionCount: questions.length,
+      questionCount: questionsWithIds.length,
       isLocked: true,
-      questions,
+      questions: questionsWithIds,
     };
 
     await storage.createQuestionSet(newSet);
@@ -178,7 +190,7 @@ export async function PUT(req: NextRequest) {
     return NextResponse.json({
       success: true,
       setId: newSet.setId,
-      questionCount: questions.length,
+      questionCount: questionsWithIds.length,
     });
   } catch (error) {
     console.error('Import error:', error);
