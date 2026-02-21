@@ -161,7 +161,13 @@ outsystems-exam/
    ```bash
    # NAS에 SSH 접속
    cd /volume1/docker/outsystems-exam
-   docker-compose up -d
+   docker compose build
+   docker compose up -d
+   
+   # 데이터베이스 초기화 (최초 1회 필수)
+   docker compose exec app npx prisma db push
+   chmod -R 777 data/
+   docker compose restart app
    ```
 
 5. **접속**
