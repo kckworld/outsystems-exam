@@ -65,20 +65,3 @@ export default function Home() {
     </div>
   );
 }
-
-      <div className="card">
-        <h2 className="text-2xl font-semibold mb-4">Features</h2>
-        <ul className="space-y-2 text-gray-700">
-          <li>✓ Flexible question import (with or without set metadata)</li>
-          <li>✓ Question-by-question practice with immediate feedback</li>
-          <li>✓ Custom training filters (topic, difficulty, question count)</li>
-          <li>✓ Smart mistake tracking with auto-archive (2 correct = mastered)</li>
-          <li>✓ Comprehensive stats by set, topic, and difficulty</li>
-          <li>✓ Keyboard shortcuts for efficient practice</li>
-          <li>✓ Copy questions to clipboard for AI assistance</li>
-          <li>✓ Progress auto-save and resume</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
