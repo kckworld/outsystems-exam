@@ -63,7 +63,9 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     setShowAnswer(true);
 
     const newAnswers = new Map(answers);
-    newAnswers.set(currentQuestion.id, selectedChoice);
+    if (currentQuestion.id) {
+      newAnswers.set(currentQuestion.id, selectedChoice);
+    }
     setAnswers(newAnswers);
   };
 
@@ -80,9 +82,12 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
 
   const handleNavigate = (index: number) => {
     setCurrentIndex(index);
-    setSelectedChoice(answers.get(questions[index].id));
-    setIsSubmitted(answers.has(questions[index].id));
-    setShowAnswer(answers.has(questions[index].id));
+    const questionId = questions[index].id;
+    if (questionId) {
+      setSelectedChoice(answers.get(questionId));
+      setIsSubmitted(answers.has(questionId));
+      setShowAnswer(answers.has(questionId));
+    }
   };
 
   const handleRestart = () => {
@@ -171,12 +176,13 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   }
 
   const answeredIndices = new Set(
-    questions.map((q, i) => (answers.has(q.id) ? i : -1)).filter((i) => i >= 0)
+    questions.map((q, i) => (q.id && answers.has(q.id) ? i : -1)).filter((i) => i >= 0)
   );
 
   const correctIndices = new Set(
     questions
       .map((q, i) => {
+        if (!q.id) return -1;
         const userAnswer = answers.get(q.id);
         const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
         return userAnswer !== undefined && userAnswer === correctAnswerIndex ? i : -1;
