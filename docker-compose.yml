@@ -18,4 +18,3 @@ services:
       - ./data:/app/data
       - ./prisma:/app/prisma
     restart: unless-stopped
-    command: sh -c "npx prisma db push && node server.js"
