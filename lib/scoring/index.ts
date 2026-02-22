@@ -157,3 +157,8 @@ export function getProgressMessage(percentage: number): string {
   if (percentage >= 60) return 'Close! A bit more practice needed.';
   return 'Keep practicing. Review the weak areas.';
 }
+
+// Aliases for backward compatibility
+export const calculateTopicBreakdown = calculateTopicScores;
+export const calculateDifficultyBreakdown = calculateDifficultyScores;
+
