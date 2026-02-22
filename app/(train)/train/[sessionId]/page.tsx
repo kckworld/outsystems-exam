@@ -101,13 +101,13 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
 
   const handleSaveToMistakes = async () => {
     const wrongQuestionIds = questions
-      .filter((q) => {
+      .filter((q: Question) => {
         if (!q.id) return false;
         const userAnswer = answers.get(q.id);
         const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
         return userAnswer !== undefined && userAnswer !== correctAnswerIndex;
       })
-      .map((q) => q.id as string);
+      .map((q: Question) => q.id as string);
 
     if (wrongQuestionIds.length === 0) {
       alert('틀린 문제가 없어 오답노트에 저장할 수 없습니다.');
@@ -184,7 +184,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
     const scoreColor = getScoreColor(score.percentage);
 
     // Get wrong questions
-    const wrongQuestions = questions.filter((q, i) => {
+    const wrongQuestions = questions.filter((q: Question, i: number) => {
       if (!q.id) return false;
       const userAnswer = answers.get(q.id);
       const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
@@ -246,7 +246,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
               <div className="mb-6">
                 <h3 className="text-xl font-semibold mb-4">틀린 문제 ({wrongQuestions.length}개)</h3>
                 <div className="space-y-4 max-h-96 overflow-y-auto">
-                  {wrongQuestions.map((q, idx) => {
+                  {wrongQuestions.map((q: Question, idx: number) => {
                     const userAnswer = q.id ? answers.get(q.id) : undefined;
                     const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
                     return (
@@ -261,7 +261,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
                         </div>
                         <p className="font-medium mb-3">{q.stem}</p>
                         <div className="space-y-1 mb-3">
-                          {q.choices.map((choice, i) => (
+                          {q.choices.map((choice: string, i: number) => (
                             <div
                               key={i}
                               className={`p-2 rounded text-sm ${
