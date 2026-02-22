@@ -5,41 +5,41 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 export default function StatsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Statistics Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-8">통계 대시보드</h1>
       
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Overall Performance</CardTitle>
+            <CardTitle>전체 성과</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-500">Coming soon...</p>
+            <p className="text-gray-500">곧 제공 예정...</p>
             <p className="text-sm text-gray-400 mt-2">
-              Track your overall progress across all question sets.
+              모든 문제 세트에 대한 전체 진행 상황을 추적하세요.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Topic Breakdown</CardTitle>
+            <CardTitle>토픽별 분석</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-500">Coming soon...</p>
+            <p className="text-gray-500">곧 제공 예정...</p>
             <p className="text-sm text-gray-400 mt-2">
-              See your performance by topic to identify weak areas.
+              토픽별 성과를 확인하여 취약한 영역을 파악하세요.
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>70% Goal Tracker</CardTitle>
+            <CardTitle>70% 목표 추적기</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-500">Coming soon...</p>
+            <p className="text-gray-500">곧 제공 예정...</p>
             <p className="text-sm text-gray-400 mt-2">
-              Monitor your progress toward the 70% passing threshold.
+              70% 합격 기준을 향한 진행 상황을 확인하세요.
             </p>
           </CardContent>
         </Card>
@@ -48,11 +48,11 @@ export default function StatsPage() {
       <div className="mt-8">
         <Card>
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
+            <CardTitle>최근 활동</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-gray-500">
-              This feature will show your recent practice sessions and scores.
+              이 기능은 최근 연습 세션과 점수를 보여줍니다.
             </p>
           </CardContent>
         </Card>

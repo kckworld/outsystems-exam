@@ -71,16 +71,16 @@ export default function AdminPage() {
   }, []);
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this set?')) return;
+    if (!confirm('이 세트를 삭제하시겠습니까?')) return;
 
     try {
       const response = await fetch(`/api/sets/${id}`, {
         method: 'DELETE',
       });
-      if (!response.ok) throw new Error('Failed to delete set');
+      if (!response.ok) throw new Error('세트 삭제 실패');
       await fetchSets();
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to delete');
+      alert(err instanceof Error ? err.message : '삭제 실패');
     }
   };
 
@@ -89,17 +89,17 @@ export default function AdminPage() {
       const response = await fetch(`/api/sets/${id}/clone`, {
         method: 'POST',
       });
-      if (!response.ok) throw new Error('Failed to clone set');
+      if (!response.ok) throw new Error('세트 복제 실패');
       await fetchSets();
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to clone');
+      alert(err instanceof Error ? err.message : '복제 실패');
     }
   };
 
   const handleExport = async (id: string) => {
     try {
       const response = await fetch(`/api/sets/${id}/export`);
-      if (!response.ok) throw new Error('Failed to export set');
+      if (!response.ok) throw new Error('세트 내보내기 실패');
       const data = await response.json();
       
       const blob = new Blob([JSON.stringify(data, null, 2)], {
@@ -112,7 +112,7 @@ export default function AdminPage() {
       a.click();
       URL.revokeObjectURL(url);
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to export');
+      alert(err instanceof Error ? err.message : '내보내기 실패');
     }
   };
 
@@ -125,12 +125,12 @@ export default function AdminPage() {
 
     try {
       const response = await fetch(`/api/sets/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch questions');
+      if (!response.ok) throw new Error('문제 가져오기 실패');
       const data = await response.json();
       setQuestions(data.questions);
       setExpandedSetId(id);
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to load questions');
+      alert(err instanceof Error ? err.message : '문제 로드 실패');
     }
   };
 
@@ -174,7 +174,7 @@ export default function AdminPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Admin Panel</h1>
+        <h1 className="text-3xl font-bold">관리자 패널</h1>
         <Button variant="secondary" onClick={handleLogout}>
           로그아웃
         </Button>
@@ -190,14 +190,14 @@ export default function AdminPage() {
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>Question Sets</CardTitle>
+              <CardTitle>문제 세트</CardTitle>
             </CardHeader>
             <CardContent>
-              {loading && <p className="text-gray-500">Loading...</p>}
+              {loading && <p className="text-gray-500">로딩 중...</p>}
               {error && <p className="text-red-600">{error}</p>}
               
               {!loading && !error && sets.length === 0 && (
-                <p className="text-gray-500">No question sets yet. Import one to get started.</p>
+                <p className="text-gray-500">아직 문제 세트가 없습니다. 시작하려면 하나를 가져오세요.</p>
               )}
 
               {!loading && !error && sets.length > 0 && (
@@ -214,19 +214,19 @@ export default function AdminPage() {
                         </div>
                         {set.isLocked && (
                           <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
-                            Locked
+                            잠김
                           </span>
                         )}
                       </div>
 
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
-                          {set.questionCount} questions
+                          {set.questionCount}개 문제
                         </span>
                       </div>
 
                       <p className="text-xs text-gray-500 mb-3">
-                        Created: {formatDate(set.createdAt)}
+                        생성일: {formatDate(set.createdAt)}
                       </p>
 
                       <div className="flex gap-2">
@@ -242,21 +242,21 @@ export default function AdminPage() {
                           variant="secondary"
                           onClick={() => handleClone(set.setId)}
                         >
-                          Clone
+                          복제
                         </Button>
                         <Button
                           size="sm"
                           variant="secondary"
                           onClick={() => handleExport(set.setId)}
                         >
-                          Export
+                          내보내기
                         </Button>
                         <Button
                           size="sm"
                           variant="danger"
                           onClick={() => handleDelete(set.setId)}
                         >
-                          Delete
+                          삭제
                         </Button>
                       </div>
 
