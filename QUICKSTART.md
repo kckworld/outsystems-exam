@@ -174,7 +174,12 @@ Synology NAS 또는 기타 Docker 호환 호스트에 수동 배포:
 1. 프로덕션 설정으로 `.env` 구성
 2. Docker 이미지 빌드: `docker-compose build`
 3. 컨테이너 시작: `docker-compose up -d`
-4. http://your-nas-ip:3651 에서 접속
+4. **데이터베이스 초기화 (최초 1회 필수):**
+   ```bash
+   docker compose exec app npx prisma db push
+   docker compose restart app
+   ```
+5. http://your-nas-ip:3651 에서 접속
 
 ### 방법 2: Git + Webhook 자동 배포 (권장)
 
@@ -227,6 +232,22 @@ STORAGE_MODE=sqlite
 DATABASE_URL=file:/app/data/prod.db
 NODE_ENV=production
 NEXT_PUBLIC_PASS_THRESHOLD=70
+```
+
+**초기 배포 및 데이터베이스 설정:**
+```bash
+# Docker 컨테이너 빌드 및 시작
+docker compose build
+docker compose up -d
+
+# 데이터베이스 테이블 생성 (최초 1회 필수)
+docker compose exec app npx prisma db push
+
+# 권한 설정
+chmod -R 777 data/
+
+# 컨테이너 재시작
+docker compose restart app
 ```
 
 #### 3단계: 배포 스크립트 작성

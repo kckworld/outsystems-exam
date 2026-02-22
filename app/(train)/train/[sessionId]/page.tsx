@@ -8,19 +8,11 @@ import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Question } from '@/lib/schema';
 import { useQuestionNavigation } from '@/lib/utils/keyboard';
-import { calculateSessionScore } from '@/lib/scoring';
+import { calculateSessionScore, calculateTopicBreakdown, calculateDifficultyBreakdown } from '@/lib/scoring';
 import { formatScore, getScoreColor } from '@/lib/utils/format';
 
-interface QuestionSet {
-  setId: string;
-  title: string;
-  description: string;
-  questionCount: number;
-}
-
-export default function PlaySetPage({ params }: { params: { setId: string } }) {
+export default function TrainSessionPage({ params }: { params: { sessionId: string } }) {
   const router = useRouter();
-  const [set, setSet] = useState<QuestionSet | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Map<string, number>>(new Map());
@@ -31,24 +23,23 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/sets/${params.setId}`);
-        if (!response.ok) throw new Error('Failed to fetch set');
-        const data = await response.json();
-        setSet(data.set);
-        setQuestions(data.questions);
-      } catch (error) {
-        console.error('Error fetching set:', error);
-        alert('Failed to load question set');
-        router.push('/play');
-      } finally {
-        setLoading(false);
-      }
-    };
+    const sessionData = sessionStorage.getItem('trainSession');
+    if (!sessionData) {
+      alert('Training session not found');
+      router.push('/train');
+      return;
+    }
 
-    fetchData();
-  }, [params.setId, router]);
+    try {
+      const data = JSON.parse(sessionData);
+      setQuestions(data.questions);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error loading session:', error);
+      alert('Failed to load training session');
+      router.push('/train');
+    }
+  }, [params.sessionId, router]);
 
   const currentQuestion = questions[currentIndex];
 
@@ -107,7 +98,6 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     }
   };
 
-  // Keyboard shortcuts
   useQuestionNavigation(
     currentIndex,
     questions.length,
@@ -115,7 +105,7 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     (choiceIndex) => {
       if (!isSubmitted && choiceIndex < currentQuestion.choices.length) {
         handleSelectChoice(choiceIndex);
-        setTimeout(handleSubmit, 100); // Auto-submit after selection
+        setTimeout(handleSubmit, 100);
       }
     }
   );
@@ -134,15 +124,25 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     );
   }
 
+  if (!currentQuestion) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <p className="text-red-600">No questions available</p>
+      </div>
+    );
+  }
+
   if (isComplete) {
     const score = calculateSessionScore(questions, answers);
+    const topicBreakdown = calculateTopicBreakdown(questions, answers);
+    const difficultyBreakdown = calculateDifficultyBreakdown(questions, answers);
     const scoreColor = getScoreColor(score.percentage);
 
     return (
       <div className="container mx-auto px-4 py-8">
         <Card className="max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-2xl">Practice Complete</CardTitle>
+            <CardTitle className="text-2xl">맞춤 학습 완료</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-center mb-6">
@@ -153,30 +153,50 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
                 {formatScore(score.correct, score.total)}
               </p>
               <p className="text-lg text-gray-600">
-                {score.passed
-                  ? 'Great job! You passed the 70% threshold.'
-                  : 'Keep practicing to reach 70%'}
+                {score.passed ? '합격 ✓' : '불합격 ✗'}
               </p>
             </div>
 
-            <div className="flex gap-3 justify-center">
-              <Button onClick={() => router.push('/play')} variant="secondary">
-                Back to Sets
+            <div className="mb-6">
+              <h3 className="font-semibold mb-3">토픽별 점수</h3>
+              <div className="space-y-2">
+                {topicBreakdown.map((item) => (
+                  <div key={item.topic} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                    <span className="text-sm">{item.topic}</span>
+                    <span className="text-sm font-medium">
+                      {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <h3 className="font-semibold mb-3">난이도별 점수</h3>
+              <div className="space-y-2">
+                {difficultyBreakdown.map((item) => (
+                  <div key={item.difficulty} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                    <span className="text-sm">
+                      {item.difficulty === 1 ? '쉬움' : item.difficulty === 2 ? '보통' : '어려움'}
+                    </span>
+                    <span className="text-sm font-medium">
+                      {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Button onClick={() => router.push('/train')} variant="secondary" className="flex-1">
+                새 학습 시작
               </Button>
-              <Button onClick={handleRestart} variant="primary">
-                Practice Again
+              <Button onClick={handleRestart} variant="primary" className="flex-1">
+                다시 풀기
               </Button>
             </div>
           </CardContent>
         </Card>
-      </div>
-    );
-  }
-
-  if (!currentQuestion) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <p className="text-red-600">No questions available</p>
       </div>
     );
   }
@@ -199,8 +219,8 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold mb-2">{set?.title}</h1>
-        <p className="text-gray-600">{set?.description}</p>
+        <h1 className="text-2xl font-bold mb-2">맞춤 학습</h1>
+        <p className="text-gray-600">진행 중...</p>
       </div>
 
       <div className="mb-6">
