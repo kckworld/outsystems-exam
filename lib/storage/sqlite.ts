@@ -22,7 +22,7 @@ export class SQLiteStorage {
     for (const q of set.questions) {
       await prisma.question.create({
         data: {
-          id: q.id,
+          id: q.id || `${set.setId}-${Math.random().toString(36).substring(2, 15)}`,
           topic: q.topic,
           difficulty: q.difficulty,
           stem: q.stem,
@@ -71,7 +71,7 @@ export class SQLiteStorage {
       isLocked: set.isLocked,
       parentSetId: set.parentSetId || undefined,
       questions: set.questions.map((q) => ({
-        id: q.id,
+        id: q.id as string,
         topic: q.topic,
         difficulty: q.difficulty as 1 | 2 | 3,
         stem: q.stem,
@@ -103,7 +103,7 @@ export class SQLiteStorage {
       isLocked: set.isLocked,
       parentSetId: set.parentSetId || undefined,
       questions: set.questions.map((q) => ({
-        id: q.id,
+        id: q.id as string,
         topic: q.topic,
         difficulty: q.difficulty as 1 | 2 | 3,
         stem: q.stem,
@@ -298,7 +298,7 @@ export class SQLiteStorage {
     });
 
     return questions.map((q) => ({
-      id: q.id,
+      id: q.id as string,
       topic: q.topic,
       difficulty: q.difficulty as 1 | 2 | 3,
       stem: q.stem,
@@ -319,7 +319,7 @@ export class SQLiteStorage {
     });
 
     return questions.map((q) => ({
-      id: q.id,
+      id: q.id as string,
       topic: q.topic,
       difficulty: q.difficulty as 1 | 2 | 3,
       stem: q.stem,
