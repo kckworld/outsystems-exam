@@ -264,19 +264,12 @@ export default function MistakePracticePage({ params }: { params: { id: string }
 
       <QuestionCard
         question={currentQuestion}
-        questionNumber={currentIndex + 1}
-        totalQuestions={questions.length}
         selectedChoice={selectedChoice}
         onSelectChoice={handleSelectChoice}
         isSubmitted={isSubmitted}
         showAnswer={showAnswer}
         onSubmit={handleSubmit}
         onNext={handleNext}
-        onPrevious={
-          currentIndex > 0
-            ? () => handleNavigate(currentIndex - 1)
-            : undefined
-        }
       />
 
       {snapshot && currentQuestion.id && (
