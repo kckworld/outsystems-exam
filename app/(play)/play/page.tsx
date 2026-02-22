@@ -23,7 +23,7 @@ export default function PlayPage() {
     const fetchSets = async () => {
       try {
         const response = await fetch('/api/sets');
-        if (!response.ok) throw new Error('Failed to fetch sets');
+        if (!response.ok) throw new Error('문제 세트를 가져오는데 실패했습니다');
         const data = await response.json();
         setSets(data.sets);
       } catch (error) {
@@ -45,7 +45,7 @@ export default function PlayPage() {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <p className="text-gray-500">Loading question sets...</p>
+        <p className="text-gray-500">문제 세트를 불러오는 중...</p>
       </div>
     );
   }
@@ -53,9 +53,9 @@ export default function PlayPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Practice Mode</h1>
+        <h1 className="text-3xl font-bold mb-2">연습 모드</h1>
         <p className="text-gray-600">
-          Select a question set to start practicing. Your progress will be saved automatically.
+          문제 세트를 선택하여 연습을 시작하세요. 진행 상황은 자동으로 저장됩니다.
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export default function PlayPage() {
       <div className="mb-6">
         <input
           type="text"
-          placeholder="Search by name, description, or tags..."
+          placeholder="이름, 설명 또는 태그로 검색..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -76,8 +76,8 @@ export default function PlayPage() {
           <CardContent className="p-8 text-center">
             <p className="text-gray-500">
               {searchQuery
-                ? 'No question sets match your search.'
-                : 'No question sets available. Visit Admin panel to import questions.'}
+                ? '검색 결과가 없습니다.'
+                : '사용 가능한 문제 세트가 없습니다. 관리자 패널에서 문제를 가져오세요.'}
             </p>
           </CardContent>
         </Card>
@@ -91,12 +91,12 @@ export default function PlayPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-4">
-                  {set.questionCount} questions
+                  {set.questionCount}개 문제
                 </p>
 
                 <Link href={`/play/${set.setId}`}>
                   <Button variant="primary" className="w-full">
-                    Start Practice
+                    연습 시작
                   </Button>
                 </Link>
               </CardContent>
