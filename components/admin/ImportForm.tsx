@@ -6,11 +6,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 interface ImportFormProps {
   onSuccess?: () => void;
+  adminKey: string;
 }
 
-export function ImportForm({ onSuccess }: ImportFormProps) {
+export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
   const [files, setFiles] = useState<File[]>([]);
-  const [adminKey, setAdminKey] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -121,23 +121,6 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label
-              htmlFor="admin-key"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Admin Key
-            </label>
-            <input
-              id="admin-key"
-              type="password"
-              value={adminKey}
-              onChange={(e) => setAdminKey(e.target.value)}
-              placeholder="Enter admin key"
-              className="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-
           <div>
             <label
               htmlFor="file-input"

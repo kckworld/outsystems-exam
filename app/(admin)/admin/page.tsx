@@ -21,6 +21,36 @@ export default function AdminPage() {
   const [error, setError] = useState<string | null>(null);
   const [expandedSetId, setExpandedSetId] = useState<string | null>(null);
   const [questions, setQuestions] = useState<any[]>([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [adminKey, setAdminKey] = useState('');
+  const [authError, setAuthError] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check if already authenticated
+    const storedKey = localStorage.getItem('adminKey');
+    if (storedKey) {
+      setAdminKey(storedKey);
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!adminKey.trim()) {
+      setAuthError('Admin Key를 입력해주세요');
+      return;
+    }
+    // Store in localStorage
+    localStorage.setItem('adminKey', adminKey);
+    setIsAuthenticated(true);
+    setAuthError(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminKey');
+    setIsAuthenticated(false);
+    setAdminKey('');
+  };
 
   const fetchSets = async () => {
     try {
@@ -104,14 +134,56 @@ export default function AdminPage() {
     }
   };
 
+  if (!isAuthenticated) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="max-w-md mx-auto mt-20">
+          <Card>
+            <CardHeader>
+              <CardTitle>관리자 로그인</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div>
+                  <label htmlFor="adminKey" className="block text-sm font-medium mb-2">
+                    Admin Key
+                  </label>
+                  <input
+                    type="password"
+                    id="adminKey"
+                    value={adminKey}
+                    onChange={(e) => setAdminKey(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Admin Key를 입력하세요"
+                  />
+                  {authError && (
+                    <p className="text-red-600 text-sm mt-1">{authError}</p>
+                  )}
+                </div>
+                <Button type="submit" className="w-full">
+                  로그인
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold">Admin Panel</h1>
+        <Button variant="secondary" onClick={handleLogout}>
+          로그아웃
+        </Button>
+      </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Import Form */}
         <div>
-          <ImportForm onSuccess={fetchSets} />
+          <ImportForm onSuccess={fetchSets} adminKey={adminKey} />
         </div>
 
         {/* Question Sets List */}
