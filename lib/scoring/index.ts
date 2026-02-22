@@ -51,6 +51,7 @@ export function calculateSessionScore(
   const total = questions.length;
 
   questions.forEach((q) => {
+    if (!q.id) return;
     const userAnswer = answers.get(q.id);
     const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
     if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
@@ -83,6 +84,7 @@ export function calculateTopicScores(
     const stats = topicMap.get(topic)!;
     stats.total++;
 
+    if (!q.id) return;
     const userAnswer = answers.get(q.id);
     const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
     if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
@@ -116,6 +118,7 @@ export function calculateDifficultyScores(
     const stats = difficultyMap.get(q.difficulty)!;
     stats.total++;
 
+    if (!q.id) return;
     const userAnswer = answers.get(q.id);
     const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
     if (userAnswer !== undefined && userAnswer === correctAnswerIndex) {
