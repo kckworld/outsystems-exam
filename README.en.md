@@ -14,10 +14,15 @@ A comprehensive exam training web application for OutSystems Associate Developer
   - Custom training mode (filter by topic/difficulty)
   - Topic selection dropdown (multi-select with checkboxes)
   - Early finish button ("View Results")
-  - Automatic mistake tracking with smart archiving
+  - Automatic display of wrong answers with explanations on results page
+- **Mistake Notebook System**:
+  - Save wrong questions to mistake notebook
+  - Practice saved mistakes again
+  - Auto-master after 2 consecutive correct answers
+  - Auto-archive when all questions mastered
+  - Manage active/archived mistake notebooks separately
 - **Progress Tracking**: Track scores by set, topic, and difficulty level
 - **70% Goal Support**: Clear guidance on weak areas and recommended practice
-- **Auto-Archive Mistakes**: Questions mastered after 2 consecutive correct answers
 - **Security**: Admin Key-based authentication (environment variable management)
 
 ## Tech Stack
@@ -240,12 +245,15 @@ outsystems-exam/
 - `POST /api/train` - Create training session
 - `GET /api/train/:id` - Get training session
 
-### Mistakes
-- `POST /api/mistakes/snapshot` - Create mistake snapshot
-- `GET /api/mistakes` - List snapshots
-- `GET /api/mistakes/:id` - Get snapshot details
-- `POST /api/mistakes/:id/answer` - Record answer (handles auto-archive)
-- `DELETE /api/mistakes/:id` - Soft delete snapshot
+### Mistake Notebook
+- `POST /api/mistakes` - Create mistake notebook
+- `GET /api/mistakes` - List mistake notebooks (includeArchived option)
+- `GET /api/mistakes/:id` - Get specific mistake notebook
+- `POST /api/mistakes/:id/update` - Update correctStreak (auto-archiving)
+- `DELETE /api/mistakes/:id` - Soft delete mistake notebook
+
+### Questions
+- `POST /api/questions` - Fetch questions by IDs (for mistake notebooks)
 
 ## Key Features
 
@@ -277,11 +285,21 @@ outsystems-exam/
 - **Early finish button**: View results anytime
 
 ### Mistake Notebook
-- Auto-creates snapshots after completing sets/training
-- Smart tracking: correctStreak counter per question
-- **Auto-archive rule**: 2 consecutive correct answers = mastered
-- Snapshot auto-archives when all questions mastered
-- Soft delete with restoration option
+- **Results Page Features**:
+  - Display all wrong questions (with correct/wrong answers and explanations)
+  - "Save to Mistake Notebook" button for manual saving
+  - Confirmation dialog before saving
+- **Mistake Notebook Page**:
+  - Active notebooks: Show remaining questions and mastery progress
+  - Archived notebooks: Completed/deleted items (toggle to show/hide)
+- **Mistake Practice Mode**:
+  - Practice only saved wrong questions
+  - Display current consecutive correct count per question
+  - Auto-master after 2 consecutive correct answers
+  - Auto-update progress on completion
+- **Smart Archiving**:
+  - Auto-archive when all questions mastered
+  - Delete functionality (soft delete)
 
 ### Stats Dashboard
 - Set-by-set performance
