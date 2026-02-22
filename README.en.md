@@ -4,14 +4,21 @@ A comprehensive exam training web application for OutSystems Associate Developer
 
 ## Features
 
-- **Question Bank Management**: Import, validate, and manage question sets with version control
+- **Question Bank Management**: 
+  - Import, validate, and manage question sets with version control
+  - Multiple JSON file import support
+  - Real-time import progress display
+  - View and manage question set contents in admin panel
 - **Practice Modes**: 
   - Regular exam practice with full question sets
   - Custom training mode (filter by topic/difficulty)
+  - Topic selection dropdown (multi-select with checkboxes)
+  - Early finish button ("View Results")
   - Automatic mistake tracking with smart archiving
 - **Progress Tracking**: Track scores by set, topic, and difficulty level
 - **70% Goal Support**: Clear guidance on weak areas and recommended practice
-- **Auto-Archive Mistakes**: Questions master after 2 consecutive correct answers
+- **Auto-Archive Mistakes**: Questions mastered after 2 consecutive correct answers
+- **Security**: Admin Key-based authentication (environment variable management)
 
 ## Tech Stack
 
@@ -244,25 +251,30 @@ outsystems-exam/
 
 ### Import System
 - **Flexible formats**: Supports both complete sets and questions-only arrays
+- **Multiple file import**: Upload multiple JSON files at once
+- **Progress display**: Real-time import progress (N/M counter and progress bar)
 - **Validation**: Comprehensive schema validation with detailed error messages
 - **Preview**: Shows question count, topic distribution, difficulty breakdown
 - **Duplicate detection**: Prevents duplicate question IDs
+- **Auto ID generation**: Automatically assigns UUIDs to questions without IDs
 
 ### Play Mode
 - Question-by-question practice
 - Immediate feedback with explanations
 - Progress bar with question navigation
 - Jump to specific question number
+- **Early finish button**: "View Results" available anytime without completing all questions
 - Copy question to clipboard (ChatGPT-ready format)
 - Auto-save progress (resume on reload)
 
 ### Custom Training
-- Filter by topics (multi-select)
-- Filter by difficulty levels
-- Configure question count (default: 20)
-- Select source sets
+- **Topic selection dropdown**: Multi-select topics with checkboxes
+- "Select All" option for quick selection
+- Filter by difficulty levels (Easy/Medium/Hard)
+- Configure question count (5-50 questions)
 - Randomized question selection
 - Results analytics by topic/difficulty
+- **Early finish button**: View results anytime
 
 ### Mistake Notebook
 - Auto-creates snapshots after completing sets/training
@@ -352,7 +364,9 @@ STORAGE_MODE=sqlite                    # "sqlite" or "json"
 DATABASE_URL=file:./dev.db            # SQLite database path
 
 # Security
-ADMIN_KEY=your-secret-key             # Admin route protection
+ADMIN_KEY=your-secret-key             # Admin login key (managed in environment)
+                                      # Enter once when accessing admin page
+                                      # Stored in localStorage, no re-entry needed
 
 # App Config
 NEXT_PUBLIC_APP_NAME=OutSystems Exam Trainer
