@@ -18,13 +18,13 @@ export default function TrainPage() {
     const fetchTopics = async () => {
       try {
         const response = await fetch('/api/topics');
-        if (!response.ok) throw new Error('Failed to fetch topics');
+        if (!response.ok) throw new Error('토픽을 가져오는데 실패했습니다');
         const data = await response.json();
         setTopics(data.topics);
         setSelectedTopics(data.topics); // Select all by default
       } catch (err) {
         console.error('Error fetching topics:', err);
-        setError('Failed to load topics');
+        setError('토픽을 불러오는데 실패했습니다');
       }
     };
 
@@ -74,7 +74,7 @@ export default function TrainPage() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to create training session');
+        throw new Error(errorData.error || '학습 세션 생성에 실패했습니다');
       }
 
       const data = await response.json();
@@ -86,7 +86,7 @@ export default function TrainPage() {
       router.push(`/train/${data.trainSessionId}`);
     } catch (err) {
       console.error('Error starting training:', err);
-      setError(err instanceof Error ? err.message : 'Failed to start training');
+      setError(err instanceof Error ? err.message : '학습을 시작하는데 실패했습니다');
     } finally {
       setLoading(false);
     }

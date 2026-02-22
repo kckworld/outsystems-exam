@@ -26,7 +26,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
   useEffect(() => {
     const sessionData = sessionStorage.getItem('trainSession');
     if (!sessionData) {
-      alert('Training session not found');
+      alert('학습 세션을 찾을 수 없습니다');
       router.push('/train');
       return;
     }
@@ -37,7 +37,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
       setLoading(false);
     } catch (error) {
       console.error('Error loading session:', error);
-      alert('Failed to load training session');
+      alert('학습 세션을 불러오는데 실패했습니다');
       router.push('/train');
     }
   }, [params.sessionId, router]);
@@ -83,7 +83,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
   };
 
   const handleRestart = () => {
-    if (confirm('Are you sure you want to restart? Your progress will be lost.')) {
+    if (confirm('다시 시작하시겠습니까? 진행 상황이 모두 사라집니다.')) {
       setCurrentIndex(0);
       setAnswers(new Map());
       setSelectedChoice(undefined);
@@ -164,7 +164,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <p className="text-gray-500">Loading...</p>
+        <p className="text-gray-500">로딩 중...</p>
       </div>
     );
   }
@@ -172,7 +172,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
   if (!currentQuestion) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <p className="text-red-600">No questions available</p>
+        <p className="text-red-600">사용 가능한 문제가 없습니다</p>
       </div>
     );
   }
@@ -363,11 +363,11 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
             disabled={currentIndex === 0}
             variant="secondary"
           >
-            Previous
+            이전
           </Button>
           <div className="flex gap-2">
             <Button onClick={handleRestart} variant="ghost">
-              Restart (R)
+              다시 시작 (R)
             </Button>
             <Button onClick={handleFinishEarly} variant="secondary">
               결과 보기
@@ -378,7 +378,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
             disabled={!isSubmitted}
             variant="secondary"
           >
-            {currentIndex === questions.length - 1 ? 'Finish' : 'Next'}
+            {currentIndex === questions.length - 1 ? '완료' : '다음'}
           </Button>
         </div>
       </div>
