@@ -72,7 +72,7 @@ export default function MistakePracticePage({ params }: { params: { id: string }
         setUpdatingProgress(true);
         try {
           const answersObj: { [key: string]: boolean } = {};
-          questions.forEach((q) => {
+          questions.forEach((q: Question) => {
             if (!q.id) return;
             const userAnswer = answers.get(q.id);
             const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
@@ -172,7 +172,7 @@ export default function MistakePracticePage({ params }: { params: { id: string }
 
     // Calculate newly mastered questions
     const newlyMastered: string[] = [];
-    questions.forEach((q) => {
+    questions.forEach((q: Question) => {
       if (!q.id) return;
       const userAnswer = answers.get(q.id);
       const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
@@ -234,19 +234,19 @@ export default function MistakePracticePage({ params }: { params: { id: string }
     );
   }
 
-  const answeredIndices = new Set(
-    questions.map((q, i) => (q.id && answers.has(q.id) ? i : -1)).filter((i) => i >= 0)
+  const answeredIndices = new Set<number>(
+    questions.map((q: Question, i: number) => (q.id && answers.has(q.id) ? i : -1)).filter((i: number) => i >= 0)
   );
 
-  const correctIndices = new Set(
+  const correctIndices = new Set<number>(
     questions
-      .map((q, i) => {
+      .map((q: Question, i: number) => {
         if (!q.id) return -1;
         const userAnswer = answers.get(q.id);
         const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
         return userAnswer !== undefined && userAnswer === correctAnswerIndex ? i : -1;
       })
-      .filter((i) => i >= 0)
+      .filter((i: number) => i >= 0)
   );
 
   return (

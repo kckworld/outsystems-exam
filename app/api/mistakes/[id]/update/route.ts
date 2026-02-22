@@ -8,7 +8,7 @@ export async function POST(
 ) {
   try {
     const body = await req.json();
-    const { answers } = body; // { [questionId]: boolean (isCorrect) }
+    const { answers }: { answers: { [key: string]: boolean } } = body;
 
     if (!answers || typeof answers !== 'object') {
       return NextResponse.json(
@@ -41,7 +41,7 @@ export async function POST(
 
     // Check if all questions are mastered (2+ streak)
     const allMastered = snapshot.wrongQuestionIds.every(
-      (id) => (newCorrectStreak[id] || 0) >= 2
+      (id: string) => (newCorrectStreak[id] || 0) >= 2
     );
 
     // Update snapshot
