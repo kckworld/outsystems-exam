@@ -19,6 +19,8 @@ export default function AdminPage() {
   const [sets, setSets] = useState<QuestionSet[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [expandedSetId, setExpandedSetId] = useState<string | null>(null);
+  const [questions, setQuestions] = useState<any[]>([]);
 
   const fetchSets = async () => {
     try {
@@ -84,6 +86,24 @@ export default function AdminPage() {
     }
   };
 
+  const handleViewQuestions = async (id: string) => {
+    if (expandedSetId === id) {
+      setExpandedSetId(null);
+      setQuestions([]);
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/sets/${id}`);
+      if (!response.ok) throw new Error('Failed to fetch questions');
+      const data = await response.json();
+      setQuestions(data.questions);
+      setExpandedSetId(id);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to load questions');
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
@@ -141,6 +161,13 @@ export default function AdminPage() {
                         <Button
                           size="sm"
                           variant="secondary"
+                          onClick={() => handleViewQuestions(set.setId)}
+                        >
+                          {expandedSetId === set.setId ? '문제 숨기기' : '문제 보기'}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="secondary"
                           onClick={() => handleClone(set.setId)}
                         >
                           Clone
@@ -160,6 +187,44 @@ export default function AdminPage() {
                           Delete
                         </Button>
                       </div>
+
+                      {expandedSetId === set.setId && questions.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-gray-200">
+                          <h4 className="font-semibold mb-3">문제 목록 ({questions.length}개)</h4>
+                          <div className="space-y-3 max-h-96 overflow-y-auto">
+                            {questions.map((q, idx) => (
+                              <div key={q.id || idx} className="p-3 bg-gray-50 rounded text-sm">
+                                <div className="flex justify-between items-start mb-2">
+                                  <span className="font-medium">#{idx + 1}</span>
+                                  <div className="flex gap-2">
+                                    <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">
+                                      {q.topic}
+                                    </span>
+                                    <span className="px-2 py-0.5 bg-gray-200 text-gray-700 rounded text-xs">
+                                      난이도 {q.difficulty}
+                                    </span>
+                                  </div>
+                                </div>
+                                <p className="text-gray-800 mb-2">{q.stem}</p>
+                                <div className="space-y-1 ml-4">
+                                  {q.choices.map((choice: string, i: number) => (
+                                    <p key={i} className={`text-xs ${
+                                      ['A', 'B', 'C', 'D'][i] === q.answer
+                                        ? 'text-green-700 font-medium'
+                                        : 'text-gray-600'
+                                    }`}>
+                                      {['A', 'B', 'C', 'D'][i]}. {choice}
+                                    </p>
+                                  ))}
+                                </div>
+                                <p className="text-xs text-gray-600 mt-2 italic">
+                                  💡 {q.explanation}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

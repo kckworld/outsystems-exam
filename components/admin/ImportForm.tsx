@@ -9,20 +9,22 @@ interface ImportFormProps {
 }
 
 export function ImportForm({ onSuccess }: ImportFormProps) {
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
   const [adminKey, setAdminKey] = useState<string>('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [progress, setProgress] = useState({ current: 0, total: 0 });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0];
-    if (selectedFile) {
-      if (selectedFile.type !== 'application/json') {
-        setError('Please select a JSON file');
+    const selectedFiles = Array.from(e.target.files || []);
+    if (selectedFiles.length > 0) {
+      const invalidFiles = selectedFiles.filter(f => f.type !== 'application/json');
+      if (invalidFiles.length > 0) {
+        setError('모든 파일은 JSON 형식이어야 합니다');
         return;
       }
-      setFile(selectedFile);
+      setFiles(selectedFiles);
       setError(null);
       setSuccess(null);
     }
@@ -30,49 +32,83 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file) {
-      setError('Please select a file');
+    if (files.length === 0) {
+      setError('파일을 선택해주세요');
       return;
     }
 
     setLoading(true);
     setError(null);
     setSuccess(null);
+    setProgress({ current: 0, total: files.length });
 
-    try {
-      const text = await file.text();
-      const data = JSON.parse(text);
+    const results: { success: boolean; filename: string; title?: string; error?: string }[] = [];
 
-      const response = await fetch('/api/sets/import', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'x-admin-key': adminKey,
-        },
-        body: JSON.stringify(data),
-      });
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      setProgress({ current: i + 1, total: files.length });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Import failed');
+      try {
+        const text = await file.text();
+        const data = JSON.parse(text);
+
+        const response = await fetch('/api/sets/import', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'x-admin-key': adminKey,
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          results.push({
+            success: false,
+            filename: file.name,
+            error: errorData.error || 'Import failed',
+          });
+        } else {
+          const result = await response.json();
+          results.push({
+            success: true,
+            filename: file.name,
+            title: result.set.title,
+          });
+        }
+      } catch (err) {
+        results.push({
+          success: false,
+          filename: file.name,
+          error: err instanceof Error ? err.message : 'Unknown error',
+        });
       }
+    }
 
-      const result = await response.json();
-      setSuccess(
-        `Successfully imported set: ${result.set.title} (${result.set.questionCount} questions)`
-      );
-      setFile(null);
+    // Generate summary message
+    const successCount = results.filter(r => r.success).length;
+    const failCount = results.filter(r => !r.success).length;
+
+    if (successCount > 0) {
+      const successMsg = `${successCount}개 파일 import 성공`;
+      const titles = results.filter(r => r.success).map(r => r.title).join(', ');
+      setSuccess(`${successMsg}: ${titles}`);
+      setFiles([]);
       
       // Reset file input
       const fileInput = document.getElementById('file-input') as HTMLInputElement;
       if (fileInput) fileInput.value = '';
 
       onSuccess?.();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setLoading(false);
     }
+
+    if (failCount > 0) {
+      const failedFiles = results.filter(r => !r.success);
+      const errorMsg = failedFiles.map(f => `${f.filename}: ${f.error}`).join('\n');
+      setError(`${failCount}개 파일 실패:\n${errorMsg}`);
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -107,12 +143,13 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
               htmlFor="file-input"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
-              Select JSON File
+              Select JSON Files (여러 파일 선택 가능)
             </label>
             <input
               id="file-input"
               type="file"
               accept=".json"
+              multiple
               onChange={handleFileChange}
               className="block w-full text-sm text-gray-500
                 file:mr-4 file:py-2 file:px-4
@@ -122,12 +159,38 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
                 hover:file:bg-blue-100
                 cursor-pointer"
             />
-            {file && (
-              <p className="mt-2 text-sm text-gray-600">
-                Selected: {file.name} ({(file.size / 1024).toFixed(2)} KB)
-              </p>
+            {files.length > 0 && (
+              <div className="mt-2 space-y-1">
+                <p className="text-sm font-medium text-gray-700">
+                  선택된 파일 {files.length}개:
+                </p>
+                {files.map((f, idx) => (
+                  <p key={idx} className="text-sm text-gray-600">
+                    {f.name} ({(f.size / 1024).toFixed(2)} KB)
+                  </p>
+                ))}
+              </div>
             )}
           </div>
+
+          {loading && progress.total > 0 && (
+            <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-sm font-medium text-blue-700">
+                  Import 진행중...
+                </span>
+                <span className="text-sm text-blue-600">
+                  {progress.current} / {progress.total}
+                </span>
+              </div>
+              <div className="w-full bg-blue-200 rounded-full h-2">
+                <div
+                  className="bg-blue-600 h-2 rounded-full transition-all duration-300"
+                  style={{ width: `${(progress.current / progress.total) * 100}%` }}
+                />
+              </div>
+            </div>
+          )}
 
           {error && (
             <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -143,10 +206,10 @@ export function ImportForm({ onSuccess }: ImportFormProps) {
 
           <Button
             type="submit"
-            disabled={!file || loading}
+            disabled={files.length === 0 || loading}
             variant="primary"
           >
-            {loading ? 'Importing...' : 'Import'}
+            {loading ? `Importing... (${progress.current}/${progress.total})` : 'Import'}
           </Button>
         </form>
 
