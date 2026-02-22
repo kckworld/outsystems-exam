@@ -84,7 +84,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({
         success: true,
         setId: newSet.setId,
-        questionCount: questions.length,
+        set: {
+          title: newSet.title,
+          questionCount: questionsWithIds.length,
+        },
       });
     }
 
@@ -93,14 +96,78 @@ export async function POST(req: NextRequest) {
     if (formatBResult.success) {
       const questions = formatBResult.data;
 
-      // Return preview and require setMeta
+      // Generate IDs for questions without one
+      const questionsWithIds = questions.map((q, index) => ({
+        ...q,
+        id: q.id || `${randomUUID()}-${index}`,
+      }));
+
+      // Auto-generate metadata from questions
+      const topics = Array.from(new Set(questions.map((q) => q.topic)));
+      const autoTitle = topics.length > 0 
+        ? `${topics[0]}${topics.length > 1 ? ` and ${topics.length - 1} more` : ''}`
+        : 'Imported Question Set';
+      
+      const autoMeta = {
+        title: autoTitle,
+        description: `Imported ${questions.length} questions covering topics: ${topics.slice(0, 5).join(', ')}${topics.length > 5 ? '...' : ''}`,
+        versionLabel: `v${new Date().toISOString().split('T')[0]}`,
+      };
+
+      // Validate all questions
+      const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
+      const questionIds = new Set<string>();
+
+      for (const q of questionsWithIds) {
+        const result = QuestionSchema.safeParse(q);
+        if (!result.success) {
+          result.error.issues.forEach((issue) => {
+            validationErrors.push({
+              questionId: q.id || 'unknown',
+              field: issue.path.join('.'),
+              message: issue.message,
+            });
+          });
+        }
+
+        if (questionIds.has(q.id)) {
+          validationErrors.push({
+            questionId: q.id,
+            field: 'id',
+            message: 'Duplicate question ID',
+          });
+        }
+        questionIds.add(q.id);
+      }
+
+      if (validationErrors.length > 0) {
+        return NextResponse.json(
+          {
+            error: 'Validation failed',
+            details: validationErrors,
+          },
+          { status: 400 }
+        );
+      }
+
+      // Create question set with auto-generated metadata
+      const newSet = {
+        setId: randomUUID(),
+        ...autoMeta,
+        createdAt: new Date().toISOString(),
+        questionCount: questionsWithIds.length,
+        isLocked: true,
+        questions: questionsWithIds,
+      };
+
+      await storage.createQuestionSet(newSet);
+
       return NextResponse.json({
-        requiresSetMeta: true,
-        preview: {
-          questionCount: questions.length,
-          topics: Array.from(new Set(questions.map((q) => q.topic))),
-          difficulties: Array.from(new Set(questions.map((q) => q.difficulty))).sort(),
-          sample: questions.slice(0, 3),
+        success: true,
+        setId: newSet.setId,
+        set: {
+          title: newSet.title,
+          questionCount: questionsWithIds.length,
         },
       });
     }
