@@ -29,6 +29,7 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   const [showAnswer, setShowAnswer] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
+  const [savingToMistakes, setSavingToMistakes] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -107,6 +108,52 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     }
   };
 
+  const handleSaveToMistakes = async () => {
+    if (!set) return;
+
+    const wrongQuestionIds = questions
+      .filter((q) => {
+        if (!q.id) return false;
+        const userAnswer = answers.get(q.id);
+        const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+        return userAnswer !== undefined && userAnswer !== correctAnswerIndex;
+      })
+      .map((q) => q.id as string);
+
+    if (wrongQuestionIds.length === 0) {
+      alert('틀린 문제가 없어 오답노트에 저장할 수 없습니다.');
+      return;
+    }
+
+    if (!confirm(`${wrongQuestionIds.length}개의 틀린 문제를 오답노트에 저장하시겠습니까?`)) {
+      return;
+    }
+
+    setSavingToMistakes(true);
+    try {
+      const response = await fetch('/api/mistakes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          baseScope: 'set',
+          baseScopeId: params.setId,
+          title: `${set.title} - 오답노트`,
+          wrongQuestionIds,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to save mistakes');
+
+      alert('오답노트에 저장되었습니다!');
+      router.push('/mistakes');
+    } catch (error) {
+      console.error('Error saving mistakes:', error);
+      alert('오답노트 저장 중 오류가 발생했습니다.');
+    } finally {
+      setSavingToMistakes(false);
+    }
+  };
+
   // Keyboard shortcuts
   useQuestionNavigation(
     currentIndex,
@@ -138,9 +185,17 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
     const score = calculateSessionScore(questions, answers);
     const scoreColor = getScoreColor(score.percentage);
 
+    // Get wrong questions
+    const wrongQuestions = questions.filter((q, i) => {
+      if (!q.id) return false;
+      const userAnswer = answers.get(q.id);
+      const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+      return userAnswer !== undefined && userAnswer !== correctAnswerIndex;
+    });
+
     return (
       <div className="container mx-auto px-4 py-8">
-        <Card className="max-w-2xl mx-auto">
+        <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle className="text-2xl">Practice Complete</CardTitle>
           </CardHeader>
@@ -159,11 +214,68 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
               </p>
             </div>
 
-            <div className="flex gap-3 justify-center">
+            {wrongQuestions.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold mb-4">틀린 문제 ({wrongQuestions.length}개)</h3>
+                <div className="space-y-4 max-h-96 overflow-y-auto">
+                  {wrongQuestions.map((q, idx) => {
+                    const userAnswer = q.id ? answers.get(q.id) : undefined;
+                    const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+                    return (
+                      <div key={q.id || idx} className="p-4 border border-red-200 bg-red-50 rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                            {q.topic}
+                          </span>
+                          <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded text-xs">
+                            난이도 {q.difficulty}
+                          </span>
+                        </div>
+                        <p className="font-medium mb-3">{q.stem}</p>
+                        <div className="space-y-1 mb-3">
+                          {q.choices.map((choice, i) => (
+                            <div
+                              key={i}
+                              className={`p-2 rounded text-sm ${
+                                i === correctAnswerIndex
+                                  ? 'bg-green-100 border border-green-300 font-medium'
+                                  : i === userAnswer
+                                  ? 'bg-red-100 border border-red-300'
+                                  : 'bg-white border border-gray-200'
+                              }`}
+                            >
+                              <span className="font-medium mr-2">{['A', 'B', 'C', 'D'][i]}.</span>
+                              {choice}
+                              {i === correctAnswerIndex && <span className="ml-2 text-green-700">✓ 정답</span>}
+                              {i === userAnswer && i !== correctAnswerIndex && <span className="ml-2 text-red-700">✗ 선택한 답</span>}
+                            </div>
+                          ))}
+                        </div>
+                        <div className="p-3 bg-blue-50 border border-blue-200 rounded">
+                          <p className="text-sm font-medium text-blue-900 mb-1">💡 해설</p>
+                          <p className="text-sm text-blue-800">{q.explanation}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            <div className="flex gap-3 justify-center flex-wrap">
+              {wrongQuestions.length > 0 && (
+                <Button
+                  onClick={handleSaveToMistakes}
+                  variant="primary"
+                  disabled={savingToMistakes}
+                >
+                  {savingToMistakes ? '저장 중...' : '오답노트에 저장'}
+                </Button>
+              )}
               <Button onClick={() => router.push('/play')} variant="secondary">
                 Back to Sets
               </Button>
-              <Button onClick={handleRestart} variant="primary">
+              <Button onClick={handleRestart} variant="secondary">
                 Practice Again
               </Button>
             </div>

@@ -21,6 +21,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
   const [showAnswer, setShowAnswer] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
+  const [savingToMistakes, setSavingToMistakes] = useState(false);
 
   useEffect(() => {
     const sessionData = sessionStorage.getItem('trainSession');
@@ -98,6 +99,50 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
     }
   };
 
+  const handleSaveToMistakes = async () => {
+    const wrongQuestionIds = questions
+      .filter((q) => {
+        if (!q.id) return false;
+        const userAnswer = answers.get(q.id);
+        const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+        return userAnswer !== undefined && userAnswer !== correctAnswerIndex;
+      })
+      .map((q) => q.id as string);
+
+    if (wrongQuestionIds.length === 0) {
+      alert('틀린 문제가 없어 오답노트에 저장할 수 없습니다.');
+      return;
+    }
+
+    if (!confirm(`${wrongQuestionIds.length}개의 틀린 문제를 오답노트에 저장하시겠습니까?`)) {
+      return;
+    }
+
+    setSavingToMistakes(true);
+    try {
+      const response = await fetch('/api/mistakes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          baseScope: 'train',
+          baseScopeId: params.sessionId,
+          title: `맞춤 학습 - 오답노트`,
+          wrongQuestionIds,
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to save mistakes');
+
+      alert('오답노트에 저장되었습니다!');
+      router.push('/mistakes');
+    } catch (error) {
+      console.error('Error saving mistakes:', error);
+      alert('오답노트 저장 중 오류가 발생했습니다.');
+    } finally {
+      setSavingToMistakes(false);
+    }
+  };
+
   useQuestionNavigation(
     currentIndex,
     questions.length,
@@ -138,9 +183,17 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
     const difficultyBreakdown = calculateDifficultyBreakdown(questions, answers);
     const scoreColor = getScoreColor(score.percentage);
 
+    // Get wrong questions
+    const wrongQuestions = questions.filter((q, i) => {
+      if (!q.id) return false;
+      const userAnswer = answers.get(q.id);
+      const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+      return userAnswer !== undefined && userAnswer !== correctAnswerIndex;
+    });
+
     return (
       <div className="container mx-auto px-4 py-8">
-        <Card className="max-w-2xl mx-auto">
+        <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle className="text-2xl">맞춤 학습 완료</CardTitle>
           </CardHeader>
@@ -157,41 +210,101 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
               </p>
             </div>
 
-            <div className="mb-6">
-              <h3 className="font-semibold mb-3">토픽별 점수</h3>
-              <div className="space-y-2">
-                {topicBreakdown.map((item) => (
-                  <div key={item.topic} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                    <span className="text-sm">{item.topic}</span>
-                    <span className="text-sm font-medium">
-                      {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
-                    </span>
-                  </div>
-                ))}
+            <div className="grid md:grid-cols-2 gap-4 mb-6">
+              <div>
+                <h3 className="font-semibold mb-3">토픽별 점수</h3>
+                <div className="space-y-2">
+                  {topicBreakdown.map((item) => (
+                    <div key={item.topic} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                      <span className="text-sm">{item.topic}</span>
+                      <span className="text-sm font-medium">
+                        {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-3">난이도별 점수</h3>
+                <div className="space-y-2">
+                  {difficultyBreakdown.map((item) => (
+                    <div key={item.difficulty} className="flex justify-between items-center p-2 bg-gray-50 rounded">
+                      <span className="text-sm">
+                        {item.difficulty === 1 ? '쉬움' : item.difficulty === 2 ? '보통' : '어려움'}
+                      </span>
+                      <span className="text-sm font-medium">
+                        {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="mb-6">
-              <h3 className="font-semibold mb-3">난이도별 점수</h3>
-              <div className="space-y-2">
-                {difficultyBreakdown.map((item) => (
-                  <div key={item.difficulty} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                    <span className="text-sm">
-                      {item.difficulty === 1 ? '쉬움' : item.difficulty === 2 ? '보통' : '어려움'}
-                    </span>
-                    <span className="text-sm font-medium">
-                      {item.correct}/{item.total} ({item.percentage.toFixed(0)}%)
-                    </span>
-                  </div>
-                ))}
+            {wrongQuestions.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold mb-4">틀린 문제 ({wrongQuestions.length}개)</h3>
+                <div className="space-y-4 max-h-96 overflow-y-auto">
+                  {wrongQuestions.map((q, idx) => {
+                    const userAnswer = q.id ? answers.get(q.id) : undefined;
+                    const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(q.answer);
+                    return (
+                      <div key={q.id || idx} className="p-4 border border-red-200 bg-red-50 rounded-lg">
+                        <div className="flex justify-between items-start mb-2">
+                          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">
+                            {q.topic}
+                          </span>
+                          <span className="px-2 py-1 bg-gray-200 text-gray-700 rounded text-xs">
+                            난이도 {q.difficulty}
+                          </span>
+                        </div>
+                        <p className="font-medium mb-3">{q.stem}</p>
+                        <div className="space-y-1 mb-3">
+                          {q.choices.map((choice, i) => (
+                            <div
+                              key={i}
+                              className={`p-2 rounded text-sm ${
+                                i === correctAnswerIndex
+                                  ? 'bg-green-100 border border-green-300 font-medium'
+                                  : i === userAnswer
+                                  ? 'bg-red-100 border border-red-300'
+                                  : 'bg-white border border-gray-200'
+                              }`}
+                            >
+                              <span className="font-medium mr-2">{['A', 'B', 'C', 'D'][i]}.</span>
+                              {choice}
+                              {i === correctAnswerIndex && <span className="ml-2 text-green-700">✓ 정답</span>}
+                              {i === userAnswer && i !== correctAnswerIndex && <span className="ml-2 text-red-700">✗ 선택한 답</span>}
+                            </div>
+                          ))}
+                        </div>
+                        <div className="p-3 bg-blue-50 border border-blue-200 rounded">
+                          <p className="text-sm font-medium text-blue-900 mb-1">💡 해설</p>
+                          <p className="text-sm text-blue-800">{q.explanation}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
 
-            <div className="flex gap-4">
+            <div className="flex gap-3 justify-center flex-wrap">
+              {wrongQuestions.length > 0 && (
+                <Button
+                  onClick={handleSaveToMistakes}
+                  variant="primary"
+                  disabled={savingToMistakes}
+                  className="flex-1"
+                >
+                  {savingToMistakes ? '저장 중...' : '오답노트에 저장'}
+                </Button>
+              )}
               <Button onClick={() => router.push('/train')} variant="secondary" className="flex-1">
                 새 학습 시작
               </Button>
-              <Button onClick={handleRestart} variant="primary" className="flex-1">
+              <Button onClick={handleRestart} variant="secondary" className="flex-1">
                 다시 풀기
               </Button>
             </div>

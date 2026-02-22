@@ -204,20 +204,39 @@ export class SQLiteStorage {
   }
 
   // Mistake Snapshots
-  async createMistakeSnapshot(snapshot: MistakeSnapshot): Promise<void> {
+  async createMistakeSnapshot(snapshot: Omit<MistakeSnapshot, 'snapshotId' | 'createdAt' | 'isArchived'>): Promise<MistakeSnapshot> {
+    const snapshotId = Math.random().toString(36).substring(2, 15);
+    const createdAt = new Date().toISOString();
+    
     await prisma.mistakeSnapshot.create({
       data: {
-        snapshotId: snapshot.snapshotId,
+        snapshotId,
         baseScope: snapshot.baseScope,
         baseScopeId: snapshot.baseScopeId,
-        createdAt: snapshot.createdAt,
+        createdAt,
         title: snapshot.title,
         wrongQuestionIds: JSON.stringify(snapshot.wrongQuestionIds),
         correctStreak: JSON.stringify(snapshot.correctStreak),
-        isArchived: snapshot.isArchived,
+        isArchived: false,
         deletedAt: snapshot.deletedAt,
       },
     });
+
+    return {
+      snapshotId,
+      baseScope: snapshot.baseScope,
+      baseScopeId: snapshot.baseScopeId,
+      createdAt,
+      title: snapshot.title,
+      wrongQuestionIds: snapshot.wrongQuestionIds,
+      correctStreak: snapshot.correctStreak,
+      isArchived: false,
+      deletedAt: snapshot.deletedAt,
+    };
+  }
+
+  async getAllMistakeSnapshots(includeArchived = false): Promise<MistakeSnapshot[]> {
+    return this.getMistakeSnapshots(includeArchived);
   }
 
   async getMistakeSnapshots(includeArchived = false): Promise<MistakeSnapshot[]> {
