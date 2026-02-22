@@ -254,10 +254,10 @@ export default function MistakePracticePage({ params }: { params: { id: string }
       <div className="mb-4">
         <h1 className="text-2xl font-bold mb-2">{snapshot?.title}</h1>
         <ProgressBar
-          current={currentIndex + 1}
+          current={currentIndex}
           total={questions.length}
-          answeredIndices={answeredIndices}
-          correctIndices={correctIndices}
+          answeredQuestions={answeredIndices}
+          correctAnswers={correctIndices}
           onNavigate={handleNavigate}
         />
       </div>
