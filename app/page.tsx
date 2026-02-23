@@ -62,6 +62,18 @@ export default function Home() {
           <strong>{t('tipTitle')}</strong> {t('tipDescription')}
         </p>
       </div>
+
+      <div className="card bg-gray-50 border border-gray-200">
+        <h3 className="text-lg font-semibold mb-2 text-gray-900">참고자료</h3>
+        <a 
+          href="/outsystems11_exam_50q.html" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 underline"
+        >
+          OutSystems 11 예상문제 50선 (HTML)
+        </a>
+      </div>
     </div>
   );
 }
