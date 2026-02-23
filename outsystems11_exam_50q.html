@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OutSystems 11 Associate Developer 모의고사 50문항</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f3ef;
+  --white: #ffffff;
+  --surface: #faf9f7;
+  --border: #ddd9d2;
+  --border2: #c8c3bb;
+  --text: #1a1814;
+  --text-muted: #7a766e;
+  --accent: #c0392b;
+  --accent-light: #fdf1ef;
+  --accent2: #2c5282;
+  --accent2-light: #ebf4ff;
+  --correct: #276749;
+  --correct-light: #f0fff4;
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Noto Sans KR', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* COVER */
+.cover {
+  background: var(--white);
+  border-bottom: 3px solid var(--accent);
+  padding: 48px 48px 36px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: 'O';
+  position: absolute;
+  right: -20px;
+  top: -40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 300px;
+  color: rgba(192,57,43,0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+.cover-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+.logo-dot {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--text);
+}
+.cover h1 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.cover h1 span { color: var(--accent); }
+.cover-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.cover-meta {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+.meta-cell {
+  padding: 12px 24px;
+  border-right: 1px solid var(--border2);
+  background: var(--surface);
+  text-align: center;
+}
+.meta-cell:last-child { border-right: none; }
+.meta-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.meta-val {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+/* PROGRESS BAR */
+.progress-bar-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.progress-track {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progress-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* MAIN */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* SECTION DIVIDER */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.section-divider:first-of-type { margin-top: 0; }
+.section-tag {
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+.section-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.section-count {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* QUESTION CARD */
+.q-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.q-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+
+.q-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.q-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.q-text {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* DIAGRAM AREA */
+.diagram-area {
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  background: #fefefe;
+}
+
+/* OPTIONS */
+.options-area {
+  padding: 14px 22px 18px;
+}
+.option-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.15s;
+}
+.option-row:last-child { margin-bottom: 0; }
+.option-row:hover { background: var(--accent-light); border-color: rgba(192,57,43,0.2); }
+.option-row.selected { background: var(--accent2-light); border-color: var(--accent2); }
+.option-row.correct-reveal { background: var(--correct-light) !important; border-color: var(--correct) !important; }
+.option-row.wrong-reveal { background: #fff5f5 !important; border-color: #e53e3e !important; }
+.option-letter {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--border2);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  margin-top: 1px;
+  transition: all 0.15s;
+}
+.option-row.selected .option-letter {
+  background: var(--accent2);
+  border-color: var(--accent2);
+  color: white;
+}
+.option-row.correct-reveal .option-letter {
+  background: var(--correct);
+  border-color: var(--correct);
+  color: white;
+}
+.option-row.wrong-reveal .option-letter {
+  background: #e53e3e;
+  border-color: #e53e3e;
+  color: white;
+}
+.option-text { font-size: 13.5px; line-height: 1.6; }
+
+/* ANSWER REVEAL */
+.answer-reveal {
+  display: none;
+  padding: 12px 22px;
+  border-top: 1px dashed var(--border2);
+  background: var(--correct-light);
+  font-size: 13px;
+  color: var(--correct);
+  font-weight: 600;
+}
+.answer-reveal .explain { color: #4a5568; font-weight: 400; margin-top: 4px; font-size: 12.5px; }
+
+/* SVG DIAGRAM COMPONENTS */
+.diagram-svg { width: 100%; overflow: visible; }
+
+/* ENTITY BOX */
+.entity-box { fill: white; stroke: #4a6fa5; stroke-width: 1.5; rx: 4; }
+.entity-header { fill: #4a6fa5; }
+.entity-header-text { fill: white; font-size: 12px; font-weight: bold; font-family: 'Noto Sans KR', sans-serif; }
+.attr-text { fill: #2d3748; font-size: 11px; font-family: 'Noto Sans KR', sans-serif; }
+.attr-icon { fill: #a0aec0; font-size: 10px; font-family: monospace; }
+
+/* AGGREGATE TABLE */
+.agg-container {
+  background: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 12px;
+  margin: 8px 0;
+}
+.agg-header {
+  background: #4a6fa5;
+  color: white;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.agg-tab-row {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f7fafc;
+}
+.agg-tab {
+  padding: 4px 10px;
+  font-size: 11px;
+  color: #718096;
+  border-right: 1px solid #e2e8f0;
+}
+.agg-tab.active { color: #4a6fa5; font-weight: 600; border-bottom: 2px solid #4a6fa5; margin-bottom: -1px; }
+.agg-body { padding: 8px 10px; }
+.agg-section-label { font-size: 11px; font-weight: 700; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.source-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  background: #f0f4f8;
+  border-radius: 4px;
+  margin-bottom: 3px;
+  font-size: 11.5px;
+}
+.source-icon { color: #4a6fa5; font-weight: bold; }
+
+.join-item {
+  padding: 6px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  font-size: 11.5px;
+}
+.join-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+}
+.join-type-badge {
+  background: #ebf4ff;
+  color: #2c5282;
+  border: 1px solid #bee3f8;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.join-condition { color: #718096; font-size: 11px; }
+
+.output-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.output-chip {
+  background: #e6fffa;
+  border: 1px solid #81e6d9;
+  color: #276749;
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-family: var(--mono);
+}
+.output-chip.group { background: #fff5f0; border-color: #fbd38d; color: #744210; }
+.output-chip.count { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
+
+/* FLOW DIAGRAM */
+.flow-wrap {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.flow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.flow-node {
+  position: relative;
+  text-align: center;
+}
+.fn-start {
+  width: 36px; height: 36px;
+  background: #276749;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px;
+}
+.fn-end {
+  width: 36px; height: 36px;
+  background: #1a365d;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px;
+}
+.fn-action {
+  background: white;
+  border: 2px solid #4a6fa5;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #2d3748;
+  min-width: 90px;
+  text-align: center;
+}
+.fn-agg {
+  background: white;
+  border: 2px solid #4a6fa5;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #2d3748;
+  min-width: 90px;
+  text-align: center;
+}
+.fn-agg-icon { color: #4a6fa5; font-size: 10px; display: block; }
+.fn-decision {
+  width: 70px; height: 40px;
+  background: white;
+  border: 2px solid #d69e2e;
+  transform: rotate(45deg);
+  display: flex; align-items: center; justify-content: center;
+  margin: 8px auto;
+}
+.fn-decision-text {
+  transform: rotate(-45deg);
+  font-size: 10px;
+  font-weight: 700;
+  color: #744210;
+  white-space: nowrap;
+}
+.fn-exception {
+  width: 36px; height: 36px;
+  background: #c53030;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 16px; font-weight: bold;
+}
+.fn-assign {
+  background: white;
+  border: 2px solid #276749;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 11px;
+  color: #276749;
+  text-align: center;
+  min-width: 80px;
+}
+.fn-arrow {
+  width: 2px;
+  background: #718096;
+  margin: 0 auto;
+  position: relative;
+}
+.fn-arrow::after {
+  content: '▼';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #718096;
+  font-size: 8px;
+}
+.fn-label {
+  font-size: 10px;
+  color: #718096;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.fn-bp {
+  width: 10px; height: 10px;
+  background: #e53e3e;
+  border-radius: 50%;
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* PROPERTY PANEL */
+.prop-panel {
+  background: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 11.5px;
+}
+.prop-header {
+  background: #edf2f7;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4a5568;
+  border-bottom: 1px solid #cbd5e0;
+  font-family: var(--mono);
+}
+.prop-row {
+  display: flex;
+  border-bottom: 1px solid #edf2f7;
+}
+.prop-row:last-child { border-bottom: none; }
+.prop-key {
+  width: 140px;
+  flex-shrink: 0;
+  padding: 5px 8px;
+  background: #f7fafc;
+  color: #718096;
+  border-right: 1px solid #edf2f7;
+  font-size: 11px;
+}
+.prop-val {
+  padding: 5px 8px;
+  color: #2d3748;
+  font-family: var(--mono);
+  font-size: 11px;
+  flex: 1;
+}
+.prop-val.highlight { color: #c53030; font-weight: 600; }
+
+/* SCREEN MOCK */
+.screen-mock {
+  background: #f7fafc;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.screen-titlebar {
+  background: #4a6fa5;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.screen-body { padding: 12px; }
+.form-field {
+  margin-bottom: 8px;
+}
+.form-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 3px;
+}
+.form-label.required::after { content: ' *'; color: #e53e3e; }
+.form-input {
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 12px;
+  background: white;
+  width: 100%;
+  color: #2d3748;
+}
+.form-input.error { border-color: #e53e3e; background: #fff5f5; }
+.form-btn {
+  background: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+/* TABLE MOCK */
+.table-mock {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.table-mock th {
+  background: #4a6fa5;
+  color: white;
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+}
+.table-mock td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #edf2f7;
+  color: #2d3748;
+}
+.table-mock tr:last-child td { border-bottom: none; }
+.table-mock tr:nth-child(even) td { background: #f7fafc; }
+
+/* ROLE BADGE */
+.role-badge {
+  display: inline-block;
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  color: #2b6cb0;
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--mono);
+}
+.role-badge.admin { background: #fff5f0; border-color: #fbd38d; color: #744210; }
+.role-badge.anon { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
+
+/* ACTIONS BAR */
+.actions-bar {
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  border-top: 2px solid var(--accent);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 100;
+}
+.btn {
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover { background: #a93226; }
+.btn-secondary {
+  background: var(--bg);
+  color: var(--text);
+  border: 1.5px solid var(--border2);
+}
+.btn-secondary:hover { background: var(--border); }
+.score-display {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+.score-display span { color: var(--accent); font-weight: 700; font-size: 16px; }
+
+/* RESULT BANNER */
+.result-banner {
+  display: none;
+  margin: 0 0 24px 0;
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 28px;
+}
+.result-banner h2 { font-size: 22px; margin-bottom: 8px; }
+.result-banner .score-big { font-family: var(--mono); font-size: 48px; font-weight: 700; color: var(--accent); line-height: 1; }
+.result-banner .pass { color: var(--correct); }
+.result-banner .fail { color: #e53e3e; }
+
+/* TABS */
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0;
+  margin-bottom: 0;
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 44px;
+  background: var(--white);
+  z-index: 90;
+  padding: 0 32px;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tab {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  user-select: none;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: var(--sans);
+  transition: color 0.15s;
+}
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.section-content { display: none; }
+.section-content.active { display: block; }
+
+@media print {
+  .actions-bar, .progress-bar-wrap, .nav-tabs { display: none; }
+  .option-row { cursor: default; }
+  body { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+  .cover { padding: 28px 20px 24px; }
+  .cover h1 { font-size: 24px; }
+  main { padding: 24px 12px 60px; }
+  .cover-meta { flex-wrap: wrap; }
+  .flow-wrap { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-logo">
+    <div class="logo-dot"></div>
+    <div class="logo-text">OUTSYSTEMS</div>
+  </div>
+  <h1>Associate Developer<br><span>모의고사 50문항</span></h1>
+  <p class="cover-subtitle">OutSystems 11 공식 시험 유형 기반 · 실전 대비</p>
+  <div class="cover-meta">
+    <div class="meta-cell">
+      <div class="meta-label">문항 수</div>
+      <div class="meta-val">50</div>
+    </div>
+    <div class="meta-cell">
+      <div class="meta-label">권장 시간</div>
+      <div class="meta-val">90분</div>
+    </div>
+    <div class="meta-cell">
+      <div class="meta-label">합격 기준</div>
+      <div class="meta-val">70%</div>
+    </div>
+    <div class="meta-cell">
+      <div class="meta-label">합격 커트라인</div>
+      <div class="meta-val">35/50</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar-wrap">
+  <span class="progress-label" id="progressLabel">0 / 50 answered</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<!-- TABS -->
+<div class="nav-tabs">
+  <button class="nav-tab active" onclick="showSection(0,this)">📊 데이터 모델링 (1–10)</button>
+  <button class="nav-tab" onclick="showSection(1,this)">🔍 데이터 조회 (11–20)</button>
+  <button class="nav-tab" onclick="showSection(2,this)">⚙️ 로직 (21–30)</button>
+  <button class="nav-tab" onclick="showSection(3,this)">🎨 UI 디자인 (31–40)</button>
+  <button class="nav-tab" onclick="showSection(4,this)">🏗️ 아키텍처·보안 (41–50)</button>
+</div>
+
+<main>
+
+<div id="resultBanner" class="result-banner"></div>
+
+<!-- ============================== SECTION 1: 데이터 모델링 ============================== -->
+<div id="sec0" class="section-content active">
+
+<div class="section-divider">
+  <span class="section-tag">섹션 1</span>
+  <span class="section-name">데이터 모델링 — Entity, 속성, 관계, 데이터 타입</span>
+  <span class="section-count">Q1–Q10</span>
+</div>
+
+<!-- Q1 -->
+<div class="q-card" id="qcard-1">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <div class="q-text">아래 다이어그램에서 <strong>Customer와 Order 간의 1대다(1-N) 관계</strong>를 구현하는 올바른 방법은?</div>
+  </div>
+  <div class="diagram-area">
+    <svg viewBox="0 0 520 120" class="diagram-svg">
+      <!-- Customer Entity -->
+      <rect x="20" y="10" width="180" height="100" rx="4" fill="white" stroke="#4a6fa5" stroke-width="1.5"/>
+      <rect x="20" y="10" width="180" height="28" rx="4" fill="#4a6fa5"/>
+      <rect x="20" y="34" width="180" height="4" fill="#4a6fa5"/>
+      <text x="110" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Noto Sans KR, sans-serif">Customer</text>
+      <text x="36" y="56" fill="#718096" font-size="10" font-family="monospace">#</text>
+      <text x="48" y="56" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Id</text>
+      <text x="36" y="72" fill="#718096" font-size="10" font-family="monospace">Aa</text>
+      <text x="48" y="72" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Name</text>
+      <text x="36" y="88" fill="#718096" font-size="10" font-family="monospace">Aa</text>
+      <text x="48" y="88" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Email</text>
+      <text x="36" y="104" fill="#718096" font-size="10" font-family="monospace">Aa</text>
+      <text x="48" y="104" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Phone</text>
+
+      <!-- Arrow -->
+      <text x="255" y="65" text-anchor="middle" fill="#718096" font-size="22" font-family="monospace">→</text>
+      <text x="255" y="82" text-anchor="middle" fill="#718096" font-size="10" font-family="Noto Sans KR, sans-serif">1 : N</text>
+
+      <!-- Order Entity -->
+      <rect x="310" y="10" width="190" height="100" rx="4" fill="white" stroke="#4a6fa5" stroke-width="1.5"/>
+      <rect x="310" y="10" width="190" height="28" rx="4" fill="#4a6fa5"/>
+      <rect x="310" y="34" width="190" height="4" fill="#4a6fa5"/>
+      <text x="405" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Noto Sans KR, sans-serif">Order</text>
+      <text x="326" y="56" fill="#718096" font-size="10" font-family="monospace">#</text>
+      <text x="338" y="56" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Id</text>
+      <text x="326" y="72" fill="#718096" font-size="10" font-family="monospace">Aa</text>
+      <text x="338" y="72" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Description</text>
+      <text x="326" y="88" fill="#e53e3e" font-size="10" font-family="monospace">?</text>
+      <text x="338" y="88" fill="#c53030" font-size="11" font-family="Noto Sans KR, sans-serif" font-style="italic">___________</text>
+      <text x="326" y="104" fill="#718096" font-size="10" font-family="monospace">📅</text>
+      <text x="338" y="104" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">CreatedOn</text>
+    </svg>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,1,'A')"><div class="option-letter">A</div><div class="option-text">Order 엔티티에 Customer.Id 타입의 <strong>기본키</strong>를 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,1,'B')"><div class="option-letter">B</div><div class="option-text">Order 엔티티에 <strong>CustomerId</strong> 속성을 추가하고, Customer.Id를 참조하는 Identifier 타입으로 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,1,'C')"><div class="option-letter">C</div><div class="option-text">Customer 엔티티에 OrderId 속성을 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,1,'D')"><div class="option-letter">D</div><div class="option-text">Order와 Customer를 연결하는 중간 테이블(조인 엔티티)을 생성한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-1"><strong>정답: B</strong><div class="explain">1:N 관계 구현 시 N쪽(Order)에 1쪽(Customer)의 Identifier 타입 속성(CustomerId)을 추가하여 외래키를 설정합니다. 중간 테이블은 N:N 관계에 사용됩니다.</div></div>
+</div>
+
+<!-- Q2 -->
+<div class="q-card" id="qcard-2">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <div class="q-text">아래 다이어그램에서 <strong>Order와 Product 간의 다대다(N-N) 관계</strong>를 구현하기 위해 필요한 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <svg viewBox="0 0 540 120" class="diagram-svg">
+      <rect x="20" y="10" width="160" height="90" rx="4" fill="white" stroke="#4a6fa5" stroke-width="1.5"/>
+      <rect x="20" y="10" width="160" height="26" rx="4" fill="#4a6fa5"/>
+      <rect x="20" y="32" width="160" height="4" fill="#4a6fa5"/>
+      <text x="100" y="28" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Noto Sans KR, sans-serif">Order</text>
+      <text x="36" y="52" fill="#718096" font-size="10" font-family="monospace">#</text><text x="46" y="52" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Id</text>
+      <text x="36" y="68" fill="#718096" font-size="10" font-family="monospace">Aa</text><text x="46" y="68" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Description</text>
+      <text x="36" y="84" fill="#718096" font-size="10" font-family="monospace">📅</text><text x="46" y="84" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">CreatedOn</text>
+
+      <text x="270" y="62" text-anchor="middle" fill="#718096" font-size="18">↔</text>
+      <text x="270" y="78" text-anchor="middle" fill="#718096" font-size="10" font-family="Noto Sans KR, sans-serif">N : N</text>
+
+      <rect x="360" y="10" width="160" height="90" rx="4" fill="white" stroke="#4a6fa5" stroke-width="1.5"/>
+      <rect x="360" y="10" width="160" height="26" rx="4" fill="#4a6fa5"/>
+      <rect x="360" y="32" width="160" height="4" fill="#4a6fa5"/>
+      <text x="440" y="28" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Noto Sans KR, sans-serif">Product</text>
+      <text x="376" y="52" fill="#718096" font-size="10" font-family="monospace">#</text><text x="386" y="52" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Id</text>
+      <text x="376" y="68" fill="#718096" font-size="10" font-family="monospace">Aa</text><text x="386" y="68" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Name</text>
+      <text x="376" y="84" fill="#718096" font-size="10" font-family="monospace">12</text><text x="386" y="84" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Price</text>
+    </svg>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,2,'A')"><div class="option-letter">A</div><div class="option-text">OrderId와 ProductId 속성을 포함하는 <strong>제3의 엔티티(OrderProduct)</strong>를 생성한다</div></div>
+    <div class="option-row" onclick="selectOption(this,2,'B')"><div class="option-letter">B</div><div class="option-text">OrderId 타입의 기본키와 ProductId 타입 속성을 포함하는 제3의 엔티티를 생성한다</div></div>
+    <div class="option-row" onclick="selectOption(this,2,'C')"><div class="option-letter">C</div><div class="option-text">Product 엔티티에 OrderId 속성을 추가하고, Order 엔티티에 ProductId 속성을 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,2,'D')"><div class="option-letter">D</div><div class="option-text">Order 엔티티에 ProductId 속성만 추가한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-2"><strong>정답: A</strong><div class="explain">N:N 관계는 두 엔티티의 Id를 각각 참조하는 Identifier 타입 속성을 갖는 중간 엔티티(조인 테이블)를 생성하여 구현합니다.</div></div>
+</div>
+
+<!-- Q3 -->
+<div class="q-card" id="qcard-3">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <div class="q-text">아래 속성 목록을 참고하여, OutSystems가 <strong>데이터 타입을 잘못 자동 추론</strong>하는 속성은?</div>
+  </div>
+  <div class="diagram-area">
+    <table class="table-mock">
+      <thead><tr><th>속성명</th><th>예상 자동 추론 타입</th></tr></thead>
+      <tbody>
+        <tr><td>ProductName</td><td>Text</td></tr>
+        <tr><td>TotalAmount</td><td>Decimal</td></tr>
+        <tr><td>IsActive</td><td>Boolean</td></tr>
+        <tr><td>CreatedOn</td><td>Date</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,3,'A')"><div class="option-letter">A</div><div class="option-text">ProductName → Text</div></div>
+    <div class="option-row" onclick="selectOption(this,3,'B')"><div class="option-letter">B</div><div class="option-text">TotalAmount → Decimal</div></div>
+    <div class="option-row" onclick="selectOption(this,3,'C')"><div class="option-letter">C</div><div class="option-text">IsActive → Boolean</div></div>
+    <div class="option-row" onclick="selectOption(this,3,'D')"><div class="option-letter">D</div><div class="option-text">CreatedOn → Date</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-3"><strong>정답: D</strong><div class="explain">*On으로 끝나는 속성은 Date가 아닌 <strong>DateTime</strong>으로 자동 추론됩니다. CreatedOn은 DateTime 타입이 됩니다. 나머지 세 가지는 올바른 추론입니다.</div></div>
+</div>
+
+<!-- Q4 -->
+<div class="q-card" id="qcard-4">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <div class="q-text">Entity 식별자(Identifier)에 대한 설명 중 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,4,'A')"><div class="option-letter">A</div><div class="option-text">엔티티 식별자의 데이터 타입은 반드시 Long Integer로 설정되어야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,4,'B')"><div class="option-letter">B</div><div class="option-text">엔티티 식별자는 반드시 Auto Number로 설정되어야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,4,'C')"><div class="option-letter">C</div><div class="option-text">엔티티 식별자는 오직 단일 속성으로 구성되어야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,4,'D')"><div class="option-letter">D</div><div class="option-text">엔티티 식별자는 자동으로 생성되며 수정할 수 없다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-4"><strong>정답: C</strong><div class="explain">Entity 식별자는 단일 속성입니다. 데이터 타입은 Integer, Long Integer, Text 등 가능하며, Auto Number 설정은 선택사항입니다. 또한 개발자가 식별자 값을 직접 지정할 수 있습니다.</div></div>
+</div>
+
+<!-- Q5 -->
+<div class="q-card" id="qcard-5">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <div class="q-text">아래의 Static Entity 설정 화면을 참고하여, <strong>올바른 설명</strong>을 고르시오.</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:180px;">
+        <div class="prop-panel">
+          <div class="prop-header">Static Entity: OrderStatus</div>
+          <div class="prop-row"><div class="prop-key">Is Active</div><div class="prop-val">Yes</div></div>
+          <div class="prop-row"><div class="prop-key">Label</div><div class="prop-val">"New"</div></div>
+        </div>
+        <div style="margin-top:8px; background:white; border:1px solid #e2e8f0; border-radius:4px; padding:8px;">
+          <div style="font-size:11px; font-weight:700; color:#718096; margin-bottom:6px;">Records</div>
+          <div style="display:flex; flex-direction:column; gap:3px;">
+            <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:3px; padding:4px 8px; font-size:11px; font-family:monospace;">New</div>
+            <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:3px; padding:4px 8px; font-size:11px; font-family:monospace;">Shipped</div>
+            <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:3px; padding:4px 8px; font-size:11px; font-family:monospace;">Cancelled</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,5,'A')"><div class="option-letter">A</div><div class="option-text">Static Entity의 레코드는 런타임 중 CRUD 액션을 통해 자유롭게 추가/삭제할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,5,'B')"><div class="option-letter">B</div><div class="option-text">Static Entity는 데이터베이스 테이블에 저장되며, 레코드는 개발 중에만 추가/삭제 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,5,'C')"><div class="option-letter">C</div><div class="option-text">Static Entity는 메모리에만 존재하며 데이터베이스에 저장되지 않는다</div></div>
+    <div class="option-row" onclick="selectOption(this,5,'D')"><div class="option-letter">D</div><div class="option-text">Static Entity는 Identifier 속성을 가질 수 없다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-5"><strong>정답: B</strong><div class="explain">Static Entity는 DB에 저장되지만 레코드 추가/삭제는 개발 시에만 가능합니다. 런타임 CRUD 조작은 불가능합니다. 메모리에만 존재하는 것은 Structure입니다.</div></div>
+</div>
+
+<!-- Q6 -->
+<div class="q-card" id="qcard-6">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <div class="q-text">OutSystems에서 <strong>Structure</strong>에 대한 설명으로 올바른 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,6,'A')"><div class="option-letter">A</div><div class="option-text">Structure는 데이터베이스 테이블로 생성되어 영구 저장된다</div></div>
+    <div class="option-row" onclick="selectOption(this,6,'B')"><div class="option-letter">B</div><div class="option-text">Structure는 자동으로 CRUD 액션이 생성된다</div></div>
+    <div class="option-row" onclick="selectOption(this,6,'C')"><div class="option-letter">C</div><div class="option-text">Structure는 메모리에만 존재하며, 주로 임시 복합 데이터 구조를 표현할 때 사용된다</div></div>
+    <div class="option-row" onclick="selectOption(this,6,'D')"><div class="option-letter">D</div><div class="option-text">Structure는 Static Entity와 동일하게 동작한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-6"><strong>정답: C</strong><div class="explain">Structure는 메모리에만 존재하는 복합 데이터 타입입니다. DB에 저장되지 않으며, CRUD 액션도 없습니다. 웹서비스 반환값 등 임시 데이터에 적합합니다.</div></div>
+</div>
+
+<!-- Q7 -->
+<div class="q-card" id="qcard-7">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <div class="q-text">아래 속성 패널을 참고하여, Customer 엔티티의 <strong>PhoneNumber</strong> 속성이 자동 추론될 데이터 타입은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="prop-panel" style="max-width:300px;">
+      <div class="prop-header">Attribute Properties</div>
+      <div class="prop-row"><div class="prop-key">Name</div><div class="prop-val highlight">PhoneNumber</div></div>
+      <div class="prop-row"><div class="prop-key">Data Type</div><div class="prop-val">(자동 추론)</div></div>
+      <div class="prop-row"><div class="prop-key">Mandatory</div><div class="prop-val">No</div></div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,7,'A')"><div class="option-letter">A</div><div class="option-text">Integer</div></div>
+    <div class="option-row" onclick="selectOption(this,7,'B')"><div class="option-letter">B</div><div class="option-text">Long Integer</div></div>
+    <div class="option-row" onclick="selectOption(this,7,'C')"><div class="option-letter">C</div><div class="option-text">Text</div></div>
+    <div class="option-row" onclick="selectOption(this,7,'D')"><div class="option-letter">D</div><div class="option-text">Phone</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-7"><strong>정답: C</strong><div class="explain">"PhoneNumber"는 *Number로 끝나지만 Phone 관련 키워드는 Integer/Number 추론 규칙에 포함되지 않습니다. 인식되지 않는 패턴은 기본값인 <strong>Text</strong>로 추론됩니다.</div></div>
+</div>
+
+<!-- Q8 -->
+<div class="q-card" id="qcard-8">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <div class="q-text">OutSystems에서 엔티티가 자동 생성하는 <strong>Entity Actions</strong>를 모두 올바르게 나열한 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,8,'A')"><div class="option-letter">A</div><div class="option-text">Insert, Update, Delete</div></div>
+    <div class="option-row" onclick="selectOption(this,8,'B')"><div class="option-letter">B</div><div class="option-text">Create, CreateOrUpdate, Update, Get, GetForUpdate, Delete</div></div>
+    <div class="option-row" onclick="selectOption(this,8,'C')"><div class="option-letter">C</div><div class="option-text">GET, POST, PUT, DELETE</div></div>
+    <div class="option-row" onclick="selectOption(this,8,'D')"><div class="option-letter">D</div><div class="option-text">Add, Modify, Remove, Find</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-8"><strong>정답: B</strong><div class="explain">OutSystems Entity는 자동으로 Create, CreateOrUpdate, Update, Get, GetForUpdate, Delete 6개의 Entity Action을 생성합니다.</div></div>
+</div>
+
+<!-- Q9 -->
+<div class="q-card" id="qcard-9">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <div class="q-text">아래 엔티티 다이어그램에서 Customer 엔티티에 고객 이메일의 <strong>고유(Unique) 인덱스</strong>를 만들려고 한다. 올바른 방법은?</div>
+  </div>
+  <div class="diagram-area">
+    <svg viewBox="0 0 280 130" class="diagram-svg">
+      <rect x="20" y="10" width="200" height="110" rx="4" fill="white" stroke="#4a6fa5" stroke-width="1.5"/>
+      <rect x="20" y="10" width="200" height="26" rx="4" fill="#4a6fa5"/>
+      <rect x="20" y="32" width="200" height="4" fill="#4a6fa5"/>
+      <text x="120" y="27" text-anchor="middle" fill="white" font-size="12" font-weight="bold" font-family="Noto Sans KR, sans-serif">Customer</text>
+      <text x="36" y="52" fill="#718096" font-size="10" font-family="monospace">#</text><text x="46" y="52" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Id</text>
+      <text x="36" y="68" fill="#718096" font-size="10" font-family="monospace">Aa</text><text x="46" y="68" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Name</text>
+      <text x="36" y="84" fill="#4a6fa5" font-size="10" font-family="monospace">@</text><text x="46" y="84" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Email</text>
+      <text x="36" y="100" fill="#718096" font-size="10" font-family="monospace">Aa</text><text x="46" y="100" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">Phone</text>
+      <text x="36" y="116" fill="#718096" font-size="10" font-family="monospace">📅</text><text x="46" y="116" fill="#2d3748" font-size="11" font-family="Noto Sans KR, sans-serif">CreatedOn</text>
+    </svg>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,9,'A')"><div class="option-letter">A</div><div class="option-text">Email 속성의 Mandatory 속성을 Yes로 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,9,'B')"><div class="option-letter">B</div><div class="option-text">엔티티 Indexes 탭에서 Email 속성을 포함하는 인덱스를 추가하고 Unique 속성을 Yes로 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,9,'C')"><div class="option-letter">C</div><div class="option-text">Email 속성의 Is Unique 속성을 Yes로 직접 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,9,'D')"><div class="option-letter">D</div><div class="option-text">SQL Query에서 UNIQUE 제약 조건을 직접 작성한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-9"><strong>정답: B</strong><div class="explain">고유 인덱스는 엔티티의 Indexes 섹션에서 인덱스를 추가하고 Unique 속성을 Yes로 설정하여 만듭니다. 속성 개별 설정에는 Is Unique 옵션이 없습니다.</div></div>
+</div>
+
+<!-- Q10 -->
+<div class="q-card" id="qcard-10">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <div class="q-text">OutSystems에서 List에 대한 설명으로 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,10,'A')"><div class="option-letter">A</div><div class="option-text">List는 서로 다른 데이터 타입의 원소를 포함할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,10,'B')"><div class="option-letter">B</div><div class="option-text">List는 동일한 데이터 타입의 원소들로 구성된 컬렉션이다</div></div>
+    <div class="option-row" onclick="selectOption(this,10,'C')"><div class="option-letter">C</div><div class="option-text">List는 데이터베이스에 영구적으로 저장된다</div></div>
+    <div class="option-row" onclick="selectOption(this,10,'D')"><div class="option-letter">D</div><div class="option-text">List의 원소 수에는 플랫폼이 정한 상한선이 있다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-10"><strong>정답: B</strong><div class="explain">OutSystems의 List는 동일한 데이터 타입(Homogeneous)의 원소 컬렉션입니다. Entity List, Structure List, Text List 등 각각 타입이 지정됩니다.</div></div>
+</div>
+
+</div><!-- /sec0 -->
+
+<!-- ============================== SECTION 2: 데이터 조회 ============================== -->
+<div id="sec1" class="section-content">
+<div class="section-divider">
+  <span class="section-tag">섹션 2</span>
+  <span class="section-name">데이터 조회 — Aggregate, SQL, 필터, Join, Pagination</span>
+  <span class="section-count">Q11–Q20</span>
+</div>
+
+<!-- Q11 -->
+<div class="q-card" id="qcard-11">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <div class="q-text">아래의 Aggregate 설정에서 <strong>GetOrdersShippingState.List.Current</strong> 레코드의 속성은 어떻게 구성되어 있는가?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="agg-container">
+      <div class="agg-header">📋 GetOrdersShippingState</div>
+      <div class="agg-tab-row">
+        <div class="agg-tab active">3 Sources</div><div class="agg-tab">No Filters</div><div class="agg-tab">No Sorts</div>
+      </div>
+      <div style="display:flex; gap:16px; padding:10px;">
+        <div style="flex:1;">
+          <div class="agg-section-label">Sources</div>
+          <div class="source-item"><span class="source-icon">⊞</span> Order</div>
+          <div class="source-item"><span class="source-icon">⊞</span> OrderStatus</div>
+          <div class="source-item"><span class="source-icon">⊞</span> Priority</div>
+        </div>
+        <div style="flex:2;">
+          <div class="agg-section-label">Joins &amp; Output</div>
+          <div class="join-item">
+            <div class="join-header"><span class="join-type-badge">With or Without</span> Order ↔ Priority</div>
+            <div class="join-condition">Order.Priority = Priority.Id</div>
+          </div>
+          <div class="join-item">
+            <div class="join-header"><span class="join-type-badge">With or Without</span> Order ↔ OrderStatus</div>
+            <div class="join-condition">Order.Status = OrderStatus.Id</div>
+          </div>
+          <div style="margin-top:8px;">
+            <div class="agg-section-label">Output Columns</div>
+            <div class="output-row">
+              <span class="output-chip group">Group: ShippingState</span>
+              <span class="output-chip count">Count: Id</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,11,'A')"><div class="option-letter">A</div><div class="option-text">2개의 집계 속성만: <strong>ShippingState</strong> 및 <strong>Count</strong></div></div>
+    <div class="option-row" onclick="selectOption(this,11,'B')"><div class="option-letter">B</div><div class="option-text">2개의 집계 속성(ShippingState, Count) + Source Entities의 <strong>모든</strong> 속성</div></div>
+    <div class="option-row" onclick="selectOption(this,11,'C')"><div class="option-letter">C</div><div class="option-text">Aggregate에 보이는 6개 컬럼에 해당하는 6개 속성</div></div>
+    <div class="option-row" onclick="selectOption(this,11,'D')"><div class="option-letter">D</div><div class="option-text">2개의 집계 속성(ShippingState, Count) + 집계 계산에 사용된 컬럼들</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-11"><strong>정답: A</strong><div class="explain">Group By와 Count를 사용하면 Output은 그룹핑된 속성(ShippingState)과 Count 속성만 포함됩니다. Source Entity의 다른 속성은 포함되지 않습니다.</div></div>
+</div>
+
+<!-- Q12 -->
+<div class="q-card" id="qcard-12">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <div class="q-text">아래 Aggregate에서 Orders를 Employees(리뷰어)와 함께 가져온다. Join 타입을 참고하여 <strong>올바른 설명</strong>을 고르시오.</div>
+  </div>
+  <div class="diagram-area">
+    <div class="agg-container">
+      <div class="agg-header">📋 GetOrdersWithReviewers</div>
+      <div style="padding:10px;">
+        <div class="join-item">
+          <div class="join-header"><span class="join-type-badge" style="background:#ebf4ff;color:#2c5282;">With or Without</span> Order ↔ Employee</div>
+          <div class="join-condition">Order.AssignedTo = Employee.Id</div>
+        </div>
+        <div class="join-item">
+          <div class="join-header"><span class="join-type-badge" style="background:#fff5f0;color:#c05621;">Only With</span> Order ↔ Priority</div>
+          <div class="join-condition">Order.Priority = Priority.Id</div>
+        </div>
+        <div class="join-item">
+          <div class="join-header"><span class="join-type-badge" style="background:#fff5f0;color:#c05621;">Only With</span> Order ↔ OrderStatus</div>
+          <div class="join-condition">Order.Status = OrderStatus.Id</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,12,'A')"><div class="option-letter">A</div><div class="option-text">Priority, Status, Employee가 모두 있는 오더만 반환한다</div></div>
+    <div class="option-row" onclick="selectOption(this,12,'B')"><div class="option-letter">B</div><div class="option-text">Employee와 Status가 없는 오더를 반환한다</div></div>
+    <div class="option-row" onclick="selectOption(this,12,'C')"><div class="option-letter">C</div><div class="option-text">Status가 있고 Employee가 하나 이상인 오더를 반환한다</div></div>
+    <div class="option-row" onclick="selectOption(this,12,'D')"><div class="option-letter">D</div><div class="option-text">Priority가 있고 Employee가 0개 이상인 오더를 반환한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-12"><strong>정답: D</strong><div class="explain">Only With는 INNER JOIN (해당 데이터 반드시 있어야 함), With or Without은 LEFT JOIN (없어도 반환). Priority=Only With, Status=Only With → Priority와 Status가 있어야 함. Employee=With or Without → 0개 이상 가능.</div></div>
+</div>
+
+<!-- Q13 -->
+<div class="q-card" id="qcard-13">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <div class="q-text">Aggregate에 여러 필터를 추가할 때 <strong>false인</strong> 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="agg-container">
+      <div class="agg-header">📋 GetActiveOrders — Filters</div>
+      <div style="padding:10px;">
+        <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px; font-size:12px; font-family:monospace; margin-bottom:6px; color:#2d3748;">Order.IsActive = True</div>
+        <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 10px; font-size:12px; font-family:monospace; color:#2d3748;">Order.CreatedOn &gt;= #2024-01-01#</div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,13,'A')"><div class="option-letter">A</div><div class="option-text">필터들은 AND 연산자로 연결된다</div></div>
+    <div class="option-row" onclick="selectOption(this,13,'B')"><div class="option-letter">B</div><div class="option-text">레코드는 적어도 하나의 필터에 일치하면 결과에 포함된다</div></div>
+    <div class="option-row" onclick="selectOption(this,13,'C')"><div class="option-letter">C</div><div class="option-text">논리 연산자 및 일부 내장 함수를 필터 내에서 사용할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,13,'D')"><div class="option-letter">D</div><div class="option-text">모든 필터는 SQL의 WHERE 절로 변환된다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-13"><strong>정답: B</strong><div class="explain">Aggregate의 필터들은 AND로 연결됩니다. 즉, 레코드는 <strong>모든</strong> 필터 조건을 동시에 만족해야 결과에 포함됩니다. "하나 이상" 일치(OR)가 아닙니다.</div></div>
+</div>
+
+<!-- Q14 -->
+<div class="q-card" id="qcard-14">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <div class="q-text">Priority 별 오더 수를 반환하기 위해 아래 Aggregate를 어떻게 변경해야 하는가?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="agg-container">
+      <div class="agg-header">📋 GetOrders (현재 상태)</div>
+      <div style="padding:10px;">
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <div>
+            <div class="agg-section-label">Sources</div>
+            <div class="source-item"><span class="source-icon">⊞</span> Order</div>
+            <div class="source-item"><span class="source-icon">⊞</span> OrderStatus</div>
+            <div class="source-item"><span class="source-icon">⊞</span> Priority</div>
+          </div>
+          <div>
+            <div class="agg-section-label">Joins</div>
+            <div class="join-item"><div class="join-header"><span class="join-type-badge">With or Without</span></div><div class="join-condition">Order ↔ Priority</div></div>
+            <div class="join-item"><div class="join-header"><span class="join-type-badge">With or Without</span></div><div class="join-condition">Order ↔ OrderStatus</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,14,'A')"><div class="option-letter">A</div><div class="option-text">Order ↔ Priority Join을 Only With로 변경하고, Priority.Id에 Count 추가</div></div>
+    <div class="option-row" onclick="selectOption(this,14,'B')"><div class="option-letter">B</div><div class="option-text">Priority.Id에 Group By를 추가하고, Order.Id에 Count를 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,14,'C')"><div class="option-letter">C</div><div class="option-text">Order.Id에 Group By를 추가하고, Priority.Id에 Count를 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,14,'D')"><div class="option-letter">D</div><div class="option-text">OrderStatus Join을 제거하고, Priority.Id에 Count를 추가한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-14"><strong>정답: B</strong><div class="explain">Priority별 집계 → Group By는 집계 기준인 Priority.Id에, Count는 집계 대상인 Order.Id에 적용합니다.</div></div>
+</div>
+
+<!-- Q15 -->
+<div class="q-card" id="qcard-15">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <div class="q-text">Fetch 속성이 <strong>Only On Demand</strong>로 설정된 Aggregate를 실행하려면?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="prop-panel" style="max-width:320px;">
+      <div class="prop-header">Aggregate Properties: GetFilteredOrders</div>
+      <div class="prop-row"><div class="prop-key">Fetch</div><div class="prop-val highlight">Only On Demand</div></div>
+      <div class="prop-row"><div class="prop-key">Max. Records</div><div class="prop-val">50</div></div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,15,'A')"><div class="option-letter">A</div><div class="option-text">At Start로 설정된 Aggregate 완료 후 자동으로 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,15,'B')"><div class="option-letter">B</div><div class="option-text">Server Action을 통해 프로그래밍적으로 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,15,'C')"><div class="option-letter">C</div><div class="option-text">Screen Action 내 <strong>Refresh Data</strong> 노드를 사용하여 프로그래밍적으로 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,15,'D')"><div class="option-letter">D</div><div class="option-text">화면이 초기화될 때 자동으로 실행된다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-15"><strong>정답: C</strong><div class="explain">Only On Demand Aggregate는 Screen Action 내에서 Refresh Data 노드를 사용할 때만 실행됩니다. 자동 실행되지 않습니다.</div></div>
+</div>
+
+<!-- Q16 -->
+<div class="q-card" id="qcard-16">
+  <div class="q-header">
+    <div class="q-num">16</div>
+    <div class="q-text">SQL Tool에 관한 설명 중 <strong>true인</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,16,'A')"><div class="option-letter">A</div><div class="option-text">SQL Tool은 서브쿼리(subquery)를 포함하는 쿼리를 작성할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,16,'B')"><div class="option-letter">B</div><div class="option-text">Entity 간 Join은 Aggregate에서만 정의할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,16,'C')"><div class="option-letter">C</div><div class="option-text">SQL Tool로 작성한 모든 쿼리는 Aggregate로도 동일하게 정의할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,16,'D')"><div class="option-letter">D</div><div class="option-text">속성 그룹화(Group By)는 SQL Tool로만 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-16"><strong>정답: A</strong><div class="explain">SQL Tool은 서브쿼리, DELETE, 복잡한 JOIN 등 Aggregate로 불가능한 쿼리도 작성 가능합니다. Output Entity/Structure 지정이 필수이며, Non-SELECT 쿼리에서는 Query Parameter 사용이 불가합니다.</div></div>
+</div>
+
+<!-- Q17 -->
+<div class="q-card" id="qcard-17">
+  <div class="q-header">
+    <div class="q-num">17</div>
+    <div class="q-text">아래 Pagination 위젯 속성 패널을 보고 <strong>잘못 설정된 속성</strong>을 고르시오. (페이지 이동 시 결과가 변경되지 않음)</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:16px; flex-wrap:wrap;">
+      <div class="prop-panel" style="flex:1; min-width:200px;">
+        <div class="prop-header">Pagination Properties</div>
+        <div class="prop-row"><div class="prop-key">StartIndex</div><div class="prop-val">StartIndex</div></div>
+        <div class="prop-row"><div class="prop-key">MaxRecords</div><div class="prop-val highlight">GetMovies.Count</div></div>
+        <div class="prop-row"><div class="prop-key">TotalCount</div><div class="prop-val">RecordsPerPage</div></div>
+      </div>
+      <div class="prop-panel" style="flex:1; min-width:200px;">
+        <div class="prop-header">GetMovies Aggregate</div>
+        <div class="prop-row"><div class="prop-key">Start Index</div><div class="prop-val">StartIndex</div></div>
+        <div class="prop-row"><div class="prop-key">Max. Records</div><div class="prop-val">RecordsPerPage</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,17,'A')"><div class="option-letter">A</div><div class="option-text">GetMovies Aggregate가 OnNavigate 액션에서 새로고침 되지 않고 있기 때문이다</div></div>
+    <div class="option-row" onclick="selectOption(this,17,'B')"><div class="option-letter">B</div><div class="option-text">Aggregate의 Max. Records가 DB 내 전체 레코드 수와 같기 때문이다</div></div>
+    <div class="option-row" onclick="selectOption(this,17,'C')"><div class="option-letter">C</div><div class="option-text">OnNavigate 액션에서 테이블이 새로고침 되지 않기 때문이다</div></div>
+    <div class="option-row" onclick="selectOption(this,17,'D')"><div class="option-letter">D</div><div class="option-text">MaxRecords는 RecordsPerPage, TotalCount는 GetMovies.Count로 설정되어야 한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-17"><strong>정답: A</strong><div class="explain">페이지 변경 이벤트(OnNavigate)에서 GetMovies Aggregate를 Refresh해야 새로운 페이지 데이터를 가져옵니다. StartIndex 변수가 업데이트되어도 Aggregate를 명시적으로 새로고침하지 않으면 데이터가 바뀌지 않습니다.</div></div>
+</div>
+
+<!-- Q18 -->
+<div class="q-card" id="qcard-18">
+  <div class="q-header">
+    <div class="q-num">18</div>
+    <div class="q-text">SQL Query의 Output에 대한 설명으로 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,18,'A')"><div class="option-letter">A</div><div class="option-text">SQL Tool은 Output Entity 또는 Structure를 지정하지 않아도 된다</div></div>
+    <div class="option-row" onclick="selectOption(this,18,'B')"><div class="option-letter">B</div><div class="option-text">SQL Tool의 Output은 반드시 Entity여야 하며, Structure는 사용할 수 없다</div></div>
+    <div class="option-row" onclick="selectOption(this,18,'C')"><div class="option-letter">C</div><div class="option-text">SELECT 쿼리에서는 Output Entity 또는 Structure 지정이 필수이다</div></div>
+    <div class="option-row" onclick="selectOption(this,18,'D')"><div class="option-letter">D</div><div class="option-text">SQL Tool은 Aggregate와 동일한 Output 타입을 반환한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-18"><strong>정답: C</strong><div class="explain">SQL Tool의 SELECT 쿼리는 Output Entity 또는 Structure를 반드시 지정해야 합니다. Entity와 Structure 모두 사용 가능합니다. 특히 SELECT가 아닌 DML 쿼리는 Output 지정이 불필요합니다.</div></div>
+</div>
+
+<!-- Q19 -->
+<div class="q-card" id="qcard-19">
+  <div class="q-header">
+    <div class="q-num">19</div>
+    <div class="q-text">Aggregate와 SQL Query의 차이점으로 <strong>true인</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,19,'A')"><div class="option-letter">A</div><div class="option-text">모든 SQL Query는 Aggregate로 대체할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,19,'B')"><div class="option-letter">B</div><div class="option-text">Aggregate에서 정의할 수 있는 모든 것은 SQL Query로도 작성할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,19,'C')"><div class="option-letter">C</div><div class="option-text">Aggregate는 SQL Query보다 느리지만 더 안전하다</div></div>
+    <div class="option-row" onclick="selectOption(this,19,'D')"><div class="option-letter">D</div><div class="option-text">SQL Query는 Aggregate보다 플랫폼 최적화 혜택을 더 많이 받는다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-19"><strong>정답: B</strong><div class="explain">Aggregate에서 가능한 모든 것은 SQL로도 작성 가능하지만, 역은 성립하지 않습니다(SQL이 더 강력). Aggregate는 자동 최적화 혜택을 받습니다.</div></div>
+</div>
+
+<!-- Q20 -->
+<div class="q-card" id="qcard-20">
+  <div class="q-header">
+    <div class="q-num">20</div>
+    <div class="q-text">Country 드롭다운 선택 시 해당 국가의 도시만 가져오기 위해 <strong>적절하지 않은</strong> 방법은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <div class="screen-mock" style="flex:1; min-width:180px;">
+        <div class="screen-titlebar">CountrySelection</div>
+        <div class="screen-body">
+          <div class="form-field">
+            <div class="form-label">Country</div>
+            <select class="form-input"><option>United States Of America</option></select>
+          </div>
+          <div class="form-field">
+            <div class="form-label">City</div>
+            <select class="form-input"><option>Birmingham</option></select>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:180px; font-size:12px; color:#4a5568;">
+        <div style="font-weight:700; margin-bottom:6px; color:#2d3748;">현재 설정</div>
+        <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:8px;">
+          <div>GetCountries.Fetch = <strong>At Start</strong></div>
+          <div>GetCities.Fetch = <strong>At Start</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,20,'A')"><div class="option-letter">A</div><div class="option-text">GetCities의 Fetch 속성을 Only On Demand로 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,20,'B')"><div class="option-letter">B</div><div class="option-text">Country 드롭다운의 OnChange 이벤트에서 GetCities Aggregate를 새로고침한다</div></div>
+    <div class="option-row" onclick="selectOption(this,20,'C')"><div class="option-letter">C</div><div class="option-text">GetCities Aggregate에 선택된 국가를 기준으로 필터를 추가한다</div></div>
+    <div class="option-row" onclick="selectOption(this,20,'D')"><div class="option-letter">D</div><div class="option-text">GetCountries의 On After Fetch 이벤트 핸들러에서 GetCities를 호출한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-20"><strong>정답: D</strong><div class="explain">On After Fetch는 데이터 로드 완료 시점이지, 국가 선택 변경과 무관합니다. 국가 선택 변경 시에는 OnChange 이벤트를 사용하고, GetCities를 필터링하거나 Refresh해야 합니다.</div></div>
+</div>
+
+</div><!-- /sec1 -->
+
+<!-- ============================== SECTION 3: 로직 ============================== -->
+<div id="sec2" class="section-content">
+<div class="section-divider">
+  <span class="section-tag">섹션 3</span>
+  <span class="section-name">로직 — Actions, 예외 처리, 디버깅, 유효성 검사</span>
+  <span class="section-count">Q21–Q30</span>
+</div>
+
+<!-- Q21 -->
+<div class="q-card" id="qcard-21">
+  <div class="q-header">
+    <div class="q-num">21</div>
+    <div class="q-text">아래 액션에서 <strong>GetEmployeeById Aggregate가 아무런 레코드도 반환하지 않으면</strong> 어떻게 되는가?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="flow-wrap">
+      <div class="flow-col">
+        <div class="flow-node"><div class="fn-start">▶</div></div>
+        <div class="fn-arrow" style="height:24px;"></div>
+        <div class="flow-node">
+          <div class="fn-agg"><span class="fn-agg-icon">⊞⊞</span>GetEmployeeById</div>
+        </div>
+        <div class="fn-arrow" style="height:24px;"></div>
+        <div class="flow-node">
+          <div style="width:80px; height:44px; background:white; border:2px solid #d69e2e; transform:rotate(45deg); margin:8px auto; display:flex; align-items:center; justify-content:center;">
+            <span style="transform:rotate(-45deg); font-size:9px; font-weight:bold; color:#744210; white-space:nowrap;">List.Empty?</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:40px; margin-top:4px;">
+          <div style="text-align:center;">
+            <div style="font-size:10px; color:#c53030; font-weight:bold;">True</div>
+            <div style="width:1px; height:20px; background:#e53e3e; margin:0 auto;"></div>
+            <div class="fn-exception">!</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:10px; color:#276749; font-weight:bold;">False</div>
+            <div style="width:1px; height:20px; background:#718096; margin:0 auto;"></div>
+            <div class="fn-end">■</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#718096; padding-top:20px; max-width:180px;">
+        <div style="margin-bottom:8px; padding:6px 10px; background:#fef3cd; border:1px solid #fbd38d; border-radius:4px;">
+          <strong>Exception Handlers</strong><br>
+          DatabaseException<br>
+          RecordNotFound
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,21,'A')"><div class="option-letter">A</div><div class="option-text">DatabaseException 플로우가 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,21,'B')"><div class="option-letter">B</div><div class="option-text">RecordNotFound 플로우가 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,21,'C')"><div class="option-letter">C</div><div class="option-text">예외 플로우는 실행되지 않는다</div></div>
+    <div class="option-row" onclick="selectOption(this,21,'D')"><div class="option-letter">D</div><div class="option-text">모듈의 전역 예외 처리가 실행된다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-21"><strong>정답: B</strong><div class="explain">흐름도를 보면, List.Empty? = True 분기에서 Exception 노드(!)로 이동하고 있습니다. 이 Exception은 RecordNotFound로 Raise됩니다. Aggregate 자체는 예외를 던지지 않지만, 개발자가 Raise Exception 노드로 직접 발생시킨 것입니다.</div></div>
+</div>
+
+<!-- Q22 -->
+<div class="q-card" id="qcard-22">
+  <div class="q-header">
+    <div class="q-num">22</div>
+    <div class="q-text">아래 Absolute 액션에서 N=0으로 호출할 때 반환값은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="flow-wrap" style="align-items:flex-start;">
+      <div class="flow-col">
+        <div class="fn-start">▶</div>
+        <div class="fn-arrow" style="height:20px;"></div>
+        <div style="width:70px;height:38px;background:white;border:2px solid #d69e2e;transform:rotate(45deg);margin:8px auto;display:flex;align-items:center;justify-content:center;">
+          <span style="transform:rotate(-45deg);font-size:9px;font-weight:bold;color:#744210;">Otherwise</span>
+        </div>
+        <div style="display:flex; gap:36px; margin-top:4px;">
+          <div style="text-align:center;">
+            <div style="font-size:9px; color:#718096;">N&gt;=1</div>
+            <div style="width:1px; height:16px; background:#718096; margin:0 auto;"></div>
+            <div class="fn-assign" style="font-size:10px;">abs = N</div>
+            <div style="width:1px; height:16px; background:#718096; margin:0 auto;"></div>
+            <div class="fn-end">■</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:9px; color:#c53030;">N&lt;0</div>
+            <div style="width:1px; height:16px; background:#718096; margin:0 auto;"></div>
+            <div class="fn-assign" style="font-size:10px;">abs=-1*N</div>
+            <div style="width:1px; height:16px; background:#718096; margin:0 auto;"></div>
+            <div class="fn-end">■</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; padding-left:12px;">
+        <div style="background:#ebf8ff; border:1px solid #bee3f8; border-radius:6px; padding:8px 12px; font-size:12px;">
+          <div style="font-weight:700; color:#2c5282; margin-bottom:4px;">호출 조건</div>
+          <div style="font-family:monospace;">N = 0</div>
+        </div>
+        <div style="margin-top:8px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:6px; padding:8px 12px; font-size:12px;">
+          <div style="font-weight:700; color:#4a5568; margin-bottom:4px;">Switch 분기</div>
+          <div>N &gt;= 1 → abs = N</div>
+          <div>N &lt; 0 → abs = -1*N</div>
+          <div style="color:#c53030; font-weight:600;">Otherwise → abs = 0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,22,'A')"><div class="option-letter">A</div><div class="option-text">절대 0을 반환하지 않는다</div></div>
+    <div class="option-row" onclick="selectOption(this,22,'B')"><div class="option-letter">B</div><div class="option-text">N이 0보다 작을 때 0을 반환한다</div></div>
+    <div class="option-row" onclick="selectOption(this,22,'C')"><div class="option-letter">C</div><div class="option-text">N이 0일 때 0을 반환한다 (Otherwise 분기)</div></div>
+    <div class="option-row" onclick="selectOption(this,22,'D')"><div class="option-letter">D</div><div class="option-text">N이 0보다 클 때 0을 반환한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-22"><strong>정답: C</strong><div class="explain">N=0이면 N>=1 조건 False, N<0 조건 False → Otherwise 분기 실행 → abs=0 할당. 절대값(|0|)은 0이므로 올바른 결과입니다.</div></div>
+</div>
+
+<!-- Q23 -->
+<div class="q-card" id="qcard-23">
+  <div class="q-header">
+    <div class="q-num">23</div>
+    <div class="q-text">아래 SquareRoot 액션에서 <strong>N=0</strong>으로 호출하고 디버거가 Start 노드에서 중지된 상태에서 F9(Continue)를 누르면?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="flow-wrap" style="align-items:flex-start;">
+      <div class="flow-col">
+        <div style="position:relative; display:inline-block;">
+          <div class="fn-start">▶</div>
+          <div style="position:absolute; right:-14px; top:50%; transform:translateY(-50%); width:10px; height:10px; background:#e53e3e; border-radius:50%;"></div>
+        </div>
+        <div class="fn-arrow" style="height:20px;"></div>
+        <div style="width:70px;height:38px;background:white;border:2px solid #d69e2e;transform:rotate(45deg);margin:8px auto;display:flex;align-items:center;justify-content:center;">
+          <span style="transform:rotate(-45deg);font-size:9px;font-weight:bold;color:#744210;">N &lt; 0?</span>
+        </div>
+        <div style="display:flex; gap:28px; margin-top:4px;">
+          <div style="text-align:center;">
+            <div style="font-size:9px; color:#c53030;">True</div>
+            <div style="width:1px; height:14px; background:#c53030; margin:0 auto;"></div>
+            <div class="fn-exception">!</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:9px; color:#276749;">False</div>
+            <div style="width:1px; height:14px; background:#718096; margin:0 auto;"></div>
+            <div style="width:70px;height:38px;background:white;border:2px solid #d69e2e;transform:rotate(45deg);display:flex;align-items:center;justify-content:center;">
+              <span style="transform:rotate(-45deg);font-size:8px;font-weight:bold;color:#744210;">N=0 or N=1?</span>
+            </div>
+            <div style="display:flex; gap:20px; margin-top:4px;">
+              <div style="text-align:center;">
+                <div style="font-size:9px; color:#276749;">True</div>
+                <div style="width:1px; height:12px; background:#718096; margin:0 auto;"></div>
+                <div class="fn-assign" style="font-size:9px;">sqrt=N</div>
+                <div style="width:1px; height:12px; background:#718096; margin:0 auto;"></div>
+                <div style="position:relative; display:inline-block;">
+                  <div class="fn-end">■</div>
+                  <div style="position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:10px;height:10px;background:#e53e3e;border-radius:50%;"></div>
+                </div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-size:9px; color:#718096;">False</div>
+                <div style="width:1px; height:12px; background:#718096; margin:0 auto;"></div>
+                <div class="fn-assign" style="font-size:9px;">sqrt=Sqrt(N)</div>
+                <div style="width:1px; height:12px; background:#718096; margin:0 auto;"></div>
+                <div class="fn-end">■</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:12px; padding-left:12px; font-size:12px;">
+        <div style="background:#fef3cd; border:1px solid #fbd38d; border-radius:6px; padding:8px 12px;">
+          <div style="font-weight:700; color:#744210; margin-bottom:4px;">🔴 Breakpoints</div>
+          <div>Start 노드 (현재 중단)</div>
+          <div>마지막 End 노드</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,23,'A')"><div class="option-letter">A</div><div class="option-text">액션이 종료되고 sqrt = 0이다</div></div>
+    <div class="option-row" onclick="selectOption(this,23,'B')"><div class="option-letter">B</div><div class="option-text">예외가 발생하고 sqrt 값이 나오지 않는다</div></div>
+    <div class="option-row" onclick="selectOption(this,23,'C')"><div class="option-letter">C</div><div class="option-text">디버거가 N&lt;0? If 노드에서 멈춘다</div></div>
+    <div class="option-row" onclick="selectOption(this,23,'D')"><div class="option-letter">D</div><div class="option-text">디버거는 두 번째 End 노드의 브레이크포인트에서 멈춘다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-23"><strong>정답: D</strong><div class="explain">N=0: N<0? → False → N=0 or N=1? → True → sqrt=N(=0) → 두 번째 End 노드로 이동. 이 End 노드에 breakpoint가 있으므로 디버거는 여기서 멈춥니다.</div></div>
+</div>
+
+<!-- Q24 -->
+<div class="q-card" id="qcard-24">
+  <div class="q-header">
+    <div class="q-num">24</div>
+    <div class="q-text">Client Action의 <strong>Function 속성</strong>에 대해 올바른 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,24,'A')"><div class="option-letter">A</div><div class="option-text">Function = Yes로 설정하면, 해당 액션은 Output Parameter를 하나만 가질 수 있으며, Expression에서 직접 사용 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,24,'B')"><div class="option-letter">B</div><div class="option-text">Function = No로 설정하면, 해당 액션은 정의된 모듈에서만 사용 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,24,'C')"><div class="option-letter">C</div><div class="option-text">액션이 다른 모듈에 Public으로 노출된 경우 Function = Yes로 설정할 수 없다</div></div>
+    <div class="option-row" onclick="selectOption(this,24,'D')"><div class="option-letter">D</div><div class="option-text">Function = No로 설정하면 Screen Expressions에서만 사용 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-24"><strong>정답: A</strong><div class="explain">Function = Yes: Output Parameter 1개로 제한 + Expression에서 직접 호출 가능. Public 노출과 Function 설정은 독립적입니다.</div></div>
+</div>
+
+<!-- Q25 -->
+<div class="q-card" id="qcard-25">
+  <div class="q-header">
+    <div class="q-num">25</div>
+    <div class="q-text">아래 폼에서 저장 버튼의 Built-in Validations = Yes 설정 시 <strong>자동으로 수행되는</strong> 유효성 검사는?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="screen-mock" style="max-width:380px;">
+      <div class="screen-titlebar">Customer Registration</div>
+      <div class="screen-body">
+        <div class="form-field">
+          <div class="form-label required">Full Name</div>
+          <input class="form-input" type="text" placeholder="Enter full name" readonly>
+        </div>
+        <div class="form-field">
+          <div class="form-label required">Email</div>
+          <input class="form-input error" type="text" value="invalid-email" readonly>
+        </div>
+        <div class="form-field">
+          <div class="form-label">Notes</div>
+          <input class="form-input" type="text" placeholder="Optional notes" readonly>
+        </div>
+        <button class="form-btn">저장 (Built-in Validations = Yes)</button>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,25,'A')"><div class="option-letter">A</div><div class="option-text">필수 필드가 모두 입력되었는지 확인한다</div></div>
+    <div class="option-row" onclick="selectOption(this,25,'B')"><div class="option-letter">B</div><div class="option-text">필수 필드 + 이후 로직에서 사용되는 비필수 필드도 모두 입력되었는지 확인한다</div></div>
+    <div class="option-row" onclick="selectOption(this,25,'C')"><div class="option-letter">C</div><div class="option-text">필수 필드가 모두 입력되었는지 확인하고, 제출 데이터가 입력란의 데이터 타입과 일치하는지 확인한다</div></div>
+    <div class="option-row" onclick="selectOption(this,25,'D')"><div class="option-letter">D</div><div class="option-text">모든 필드가 입력되었는지 확인하고, 비즈니스 규칙도 자동 검사한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-25"><strong>정답: C</strong><div class="explain">Built-in Validations = Yes 시 자동 검사 항목: ① Mandatory 필드 입력 여부 ② 입력 데이터의 타입 일치 여부. 비즈니스 규칙은 개발자가 직접 구현해야 합니다.</div></div>
+</div>
+
+<!-- Q26 -->
+<div class="q-card" id="qcard-26">
+  <div class="q-header">
+    <div class="q-num">26</div>
+    <div class="q-text">아래 폼에서 필수 입력란이 비어있을 때 서버 전송을 막는 <strong>가장 적합한 구현 방법</strong>은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="screen-mock" style="max-width:360px;">
+      <div class="screen-titlebar">Customer Form</div>
+      <div class="screen-body">
+        <div class="form-field">
+          <div class="form-label required">Name</div>
+          <input class="form-input" type="text" placeholder="" readonly>
+        </div>
+        <div class="form-field">
+          <div class="form-label required">Email</div>
+          <input class="form-input" type="text" placeholder="" readonly>
+        </div>
+        <button class="form-btn">Save (OnClick → SaveOnClick Action)</button>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,26,'A')"><div class="option-letter">A</div><div class="option-text">저장 버튼의 Built-in Validations를 Yes로만 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,26,'B')"><div class="option-letter">B</div><div class="option-text">모든 Input에 직접 유효성 검사를 수행하고, 실패 시 폼의 Valid 속성을 False로 설정한다</div></div>
+    <div class="option-row" onclick="selectOption(this,26,'C')"><div class="option-letter">C</div><div class="option-text">Built-in Validations = Yes 설정 후, 폼의 Valid 속성이 True인지 확인하고 서버 액션을 호출한다</div></div>
+    <div class="option-row" onclick="selectOption(this,26,'D')"><div class="option-letter">D</div><div class="option-text">Built-in Validations = Yes 설정 후, 유효하지 않은 입력 처리를 위한 Exception Handler Flow를 추가한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-26"><strong>정답: C</strong><div class="explain">Built-in Validations가 실행된 후 폼의 Valid 속성이 True인 경우에만 서버 액션을 호출하는 것이 올바른 패턴입니다. Valid = False면 오류가 화면에 표시되고 서버 호출을 막습니다.</div></div>
+</div>
+
+<!-- Q27 -->
+<div class="q-card" id="qcard-27">
+  <div class="q-header">
+    <div class="q-num">27</div>
+    <div class="q-text">Client Action과 Server Action의 차이에 대해 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,27,'A')"><div class="option-letter">A</div><div class="option-text">Client Action은 데이터베이스에 직접 접근할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,27,'B')"><div class="option-letter">B</div><div class="option-text">Server Action은 클라이언트 변수(Client Variable)에 직접 접근할 수 없다</div></div>
+    <div class="option-row" onclick="selectOption(this,27,'C')"><div class="option-letter">C</div><div class="option-text">Client Action과 Server Action 모두 외부 시스템 연동(API 호출 등)에 동일하게 적합하다</div></div>
+    <div class="option-row" onclick="selectOption(this,27,'D')"><div class="option-letter">D</div><div class="option-text">Server Action은 브라우저에서 실행되어 UI를 직접 조작할 수 있다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-27"><strong>정답: B</strong><div class="explain">Server Action은 서버에서 실행되므로 클라이언트 변수에 직접 접근할 수 없습니다. Client Action은 브라우저에서 실행되고 DB 직접 접근 불가, Server Action은 서버에서 실행되어 DB 접근 가능합니다.</div></div>
+</div>
+
+<!-- Q28 -->
+<div class="q-card" id="qcard-28">
+  <div class="q-header">
+    <div class="q-num">28</div>
+    <div class="q-text">All Exception Handler에 대해 <strong>true인</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,28,'A')"><div class="option-letter">A</div><div class="option-text">All Exception Handler는 항상 다른 Exception Handler보다 먼저 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,28,'B')"><div class="option-letter">B</div><div class="option-text">All Exception Handler가 있으면 다른 Handler를 추가할 수 없다</div></div>
+    <div class="option-row" onclick="selectOption(this,28,'C')"><div class="option-letter">C</div><div class="option-text">All Exception Handler는 발생한 예외를 설명하는 다른 특정 Handler가 없을 경우 모든 예외를 처리한다</div></div>
+    <div class="option-row" onclick="selectOption(this,28,'D')"><div class="option-letter">D</div><div class="option-text">All Exception Handler는 Global 수준에서만 사용 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-28"><strong>정답: C</strong><div class="explain">All Exception Handler는 다른 특정 Exception Handler(DatabaseException, UserException 등)가 해당 예외를 처리하지 않을 경우의 Fallback 역할을 합니다. 우선순위는 특정 Handler가 더 높습니다.</div></div>
+</div>
+
+<!-- Q29 -->
+<div class="q-card" id="qcard-29">
+  <div class="q-header">
+    <div class="q-num">29</div>
+    <div class="q-text">OutSystems에서 디버깅 시 브레이크포인트를 설정할 수 있는 위치는?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,29,'A')"><div class="option-letter">A</div><div class="option-text">Actions에서만 가능하다 (Client-side 및 Server-side)</div></div>
+    <div class="option-row" onclick="selectOption(this,29,'B')"><div class="option-letter">B</div><div class="option-text">Server-side 로직에서만 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,29,'C')"><div class="option-letter">C</div><div class="option-text">Client-side 로직에서만 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,29,'D')"><div class="option-letter">D</div><div class="option-text">Actions의 노드와 Variables 모두에 설정 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-29"><strong>정답: D</strong><div class="explain">OutSystems 디버거에서는 Action 노드와 Variables에도 브레이크포인트를 설정할 수 있습니다.</div></div>
+</div>
+
+<!-- Q30 -->
+<div class="q-card" id="qcard-30">
+  <div class="q-header">
+    <div class="q-num">30</div>
+    <div class="q-text">Switch 노드(If)의 동작 방식으로 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="flow-col" style="align-items:flex-start; padding-left:20px;">
+      <div style="background:white; border:2px solid #d69e2e; border-radius:6px; padding:8px 16px; font-size:12px; color:#744210; font-weight:700;">Switch</div>
+      <div style="margin-top:8px; display:flex; gap:16px; font-size:12px;">
+        <div style="text-align:center;"><div style="color:#c53030;">Branch 1</div><div style="font-family:monospace; font-size:11px; background:#f7fafc; padding:3px 8px; border:1px solid #e2e8f0; border-radius:3px;">Cond1=True</div></div>
+        <div style="text-align:center;"><div style="color:#d69e2e;">Branch 2</div><div style="font-family:monospace; font-size:11px; background:#f7fafc; padding:3px 8px; border:1px solid #e2e8f0; border-radius:3px;">Cond2=True</div></div>
+        <div style="text-align:center;"><div style="color:#718096;">Otherwise</div><div style="font-size:11px; background:#f7fafc; padding:3px 8px; border:1px solid #e2e8f0; border-radius:3px;">나머지</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,30,'A')"><div class="option-letter">A</div><div class="option-text">True로 평가되는 모든 브랜치가 순차적으로 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,30,'B')"><div class="option-letter">B</div><div class="option-text">True로 평가되는 첫 번째 브랜치만 실행되고, 나머지는 무시된다</div></div>
+    <div class="option-row" onclick="selectOption(this,30,'C')"><div class="option-letter">C</div><div class="option-text">Otherwise 브랜치는 반드시 존재해야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,30,'D')"><div class="option-letter">D</div><div class="option-text">True인 브랜치가 없으면 예외가 발생한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-30"><strong>정답: B</strong><div class="explain">Switch는 조건을 순서대로 평가하여 첫 번째로 True인 브랜치만 실행합니다. True인 것이 없으면 Otherwise가 실행됩니다. Otherwise는 자동 생성되며 반드시 존재합니다.</div></div>
+</div>
+
+</div><!-- /sec2 -->
+
+<!-- ============================== SECTION 4: UI 디자인 ============================== -->
+<div id="sec3" class="section-content">
+<div class="section-divider">
+  <span class="section-tag">섹션 4</span>
+  <span class="section-name">UI 디자인 — Blocks, Events, Widgets, 라이프사이클</span>
+  <span class="section-count">Q31–Q40</span>
+</div>
+
+<!-- Q31 -->
+<div class="q-card" id="qcard-31">
+  <div class="q-header">
+    <div class="q-num">31</div>
+    <div class="q-text">OutSystems Reactive 앱의 <strong>Block</strong>에 대한 설명 중 올바른 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,31,'A')"><div class="option-letter">A</div><div class="option-text">블록은 화면(Screen)에서만 인스턴스화할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,31,'B')"><div class="option-letter">B</div><div class="option-text">블록은 화면 및 다른 블록에서 인스턴스화할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,31,'C')"><div class="option-letter">C</div><div class="option-text">블록은 화면 내 Client Action에서 인스턴스화할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,31,'D')"><div class="option-letter">D</div><div class="option-text">블록은 특수 HTML 태그를 사용하여 외부 HTML 페이지에 배치할 수 있다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-31"><strong>정답: B</strong><div class="explain">Block은 Screen과 다른 Block(중첩 Block) 두 곳에 인스턴스화할 수 있습니다. Client Action이나 외부 HTML에는 배치 불가합니다.</div></div>
+</div>
+
+<!-- Q32 -->
+<div class="q-card" id="qcard-32">
+  <div class="q-header">
+    <div class="q-num">32</div>
+    <div class="q-text">아래 그림에서 Rating 블록이 부모 화면에 사용자가 별점을 선택했음을 알리려 한다. 올바른 방법은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:16px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:180px;">
+        <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:6px; overflow:hidden; font-size:12px;">
+          <div style="background:#4a6fa5; color:white; padding:6px 10px; font-weight:700;">📦 Block: RatingWidget</div>
+          <div style="padding:10px;">
+            <div style="font-size:11px; color:#718096; margin-bottom:6px;">Input Parameters</div>
+            <div style="background:white; border:1px solid #e2e8f0; border-radius:3px; padding:4px 8px; font-family:monospace; font-size:11px;">MaxStars: Integer</div>
+            <div style="margin-top:10px; font-size:11px; color:#718096;">User clicks a star ⭐</div>
+            <div style="margin-top:4px; font-size:11px; color:#c53030; font-weight:600;">→ 부모 화면에 알림 필요</div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:180px;">
+        <div style="background:#f0fff4; border:1px solid #9ae6b4; border-radius:6px; padding:10px; font-size:12px;">
+          <div style="font-weight:700; color:#276749; margin-bottom:6px;">🖥️ Screen: ProductDetail</div>
+          <div style="color:#4a5568;">RatingWidget 블록을 사용 중</div>
+          <div style="margin-top:8px; font-size:11px; color:#718096;">→ 별점 선택 시 서버에 저장하는 로직 필요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,32,'A')"><div class="option-letter">A</div><div class="option-text">블록에서 <strong>Trigger Event</strong>를 사용하여 부모 화면에 이벤트를 발생시킨다</div></div>
+    <div class="option-row" onclick="selectOption(this,32,'B')"><div class="option-letter">B</div><div class="option-text">블록의 Input Parameter를 통해 부모 화면에 값을 전달한다</div></div>
+    <div class="option-row" onclick="selectOption(this,32,'C')"><div class="option-letter">C</div><div class="option-text">화면에서 블록의 Client Action을 직접 호출한다</div></div>
+    <div class="option-row" onclick="selectOption(this,32,'D')"><div class="option-letter">D</div><div class="option-text">Screen Action에서 블록의 내부 변수를 직접 읽는다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-32"><strong>정답: A</strong><div class="explain">Block → 부모(Screen/Block) 방향 통신은 Trigger Event를 사용합니다. Input Parameter는 부모 → Block 방향(데이터 전달)입니다.</div></div>
+</div>
+
+<!-- Q33 -->
+<div class="q-card" id="qcard-33">
+  <div class="q-header">
+    <div class="q-num">33</div>
+    <div class="q-text">아래 CountriesDropdown의 속성 패널을 참고하여, 드롭다운에 국가명이 표시되도록 <strong>Options Text</strong> 속성을 어떻게 설정해야 하는가?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
+      <div style="flex:1; min-width:180px;">
+        <div style="font-size:11px; font-weight:700; color:#718096; margin-bottom:6px;">Element Tree</div>
+        <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:8px; font-size:11px; font-family:monospace;">
+          <div style="color:#4a6fa5;">▼ Country (Static Entity)</div>
+          <div style="padding-left:14px;">▶ Records: Japan, USA, Korea...</div>
+          <div style="padding-left:14px; color:#718096;">⊞ Id</div>
+          <div style="padding-left:14px; color:#2d3748; font-weight:600;">⊞ Label</div>
+          <div style="padding-left:14px; color:#718096;">⊞ Is_Active</div>
+          <div style="color:#4a6fa5; margin-top:4px;">▼ GetCountries</div>
+          <div style="padding-left:14px;">▼ Country</div>
+          <div style="padding-left:28px;">Id, Label, Is_Active</div>
+        </div>
+      </div>
+      <div style="flex:1; min-width:200px;">
+        <div class="prop-panel">
+          <div class="prop-header">CountriesDropdown Properties</div>
+          <div class="prop-row"><div class="prop-key">Variable</div><div class="prop-val">Country</div></div>
+          <div class="prop-row"><div class="prop-key">List</div><div class="prop-val">GetCountries.List</div></div>
+          <div class="prop-row"><div class="prop-key">Options Content</div><div class="prop-val">Text Only</div></div>
+          <div class="prop-row"><div class="prop-key">Options Text</div><div class="prop-val highlight">???</div></div>
+          <div class="prop-row"><div class="prop-key">Options Value</div><div class="prop-val">(empty)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,33,'A')"><div class="option-letter">A</div><div class="option-text">Country.Id</div></div>
+    <div class="option-row" onclick="selectOption(this,33,'B')"><div class="option-letter">B</div><div class="option-text">GetCountries.Country.Label</div></div>
+    <div class="option-row" onclick="selectOption(this,33,'C')"><div class="option-letter">C</div><div class="option-text">Country</div></div>
+    <div class="option-row" onclick="selectOption(this,33,'D')"><div class="option-letter">D</div><div class="option-text">Country.Label</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-33"><strong>정답: D</strong><div class="explain">Dropdown의 Options Text는 List의 현재 아이템(Current) 기준으로 표시할 속성을 지정합니다. List가 GetCountries.List이고 각 항목이 Country 레코드이므로, Country.Label을 설정합니다.</div></div>
+</div>
+
+<!-- Q34 -->
+<div class="q-card" id="qcard-34">
+  <div class="q-header">
+    <div class="q-num">34</div>
+    <div class="q-text">화면의 버튼에서 <strong>On Click 속성으로 설정할 수 없는</strong> 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="prop-panel" style="max-width:320px;">
+      <div class="prop-header">Button Properties</div>
+      <div class="prop-row"><div class="prop-key">Label</div><div class="prop-val">"Save"</div></div>
+      <div class="prop-row"><div class="prop-key">On Click</div><div class="prop-val highlight">???</div></div>
+      <div class="prop-row"><div class="prop-key">Is Form Default</div><div class="prop-val">No</div></div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,34,'A')"><div class="option-letter">A</div><div class="option-text">Screen (다른 화면으로 이동)</div></div>
+    <div class="option-row" onclick="selectOption(this,34,'B')"><div class="option-letter">B</div><div class="option-text">Client Action</div></div>
+    <div class="option-row" onclick="selectOption(this,34,'C')"><div class="option-letter">C</div><div class="option-text">Block (블록으로 이동)</div></div>
+    <div class="option-row" onclick="selectOption(this,34,'D')"><div class="option-letter">D</div><div class="option-text">External Site (외부 URL)</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-34"><strong>정답: C</strong><div class="explain">On Click은 Screen(이동), Client Action(실행), External Site(외부 URL)를 설정할 수 있습니다. Block은 On Click의 대상이 될 수 없습니다.</div></div>
+</div>
+
+<!-- Q35 -->
+<div class="q-card" id="qcard-35">
+  <div class="q-header">
+    <div class="q-num">35</div>
+    <div class="q-text">On Initialize 라이프사이클 이벤트에 대해 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; font-size:12px; padding:8px 0;">
+      <div style="background:#4a6fa5; color:white; border-radius:4px; padding:5px 12px; font-weight:700;">On Initialize</div>
+      <div style="color:#718096;">→</div>
+      <div style="background:#edf2f7; border:1px solid #e2e8f0; border-radius:4px; padding:5px 12px;">Data Fetch</div>
+      <div style="color:#718096;">→</div>
+      <div style="background:#edf2f7; border:1px solid #e2e8f0; border-radius:4px; padding:5px 12px;">After Fetch</div>
+      <div style="color:#718096;">→</div>
+      <div style="background:#edf2f7; border:1px solid #e2e8f0; border-radius:4px; padding:5px 12px;">Render</div>
+      <div style="color:#718096;">→</div>
+      <div style="background:#edf2f7; border:1px solid #e2e8f0; border-radius:4px; padding:5px 12px;">On Ready</div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,35,'A')"><div class="option-letter">A</div><div class="option-text">화면/블록이 렌더링되기 전, 데이터 fetch 전에 트리거된다</div></div>
+    <div class="option-row" onclick="selectOption(this,35,'B')"><div class="option-letter">B</div><div class="option-text">화면/블록이 렌더링된 후 트리거되어 UI를 조작할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,35,'C')"><div class="option-letter">C</div><div class="option-text">Aggregate의 데이터 fetch 완료 후 트리거된다</div></div>
+    <div class="option-row" onclick="selectOption(this,35,'D')"><div class="option-letter">D</div><div class="option-text">블록의 Input Parameter가 변경될 때 트리거된다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-35"><strong>정답: A</strong><div class="explain">On Initialize는 Screen/Block 생명주기의 첫 번째 이벤트로, 렌더링과 데이터 fetch 이전에 실행됩니다. 초기 변수 값 설정 등에 사용합니다.</div></div>
+</div>
+
+<!-- Q36 -->
+<div class="q-card" id="qcard-36">
+  <div class="q-header">
+    <div class="q-num">36</div>
+    <div class="q-text">Check Box 위젯이 바인딩될 수 있는 변수 타입은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,36,'A')"><div class="option-letter">A</div><div class="option-text">Integer</div></div>
+    <div class="option-row" onclick="selectOption(this,36,'B')"><div class="option-letter">B</div><div class="option-text">Text</div></div>
+    <div class="option-row" onclick="selectOption(this,36,'C')"><div class="option-letter">C</div><div class="option-text">Boolean</div></div>
+    <div class="option-row" onclick="selectOption(this,36,'D')"><div class="option-letter">D</div><div class="option-text">Decimal</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-36"><strong>정답: C</strong><div class="explain">Check Box 위젯은 Boolean 타입 변수에 바인딩됩니다. 체크 = True, 미체크 = False.</div></div>
+</div>
+
+<!-- Q37 -->
+<div class="q-card" id="qcard-37">
+  <div class="q-header">
+    <div class="q-num">37</div>
+    <div class="q-text">아래 화면에서 Input 위젯의 Valid 속성이 <strong>False</strong>로 설정되면 어떻게 표시되는가?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="screen-mock" style="max-width:360px;">
+      <div class="screen-titlebar">Edit Customer</div>
+      <div class="screen-body">
+        <div class="form-field">
+          <div class="form-label required">Email</div>
+          <input class="form-input error" type="text" value="invalid@@email" readonly>
+          <div style="font-size:11px; color:#e53e3e; margin-top:3px;">올바른 이메일 형식을 입력하세요</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,37,'A')"><div class="option-letter">A</div><div class="option-text">위젯이 회색으로 비활성화되어 표시된다</div></div>
+    <div class="option-row" onclick="selectOption(this,37,'B')"><div class="option-letter">B</div><div class="option-text">위젯이 화면에서 사라지고 오류 메시지만 표시된다</div></div>
+    <div class="option-row" onclick="selectOption(this,37,'C')"><div class="option-letter">C</div><div class="option-text">위젯에 마우스를 올렸을 때만 오류 메시지가 표시된다</div></div>
+    <div class="option-row" onclick="selectOption(this,37,'D')"><div class="option-letter">D</div><div class="option-text">위젯은 정상 표시되나 특정 스타일(빨간 테두리 등)과 함께 오류 메시지가 표시된다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-37"><strong>정답: D</strong><div class="explain">Valid = False 시 위젯은 화면에 그대로 표시되지만 오류 스타일(빨간 테두리 등)이 적용되고, 검증 오류 메시지가 함께 표시됩니다.</div></div>
+</div>
+
+<!-- Q38 -->
+<div class="q-card" id="qcard-38">
+  <div class="q-header">
+    <div class="q-num">38</div>
+    <div class="q-text">Events에 관한 설명 중 <strong>false인</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,38,'A')"><div class="option-letter">A</div><div class="option-text">Event는 Block의 범위에서 부모의 범위로 정보를 전달할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,38,'B')"><div class="option-letter">B</div><div class="option-text">Event는 Block에 의해 트리거되고 부모에 의해 처리된다</div></div>
+    <div class="option-row" onclick="selectOption(this,38,'C')"><div class="option-letter">C</div><div class="option-text">Event는 Block 또는 Screen 수준 어디서나 정의할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,38,'D')"><div class="option-letter">D</div><div class="option-text">동일 Block의 두 인스턴스는 각자 다른 핸들러를 사용할 수 있다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-38"><strong>정답: C</strong><div class="explain">Events는 Block 수준에서만 정의됩니다. Screen은 Event를 정의할 수 없습니다. 핸들러는 부모(Screen 또는 Block)에서 정의합니다.</div></div>
+</div>
+
+<!-- Q39 -->
+<div class="q-card" id="qcard-39">
+  <div class="q-header">
+    <div class="q-num">39</div>
+    <div class="q-text">Ajax Refresh가 정상 동작하기 위한 조건으로 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,39,'A')"><div class="option-letter">A</div><div class="option-text">위젯은 반드시 Table Records여야 하고, Screen Action은 Ajax Submit으로 실행해야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,39,'B')"><div class="option-letter">B</div><div class="option-text">위젯에 Name이 설정되어 있어야 하고, Screen Action은 Ajax Submit으로 실행해야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,39,'C')"><div class="option-letter">C</div><div class="option-text">위젯에 Name이 설정되어 있어야 하고, Screen Action은 Submit으로 실행해야 한다</div></div>
+    <div class="option-row" onclick="selectOption(this,39,'D')"><div class="option-letter">D</div><div class="option-text">위젯에 Name이 설정되어 있어야 하고, Screen Action은 Navigate로 실행해야 한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-39"><strong>정답: B</strong><div class="explain">Ajax Refresh는 ① 새로고침할 위젯에 Name이 설정되어 있어야 하고, ② Screen Action이 Ajax Submit으로 트리거되어야 합니다.</div></div>
+</div>
+
+<!-- Q40 -->
+<div class="q-card" id="qcard-40">
+  <div class="q-header">
+    <div class="q-num">40</div>
+    <div class="q-text">Reactive Web App에 대해 <strong>false인</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,40,'A')"><div class="option-letter">A</div><div class="option-text">크로스 디바이스 앱이다</div></div>
+    <div class="option-row" onclick="selectOption(this,40,'B')"><div class="option-letter">B</div><div class="option-text">데이터 요청이 동기적(Synchronous)으로 실행된다</div></div>
+    <div class="option-row" onclick="selectOption(this,40,'C')"><div class="option-letter">C</div><div class="option-text">OutSystems가 생성하는 코드는 SPA(단일 페이지 앱)다</div></div>
+    <div class="option-row" onclick="selectOption(this,40,'D')"><div class="option-letter">D</div><div class="option-text">Service Studio에서 개발한다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-40"><strong>정답: B</strong><div class="explain">Reactive Web App은 비동기(Asynchronous) 데이터 요청을 사용합니다. 동기 방식은 UI를 "freeze"시켜 UX를 해칩니다.</div></div>
+</div>
+
+</div><!-- /sec3 -->
+
+<!-- ============================== SECTION 5: 아키텍처·보안 ============================== -->
+<div id="sec4" class="section-content">
+<div class="section-divider">
+  <span class="section-tag">섹션 5</span>
+  <span class="section-name">아키텍처 & 보안 — 모듈 의존성, Role 기반 보안, 변수</span>
+  <span class="section-count">Q41–Q50</span>
+</div>
+
+<!-- Q41 -->
+<div class="q-card" id="qcard-41">
+  <div class="q-header">
+    <div class="q-num">41</div>
+    <div class="q-text">아래 화면 속성에서 마이클(Michael)은 <strong>OrdersAdmin Role만</strong> 보유하고 있다. 마이클이 접근 가능한 화면은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:12px; flex-wrap:wrap; font-size:12px;">
+      <div class="prop-panel" style="flex:1; min-width:150px;">
+        <div class="prop-header">Screen A: OrderList</div>
+        <div class="prop-row"><div class="prop-key">Roles</div><div class="prop-val"><span class="role-badge">Registered</span></div></div>
+      </div>
+      <div class="prop-panel" style="flex:1; min-width:150px;">
+        <div class="prop-header">Screen B: AdminPanel</div>
+        <div class="prop-row"><div class="prop-key">Roles</div><div class="prop-val"><span class="role-badge admin">OrdersAdmin</span></div></div>
+      </div>
+      <div class="prop-panel" style="flex:1; min-width:150px;">
+        <div class="prop-header">Screen C: LoginPage</div>
+        <div class="prop-row"><div class="prop-key">Roles</div><div class="prop-val"><span class="role-badge anon">Anonymous</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,41,'A')"><div class="option-letter">A</div><div class="option-text">Screen A (Registered Role 화면)에 접근할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,41,'B')"><div class="option-letter">B</div><div class="option-text">Screen C (Anonymous Role 화면)에 접근할 수 없다</div></div>
+    <div class="option-row" onclick="selectOption(this,41,'C')"><div class="option-letter">C</div><div class="option-text">Screen B에만 접근 가능하고, Screen A에는 접근 불가하다</div></div>
+    <div class="option-row" onclick="selectOption(this,41,'D')"><div class="option-letter">D</div><div class="option-text">Screen B에만 접근 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-41"><strong>정답: A</strong><div class="explain">로그인한 사용자는 자동으로 Registered Role을 가집니다. OrdersAdmin Role도 있으므로 Screen A(Registered)와 Screen B(OrdersAdmin) 모두 접근 가능합니다. Anonymous는 미로그인 사용자를 위한 화면으로 로그인한 누구나 접근 가능합니다.</div></div>
+</div>
+
+<!-- Q42 -->
+<div class="q-card" id="qcard-42">
+  <div class="q-header">
+    <div class="q-num">42</div>
+    <div class="q-text">Producer 모듈에서 Element 노출에 대해 <strong>올바른</strong> 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,42,'A')"><div class="option-letter">A</div><div class="option-text">모든 Element를 노출할 수 있으나, 같은 앱의 모듈에서만 재사용 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,42,'B')"><div class="option-letter">B</div><div class="option-text">모든 Element를 어떤 앱의 모듈에서도 노출 및 재사용할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,42,'C')"><div class="option-letter">C</div><div class="option-text">Public 속성이 Yes인 Element만 노출되어 어떤 앱의 모듈에서도 재사용 가능하다</div></div>
+    <div class="option-row" onclick="selectOption(this,42,'D')"><div class="option-letter">D</div><div class="option-text">Public 속성이 Yes인 Element만 같은 앱 내 모듈에서만 재사용 가능하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-42"><strong>정답: C</strong><div class="explain">Public = Yes로 설정된 Element만 Producer 모듈에서 노출되며, 어떤 앱의 Consumer 모듈에서도 재사용할 수 있습니다.</div></div>
+</div>
+
+<!-- Q43 -->
+<div class="q-card" id="qcard-43">
+  <div class="q-header">
+    <div class="q-num">43</div>
+    <div class="q-text">아래 역할(Role) 관련 내장 액션 중 <strong>존재하지 않는</strong> 것은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 12px; font-family:monospace; font-size:12px; color:#2d3748;">CheckRole()</div>
+      <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 12px; font-family:monospace; font-size:12px; color:#2d3748;">GrantRole()</div>
+      <div style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:4px; padding:6px 12px; font-family:monospace; font-size:12px; color:#2d3748;">RevokeRole()</div>
+      <div style="background:#fff5f0; border:1px solid #fbd38d; border-radius:4px; padding:6px 12px; font-family:monospace; font-size:12px; color:#c05621;">CreateUserWithRole()</div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,43,'A')"><div class="option-letter">A</div><div class="option-text">CheckRole</div></div>
+    <div class="option-row" onclick="selectOption(this,43,'B')"><div class="option-letter">B</div><div class="option-text">GrantRole</div></div>
+    <div class="option-row" onclick="selectOption(this,43,'C')"><div class="option-letter">C</div><div class="option-text">RevokeRole</div></div>
+    <div class="option-row" onclick="selectOption(this,43,'D')"><div class="option-letter">D</div><div class="option-text">CreateUserWithRole</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-43"><strong>정답: D</strong><div class="explain">OutSystems 내장 Role Actions: CheckRole, GrantRole, RevokeRole. CreateUserWithRole은 존재하지 않는 액션입니다. 사용자 생성은 Users 앱에서 관리합니다.</div></div>
+</div>
+
+<!-- Q44 -->
+<div class="q-card" id="qcard-44">
+  <div class="q-header">
+    <div class="q-num">44</div>
+    <div class="q-text">Client Variable의 <strong>적절하지 않은 사용 사례</strong>는?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,44,'A')"><div class="option-letter">A</div><div class="option-text">사용자 이름 (로그인 후 표시용)</div></div>
+    <div class="option-row" onclick="selectOption(this,44,'B')"><div class="option-letter">B</div><div class="option-text">비밀번호 (Password)</div></div>
+    <div class="option-row" onclick="selectOption(this,44,'C')"><div class="option-letter">C</div><div class="option-text">검색 필터 키워드</div></div>
+    <div class="option-row" onclick="selectOption(this,44,'D')"><div class="option-letter">D</div><div class="option-text">사용자 세션 ID</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-44"><strong>정답: B</strong><div class="explain">Client Variable은 브라우저 로컬 스토리지에 평문으로 저장됩니다. 비밀번호 같은 민감 정보를 저장하는 것은 보안상 매우 위험합니다.</div></div>
+</div>
+
+<!-- Q45 -->
+<div class="q-card" id="qcard-45">
+  <div class="q-header">
+    <div class="q-num">45</div>
+    <div class="q-text">OutSystems에서 앱의 Lifecycle을 여러 환경(Dev → QA → Prod)에 걸쳐 관리하는 도구는?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,45,'A')"><div class="option-letter">A</div><div class="option-text">Service Center</div></div>
+    <div class="option-row" onclick="selectOption(this,45,'B')"><div class="option-letter">B</div><div class="option-text">LifeTime</div></div>
+    <div class="option-row" onclick="selectOption(this,45,'C')"><div class="option-letter">C</div><div class="option-text">Service Studio</div></div>
+    <div class="option-row" onclick="selectOption(this,45,'D')"><div class="option-letter">D</div><div class="option-text">Integration Studio</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-45"><strong>정답: B</strong><div class="explain">LifeTime은 여러 환경(Infrastructure)에 걸쳐 앱 배포, 사용자 권한, 팀 관리 등 Lifecycle 전반을 관리하는 도구입니다.</div></div>
+</div>
+
+<!-- Q46 -->
+<div class="q-card" id="qcard-46">
+  <div class="q-header">
+    <div class="q-num">46</div>
+    <div class="q-text">아래 모듈 의존 관계에서 <strong>잘못된</strong> 설명은?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-size:12px;">
+      <div style="background:#ebf8ff; border:2px solid #63b3ed; border-radius:6px; padding:10px 16px; text-align:center;">
+        <div style="font-weight:700; color:#2b6cb0;">OrdersApp</div>
+        <div style="font-size:10px; color:#718096; margin-top:2px;">Consumer Module</div>
+      </div>
+      <div style="color:#718096; font-size:18px;">→</div>
+      <div style="background:#f0fff4; border:2px solid #9ae6b4; border-radius:6px; padding:10px 16px; text-align:center;">
+        <div style="font-weight:700; color:#276749;">CoreServices</div>
+        <div style="font-size:10px; color:#718096; margin-top:2px;">Producer Module</div>
+        <div style="margin-top:4px; display:flex; gap:4px;">
+          <span class="role-badge" style="font-size:10px;">CustomerAPI (Public=Yes)</span>
+        </div>
+        <div style="margin-top:3px; display:flex; gap:4px;">
+          <span style="background:#f7fafc; border:1px solid #e2e8f0; border-radius:3px; padding:1px 5px; font-size:10px; font-family:monospace; color:#718096;">InternalUtils (Public=No)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,46,'A')"><div class="option-letter">A</div><div class="option-text">OrdersApp은 CustomerAPI를 재사용할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,46,'B')"><div class="option-letter">B</div><div class="option-text">OrdersApp은 InternalUtils를 직접 호출할 수 있다</div></div>
+    <div class="option-row" onclick="selectOption(this,46,'C')"><div class="option-letter">C</div><div class="option-text">CoreServices는 Producer 모듈이다</div></div>
+    <div class="option-row" onclick="selectOption(this,46,'D')"><div class="option-letter">D</div><div class="option-text">OrdersApp은 Consumer 모듈이다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-46"><strong>정답: B</strong><div class="explain">InternalUtils는 Public = No이므로 외부 모듈(OrdersApp)에서 접근 불가합니다. Consumer는 Public = Yes인 Element만 재사용할 수 있습니다.</div></div>
+</div>
+
+<!-- Q47 -->
+<div class="q-card" id="qcard-47">
+  <div class="q-header">
+    <div class="q-num">47</div>
+    <div class="q-text">OutSystems에서 사용자 및 역할을 생성·관리하는 내장 앱은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,47,'A')"><div class="option-letter">A</div><div class="option-text">UserMgmt 앱</div></div>
+    <div class="option-row" onclick="selectOption(this,47,'B')"><div class="option-letter">B</div><div class="option-text">Users 앱</div></div>
+    <div class="option-row" onclick="selectOption(this,47,'C')"><div class="option-letter">C</div><div class="option-text">LifeTime</div></div>
+    <div class="option-row" onclick="selectOption(this,47,'D')"><div class="option-letter">D</div><div class="option-text">Service Center</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-47"><strong>정답: B</strong><div class="explain">OutSystems는 내장 <strong>Users</strong> 앱을 통해 최종 사용자 계정 및 역할을 관리합니다.</div></div>
+</div>
+
+<!-- Q48 -->
+<div class="q-card" id="qcard-48">
+  <div class="q-header">
+    <div class="q-num">48</div>
+    <div class="q-text">OutSystems에서 화면의 <strong>Role 기반 접근 제한</strong>을 설정하는 위치는?</div>
+  </div>
+  <div class="diagram-area">
+    <div class="prop-panel" style="max-width:320px;">
+      <div class="prop-header">Screen Properties: OrderDetail</div>
+      <div class="prop-row"><div class="prop-key">Name</div><div class="prop-val">OrderDetail</div></div>
+      <div class="prop-row"><div class="prop-key">Accessible by</div><div class="prop-val">[Roles 목록]</div></div>
+      <div class="prop-row"><div class="prop-key">Title</div><div class="prop-val">"Order Detail"</div></div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,48,'A')"><div class="option-letter">A</div><div class="option-text">Users 앱에서 화면과 Role을 연결한다</div></div>
+    <div class="option-row" onclick="selectOption(this,48,'B')"><div class="option-letter">B</div><div class="option-text">Screen Properties에서 접근 허용할 Role을 선택한다</div></div>
+    <div class="option-row" onclick="selectOption(this,48,'C')"><div class="option-letter">C</div><div class="option-text">Screen Action에서 CheckRole 함수를 호출하여 수동으로 처리한다</div></div>
+    <div class="option-row" onclick="selectOption(this,48,'D')"><div class="option-letter">D</div><div class="option-text">모든 화면은 로그인한 사용자만 접근 가능하므로 별도 설정이 불필요하다</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-48"><strong>정답: B</strong><div class="explain">화면의 Role 기반 접근 제한은 Screen Properties의 Roles 항목에서 허용할 Role을 선택/해제하여 설정합니다.</div></div>
+</div>
+
+<!-- Q49 -->
+<div class="q-card" id="qcard-49">
+  <div class="q-header">
+    <div class="q-num">49</div>
+    <div class="q-text">1-Click Publish 시 OutSystems 플랫폼이 생성하는 것은?</div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,49,'A')"><div class="option-letter">A</div><div class="option-text">.NET 코드, HTML, JavaScript, CSS</div></div>
+    <div class="option-row" onclick="selectOption(this,49,'B')"><div class="option-letter">B</div><div class="option-text">HTML, JavaScript, CSS만 생성 (서버 코드 없음)</div></div>
+    <div class="option-row" onclick="selectOption(this,49,'C')"><div class="option-letter">C</div><div class="option-text">Java bytecode와 HTML</div></div>
+    <div class="option-row" onclick="selectOption(this,49,'D')"><div class="option-letter">D</div><div class="option-text">Python 코드와 CSS</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-49"><strong>정답: A</strong><div class="explain">1-Click Publish 시 OutSystems는 .NET 코드(서버), HTML, JavaScript, CSS(클라이언트)를 자동 생성합니다.</div></div>
+</div>
+
+<!-- Q50 -->
+<div class="q-card" id="qcard-50">
+  <div class="q-header">
+    <div class="q-num">50</div>
+    <div class="q-text">Service Studio에서 Screen과 Block이 위치하는 레이어(탭)는?</div>
+  </div>
+  <div class="diagram-area">
+    <div style="display:flex; gap:4px; background:#f7fafc; border:1px solid #e2e8f0; border-radius:6px; overflow:hidden; width:fit-content; font-size:12px;">
+      <div style="padding:8px 16px; background:#4a6fa5; color:white; font-weight:700;">Processes</div>
+      <div style="padding:8px 16px; background:#edf2f7; color:#4a5568; font-weight:600; border-right:1px solid #e2e8f0;">Interface</div>
+      <div style="padding:8px 16px; background:#edf2f7; color:#4a5568; font-weight:600; border-right:1px solid #e2e8f0;">Logic</div>
+      <div style="padding:8px 16px; background:#edf2f7; color:#4a5568; font-weight:600;">Data</div>
+    </div>
+  </div>
+  <div class="options-area">
+    <div class="option-row" onclick="selectOption(this,50,'A')"><div class="option-letter">A</div><div class="option-text">Processes</div></div>
+    <div class="option-row" onclick="selectOption(this,50,'B')"><div class="option-letter">B</div><div class="option-text">Interface</div></div>
+    <div class="option-row" onclick="selectOption(this,50,'C')"><div class="option-letter">C</div><div class="option-text">Logic</div></div>
+    <div class="option-row" onclick="selectOption(this,50,'D')"><div class="option-letter">D</div><div class="option-text">Data</div></div>
+  </div>
+  <div class="answer-reveal" id="ans-50"><strong>정답: B</strong><div class="explain">Service Studio의 4개 레이어: Data(Entity, 변수), Logic(Actions), Interface(Screen, Block, Theme), Processes(BPT). Screen과 Block은 Interface 탭에 있습니다.</div></div>
+</div>
+
+</div><!-- /sec4 -->
+
+</main>
+
+<!-- ACTION BAR -->
+<div class="actions-bar">
+  <button class="btn btn-secondary" onclick="revealAll()">정답 공개</button>
+  <button class="btn btn-primary" onclick="submitExam()">채점하기</button>
+  <div class="score-display" id="scoreDisplay"></div>
+</div>
+
+<script>
+const answers = {
+  1:'B', 2:'A', 3:'D', 4:'C', 5:'B', 6:'C', 7:'C', 8:'B', 9:'B', 10:'B',
+  11:'A', 12:'D', 13:'B', 14:'B', 15:'C', 16:'A', 17:'A', 18:'C', 19:'B', 20:'D',
+  21:'B', 22:'C', 23:'D', 24:'A', 25:'C', 26:'C', 27:'B', 28:'C', 29:'D', 30:'B',
+  31:'B', 32:'A', 33:'D', 34:'C', 35:'A', 36:'C', 37:'D', 38:'C', 39:'B', 40:'B',
+  41:'A', 42:'C', 43:'D', 44:'B', 45:'B', 46:'B', 47:'B', 48:'B', 49:'A', 50:'B'
+};
+
+const userAnswers = {};
+
+function selectOption(el, qNum, letter) {
+  const card = document.getElementById('qcard-' + qNum);
+  card.querySelectorAll('.option-row').forEach(r => r.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qNum] = letter;
+  updateProgress();
+}
+
+function updateProgress() {
+  const answered = Object.keys(userAnswers).length;
+  document.getElementById('progressLabel').textContent = answered + ' / 50 answered';
+  document.getElementById('progressFill').style.width = (answered / 50 * 100) + '%';
+}
+
+function showSection(idx, btn) {
+  document.querySelectorAll('.section-content').forEach((s, i) => {
+    s.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.nav-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function submitExam() {
+  let correct = 0;
+  for (let q = 1; q <= 50; q++) {
+    const card = document.getElementById('qcard-' + q);
+    const ans = answers[q];
+    const user = userAnswers[q];
+    const opts = card.querySelectorAll('.option-row');
+    const letters = ['A','B','C','D'];
+    opts.forEach((opt, i) => {
+      const ltr = letters[i];
+      opt.classList.remove('correct-reveal', 'wrong-reveal');
+      if (ltr === ans) opt.classList.add('correct-reveal');
+      else if (ltr === user && user !== ans) opt.classList.add('wrong-reveal');
+    });
+    const rev = document.getElementById('ans-' + q);
+    if (rev) rev.style.display = 'block';
+    if (user === ans) correct++;
+  }
+
+  const pct = Math.round(correct / 50 * 100);
+  const pass = correct >= 35;
+  const banner = document.getElementById('resultBanner');
+  banner.style.display = 'block';
+  banner.innerHTML = `
+    <h2>${pass ? '🎉 합격!' : '😅 불합격 — 재도전하세요!'}</h2>
+    <div class="score-big ${pass ? 'pass' : 'fail'}">${correct}<span style="font-size:24px; font-weight:400; color:#718096;"> / 50</span></div>
+    <div style="margin-top:8px; font-size:15px; color:#4a5568;">${pct}% 정답 · 합격 기준: 70% (35문항) · ${pass ? '<strong style="color:#276749;">통과</strong>' : '<strong style="color:#e53e3e;">미통과</strong>'}</div>
+    <div style="margin-top:12px; font-size:13px; color:#718096;">틀린 문항을 확인하고 해당 섹션을 복습하세요.</div>
+  `;
+  banner.scrollIntoView({behavior:'smooth'});
+  document.getElementById('scoreDisplay').innerHTML = `점수: <span>${correct}</span>/50 (${pct}%)`;
+}
+
+function revealAll() {
+  for (let q = 1; q <= 50; q++) {
+    const rev = document.getElementById('ans-' + q);
+    if (rev) rev.style.display = 'block';
+    const card = document.getElementById('qcard-' + q);
+    const ans = answers[q];
+    const letters = ['A','B','C','D'];
+    card.querySelectorAll('.option-row').forEach((opt, i) => {
+      if (letters[i] === ans) opt.classList.add('correct-reveal');
+    });
+  }
+}
+</script>
+</body>
+</html>
