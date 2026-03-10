@@ -1,0 +1,5271 @@
+{
+  "setMeta": {
+    "title": "OutSystems 11 Associate Reactive Developer Dump (Korean v2)",
+    "description": "OutSystems Associate Developer (O11) exam practice set - Korean v2 with English terminology",
+    "versionLabel": "v9.02"
+  },
+  "questions": [
+    {
+      "id": "OSARD-0001",
+      "topic": "Events",
+      "difficulty": 1,
+      "stem": "이벤트는 상위 요소와의 통신만 허용합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0002",
+      "topic": "SQL and Aggregate",
+      "difficulty": 1,
+      "stem": "SQL Query에서 출력 Entity인 구조는 항상 출력 유형을 알 수 있도록 정의되어야 합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0003",
+      "topic": "Roles and Permissions",
+      "difficulty": 1,
+      "stem": "XXX Screen만 등록된 Role이 확인됩니다. 다음 설명 중 맞는 것은 무엇입니까?",
+      "choices": [
+        "A. 사용자가 로그인하지 않았습니다. Screen XXX를 요청하세요. 결과적으로 허가를 받을 수 없습니다",
+        "B. 사용자가 로그인하여 Screen XXX를 요청합니다. 결과적으로 허가를 받을 수 없습니다",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0004",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "생산자 Module의 요소 노출과 관련하여...",
+      "choices": [
+        "A. 모든 요소는 노출 및 재사용이 가능하지만 동일한 애플리케이션의 Module에서만 가능합니다.",
+        "B. 모든 요소는 모든 애플리케이션의 Module에서 노출되고 재사용될 수 있습니다.",
+        "C. Public Attribute이 Yes로 설정된 요소만 모든 애플리케이션의 Module에서 노출되고 재사용될 수 있습니다.",
+        "D. Public Attribute이 Yes로 설정된 요소만 노출하고 재사용할 수 있지만 동일한 애플리케이션의 Module에서만 가능합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0005",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Widget이 유효하지 않을 때(Valid Attribute이 False로 설정됨) Screen 동작은 무엇입니까?",
+      "choices": [
+        "A. Widget이 Screen에 나타나지 않고 그 자리에 Validation 메시지가 나타납니다.",
+        "B. Screen에는 Widget이 회색으로 표시되고 U 입력에 대한 Validation 오류 메시지가 표시됩니다.",
+        "C. 일반 Widget을 표시하고 특정 Style(예: 빨간색 테두리)을 적용하며 ^ Validation 오류 메시지를 표시합니다.",
+        "D. 일반 Widget을 표시하고 마우스를 올리면 Validation 오류 메시지를 표시합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0006",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "Static Entity의 Attribute은 필수일 수도 있고 아닐 수도 있습니다. Attribute이 필수인 경우에만 값을 설정해야 합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0007",
+      "topic": "Widgets",
+      "difficulty": 3,
+      "stem": "다음 시나리오에서는 사용자가 색상을 선택할 수 있는 ColorsDropdown Widget을 구현합니다. 색상 이름이 드롭다운에 표시되도록 하려면 옵션 텍스트 Attribute에서 무엇을 설정해야 합니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/109nu1A-BslkBff1G1BtfJaxnvCRkfNUA/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 색상.ID",
+        "B. GetColors.Color.Label",
+        "C. 색상",
+        "D. 색상.라벨"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0008",
+      "topic": "Variables and Properties",
+      "difficulty": 1,
+      "stem": "Service Center에서 사이트 Attribute 값을 수정하여 런타임 시 애플리케이션 동작을 변경할 수 있습니다.",
+      "choices": [
+        "A. False",
+        "B. True",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0009",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate 및 SQL 도구를 고려할 때 다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. SQL 도구를 사용하면 하위 Query가 포함된 Query를 작성할 수 있습니다.",
+        "B. Entity 간 조인은 Aggregate에서만 정의할 수 있습니다.",
+        "C. SQL 도구로 작성할 수 있는 모든 Query는 Aggregate로 정의할 수 있습니다.",
+        "D. Attribute 그룹화는 SQL 도구를 통해서만 수행할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0010",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "4개의 Entity Customer의 경우 Order, OrderProduct, OrderReceipt가 아래 이미지와 같이 서로 연관되어 있습니다.",
+      "choices": [
+        "A. Assubmit Order의 정보를 삭제하면 Customer 및 CustomerReceipt의 모든 관련 정보(Reference 대상)도 삭제됩니다.",
+        "B. 전체 주문에서 정보 삭제(OrderProduct 테이블에서 Reference)를 수행할 수 없습니다. 그러나 Entity OrderReceipt에 등록되어 있는 정보를 삭제하면 Entity OrderReceipt와 Entity Order 모두에 있는 정보가 삭제됩니다.",
+        "C. 전체 주문에서 정보 삭제(OrderProduct 테이블에서 Reference)를 수행할 수 없습니다. 단, Entity Customer에 등록된 정보를 삭제하는 경우 Entity Customer와 Entity Order의 정보가 모두 삭제됩니다.",
+        "D. 전체 주문에서 정보 삭제(OrderProduct 테이블에서 Reference)를 수행할 수 없습니다. 단, Entity Customer에 등록된 정보를 삭제하면 Entity Customer의 정보도 삭제됩니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0011",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Entity A에서 Entity B로의 일대일 관계는 다음에 의해 생성됩니다.",
+      "choices": [
+        "A. Entity B 식별자 데이터 유형을 <엔티티 A> 식별자로 변경합니다.",
+        "B. 새 레코드를 생성할 때 Entity B의 id Attribute을 자동 번호가 아닌 것으로 변경하고 프로그래밍 방식으로 값을 할당합니다.",
+        "C. <Entity A> 식별자 데이터 유형을 사용하여 Entity B에 새 Attribute을 추가합니다.",
+        "D. <엔티티 B> 식별자 데이터 유형을 사용하여 Entity A에 새 Attribute을 추가합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0012",
+      "topic": "Events",
+      "difficulty": 1,
+      "stem": "이벤트 처리기는 Screen 수준에서 정의할 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0013",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "If 문과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. True 및 False 분기는 모두 필수입니다.",
+        "B. If 문을 사용하여 임시 루프를 구현할 수도 있습니다.",
+        "C. If 조건의 결과에 따라 분기 중 하나만 실행됩니다.",
+        "D. 필요한 경우 더 많은 분기를 추가할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0014",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "리치 Widget에서 List_SortColumn Widget은 ...",
+      "choices": [
+        "A. 해당 열을 클릭하면 양식의 열별로 정렬할 수 있습니다.",
+        "B. 해당 열을 클릭하면 테이블 레코드의 열을 기준으로 정렬할 수 있습니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0015",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Screen의 버튼을 고려할 때 다음 옵션 중 클릭 시 대상으로 설정할 수 없는 것은 무엇입니까?",
+      "choices": [
+        "A. Screen.",
+        "B. 클라이언트 작업.",
+        "C. 차단하다.",
+        "D. 외부 사이트."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0016",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "다음 중 양식에 적용되지 않는 동작은 무엇인가요?",
+      "choices": [
+        "A. 양식은 입력 Widget을 그룹화하고 데이터 표시 및 편집을 허용합니다.",
+        "B. 양식은 사용자가 제출한 데이터의 유효성을 검사하는 데 유용합니다.",
+        "C. Form에는 사용자가 제출한 값을 보유하는 Source Attribute이 있습니다.",
+        "D. 입력 Widget 외에도 양식에는 링크 및 버튼과 같은 다른 Widget이 포함될 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0017",
+      "topic": "Theme and Style",
+      "difficulty": 2,
+      "stem": "Theme는 애플리케이션 Screen의 모양과 느낌을 정의하며 이를 애플리케이션 Screen에 직접 적용할 수 있습니다.",
+      "choices": [
+        "A. Module, UI 흐름, 개별 Screen 또는 Web Block.",
+        "B. Module, UI 흐름 또는 개별 Screen.",
+        "C. Module 또는 UI 흐름.",
+        "D. Module만."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Theme and Style",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0018",
+      "topic": "SQL and Aggregate",
+      "difficulty": 1,
+      "stem": "Aggregate 함수를 사용할 때 Aggregate 출력에는 회색 열이 포함되지 않습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0019",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Web Block과 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. Web Block은 1개의 출력만 가질 수 있습니다.",
+        "B. Web Block에는 준비 조치가 있을 수 없습니다.",
+        "C. Web Block 캔 준비 조치",
+        "D. Web Block은 여러 출력을 가질 수 있습니다"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0020",
+      "topic": "Web Blocks",
+      "difficulty": 1,
+      "stem": "Block을 사용할 때 재전송이 허용됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0021",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "다음 옵션 중 콤보 상자 변경 시에 대한 설명으로 옳은 것은 무엇입니까?",
+      "choices": [
+        "A. 요소의 값이 변경될 때 실행할 Screen 동작 또는 탐색할 Screen입니다.",
+        "B. 실행할 Screen Action과 요소의 값이 변경될 때 탐색할 Screen입니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0022",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "OutSystems 반응형 앱의 Block과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. Block은 Screen에서만 인스턴스화할 수 있습니다.",
+        "B. Block은 Screen 및 기타 Block에서 인스턴스화될 수 있습니다.",
+        "C. Block은 Screen의 클라이언트 작업에서 인스턴스화될 수 있습니다.",
+        "D. 특수 HTML 태그를 사용하여 Screen 및 외부 HTML 페이지에서 Block을 인스턴스화할 수 있습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0023",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate 및 SQL Query를 고려할 때 다음 설명 중 참인 것은 무엇입니까?",
+      "choices": [
+        "A. 모든 SQL Query는 Aggregate로 대체될 수 있습니다.",
+        "B. Aggregate와 SQL Query의 출력 유형은 다릅니다.",
+        "C. Aggregate에서 정의할 수 있는 모든 내용은 SQL Query로도 작성할 수 있습니다.",
+        "D. SQL Query와 Aggregate는 모두 플랫폼에 의해 자동으로 최적화됩니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0024",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "웹 애플리케이션에서 Screen 동작...",
+      "choices": [
+        "A. ... 종료, 대상, 다운로드 또는 예외문 발생으로 종료할 수 있습니다.",
+        "B. ... 여러 개의 종료 문을 가질 수 없습니다.",
+        "C. ... 여러 개의 종료 문을 가질 수 있지만 그 중 어느 것도 대상 문이 될 수 없습니다.",
+        "D. ... 항상 End 문으로 종료되어야 합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0025",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "테이블 또는 목록 Widget에 바인딩된 Aggregate에 의해 데이터를 어떻게 가져오나요?",
+      "choices": [
+        "A. Widget의 Source Attribute을 Aggregate의 출력으로 설정합니다.",
+        "B. Aggregate에서 가져온 데이터에 Widget을 프로그래밍 방식으로 할당하는 Screen 작업을 생성합니다.",
+        "C. Aggregate가 Screen 범위에 있으므로 바인딩이 자동으로 수행됩니다.",
+        "D. Aggregate에서 가져온 데이터의 Attribute을 Reference하는 표현식을 Widget 내부에 추가합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0026",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "저장해야 할 비즈니스 개념과 O Entity 다이어그램. 우리 애플리케이션에서 액세스되는 데이터는 다음과 같이 모델링되어야 합니다.",
+      "choices": [
+        "A. Database 테이블.",
+        "B. Entity.",
+        "C. Entity 관계.",
+        "D. 우리 애플리케이션에서 액세스되는 데이터는 다음과 같이 모델링되어야 합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0027",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에서 열이 숨겨진 경우...",
+      "choices": [
+        "A. 그들은 Aggregate 결과의 일부가 아닙니다.",
+        "B. 그들은 여전히 ​​Aggregate 출력의 일부입니다.",
+        "C. Aggregate 출력의 유일한 열입니다.",
+        "D. Database에 비어 있기 때문입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0028",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 1,
+      "stem": "준비가 언제 실행됩니까?",
+      "choices": [
+        "A. 사용자 요청 웹 페이지에서 버튼을 눌렀을 때(제출 메소드 사용)",
+        "B. User Request 웹 페이지에서 버튼을 눌렀을 때 (Ajax Submit 메소드 사용)",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0029",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "시작 -> If(Count < 3) True Count = Count + 1 , Result = Result + Count . 루프 끝 결과가 값인 경우 = ?",
+      "choices": [
+        "A. 5",
+        "B. 6",
+        "C. 7",
+        "D. 8"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0030",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Attribute 이름이 \"TotalCount\"인 경우 OutSystems는 자동으로 해당 데이터 유형을 다음으로 설정합니다.",
+      "choices": [
+        "A. 텍스트",
+        "B. 정수",
+        "C. 부울",
+        "D. 날짜"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0031",
+      "topic": "Debugging",
+      "difficulty": 2,
+      "stem": "소비자 Module을 디버깅할 때 생산자 Module에 정의된 breakpo에서 실행이 중지된다는 것을 어떻게 보장합니까?",
+      "choices": [
+        "A. 생산자에서 항목 Module Attribute을 소비자 Module로 설정합니다.",
+        "B. 생산자 Module에서도 디버거를 시작해야 합니다.",
+        "C. 아무것도 아닙니다. Service Studio를 열어두기만 하면 됩니다.",
+        "D. 생산자 Module에서 중단점을 설정하기만 하면 됩니다. 실행은 중단점에서 자동으로 중지됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0032",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "자리표시자 내부의 콘텐츠는 인스턴스마다 다를 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0033",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "템플릿을 이용하여 Screen을 생성하고, Screen에 나타나는 정보는 샘플 데이터를 이용하고 있습니다. 샘플 데이터를 실제 데이터로 대체하려는 경우 다음 중 올바른 표현은 무엇입니까?",
+      "choices": [
+        "A. 교체를 수행할 때 샘플 데이터와 실제 데이터의 필드가 매핑되지 않으면 외부 시스템이 교체를 수행할 수 있도록 Database를 자동으로 수정합니다.",
+        "B. 교체 수행 시 샘플 데이터와 실제 데이터의 필드가 매핑되지 않아 외부 시스템에서 사용자에게 오류 및 경고를 알려줍니다.",
+        "C. 교체 시 매핑이 없는 샘플 데이터와 실제 데이터의 필드는 교체할 수 없습니다.",
+        "D. Out System은 샘플 데이터 교체를 지원하지 않습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0034",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "애플리케이션 개발 속도를 높이기 위해 OutSystems에는 일반적인 시나리오에 대한 논리와 데이터가 포함된 Screen이 사전 구축되어 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0035",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "인덱스와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 사용자 정의 색인은 Entity에 추가할 수 없습니다.",
+        "B. 고유 인덱스는 데이터 중복을 방지하는 데 도움이 됩니다.",
+        "C. Reference된 Attribute에 대한 인덱스는 삭제할 수 없습니다.",
+        "D. 인덱스는 어떠한 영향도 주지 않고 데이터 검색 속도를 높여줍니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0036",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에서 소스 섹션은 다음 용도로 사용됩니다.",
+      "choices": [
+        "A. Aggregate의 출력 레코드를 테스트하기 위한 값을 정의합니다.",
+        "B. 특정 레코드 하위 집합을 가져오기 위한 조건을 정의합니다.",
+        "C. 레코드를 검색하려는 Entity를 정의합니다.",
+        "D. Aggregate의 출력 레코드 순서를 정의합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0037",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Submit 메소드는 어떤 HTTP 요청 메소드를 사용합니까?",
+      "choices": [
+        "A. 놓다",
+        "B. 우편",
+        "C. 얻다",
+        "D. 반점"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0038",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "웹 Screen 준비 중 목적지 문구...",
+      "choices": [
+        "A. . 사용할 수 없습니다.",
+        "B. 현재 Screen을 렌더링하지 않고 사용자를 다른 웹 Screen으로 리디렉션할 수 있습니다.",
+        "C. 현재 Screen을 렌더링한 후 사용자는 대상 Screen으로 리디렉션됩니다.",
+        "D. . 대상 웹 Screen으로 리디렉션되기 전에 사용자에게 메시지를 표시합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0039",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "로그 보고서 및 환경 상태 정보를 확인하기 위해 액세스할 수 있는 웹 콘솔의 이름은 무엇입니까?",
+      "choices": [
+        "A. Service Studio",
+        "B. Service Center",
+        "C. 로그 센터",
+        "D. 환경센터"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0040",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "SQL Query에서 Entity 및 Entity 특성의 이름을 쓰는 올바른 구문은 무엇입니까?",
+      "choices": [
+        "A. <엔티티> 및 <엔티티>.[Attribute]",
+        "B. {엔티티} 및 {엔티티}.<Attribute>",
+        "C. {엔티티} 및 {엔티티}.[Attribute]",
+        "D. <엔티티> 및 <엔티티>.<Attribute>"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0041",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Static Entity와 관련하여 참인 진술을 선택하세요.",
+      "choices": [
+        "A. 새로운 Static Entity를 생성하면 Id, Label, Order, Is_Active라는 4가지 Attribute이 자동으로 생성됩니다.",
+        "B. Static Entity는 생성, 업데이트, 삭제, 가져오기를 수행할 수 없습니다.",
+        "C. Static Entity의 Attribute은 변경할 수 없습니다.",
+        "D. Entity 레코드는 Create <EntityName> 또는 CreateOrUpdate <EntiryName>을 호출하여 생성할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0042",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "일부 Widget은 Ajax를 사용하여 Screen 작업을 실행할 수 있습니다. 이는 Attribute의 섹션에서 정의할 수 있습니다.",
+      "choices": [
+        "A. 특별 목록",
+        "B. 이벤트",
+        "C. 새로고침 시",
+        "D. Widget에 따라 클릭 시 또는 변경 시."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0043",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "클라이언트 작업 및 서버 작업에는 다음과 같은 Variable가 있을 수 있습니다.",
+      "choices": [
+        "A. 입력 매개Variable와 지역 Variable는 있지만 출력 매개Variable는 없습니다.",
+        "B. 입력 및 출력 매개Variable는 있지만 로컬 Variable는 없습니다.",
+        "C. 출력 매개Variable와 지역 Variable는 있지만 입력 매개Variable는 없습니다.",
+        "D. 입력 및 출력 매개Variable와 지역 Variable."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0044",
+      "topic": "Web Blocks",
+      "difficulty": 1,
+      "stem": "Theme Attribute의 Web Block 섹션에서 레이아웃 Web Block을 변경하면 기존 Screen의 레이아웃도 변경됩니까?",
+      "choices": [
+        "A. 예",
+        "B. 아니요",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0045",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Consider a Web Screen with a Button that is associated to a Screen Action. 해당 Screen 작업의 Ajax Refresh 문을 사용하면 해당 웹 Screen의 일부를 새로 고칠 수 있습니다.",
+      "choices": [
+        "A. 버튼에 Method Navigate가 있는 경우.",
+        "B. 버튼의 메소드와 관계없이.",
+        "C. 버튼에 Ajax Submit 메소드가 있는 경우.",
+        "D. 버튼에 메소드 제출이 있는 경우."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0046",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "세션 Variable에 권장되는 데이터 유형은 다음과 같습니다.",
+      "choices": [
+        "A. 모든 데이터 유형을 사용할 수 있습니다.",
+        "B. 기본 및 구조 유형.",
+        "C. 기본 및 Entity 식별자 유형.",
+        "D. 기본 및 Entity 유형."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0047",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Switch 문과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 그렇지 않으면 분기가 존재해야 합니다.",
+        "B. True로 평가되는 모든 분기가 실행됩니다.",
+        "C. 조건이 True로 평가되는 첫 번째 분기가 실행됩니다.",
+        "D. True로 평가되는 분기가 없으면 그렇지 않으면 분기가 실행됩니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0048",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "Michael이 Orders 애플리케이션의 사용자이고 그에게 OrdersAdmin Role만 할당된 경우 다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. Michael은 등록된 Role이 선택된 Screen에 액세스할 수 있습니다.",
+        "B. Michael은 익명 Role이 선택된 Screen에 액세스할 수 없습니다.",
+        "C. Michael은 OrdersAdmin Role이 선택된 Screen에 액세스할 수 있지만 등록된 Role이 선택된 Screen에는 액세스할 수 없습니다.",
+        "D. Michael은 OrdersAdmin Role이 선택된 Screen에만 액세스할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0049",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "삭제 규칙 Attribute과 관련하여 다음 옵션 중 Reference 무결성을 보장하지 않는 것은 무엇입니까?",
+      "choices": [
+        "A. 무시하다",
+        "B. 삭제",
+        "C. 보호하다",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0050",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "Block 이벤트와 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 이벤트를 사용하면 Block 범위의 정보를 상위 범위로 전달할 수 있습니다.",
+        "B. 이벤트는 Block에 의해 트리거되고 해당 상위 Block에 의해 처리됩니다.",
+        "C. 이벤트는 Block 또는 Screen 수준에서 정의할 수 있습니다.",
+        "D. Block의 두 인스턴스는 동일한 이벤트에 대해 동일한 핸들러를 사용할 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0051",
+      "topic": "SQL and Aggregate",
+      "difficulty": 3,
+      "stem": "다음 서버 작업을 고려하십시오. GetEmployeeById Aggregate가 레코드를 반환하지 않으면 어떻게 되나요?",
+      "stemImageUrl": "https://drive.google.com/file/d/1Q5JfXEu9L5OsY017HLrMbI8ZIsRl8BJ3/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. DatabaseException 흐름이 실행됩니다.",
+        "B. RecordNotFound 흐름이 실행됩니다.",
+        "C. 예외 흐름이 실행되지 않습니다.",
+        "D. Module의 전역 예외 처리기가 실행됩니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0052",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "테이블이나 목록으로 페이지 매김을 구현할 때 다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. 페이지 매김의 Max Records Attribute은 페이지당 표시할 레코드 수를 보유합니다.",
+        "B. 페이지 매김의 시작 색인 Attribute은 현재 페이지 번호를 보유합니다.",
+        "C. 페이지네이션 패턴의 총 개수 입력은 U 페이지당 레코드 수로 설정되어야 합니다.",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0053",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에 여러 필터를 추가할 수 있다는 점을 고려할 때 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 필터는 AND 연산자로 연결됩니다.",
+        "B. 필터 중 하나 이상과 일치하는 경우 레코드가 출력에 포함됩니다.",
+        "C. 논리 연산자와 일부 내장 함수를 필터 내에서 사용할 수 있습니다.",
+        "D. 모든 필터는 SQL로 변환되고 WHERE 절에 포함됩니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0054",
+      "topic": "SQL and Aggregate",
+      "difficulty": 3,
+      "stem": "다음 Aggregate를 고려할 때 GetOrdersShippingState.List.Current 레코드의 Attribute은 무엇입니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/11tUfXgUASyo932VISD6nB4Xmho342ZNn/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 두 가지 Aggregate Attribute: ShippingState 및 Count.",
+        "B. 두 개의 Aggregate Attribute(ShippingState 및 Count)과 소스 Entity의 모든 Attribute.",
+        "C. Aggregate에서 표시되는 6개의 열( ShippingState, Count, Description, DueDate, CreatedOn 및 Priority)에 해당하는 6개의 Attribute입니다.",
+        "D. 두 개의 Aggregate Attribute(ShippingState 및 Count)과 이러한 Aggregate를 계산하는 데 사용되는 열입니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0055",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Fetch Attribute이 On Demand로 설정된 Aggregate를 고려해 보세요. Aggregate는 언제 실행되나요?",
+      "choices": [
+        "A. \"At Start\"를 실행하도록 설정된 Aggregates가 자동으로 완료됩니다.",
+        "B. 프로그래밍 방식으로 서버 작업을 사용합니다.",
+        "C. 프로그래밍 방식으로 Screen 작업에서 데이터 새로 고침 노드를 사용합니다.",
+        "D. Screen이 초기화될 때 자동으로."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0056",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "REST 서비스를 사용할 때 외부 서비스로 전송된 요청을 사용자 정의하려면 어떤 콜백 작업을 사용해야 합니까?",
+      "choices": [
+        "A. 소비 시",
+        "B. 요청 전",
+        "C. 응답 후 켜기",
+        "D. REST 요청 시"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0057",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "OutSystems는 애플리케이션에서 사용자와 해당 Role을 생성하고 관리하는 내장 애플리케이션을 제공합니다.",
+      "choices": [
+        "A. UserMgmt 애플리케이션.",
+        "B. 사용자 애플리케이션.",
+        "C. 엔터프라이즈 애플리케이션.",
+        "D. 회사 응용 프로그램입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0058",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "리치 Widget에서 List_Navigation Widget은 ...",
+      "choices": [
+        "A. 페이지당 정의된 수의 요소를 표시하는 여러 페이지가 있는 테이블 레코드에 대한 네비게이터입니다.",
+        "B. 페이지당 정의된 수의 요소를 표시하는 여러 페이지가 있는 양식의 탐색기입니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0059",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "사용자가 양식의 데이터를 서버에 제출할 때...",
+      "choices": [
+        "A. Screen 동작은 양식의 데이터를 입력 매개Variable로 사용하여 실행됩니다.",
+        "B. .. 준비가 실행된 다음 Screen 작업이 실행됩니다.",
+        "C. . 데이터는 양식의 레코드 암시적 Variable에 저장됩니다.",
+        "D. . the data in the Form is only available in the Preparation."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0060",
+      "topic": "Theme and Style",
+      "difficulty": 1,
+      "stem": "1-클릭 게시 중에 애플리케이션 데이터 모델, 코드 및 인터페이스가 컴파일되어 .NET 코드, HTML, JavaScript 및 CSS를 생성합니다. 참인가 False인가?",
+      "choices": [
+        "A. False",
+        "B. True",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Theme and Style",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0061",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "견인 Entity 간에 \"포함 또는 제외\" 조인을 수행하면 ..",
+      "choices": [
+        "A. 두 Entity의 모든 레코드(FULL OUTER JOIN)",
+        "B. 견인 Entity 간에 일치하는 레코드만(INNER JOIN)",
+        "C. 오른쪽 Entity에 일치하는 항목이 없더라도 왼쪽 Entity의 모든 레코드(LEFT JOIN)",
+        "D. 왼쪽 Entity에 일치하는 항목이 없더라도 오른쪽 Entity의 모든 레코드(RIGHT JOIN)"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0062",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "다음 중 클라이언트 Variable의 좋은 사용 사례는 무엇입니까?",
+      "choices": [
+        "A. 프로필 사진",
+        "B. 사용자 이름",
+        "C. 사용자 식별자",
+        "D. 신용카드 번호"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0063",
+      "topic": "Events",
+      "difficulty": 3,
+      "stem": "다음 옵션 중 Trigger Event 노드의 올바른 사용법은 무엇입니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1R2cEa-XAB6XyZSbdHVbD8tVY_4E_h4ge/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 트리거 이벤트를 사용하면 Block이 해당 Block 범위에서 관련된 일이 발생했음을 부모(Screen 또는 Block)에 알릴 수 있습니다.",
+        "B. 트리거 이벤트를 사용하면 Screen이 Screen 범위에서 관련된 일이 발생했음을 자식(Block)에게 알릴 수 있습니다.",
+        "C. 트리거 이벤트를 사용하면 Block이 해당 Block의 범위에서 관련된 일이 발생했음을 하위 Block(다른 Block)에게 알릴 수 있습니다.",
+        "D. 트리거 이벤트를 사용하면 Screen이 Screen 범위에서 관련된 일이 발생했음을 부모(Screen 또는 Block)에 알릴 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0064",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다양한 예외는 다양한 특정 처리기에 의해 처리됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 어느 하나",
+        "D. 어느 것도 아니다"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0065",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "On Click Attribute을 사용하면 링크와 버튼의 동작을 정의할 수 있습니다.",
+      "choices": [
+        "A. 링크는 Screen으로만 이동할 수 있습니다.",
+        "B. 버튼은 요청 제출만 가능합니다.",
+        "C. 링크와 버튼은 Screen으로 이동하거나 요청을 제출할 수 있습니다.",
+        "D. 링크와 버튼은 Screen으로만 이동할 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0066",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "콤보 상자 Widget을 사용하면 드롭다운 목록에서 가능한 대안 중 하나의 값을 선택할 수 있습니다. 다음 중 불가능한 것은 무엇입니까?",
+      "choices": [
+        "A. 소스 Entity Attribute을 사용하여 Entity 또는 Static Entity에서 대안을 가져옵니다.",
+        "B. 소스 레코드 목록 Attribute을 사용하여 레코드 목록에서 대체 항목을 가져옵니다.",
+        "C. Entity 또는 Static Entity에서 대안을 얻으려면 특수 목록 섹션을 사용하십시오.",
+        "D. 특수 목록 섹션을 사용하여 특수 대안을 수동으로 설정하세요."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0067",
+      "topic": "Theme and Style",
+      "difficulty": 2,
+      "stem": "Style 로드 순서",
+      "choices": [
+        "A. Screen 및 이메일 -> 웹 차단 -> Theme",
+        "B. Theme -> Web Block -> Screen 및 이메일",
+        "C. Web Block -> Theme -> Screen 및 이메일",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Theme and Style",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0068",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "이미지 Widget ...",
+      "choices": [
+        "A. 정적 이미지만 표시합니다.",
+        "B. URL로 제공된 이미지만 표시합니다.",
+        "C. Database에 저장된 이미지만 표시합니다.",
+        "D. 정적 이미지, URL의 이미지 및 Database의 이미지를 표시합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0069",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다대다 관계에서 접속 Entity는 최소한 다음 Attribute을 가져야 합니다.",
+      "choices": [
+        "A. 각 상위 Entity를 Reference하는 복합 키입니다.",
+        "B. 각 상위 Entity에 대한 식별자 및 Foreign Key입니다.",
+        "C. 각 상위 Entity에 대한 Foreign Key 및 접합 레코드 수입니다.",
+        "D. ID, 라벨, 주문이 활성 상태입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0070",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "레코드가 출력 결과에 포함되려면 정의된 모든 필터에 대해 true여야 합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0071",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "테이블 레코드 Widget과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 소스 레코드 목록에 바인딩",
+        "B. 소스 목록에 바인딩",
+        "C. 소스 레코드에 바인딩",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0072",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "다음 중 Screen에서 이벤트가 발생하는 순서가 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 준비, 초기화, 렌더링, 파괴.",
+        "B. 초기화, 파괴, 준비, 렌더링.",
+        "C. 초기화, 준비, 렌더링, 삭제.",
+        "D. 초기화, 렌더링, 준비, 삭제."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0073",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "클라이언트 작업의 함수 Attribute을 고려할 때 다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. Function Attribute을 Yes로 설정하면 Action이 하나의 출력 매개Variable만 갖도록 제한됩니다.",
+        "B. Function Attribute을 No로 설정하면 Action이 정의된 Module에서만 사용할 수 있습니다.",
+        "C. Action이 다른 Module에 Public으로 노출되는 경우 Function Attribute을 Yes로 설정할 수 없습니다.",
+        "D. 함수 Attribute을 아니요로 설정하면 작업이 Screen 표현식에서만 사용될 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0074",
+      "topic": "Actions",
+      "difficulty": 1,
+      "stem": "종료 요소 또는 '(현재 Screen)'에 대한 대상을 사용하여 Screen 작업을 종료하면 동일한 결과가 생성됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0075",
+      "topic": "SQL and Aggregate",
+      "difficulty": 1,
+      "stem": "Aggregate에 의해 생성된 SQL을 볼 수 있습니까?",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0076",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 Entity A와 Entity B 사이에 다대다 관계를 생성하려면 어떤 단계가 필요합니까?",
+      "choices": [
+        "A. Entity A 식별자 및 Entity B 식별자 유형의 두 가지 Reference 특성을 사용하여 새 Entity C를 추가합니다.",
+        "B. Entity B의 식별자 Attribute 데이터 유형을 Entity A 식별자로 설정합니다.",
+        "C. Entity A에 Entity B 식별자 유형의 새 Reference 특성을 추가하고 Entity B에 Entity A 식별자 유형의 새 Reference 특성을 추가합니다.",
+        "D. Entity A에 Entity B 식별자 유형의 새 Reference 특성을 추가합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0077",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에 숨겨진 열이 있을 수 있다는 점을 고려할 때 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 숨겨진 열은 Aggregate를 최적화하는 데 도움이 됩니다.",
+        "B. Database에서 비어 있는 열은 자동으로 숨겨집니다.",
+        "C. 숨겨진 열은 출력의 일부가 아닙니다.",
+        "D. Aggregate에서 열을 숨기면 출력 미리 보기에만 영향을 줍니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0078",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "인증된 사용자(사용자 이름과 비밀번호 포함)만 애플리케이션에 액세스할 수 있도록 하려면 어떻게 해야 합니까?",
+      "choices": [
+        "A. 사용자 애플리케이션에서 새 Role을 생성하고 이름을 \"인증된 사용자\"로 변경한 후 모든 Screen에서 확인하세요.",
+        "B. 애플리케이션에서 새 Role을 생성하고 이름을 \"인증된 사용자\"로 변경한 후 모든 Screen에서 확인하세요.",
+        "C. 모든 Screen에서 익명 Role을 선택 취소합니다.",
+        "D. 모든 Screen에서 익명 Role을 확인하세요."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0079",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "CRUD 작업을 위한 Entity 작업 집합을 사용하여 Entity가 생성됩니다. 어떤 것입니까?",
+      "choices": [
+        "A. 삽입, 업데이트, 삭제",
+        "B. 만들기, CreateOrUpdate, 업데이트, 가져오기, GetForUpdate, 삭제",
+        "C. 가져오기, 게시, 삭제",
+        "D. 추가, 변경, 제거"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0080",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "양식 Widget은 입력 및 라벨 Widget만 허용합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0081",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "다음 중 링크와 버튼의 동작으로 옳은 것은 무엇입니까?",
+      "choices": [
+        "A. 링크만 외부 URL로 이동할 수 있습니다.",
+        "B. 링크는 Screen으로만 이동할 수 있습니다.",
+        "C. 버튼은 클릭 시 대상으로 Screen 작업만 가질 수 있습니다.",
+        "D. 링크와 버튼은 Screen으로 이동하거나 Screen 작업을 트리거할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0082",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Static Entity는 어떤 다른 프로그래밍 개념과 가장 유사합니까?",
+      "choices": [
+        "A. 열거.",
+        "B. 연결된 목록.",
+        "C. 해시 맵.",
+        "D. 정적 Variable."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0083",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Web Block의 인스턴스는 Widget이며 Ajax 새로 고침으로 새로 고치면 ...",
+      "choices": [
+        "A. Ajax 새로 고침은 무시됩니다.",
+        "B. 전체 Screen이 새로 고쳐집니다.",
+        "C. Web Block 준비가 실행되고 Web Block이 업데이트됩니다.",
+        "D. 준비가 실행되지 않기 때문에 Web Block은 그대로 유지됩니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0084",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 로컬 Variable를 사용하면 Screen 내부에 관련 정보를 임시로 저장할 수 있습니다.",
+        "B. 입력 매개Variable를 사용하면 Screen 간을 탐색할 때 Screen 간에 데이터를 전달할 수 있습니다.",
+        "C. 지역 Variable의 값이 변경되면 사용자 인터페이스가 즉시 반응합니다.",
+        "D. Screen의 로컬 Variable는 다른 Screen에서 직접 액세스할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0085",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 Static Entity의 특징은 무엇입니까?",
+      "choices": [
+        "A. 새로운 Attribute으로 확장할 수 없습니다.",
+        "B. 두 개의 Entity 작업이 있습니다.",
+        "C. 처음 게시한 후에는 변경할 수 없습니다.",
+        "D. 여기에는 일련의 레코드가 포함되어 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0086",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "OutSystems에서 REST API를 노출할 수 있습니까?",
+      "choices": [
+        "A. 예",
+        "B. 아니요",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0087",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "이메일, 전화번호는 기본 데이터형인가요?",
+      "choices": [
+        "A. 예",
+        "B. 아니요",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0088",
+      "topic": "SQL and Aggregate",
+      "difficulty": 3,
+      "stem": "검토자(직원)와 함께 주문을 가져오는 다음 Aggregate를 고려할 때 다음 옵션 중 올바른 것은 무엇입니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1IRBcUVYjDN-h0tAlOhJ4ZOL4Nm2udq86/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Aggregate는 우선순위, 상태 및 직원이 있는 주문만 반환합니다.",
+        "B. Aggregate는 직원 및 상태가 없는 주문을 반환합니다.",
+        "C. Aggregate는 상태와 최소 한 명의 직원이 있는 주문을 반환합니다.",
+        "D. Aggregate는 우선순위가 있고 직원이 0명 이상인 주문을 반환합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0089",
+      "topic": "Debugging",
+      "difficulty": 2,
+      "stem": "디버깅이 다른 사람에게 영향을 주지 않을 때 어떤 모드를 사용해야 할까요?",
+      "choices": [
+        "A. 개인 영역",
+        "B. 공공 장소",
+        "C. 둘 다(개인 영역 또는 공개 영역)",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0090",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "목록 Screen을 만든 다음 세부정보 Screen을 만들려면...",
+      "choices": [
+        "A. Entity를 UI 흐름에 끌어다 놓으면 자동으로 목록 및 세부 정보 Screen이 생성됩니다.",
+        "B. UI Flow에 Entity를 드래그 앤 드롭하여 List Screen을 생성하고, 이를 반복하여 Detail Screen을 생성합니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0091",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Screen Aggregate와 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. Screen Aggregate는 명시적으로 호출될 때만 실행할 수 있습니다.",
+        "B. Screen Aggregate는 Database에서만 데이터를 가져올 수 있습니다.",
+        "C. Screen Aggregate는 정의된 Screen 범위 내에서만 존재합니다.",
+        "D. Screen Aggregate는 비동기식 및 병렬로 실행됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0092",
+      "topic": "Events",
+      "difficulty": 1,
+      "stem": "매개Variable 변경 시에는 상위에서 Block으로, 이벤트 핸들러는 Block에서 상위로 변경됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0093",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "List_SortColumn과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 열을 \"{EntityName}.[AttributeName]\"으로 설정하고 동적 정렬을 정의합니다.",
+        "B. 열을 \"{EntityName}.[AttributeName]\"으로 설정하고 동적 정렬을 자동으로 추가합니다.",
+        "C. 열을 \"{EntityName}.{AttributeName}\"으로 설정하고 동적 정렬을 정의합니다.",
+        "D. 열을 \"{EntityName}.{AttributeName}\"으로 설정하고 자동으로 동적 정렬을 추가합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0094",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "특정 Role에 Widget을 표시하고 싶을 때 가장 좋은 방법은 무엇입니까?",
+      "choices": [
+        "A. Widget의 Visible Attribute 설정은 <RoleName> Role(UserId) = True인지 확인하세요.",
+        "B. 컨테이너를 사용하여 Display Attribute이 <RoleName> Role(UserId) = True인지 확인하여 컨트롤을 표시합니다.",
+        "C. <RoleName> Role(UserId) = True인지 확인하는 경우 If 조건을 사용하여 컨트롤을 표시합니다.",
+        "D. 각 Widget 단위로 표시를 할 수 없어 할 수 없습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0095",
+      "topic": "Debugging",
+      "difficulty": 3,
+      "stem": "양의 십진수(N)의 제곱근(sqrt)을 계산하는 다음 작업을 고려하세요. 함수가 N = 0으로 호출되었고 디버거가 시작 노드에서 중지되었음을 알고 개발자가 그림에 강조 표시된 계속(F9) 옵션을 선택하면 어떻게 될까요?",
+      "stemImageUrl": "https://drive.google.com/file/d/1L6qUwd2jjqWAluUB-Kv5gQghendWoMr2/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 작업은 sqrt = 0으로 종료됩니다.",
+        "B. 작업에서 예외가 발생하고 sqrt에는 값이 없습니다.",
+        "C. 디버거는 N < 0 If 노드에서 중지됩니다.",
+        "D. 디버거는 끝 노드의 중단점에서 중지됩니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0096",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "다음 중 Aggregate에서 계산된 Attribute을 생성하는 데 사용할 수 없는 요소는 무엇입니까?",
+      "choices": [
+        "A. Variable.",
+        "B. Entity Attribute을 사용하는 서버 작업.",
+        "C. SQL로 변환할 수 있는 내장 함수(예: Length(), Power()).",
+        "D. 소스 Entity의 Attribute 값입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0097",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "Screen 작업 흐름의 데이터 새로 고침은 다음 용도로 사용됩니다.",
+      "choices": [
+        "A. 특정 Query의 데이터 새로 고침이 준비에 있습니다.",
+        "B. 준비에서 모든 Query의 데이터를 새로 고칩니다.",
+        "C. 준비를 다시 실행하십시오.",
+        "D. 특정 Widget을 새로 고칩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0098",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "Aggregate가 서로 의존하는 경우 어떤 이벤트가 유용합니까?",
+      "choices": [
+        "A. 준비가 된",
+        "B. 세우다",
+        "C. 파괴하다",
+        "D. 가져온 후"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0099",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "Screen은 Widget이라는 여러 요소로 구성됩니다.",
+      "choices": [
+        "A. False",
+        "B. True",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0100",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "Screen에 대한 메뉴 옵션을 만들려면 해당 Screen을 메뉴에 끌어다 놓으면 됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0101",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "Screen 수명주기와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. Ajax 제출, 준비 작업이 다시 로드되지 않습니다.",
+        "B. Ajax 제출, 준비 작업이 다시 로드됩니다.",
+        "C. IsLoadingScreen()은 ajax reload를 사용하여 Screen HTML의 일부를 다시 로드할 때 true를 반환합니다.",
+        "D. IsLoadingScreen()은 Screen HTML 빌드를 시작하지 않고 준비 단계에서 false를 반환합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0102",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Web Block과 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. 웹 Screen 및 기타 Web Block에서 Web Block을 인스턴스화할 수 있습니다.",
+        "B. 특별한 html 태그를 추가하여 웹 Screen 및 외부 HTML 페이지에서 Web Block을 인스턴스화할 수 있습니다.",
+        "C. Screen 작업에서 Web Block을 인스턴스화할 수 있습니다.",
+        "D. 웹 Screen에서만 Web Block을 인스턴스화할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0103",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "LifeTime을 사용하면 IT 사용자와 팀을 관리할 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 어느 하나",
+        "D. 어느 것도 아니다"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0104",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "세션 Variable와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 영구 Attribute을 true로 설정하면 전체 시스템에서 세션을 공유하여 사용할 수 있습니다.",
+        "B. 세션 Variable는 기본 데이터 유형(Integer, Text, Boolean, ...)만 사용할 수 있습니다.",
+        "C. 세션 시간이 초과되면 세션 Variable가 만료됩니다.",
+        "D. 사용자 로그아웃 후 세션 값을 저장하도록 캐시 Attribute을 설정합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0105",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Screen 작업 흐름에서 Ajax 새로 고침을 사용하면 특정 Widget을 새로 고칠 수 있지만 작동하려면 ...",
+      "choices": [
+        "A. Widget은 테이블 레코드여야 하며 Screen 작업은 Ajax 제출을 통해 실행되어야 합니다.",
+        "B. Widget에는 이름이 있어야 하며 Screen 작업은 Ajax 제출을 통해 실행되어야 합니다.",
+        "C. Widget에는 이름이 있어야 하며 Screen 작업은 제출을 통해 실행되어야 합니다.",
+        "D. Widget에는 이름이 있어야 하며 Screen 작업은 Navigate를 사용하여 실행되어야 합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0106",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. 스크린 Action은 다른 스크린에서 다른 스크린 Action을 호출할 수 있습니다.",
+        "B. 클라이언트 작업은 Screen 작업을 호출할 수 있습니다.",
+        "C. 서버 작업은 클라이언트 작업을 호출할 수 있습니다.",
+        "D. 클라이언트 작업은 서버 작업을 호출할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0107",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "On 초기화 수명주기 이벤트를 고려할 때 다음 옵션 중 참인 것은 무엇입니까?",
+      "choices": [
+        "A. On 초기화 이벤트는 Screen이나 Block이 렌더링되기 전과 데이터를 가져오기 전에 트리거됩니다.",
+        "B. On 초기화 이벤트는 Screen이나 Block이 렌더링된 후에 트리거되므로 이를 사용하여 해당 구조를 조작할 수 있습니다.",
+        "C. On 초기화 이벤트는 Aggregate가 데이터 가져오기를 마친 후 트리거되며 Screen에서 사용되기 전에 검색된 데이터에 대해 작업을 수행하는 데 사용할 수 있습니다.",
+        "D. On 초기화 이벤트는 Block의 입력 매개Variable가 변경된 후 트리거됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0108",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "OutSystems, Entity 식별자 ...",
+      "choices": [
+        "A. ... 데이터 유형이 Long Integer로 설정되어 있어야 합니다.",
+        "B. ...은 자동 번호로 설정되어야 합니다.",
+        "C. ...단일 Attribute만 가능합니다.",
+        "D. ...은 자동으로 생성되며 수정할 수 없습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0109",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "Javascript 리스너 제거 또는 이전에 준비 이벤트에서 변경된 DOM 정리와 같은 매우 구체적인 사용 사례에 필요한 이벤트는 무엇입니까?",
+      "choices": [
+        "A. 준비가 된",
+        "B. 세우다",
+        "C. 파괴하다",
+        "D. 가져온 후"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0110",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "템플릿을 사용하여 Screen을 생성하는 경우...",
+      "choices": [
+        "A. 대체할 수 없는 샘플 데이터로 Screen을 생성하기 위해 템플릿의 복사본을 만듭니다.",
+        "B. 실제 데이터로 대체할 수 있는 샘플 데이터로 Screen을 생성하기 위해 템플릿의 복사본을 만듭니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0111",
+      "topic": "Actions",
+      "difficulty": 1,
+      "stem": "모든 서버 작업을 SQL로 변환할 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0112",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "List.Current in Aggregates는 모든 위치의 레코드를 반환합니다.",
+      "choices": [
+        "A. 빈 레코드를 반환합니다.",
+        "B. list.count -1 위치의 레코드를 반환합니다.",
+        "C. list.length 위치의 레코드를 반환합니다 - 1",
+        "D. 첫 번째 레코드를 반환합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0113",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 정적 개체의 기록에 관한 설명으로 틀린 것은 무엇입니까?",
+      "choices": [
+        "A. 기록은 개발 중에만 추가 및 제거할 수 있습니다.",
+        "B. 4가지 기본 Attribute 모두에 대한 값을 정의해야 합니다.",
+        "C. 모든 Static Entity에는 식별자 특성이 필요합니다.",
+        "D. 레코드 식별자는 Static Entity의 식별자입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0114",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "Ajax 제출 후: 시작 -> 데이터 새로 고침 -> xxx -> 종료. xxx는?",
+      "choices": [
+        "A. Ajax 새로 고침 Widget",
+        "B. 데이터 새로 고침 Widget",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0115",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "개발자가 Module을 게시하면 어떻게 되나요?",
+      "choices": [
+        "A. 브라우저가 열립니다.",
+        "B. OutSystems 플랫폼은 이를 컴파일하고 HTML, CSS 및 JavaScript를 생성합니다.",
+        "C. 아무것도 아님.",
+        "D. 코드는 업로드되지만 사용자가 애플리케이션에 액세스할 때만 컴파일됩니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0116",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "서버 작업과 관련하여 올바른 옵션을 선택하세요.",
+      "choices": [
+        "A. 함수 Attribute을 예로 설정하려면 서버 작업에 출력 매개Variable가 하나만 있어야 합니다.",
+        "B. 모든 서버 작업에는 입력 또는 출력 매개Variable가 하나 이상 있어야 합니다.",
+        "C. 공용 Attribute을 예로 설정하려면 서버 작업에 입력 또는 출력 매개 Variable가 하나 이상 있어야 합니다.",
+        "D. Public Attribute과 Function Attribute을 동시에 Yes로 설정할 수는 없습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0117",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Web Block과 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. Web Block은 재귀적으로 배치할 수 없습니다(재귀는 허용되지 않음).",
+        "B. Web Block은 다른 Web Block을 포함할 수 없습니다.",
+        "C. Web Block에는 준비 조치가 없습니다.",
+        "D. Web Block은 동일한 애플리케이션에 속한 Module에 대해서만 공유될 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0118",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "체크박스 또는 스위치 Widget은 어떤 유형의 Variable에 바인딩됩니까?",
+      "choices": [
+        "A. 부울",
+        "B. 텍스트",
+        "C. 정수",
+        "D. 날짜"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0119",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "작업 흐름 내부...",
+      "choices": [
+        "A. ... 예외 처리기는 하나만 존재할 수 있습니다.",
+        "B. ... 하나 이상의 예외 처리기가 있어야 합니다.",
+        "C. ... 예외 처리기 흐름은 다른 흐름과 교차할 수 없습니다.",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0120",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 테이블 정렬과 관련하여 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. 모든 머리글 셀에는 정렬 Attribute Attribute이 정의되어 있어야 합니다.",
+        "B. 헤더 셀의 정렬 Attribute만 정의하면 됩니다. 데이터가 자동으로 새로 고쳐집니다.",
+        "C. On Sort 이벤트에는 클릭한 열을 포함하는 입력 매개Variable가 있습니다.",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0121",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "스크린 준비의 주요 목적은 무엇입니까?",
+      "choices": [
+        "A. 렌더링할 Widget을 결정합니다.",
+        "B. Database에서 데이터를 가져옵니다.",
+        "C. 양식 데이터를 서버에 제출합니다.",
+        "D. 사용자를 적절한 Screen으로 리디렉션합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0122",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Expression의 Escape Content Attribute과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 아니요로 설정하면 결과는 수식의 결과와 정확히 동일하게 반환됩니다.",
+        "B. 예로 설정하면 결과는 수식의 결과와 정확히 동일하게 반환됩니다.",
+        "C. 값이 No인 경우 반환된 결과의 특수 문자가 사용 중인 프로토콜에 영향을 주지 않는 문자로 대체되었습니다.",
+        "D. 기본값은 아니요입니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0123",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "기준을 충족하는 레코드가 없을 때 Aggregate의 출력은 무엇입니까?",
+      "choices": [
+        "A. 널 목록",
+        "B. 빈 목록",
+        "C. 목록에 빈 레코드가 있습니다.",
+        "D. 목록에 기본 데이터가 포함된 레코드가 있습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0124",
+      "topic": "Data Modeling",
+      "difficulty": 3,
+      "stem": "고객 데이터를 수집하는 양식이 포함된 Screen을 생각해 보세요. 양식에는 Database에 저장하기 위해 데이터를 서버로 보내는 SaveOnClick 작업으로 설정된 클릭 시 대상이 있는 저장 버튼이 있습니다. 필수 고객 데이터 필드가 채워지지 않은 경우 서버에 데이터를 보내지 않도록 하는 가장 좋은 방법은 무엇입니까?",
+      "choices": [
+        "A. 저장 버튼의 내장 Validation를 예로 설정하면 됩니다.",
+        "B. 모든 입력에 대해 사용자 정의 검증을 수행합니다. 실패할 경우 양식의 Valid Attribute을 False로 설정합니다.",
+        "C. 저장 버튼의 내장 Validation를 예로 설정하고 양식의 유효한 Attribute이 True인지 확인하세요.",
+        "D. 저장 버튼의 내장 Validation를 예로 설정하고 예외 처리기 흐름을 추가하여 잘못된 입력을 처리합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0125",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "아래와 같이 Aggregate의 경우 필터에 요청하여 이름에 \"John\"이라는 문자열이 포함된 사람을 찾습니다.",
+      "choices": [
+        "A. Person.Name = \"John\"",
+        "B. \"John\"과 같은 사람.이름",
+        "C. \"%John%\"과 같은 사람.이름",
+        "D. 'John'과 같은 사람.이름"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0126",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "표시된 대로 1개의 Aggregate를 제공합니다. Point1에 따라 그룹의 평균 점수를 표시하는 방법을 질문하고, 연도별로 점수가 가장 높은 Point2의 순서를 정렬합니다.",
+      "choices": [
+        "A. Year Attribute에 따라 GROUPBY 함수를 사용한 다음 Point 1 Attribute에 대해 AVERAGE 함수를 수행하고 Point 2 Attribute에 대해 MAX 함수를 수행합니다.",
+        "B. Group Attribute에 따라 GROUPBY 함수를 사용한 다음 Point 1 Attribute에 대해 AVERAGE 함수를 수행하고 Point 2 Attribute에 대해 MAX 함수를 수행합니다.",
+        "C. Year Attribute에 따라 GROUPBY 함수를 사용한 다음 Point 2 Attribute에 대해 AVERAGE 함수를 수행하고 Point 1 Attribute에 대해 MAX를 수행합니다.",
+        "D. Group Attribute에 따라 GROUPBY 함수를 사용한 다음 Point 2 Attribute에 대해 AVERAGE 함수를 수행하고 Point 1 Attribute에 대해 MAX 함수를 수행합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0127",
+      "topic": "Debugging",
+      "difficulty": 1,
+      "stem": "OutSystems에서는 디버깅하는 동안 Variable 값을 검사하는 것이 가능합니다.",
+      "choices": [
+        "A. False",
+        "B. True",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0128",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에서 테스트 값 섹션의 목적은 다음과 같습니다.",
+      "choices": [
+        "A. 출력 레코드의 순서를 정의합니다.",
+        "B. 레코드를 가져오려는 Entity를 정의합니다.",
+        "C. Aggregate 출력 미리보기를 테스트하기 위한 값을 정의합니다.",
+        "D. 모든 기록이 아닌 특정 기록을 얻기 위한 조건을 설정하는 것입니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0129",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "작업 흐름 내부...",
+      "choices": [
+        "A. 예외 처리기 흐름은 다른 흐름과 교차할 수 없습니다.",
+        "B. 예외 처리기는 하나만 존재할 수 있습니다.",
+        "C. 최소한 하나의 예외 처리기가 있어야 합니다.",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0130",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Module 생산자에서는 다른 Module과 공유할 수 없습니다.",
+      "choices": [
+        "A. 세션 Variable",
+        "B. 서버 작업",
+        "C. Role",
+        "D. 프로세스"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0131",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "자리 표시자와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 자리 표시자는 Block이 인스턴스화될 때 할당될 인터페이스의 공간을 예약합니다.",
+        "B. 스크린과 Block에 자리 표시자를 추가할 수 있습니다.",
+        "C. 자리 표시자가 있는 Block이 인스턴스화되면 자리 표시자 안에 최소한 하나의 Widget을 배치해야 합니다.",
+        "D. Block당 하나의 자리 표시자만 추가할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0132",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "결함이 있는 품목 바로 아래에 오류가 표시되기 전에 어떤 유형의 검증을 선택해야 합니까?",
+      "choices": [
+        "A. 클라이언트 및 서버",
+        "B. 섬기는 사람",
+        "C. 고객",
+        "D. 괜찮은"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0133",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "새 웹 Screen을 만들면 기본적으로 머리글, 메뉴, 바닥글이 있습니다. 이유는 다음과 같습니다.",
+      "choices": [
+        "A. .. 빈 Module에서도 모든 Screen이 그런 식으로 생성됩니다.",
+        "B. 모든 Screen에는 머리글, 메뉴 및 바닥글이 있어야 합니다.",
+        "C. 이는 해당 Web Block에 대한 자리 표시자가 있는 레이아웃 Web Block으로 구축됩니다.",
+        "D. 모든 Screen에는 해당 Web Block에 대한 세 개의 컨테이너가 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0134",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "Outsystems의 REST API와 관련하여 true인 진술을 선택하십시오.",
+      "choices": [
+        "A. 메서드의 출력에는 텍스트 유형이 있어야 합니다.",
+        "B. REST API는 OnBeforeRequest를 가질 수 있지만 OnAfterResponse는 메서드에 대한 콜백 작업입니다.",
+        "C. REST API는 OnBeforeRequest를 가질 수 있고 OnAfterResponse를 가질 수 있습니다.",
+        "D. REST API 메서드에는 OnBeforeRequest 작업과 OnAfterResponse 작업이 모두 포함될 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0135",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 고객 Entity의 Entity 작업이 아닌 것은 무엇입니까?",
+      "choices": [
+        "A. 고객 삭제.",
+        "B. 업데이트고객.",
+        "C. CreateCustomer.",
+        "D. 고객 검색."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0136",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다음 중 OutSystems에 내장된 검증 옵션이 아닌 것은 무엇입니까?",
+      "choices": [
+        "A. 텍스트 필드의 최대 길이",
+        "B. 필수 항목",
+        "C. 입력 필드의 데이터 유형",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0137",
+      "topic": "General",
+      "difficulty": 1,
+      "stem": "정렬 시 동적 정렬을 추가해도 괜찮나요?",
+      "choices": [
+        "A. 예",
+        "B. 아니요",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0138",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "다음 중 Block 이벤트에 대한 핸들러를 정의해야 하는 상황은 무엇입니까?",
+      "choices": [
+        "A. 이벤트에 입력 매개Variable가 있는 경우.",
+        "B. 이벤트 입력 매개Variable가 모두 필수인 경우.",
+        "C. Block에 자리 표시자가 있는 경우.",
+        "D. 이벤트가 필수로 설정된 경우."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0139",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "Screen Aggregate 및 데이터 작업에서만 사용할 수 있으며 Database 또는 서버에서 가져온 데이터에 따라 작동하는 이벤트입니다.",
+      "choices": [
+        "A. 준비가 된",
+        "B. 세우다",
+        "C. 파괴하다",
+        "D. 가져온 후"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0140",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "내장된 Role 작업을 고려할 때 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. CheckRole 작업은 사용자에게 특정 Role이 있는지 확인합니다.",
+        "B. CreateUserWithRole 작업은 최종 사용자를 생성하고 Role을 할당합니다.",
+        "C. RevokeRole 작업을 사용하면 프로그래밍 방식으로 사용자의 Role을 제거할 수 있습니다.",
+        "D. GrantRole 작업을 사용하면 프로그래밍 방식으로 사용자에게 Role을 부여할 수 있습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0141",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다음 중 개발 환경이 아닌 것은 무엇입니까?",
+      "choices": [
+        "A. Service Center",
+        "B. Integration Studio",
+        "C. Service Studio",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0142",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "어떤 Service Studio 계층에서 Entity를 찾을 수 있나요?",
+      "choices": [
+        "A. 데이터",
+        "B. 논리",
+        "C. 프로세스",
+        "D. 인터페이스"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0143",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "OutSystems에서 Block은 재사용 가능한 UI 구성요소입니다. 다음 중 옳지 않은 것은 무엇입니까?",
+      "choices": [
+        "A. Block은 유지 관리성을 향상시킵니다. 즉, 디자인이나 기능을 변경하고 모든 용도에 영향을 줍니다.",
+        "B. Block은 재사용성을 촉진합니다. 즉, 한 번 개발하면 여러 번 재사용할 수 있습니다.",
+        "C. Block은 자체 논리를 캡슐화합니다.",
+        "D. Block은 한 번만 재사용할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0144",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "다음 중 사이트 Attribute의 좋은 사용 사례는 무엇입니까?",
+      "choices": [
+        "A. REST 웹 서비스 API 키",
+        "B. 제품 총 재고 수량",
+        "C. 현재 사용자 ID",
+        "D. 검색 키워드"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0145",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 마스터 Entity A와 세부 Entity B 간의 일대다 관계를 생성하려면 어떤 단계가 필요합니까?",
+      "choices": [
+        "A. Entity A에는 Entity B 식별자 유형의 Reference 특성이 있어야 합니다.",
+        "B. Entity B의 식별자 Attribute 데이터 유형을 Entity A 식별자로 설정합니다.",
+        "C. Entity A 식별자 및 Entity B 식별자 유형의 두 가지 Reference 특성을 사용하여 새 Entity C를 추가합니다.",
+        "D. Entity B에는 Entity A 식별자 유형의 Reference 특성이 있어야 합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0146",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "컨테이너 Widget과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 기본적으로 컨테이너는 1열에서 최대 12열까지 확장될 수 있습니다.",
+        "B. 컨테이너를 사용하면 여러 Widget을 그룹화할 수 있습니다.",
+        "C. 모든 컨테이너에는 내부에 Widget이 하나 이상 있어야 합니다.",
+        "D. 컨테이너는 다른 컨테이너 안에 배치될 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0147",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "Screen 작업은 서버 작업을 호출할 수도 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 어느 것도 아니다",
+        "D. 어느 하나"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0148",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "목록 정렬과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 목록에는 On Sort 이벤트가 내장되어 있습니다.",
+        "B. 목록을 사용할 때 정렬 절은 런타임 시 동적으로 변경될 수 없습니다.",
+        "C. 최종 사용자가 정렬 기준을 정의할 수 있도록 하려면 다른 Widget을 사용해야 합니다.",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0149",
+      "topic": "Data Modeling",
+      "difficulty": 3,
+      "stem": "Screen에 이미 구현된 테이블과 연결된 다음 페이지 매김을 고려하세요. Service Studio에는 오류가 없지만 사용자가 페이지 매김 Widget에서 새 페이지를 선택하면 테이블의 결과가 변경되지 않습니다. 그 행동의 이유는 무엇입니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1r1xbok0WwGQ3MYyhGmj1oVDCz6rVfDA3/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. GetMovies Aggregate는 OnNavigate 작업에서 새로 고쳐지지 않습니다.",
+        "B. 최대. Aggregate의 레코드는 Database의 총 영화 수와 동일해야 합니다.",
+        "C. OnNavigate 작업에서 테이블이 새로 고쳐지지 않습니다.",
+        "D. 페이지 매김의 Max Records Attribute은 GetMovies.Count로 설정되고 TotalCount는 RecordsPerPage로 설정되어야 합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0150",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Entity에서 레코드를 삭제하면 Foreign Key Reference가 있는 Entity의 모든 레코드가 삭제됩니다. 이 경우 어떤 삭제 규칙을 사용하고 있나요?",
+      "choices": [
+        "A. 보호하다",
+        "B. 삭제",
+        "C. 무시하다",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0151",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Navigate 메서드를 사용하여 Button을 클릭한 후 올바른 Screen 수명 주기 순서는 무엇입니까?",
+      "choices": [
+        "A. 준비를 실행한 다음 대상 Screen을 렌더링합니다.",
+        "B. Screen 작업을 실행하고 준비를 실행하고 대상 Screen을 렌더링합니다.",
+        "C. 렌더링 대상 Screen을 선택한 다음 준비를 실행합니다.",
+        "D. 준비를 실행한 다음 Screen 작업을 실행합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0152",
+      "topic": "SQL and Aggregate",
+      "difficulty": 1,
+      "stem": "SQL Query에서는 SELECT 문 실행만 허용됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0153",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "다음 중 클라이언트 Variable에 대한 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. 기밀 정보를 저장하려면 클라이언트 Variable를 사용해야 합니다.",
+        "B. 목록이나 바이너리 데이터도 클라이언트 Variable에 저장할 수 있습니다.",
+        "C. 클라이언트 Variable의 값은 로그인한 모든 사용자 간에 공유됩니다.",
+        "D. 클라이언트 Variable는 자주 액세스하는 정보를 캐시하는 데 유용합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0154",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Module 및 애플리케이션과 관련하여 다음 옵션 중 잘못된 것은 무엇입니까?",
+      "choices": [
+        "A. 요소는 노출 및 재사용이 가능하지만 동일한 애플리케이션 내에서만 가능합니다.",
+        "B. 다른 Module의 요소를 재사용하는 Module을 소비자라고 합니다.",
+        "C. 애플리케이션은 Module 세트로 구성됩니다.",
+        "D. Module은 Reactive Web App, Blank 또는 Extension과 같은 다양한 유형일 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0155",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "테이블 레코드 Widget...",
+      "choices": [
+        "A. 열당 하나씩 테이블 형식 레이아웃으로 레코드를 표시합니다.",
+        "B. 레코드를 행당 하나씩 테이블 형식 레이아웃으로 표시합니다.",
+        "C. 테이블당 하나씩 테이블 형식 레이아웃으로 레코드를 표시합니다.",
+        "D. 레코드를 자유 형식으로 표시합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0156",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "확인란 Widget은 다음 유형의 Variable에 바인딩됩니다.",
+      "choices": [
+        "A. 텍스트",
+        "B. 정수",
+        "C. 부울",
+        "D. 날짜"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0157",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "사용자 세션의 수명주기...",
+      "choices": [
+        "A. 사용자가 애플리케이션에서 인증할 때 시작되고 끝나지 않습니다.",
+        "B. 사용자가 애플리케이션에서 인증할 때 시작되고 로그아웃 또는 시간 초과로 끝납니다.",
+        "C. 애플리케이션에 처음 액세스할 때 시작되며(익명인 경우에도) 끝나지 않습니다.",
+        "D. 애플리케이션에 처음 액세스할 때(익명인 경우에도) 시작되고 로그아웃 또는 시간 초과로 끝납니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0158",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "다음 중 Screen Aggregate와 관련된 옵션 중 잘못된 것은 무엇입니까?",
+      "choices": [
+        "A. Screen Aggregate는 Screen이 초기화될 때 또는 요청 시에만 실행될 수 있습니다.",
+        "B. On After Fetch 이벤트는 Fetch Attribute에 관계없이 모든 Aggregate에 대해 트리거됩니다.",
+        "C. Render Event on the Screen은 Fetch Attribute이 \"요청 시에만\"으로 설정된 Aggregate가 실행을 완료할 때 트리거됩니다.",
+        "D. 기본적으로 모든 Aggregate에는 Fetch Attribute이 On Demand로 설정되어 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0159",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "Style 클래스는 재정의될 수 있는데, Web Block, 스크린, Theme에 동일한 Style 클래스가 정의되어 있으면 어떤 정의가 적용되나요?",
+      "choices": [
+        "A. Web Block에 있는 것.",
+        "B. Screen 속의 것.",
+        "C. Theme에 있는 것.",
+        "D. UI 흐름에 있는 것입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0160",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "Outsystems에서는 Consumed REST API Method의 출력 매개Variable를 매핑할 수 없습니다.",
+      "choices": [
+        "A. ... Entity.",
+        "B. ... Aggregate.",
+        "C. ... 구조.",
+        "D. ... 기본 유형."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0161",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "작업 흐름에 여러 예외 처리기가 있고 예외가 발생하는 경우...",
+      "choices": [
+        "A. ... 실행은 항상 전역 예외 처리기로 이동됩니다.",
+        "B. ... 실행이 작업의 모든 예외 처리기로 이동됩니다.",
+        "C. ... 실행을 계속할 예외 처리기를 선택하려면 Switch 문이 필요합니다.",
+        "D. ... 실행은 예외와 가장 관련된 예외 처리기로 이동됩니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0162",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "새로운 글꼴, 색상 및 아이콘을 사용하여 애플리케이션 헤더를 변경하고 싶다고 생각해 보세요. Outsystems에서 이를 달성하는 가장 좋은 접근 방식은 무엇입니까?",
+      "choices": [
+        "A. 새 아이콘이 있는 컨테이너를 추가하여 공통/헤더 Web Block을 변경합니다. Module Theme의 Style 시트에 새 CSS를 추가합니다.",
+        "B. 공통/헤더 Web Block의 Style 시트를 재정의하여 애플리케이션의 모든 웹 Screen의 Style 시트에 새 CSS를 추가합니다. Header_Logo를 새 아이콘으로 바꿉니다.",
+        "C. Common/Header Web Block의 Style시트를 새로운 CSS로 변경하고 Header_Logo를 새로운 아이콘으로 교체하세요.",
+        "D. 모든 웹 Screen의 공통/헤더 Web Block을 Style 시트에 새 아이콘과 CSS가 포함된 새 Web Block으로 대체합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0163",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "데이터 소스가 포함된 1개의 Aggregate는 3개의 Entity입니다. A와 B는 With 또는 Without A와 관련되고 C는 Only With와 관련됩니다. 결과가 어떻게 될지 물으셨나요?",
+      "choices": [
+        "A. A에는 B가 없을 수도 있지만 C는 있어야 합니다.",
+        "B. A에는 B나 C가 없을 수도 있습니다.",
+        "C. A에는 B와 C가 있어야 합니다.",
+        "D. A 반드시 B 또는 C가 있어야 함"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0164",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "Popup_Editor를 사용할 때 소스 Screen을 새로 고쳐야 하는 팝업 Screen에 Screen 작업을 구현하는 것을 고려하세요. 해당 Screen 작업을 어떻게 구현하시겠습니까?",
+      "choices": [
+        "A. Popup_Editor_Close를 사용하여 팝업을 닫은 다음 Ajax 새로 고침을 사용하여 소스 Screen을 새로 고칩니다.",
+        "B. 팝업 Screen에 Popup_Editor_Notify를 사용하여 소스 Screen에 알리고 Popup_Editor_...팝업을 사용합니다.",
+        "C. 팝업 Screen에 Popup_Editor_Notify를 사용하여 소스 Screen에 알리고 팝업을 닫습니다.",
+        "D. 팝업 Screen에 Popup_Editor_Notify를 사용하여 소스 Screen에 알리고 Popup_Editor__... 팝업과 Ajax 새로 고침을 사용하여 소스 Screen을 새로 고칩니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0165",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "\"삭제\" 삭제 규칙 Attribute 옵션은 관계의 Reference 무결성을 보장하지 않으므로 주의해서 사용해야 합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0166",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "드롭다운 및 버튼 그룹을 고려할 때 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 버튼 그룹 내의 각 버튼 그룹 항목에는 사용자가 선택한 옵션을 저장하는 Variable Attribute이 있습니다.",
+        "B. 드롭다운의 목록 Attribute은 Screen에서 사용자에게 옵션으로 표시되는 데이터를 정의합니다.",
+        "C. Dropdown의 Variable Attribute은 사용자가 선택한 값을 보유합니다. 해당 값은 옵션 값 Attribute에 정의되어 있습니다.",
+        "D. 버튼 그룹에는 사용자가 선택할 수 있는 각 옵션을 나타내는 버튼 그룹 항목이 필요합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0167",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "OutSystems의 반응형 웹 앱과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 반응형 웹 앱은 크로스 디바이스 앱입니다.",
+        "B. OutSystems에서 생성된 코드는 단일 페이지 애플리케이션을 생성합니다.",
+        "C. 개발자는 Service Studio에서 Reactive Web App을 구축합니다.",
+        "D. 데이터 요청은 동기적으로 실행됩니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0168",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "원하는 데이터 타입이 통화(Currency)인 경우, 다음 데이터 타입 전송이 발생하지 않습니다(에러)",
+      "choices": [
+        "A. 10진수, 정수, 긴 정수",
+        "B. Long Integer, Integer, Boolean, Entity 식별자(Integer)",
+        "C. 10진수, 긴 정수, 부울, Entity 식별자(정수)",
+        "D. 십진수, 정수, 부울, Entity 식별자(정수)"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0169",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "애플리케이션에 저장하고 액세스해야 하는 비즈니스 개념은 다음과 같이 모델링되어야 합니다.",
+      "choices": [
+        "A. Entity.",
+        "B. Entity 다이어그램.",
+        "C. Entity 관계.",
+        "D. Database 테이블."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0170",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "하나의 특정 Widget에 포커스를 설정하는 데 사용되는 이벤트는 무엇입니까?",
+      "choices": [
+        "A. 준비가 된",
+        "B. 세우다",
+        "C. 파괴하다",
+        "D. 가져온 후"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0171",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에서 반환되는 레코드 수를 어떻게 제한할 수 있나요?",
+      "choices": [
+        "A. 최대 사용 레코드 Attribute입니다.",
+        "B. 길이 값을 사용합니다.",
+        "C. 개수 값을 사용합니다.",
+        "D. 정렬을 사용하세요."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0172",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "OutSystems에서는 어떤 유형의 애플리케이션을 만들 수 있나요?",
+      "choices": [
+        "A. 웹, 모바일 및 서비스",
+        "B. 웹, 모바일, 서비스 및 확장",
+        "C. Module 및 확장",
+        "D. 웹만"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0173",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "OutSystems에서 Screen에 대한 액세스를 어떻게 제한합니까?",
+      "choices": [
+        "A. 사용자 애플리케이션으로 이동하여 Screen을 특정 Role에 연결합니다.",
+        "B. CheckRole 작업을 사용하세요.",
+        "C. Screen Attribute에서 Role을 선택 해제하여 액세스를 제한합니다.",
+        "D. 우리는 그렇지 않습니다. 사용자 이름과 비밀번호가 있는 사용자만 접근할 수 있습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0174",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "SOAP 웹 서비스를 사용하려면...",
+      "choices": [
+        "A. WSDL(엔드포인트 URL 또는 업로드 파일)을 제공하고 바인딩(둘 이상인 경우)을 선택하면 모든 메서드가 자동으로 사용됩니다.",
+        "B. WSDL(엔드포인트 URL 또는 업로드 파일)을 제공하고 바인딩(둘 이상인 경우)을 선택한 다음 사용할 방법을 선택합니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0175",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "어떤 경우에도 사이트 Attribute을 사용해야 합니다.",
+      "choices": [
+        "A. 최소 비밀번호 길이",
+        "B. 로그인된 사용자 수",
+        "C. 검색 필드 값",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0176",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "OutSystems에서 Web Block은 재사용 가능한 UI 구성 요소입니다. 다음 중 사실이 아닌 것은 무엇입니까?",
+      "choices": [
+        "A. 재사용성을 촉진합니다. 즉, 한 번 개발하면 여러 번 재사용할 수 있습니다.",
+        "B. 자체 논리를 캡슐화합니다.",
+        "C. 즉, 디자인이나 기능을 변경하여 모든 용도에 영향을 미치는 등 유지 관리성이 향상됩니다.",
+        "D. 한 번만 재사용할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0177",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "10개 기록 페이지당 1개의 페이징 웹사이트. 링크 [2]를 클릭하면 다음 10개의 레코드가 표시되지만 링크 [2]는 굵게 표시되지 않습니다. 원인은 맞아요",
+      "choices": [
+        "A. 작업 핸들에서 목록 탐색 알림 시 목록 탐색 새로 고침을 실행할 수 없습니다.",
+        "B. 작업 핸들에서 목록 탐색 알림 시 테이블 새로 고침을 실행할 수 없습니다.",
+        "C. 작업 핸들에서 목록 탐색 알림 시 새로 고침 Query를 실행할 수 없습니다.",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0178",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "OutSystems는 익명 및 등록이라는 두 가지 기본 Role을 제공합니다.",
+      "choices": [
+        "A. 아니요. Role은 하나뿐입니다. 익명입니다.",
+        "B. 아니요. Role은 등록됨뿐입니다.",
+        "C. 예, 알 수 없는 사용자의 경우 익명이고 사용자 애플리케이션에 등록된 사용자의 경우 등록됩니다.",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0179",
+      "topic": "Events",
+      "difficulty": 1,
+      "stem": "이벤트가 필수인 경우 클라이언트 작업과 같은 차단 이벤트를 지정하여 이벤트를 처리해야 합니다. 비어 있을 수도 있지만.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0180",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "이름과 이메일 필드 2개를 사용하여 고유한 고객 인덱스를 생성합니다. 아래 데이터 삽입을 수행하면 오류가 발생합니다.",
+      "choices": [
+        "A. (Jonh,jonh@gmail.com,1122),(Jonh_Hand,jonh@gmail.com,1122)",
+        "B. (Jonh,jonh@gmail.com,1122),(Jonh,jonh_hand@gmail.com,1122)",
+        "C. (Jonh,jonh@gmail.com,1122),(Jonh_Hand,jonh@gmail.com,3344)",
+        "D. (Jonh,jonh@gmail.com,1122),(Jonh,jonh@gmail.com,3344)"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0181",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Screen에는 출력 매개Variable가 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 개발자의 설정에 따라 다릅니다.",
+        "D. 생산자 Module만 해당"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0182",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "입력 및 레이블을 고려할 때 다음 중 올바른 옵션은 무엇입니까?",
+      "choices": [
+        "A. 입력 Widget에 제출된 값에 액세스하려면 간단히 InputName.Value를 사용하면 됩니다.",
+        "B. 필수 필드와 관련된 레이블은 Screen에 시각적 신호를 표시합니다.",
+        "C. 입력 Widget은 텍스트 데이터 유형에만 사용할 수 있습니다.",
+        "D. 모든 입력에는 연결된 레이블이 있어야 합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0183",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "Session LifeCycle과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 기본 세션 시간은 20분 후입니다. 하지만 Service Center에서 구성할 수 있습니다.",
+        "B. 사용자가 성공적으로 로그인한 후 세션이 시작(시작)됩니다.",
+        "C. 웹 서비스 세션은 호출될 때 시작(시작)되며 영구 Attribute 값이 예로 설정된 경우 시간 초과될 때까지 지속될 수 있습니다.",
+        "D. URL을 통해 웹 세션 정보를 보낼 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0184",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Outsystems의 모든 예외 처리기와 관련하여 true인 문을 선택합니다.",
+      "choices": [
+        "A. All Exception 핸들러는 UI 흐름에서만 사용할 수 있습니다.",
+        "B. 모든 예외 처리기는 어떠한 경우에도 모든 오류를 처리합니다.",
+        "C. 발생하는 오류를 설명하는 예외가 없는 경우 모든 예외 처리기는 모든 예외를 처리합니다.",
+        "D. 예외 처리기에 대해 유형 예외를 선택하면 중단 트랜잭션 Attribute이 비활성화됩니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0185",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "ListItem 및 List Action을 고려할 때 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 목록 항목에 전체 스와이프 옵션이 활성화되어 있으면 목록 작업이 필요하지 않습니다.",
+        "B. 목록 작업은 스와이프 시 실행되는 논리를 포함하는 Screen 작업을 트리거합니다.",
+        "C. 목록 작업은 목록 항목 내에서만 사용할 수 있습니다.",
+        "D. 목록 항목은 목록 외부에서 사용할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0186",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "콤보 상자 Widget에 표시되는 값 목록은 Entity와 특수 목록의 조합일 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0187",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "Role은 애플리케이션에서 생성되고 사용자 인증은 관리됩니다...",
+      "choices": [
+        "A. 사용자 애플리케이션에서 수동으로 또는 프로그래밍 방식으로.",
+        "B. 사용자 애플리케이션에서는 수동으로만 가능합니다.",
+        "C. 프로그래밍 방식으로만 Grant... 및 Revoke... Role 작업을 사용합니다.",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0188",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "자동 데이터 교체(테이블 레코드, 목록 레코드, 양식 등)로 Widget의 데이터를 교체하려면",
+      "choices": [
+        "A. Widget을 마우스 오른쪽 버튼으로 클릭하고 Entity에서 데이터 가져오기를 선택합니다.",
+        "B. Widget을 삭제하고 올바른 Entity를 사용하여 다시 만듭니다.",
+        "C. Entity를 드래그하여 Widget에 놓습니다.",
+        "D. Entity를 마우스 오른쪽 버튼으로 클릭하고 Excel에서 데이터 가져오기를 선택합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0189",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "두 Entity 사이에 \"포함 또는 제외\" 조인이 있는 Aggregate를 고려하세요. Aggregate의 예상 출력은 무엇입니까?",
+      "choices": [
+        "A. 오른쪽 Entity에 일치하는 항목이 없더라도 왼쪽 Entity의 모든 레코드(LEFT JOIN).",
+        "B. 두 Entity의 모든 레코드(FULL OUTER JOIN).",
+        "C. 왼쪽 Entity에 일치하는 항목이 없더라도 오른쪽 Entity의 모든 레코드(RIGHT JOIN).",
+        "D. 두 Entity(INNER JOIN) 간에 일치하는 레코드만 기록됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0190",
+      "topic": "Widgets",
+      "difficulty": 3,
+      "stem": "제출 버튼을 클릭하여 웹페이지 A에서 웹페이지 B로 이동하려면 제출 버튼의 Screen 동작에서 웹페이지 B로 대상 설정을 실행합니다. 다음 중 올바른 설명은 무엇입니까?",
+      "choices": [
+        "A. 제출 버튼을 누르면 웹페이지 B의 준비를 수행한 다음 웹페이지 B의 웹페이지를 빌드한 다음 제출 버튼의 Screen 작업을 수행하게 됩니다.",
+        "B. 제출 버튼을 클릭하면 제출 버튼의 Screen 동작을 수행한 후 웹 페이지 준비 작업을 수행한 후 B 웹 페이지 Screen B를 구축합니다.",
+        "C. 제출 버튼을 눌렀을 때 제출 버튼의 Screen 동작을 수행한 후 웹 페이지 B의 Screen을 구축하면 해당 웹 페이지의 준비가 수행되지 않습니다.",
+        "D. Submit 버튼을 클릭하면 B 웹페이지 작성이 즉시 수행되며, 이후 B 웹페이지 구축 Screen이 실행되며, Submit 버튼의 Screen 동작은 수행되지 않습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0191",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "SELECT가 아닌 Query와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 출력 Entity 또는 구조를 설정하는 것은 필수입니다.",
+        "B. 비SELECT Query에서는 Query 매개Variable를 사용할 수 없습니다.",
+        "C. SQL 도구를 사용하여 DELETE Query를 실행할 수 없습니다.",
+        "D. INSERT Query에서는 모든 Attribute을 지정해야 합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0192",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에서 소스 섹션은 다음 용도로 사용됩니다.",
+      "choices": [
+        "A. Aggregate의 출력 레코드를 테스트하기 위한 값을 정의합니다.",
+        "B. 레코드를 검색하려는 Entity를 정의합니다.",
+        "C. 특정 레코드 하위 집합을 가져오기 위한 조건을 정의합니다.",
+        "D. Aggregate의 출력 레코드 순서를 정의합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0193",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "훌륭한 UI 패턴으로 Screen을 디자인하기 위해 OutSystems UI 및 Rich Widgets는 Service Studio 도구 상자에서 사용할 수 있는 Widget을 제공합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0194",
+      "topic": "SQL and Aggregate",
+      "difficulty": 3,
+      "stem": "다음 Screen에는 두 개의 드롭다운이 있는데, 하나는 국가를 선택하고 다른 하나는 도시를 선택합니다. GetCountries 및 GetCities Aggregates는 해당 드롭다운에 표시할 국가와 도시를 제공하며 둘 다 시작 시 가져오도록 설정됩니다. 다음 중 해당 드롭다운에서 선택한 국가의 도시만 가져오려는 경우 유효한 단계가 아닌 것은 무엇입니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1gm2xpbBQmE-KTAHtCdj4wT0jNLnpDzZX/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. GetCities Aggregate의 Fetch Attribute을 On Demand로 설정합니다.",
+        "B. 국가 드롭다운의 OnChange 작업에서 GetCities Aggregate를 새로 고칩니다.",
+        "C. 선택한 국가별로 GetCities Aggregate를 필터링합니다.",
+        "D. GetCountries의 On After Fetch 이벤트 핸들러에서 GetCities Aggregate를 호출합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0195",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "Block을 사용할 수 있습니다 ...",
+      "choices": [
+        "A. 다른 Screen 내부에서만 가능합니다.",
+        "B. 다른 Block 내부에서만 가능합니다.",
+        "C. 자체를 포함한 내부 Screen 및 Block.",
+        "D. 자체를 제외한 내부 Screen 및 Block."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0196",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Entity와 해당 Attribute을 생성한 직후 Excel의 부트스트랩 데이터를 사용할 때 예상되는 동작은 무엇입니까?",
+      "choices": [
+        "A. Excel의 부트스트랩 데이터는 사용할 수 없습니다. 먼저 Module을 게시해야 합니다.",
+        "B. 부트스트랩은 Excel 파일의 첫 번째 행에 있는 기존 헤더와 Entity Attribute을 자동으로 매핑하려고 시도합니다.",
+        "C. 부트스트랩은 모든 Attribute이 Excel 파일의 첫 번째 행에 있는 헤더와 정확히 일치하는 경우에만 작동합니다. 그렇지 않으면 오류가 발생합니다...",
+        "D. Entity의 구조가 이미 정의되어 있으므로 Excel의 부트스트랩 데이터를 사용할 수 없습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0197",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "데이터 관계와 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. Entity에는 관계를 허용하는 식별자가 있어야 합니다.",
+        "B. Entity 식별자는 정수여야 합니다.",
+        "C. Reference Attribute은 필수여야 합니다.",
+        "D. Entity는 하나의 Reference Attribute만 가질 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0198",
+      "topic": "Debugging",
+      "difficulty": 2,
+      "stem": "다음 중 OutSystems 디버거에서 사용할 수 없는 명령은 무엇입니까?",
+      "choices": [
+        "A. 디버깅 다시 시작",
+        "B. 디버깅 중지",
+        "C. 스텝 오버",
+        "D. 계속 요청"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0199",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Validation가 클라이언트 및 서버로 설정된 경우...",
+      "choices": [
+        "A. 모든 필수 필드가 비어 있으면 서버 측에서 사용자 정의 Validation가 확인됩니다.",
+        "B. 내장된 Validation는 먼저 클라이언트 측에서 확인되며, 유효하지 않은 경우 사용자에게 즉시 오류 메시지가 표시됩니다.",
+        "C. 내장된 Validation는 먼저 클라이언트 측에서 확인되지만 요청은 어쨌든 사용자 정의 Validation를 수행하기 위해 서버로 이동합니다.",
+        "D. 클라이언트 및 서버 Validation가 없습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0200",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 1,
+      "stem": "Screen 수명주기에서 준비는 브라우저에서 실행됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0201",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "입력 매개Variable 및 로컬 Variable의 범위는 정의된 Screen으로 제한됩니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Module 설정에 따라 다름",
+        "D. 기능을 사용할 때 다릅니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0202",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "OutSystems의 모바일(전화 또는 태블릿) 앱과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. 모바일 앱은 PWA로 배포될 수 있습니다.",
+        "B. 모바일 앱의 프로그래밍 모델은 Reactive Web Apps와 유사합니다.",
+        "C. 모바일 앱은 iOS 및 Android에서 기본적으로 실행될 수 있습니다.",
+        "D. 모바일 앱에는 오프라인 기능이 없습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0203",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "두 번째 Aggregate의 Query를 새로 고치는 데 사용할 수 있는 첫 번째 Aggregate의 이벤트 핸들러는 무엇입니까?",
+      "choices": [
+        "A. 준비 중",
+        "B. 가져오기 후 켜짐",
+        "C. 파괴 시",
+        "D. 가져온 후"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0204",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "작업의 흐름은 다음과 같습니다.",
+      "choices": [
+        "A. 하나 이상의 시작 노드와 하나의 끝 노드만 있습니다.",
+        "B. 하나의 시작 노드와 하나의 끝 노드만 있습니다.",
+        "C. 시작 노드는 하나이지만 끝 노드는 여러 개입니다.",
+        "D. 여러 시작 및 끝 노드."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0205",
+      "topic": "Actions",
+      "difficulty": 2,
+      "stem": "Server Action의 흐름을 디자인할 때...",
+      "choices": [
+        "A. 여러 개의 시작 및 끝 노드를 가질 수 있습니다.",
+        "B. 시작 노드는 하나 이상 있을 수 있지만 끝 노드는 하나만 있을 수 있습니다.",
+        "C. 시작 노드는 하나만 있을 수 있지만 끝 노드는 하나 이상 있을 수 있습니다.",
+        "D. 시작 노드와 끝 노드는 하나만 있을 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Actions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0206",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "If Widget과 관련하여 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. If의 조건 내에서 함수를 사용할 수 있습니다.",
+        "B. 런타임에는 분기 중 하나만 표시됩니다.",
+        "C. 각 분기 내에 여러 Widget을 추가할 수 있습니다.",
+        "D. If Widget에 더 많은 분기가 추가될 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0207",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "소비자 Module에 관하여 ...",
+      "choices": [
+        "A. 동일한 애플리케이션의 생산자 Module에 있는 요소만 재사용할 수 있습니다.",
+        "B. 생산자 Module에서 Public인 요소만 재사용할 수 있습니다.",
+        "C. 모든 생산자 Module의 모든 요소를 ​​재사용할 수 있습니다.",
+        "D. 다른 애플리케이션의 생산자 Module에 있는 요소만 재사용할 수 있습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0208",
+      "topic": "SQL and Aggregate",
+      "difficulty": 1,
+      "stem": "Attribute에 Sum, Average, Min, Max 또는 Count와 같은 Aggregate 함수를 사용하는 경우...",
+      "choices": [
+        "A. 결과 Aggregate Attribute은 나머지 Entity Attribute과 함께 Aggregate 출력에 추가됩니다.",
+        "B. 결과로 Aggregate된 Attribute만 Aggregate 출력의 일부입니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0209",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "ReactiveWeb App에서는 데이터가 비동기식으로 요청되므로 보다 유연한 경험이 가능합니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 어느 하나",
+        "D. 어느 것도 아니다"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0210",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "스위치 1: (a<b) 동작 A 2: (a>b) 동작 B 그렇지 않은 경우 동작 C. 출력은 참입니다.",
+      "choices": [
+        "A. a = b이면 Action C가 실행됩니다.",
+        "B. a <= b이면 Action C가 실행됩니다.",
+        "C. a < b이면 Action B가 실행됩니다.",
+        "D. a <= b이면 Action B가 실행됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0211",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "표현식 Widget...",
+      "choices": [
+        "A. ... 런타임에 계산된 텍스트를 표시합니다.",
+        "B. ... 수학적 표현식의 결과만 표시합니다.",
+        "C. ... 정적 텍스트만 표시합니다.",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0212",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "코드 실행이 중지되었을 때 Variable의 값을 검사하는 것에 대해..",
+      "choices": [
+        "A. Debugging 사용시 정지시 사용된 모든 Variable의 값에 대한 정보를 조회할 수 있다.",
+        "B. 디버깅을 사용하는 경우에는 로컬 Variable의 값만 검사할 수 있으며, 사이트 Attribute 및 세션 Variable에 대한 정보는 검사할 수 없습니다.",
+        "C. 디버깅을 사용하는 경우 로컬 Variable의 값만 검사할 수 있으며 실행 중인 로직의 정보는 검사할 수 없습니다.",
+        "D. 디버깅을 사용할 때 Inspect는 Screen 상태에 대한 정보를 얻을 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0213",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "OutSystems는 개발자를 위해 기본 Database 테이블을 관리합니까?",
+      "choices": [
+        "A. 예",
+        "B. 아니요",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0214",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Web Block과 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. Web Block이 한 Screen에 있을 때 상위 Screen에는 하위 Web Block의 이벤트를 처리하기 위한 Screen 작업이 있어야 하는데, 그 경우는 다른 Web Block에 있습니다.",
+        "B. Web Block이 Web Block에 있을 때 상위 Web Block은 하위 Web Block의 이벤트를 처리하기 위한 Screen 작업이 필요하지만 경우는 다른 Screen에 있습니다.",
+        "C. Web Block이 하나의 Screen이나 다른 Web Block에 있는 경우 상위 Screen이나 Web Block에는 하위 Web Block의 이벤트를 처리하기 위한 Screen 작업이 필요합니다.",
+        "D. Web Block이 하나의 Screen이나 다른 Web Block에 있는 경우 상위 Screen이나 Web Block은 하위 Web Block의 이벤트를 처리하기 위한 조치를 취할 필요가 없습니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0215",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "OutSystems에서 사용자 그룹을 사용하면 다음을 수행할 수 있습니다.",
+      "choices": [
+        "A. ... 동시에 여러 사용자를 위한 새로운 사용자 세션을 생성합니다.",
+        "B. ... 동시에 여러 사용자에게 동일한 비밀번호를 할당합니다.",
+        "C. ... 동시에 여러 사용자에게 동일한 Screen에 대한 액세스 Permission을 부여합니다.",
+        "D. ... 동시에 여러 사용자에게 Role을 할당하고 교체합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0216",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "Screen 준비...",
+      "choices": [
+        "A. Database에 대한 Query를 필터링하려면 하나 이상의 입력 매개Variable가 필요합니다.",
+        "B. 출력 매개Variable가 없습니다.",
+        "C. 다른 서버 작업을 실행할 수 없습니다.",
+        "D. 모든 웹 Screen에 필수입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0217",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "양식이 제출되면 Outsystems가 수행하는 기본 Validation는 무엇입니까?",
+      "choices": [
+        "A. 사용자가 제출한 데이터가 해당 입력과 관련된 Variable의 데이터 유형과 일치하는 경우.",
+        "B. 필수 필드가 채워지고 사용자가 제출한 데이터가 입력과 관련된 Variable의 데이터 유형과 일치하는 경우.",
+        "C. 필수 항목이 입력된 경우.",
+        "D. 사용자가 제출한 데이터가 양식의 소스 레코드 데이터 유형과 일치하는 경우."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0218",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "출력 매개Variable를 사용할 수 있습니다...",
+      "choices": [
+        "A. 구현 범위 내에서만 가능합니다.",
+        "B. 구현 범위 밖에만 있습니다.",
+        "C. 구현 범위 내부와 외부 모두.",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0219",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "결과가 비어 있는지 확인하는 등 결과에 대해 일부 논리를 수행하는 경우 어떤 이벤트가 필요합니까?",
+      "choices": [
+        "A. 준비가 된",
+        "B. 세우다",
+        "C. 파괴하다",
+        "D. 가져온 후"
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0220",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "다음 중 Screen의 표현에 관한 설명으로 옳은 것은 무엇입니까?",
+      "choices": [
+        "A. 표현식은 서버 작업을 호출하고 서버 작업 출력을 사용하여 계산할 수 있습니다.",
+        "B. 표현식이 비어 있으면 예제 Attribute에 표시된 값이 표시됩니다.",
+        "C. Expression의 값은 빌드 Screen에서 계산되어 Screen에 표시됩니다.",
+        "D. 표현식은 서버 작업을 호출할 수 없으며 서버 작업 출력을 사용하여 계산합니다."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0221",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "조인에서 Entity의 순서는 중요하지 않습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0222",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 OutSystems와 Database 간의 매핑이 올바르지 않은 것은 무엇입니까?",
+      "choices": [
+        "A. Reference Attribute - Primary Key.",
+        "B. 색인 - 색인.",
+        "C. Entity - 테이블.",
+        "D. Attribute - 열."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0223",
+      "topic": "Data Modeling",
+      "difficulty": 3,
+      "stem": "다음 Entity를 고려할 때 이들 사이에 다대다 관계를 생성하려면 무엇이 필요합니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1WsHUUMSgcx3NbwSMrshSTKe-SqnLCcRG/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 주문 식별자와 제품 식별자 유형의 두 가지 Attribute을 포함하는 세 번째 Entity를 만듭니다.",
+        "B. 주문 식별자 유형의 Primary Key와 제품 식별자 유형의 Attribute을 사용하여 세 번째 Entity를 생성합니다.",
+        "C. 제품 Entity에 주문 식별자 유형의 Attribute을 생성하고 주문 Entity에 제품 식별자 유형의 Attribute을 생성합니다.",
+        "D. 주문 Entity에 제품 식별자 유형의 Attribute을 생성합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0224",
+      "topic": "Widgets",
+      "difficulty": 3,
+      "stem": "내장 Validation Attribute이 예로 설정된 저장 단추가 있는 양식을 고려해 보세요. 사용자가 저장 버튼을 클릭하면 기본적으로 OutSystems에서 양식에 제출된 데이터에 대한 일부 Validation가 자동으로 수행됩니다. 어떤 검증이 있나요?",
+      "choices": [
+        "A. 필수 항목이 입력되었는지 확인하세요.",
+        "B. 필수 필드가 채워져 있는지, 나중에 로직에서 사용되는 비필수 필드도 채워져 있는지 확인하세요.",
+        "C. 필수 필드가 채워져 있는지, 사용자가 제출한 데이터가 입력 필드에 예상되는 데이터 유형과 일치하는지 확인하세요.",
+        "D. 필수 필드가 채워져 있는지, 사용자가 제출한 데이터가 양식 데이터 소스의 데이터 유형과 일치하는지 확인하세요."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0225",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate에 Aggregate 함수를 적용하고 싶다고 가정해 보세요. 다음 옵션 중 False인 것은 무엇입니까?",
+      "choices": [
+        "A. Aggregate의 출력에는 소스 Entity의 모든 특성과 Aggregate 열이 포함됩니다.",
+        "B. Aggregate의 출력에는 회색 열이 포함되지 않습니다.",
+        "C. 정수 데이터 유형의 Attribute에 합계, 최대, 최소, 개수 및 평균 함수를 적용할 수 있습니다.",
+        "D. Aggregate 내부에 여러 Aggregate 함수를 적용할 수 있습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0226",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "다음 도구 중 하나를 사용하면 인프라 전체에서 애플리케이션의 수명 주기를 관리할 수 있습니다. 어느 것?",
+      "choices": [
+        "A. 일생",
+        "B. Service Studio",
+        "C. Integration Studio",
+        "D. Service Center"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0227",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "다음 중 매개Variable 변경 시 이벤트가 트리거되는 상황은 무엇입니까?",
+      "choices": [
+        "A. 변경된 매개Variable는 Block의 상위 항목에 의해 명시적으로 트리거되어야 합니다.",
+        "B. Block의 클라이언트 작업 내에서 Block 입력 매개Variable의 값이 변경되는 경우.",
+        "C. Block의 상위 항목이 Block 입력 매개Variable 중 하나 이상의 값을 변경하는 경우.",
+        "N/A option 4"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0228",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "Aggregate 정렬과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. Aggregate는 하나의 정렬 기준만 지원합니다.",
+        "B. Entity에 중복 레코드가 있는 경우에만 여러 정렬 기준을 설정할 수 있습니다.",
+        "C. 둘 이상의 정렬 기준이 정의된 경우 모든 기준은 동일한 방향(오름차순 또는 내림차순)을 가져야 합니다.",
+        "D. 모든 정렬 기준(오름차순 또는 내림차순)에 대한 방향을 설정하는 것은 필수입니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0229",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Submit 메서드를 사용하여 데이터가 서버로 전송되면 OutSystems에는 유효성을 검사하는 내장 Validation가 있습니다.",
+      "choices": [
+        "A. 필수 값, 올바른 데이터 유형 및 비즈니스 규칙.",
+        "B. 필수 값과 올바른 데이터 유형.",
+        "C. 올바른 데이터 유형 및 비즈니스 규칙.",
+        "D. 필수 값 및 비즈니스 규칙."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0230",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Entity에 대한 다음 설명 중 잘못된 것은 무엇입니까?",
+      "choices": [
+        "A. Entity에는 식별자가 필요하지 않습니다.",
+        "B. Entity는 메모리에만 저장됩니다.",
+        "C. Entity에는 Attribute이 있습니다.",
+        "D. Entity를 생성, 업데이트 및 삭제할 수 있습니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0231",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "Screen의 초기화 이벤트를 고려할 때 다음 중 해당 이벤트에 가장 적합한 사용 사례는 무엇입니까?",
+      "choices": [
+        "A. DOM을 조작하십시오.",
+        "B. 지역 Variable의 기본값을 설정합니다.",
+        "C. 데이터 작업에서 반환된 데이터에 대해 작업을 수행합니다.",
+        "D. 서버 Database에서 데이터를 검색합니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0232",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "HouseNumber라는 Entity Attribute이 생성된 경우 해당 데이터 유형에 대해 무엇을 수행해야 합니까?",
+      "choices": [
+        "A. 아무것도 없습니다. 자동으로 Integer로 설정됩니다.",
+        "B. 10진수로 설정해야 합니다.",
+        "C. 정수로 설정해야 합니다.",
+        "D. 아무것도 없습니다. 자동으로 식별자로 설정됩니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0233",
+      "topic": "Debugging",
+      "difficulty": 2,
+      "stem": "OutSystems에서 중단점을 어디에 배치할 수 있나요?",
+      "choices": [
+        "A. 서버측 로직만",
+        "B. 작업에서만(클라이언트 측 및 서버 측)",
+        "C. 클라이언트 측 논리만",
+        "D. 작업 및 Variable에서"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Debugging",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0234",
+      "topic": "Widgets",
+      "difficulty": 3,
+      "stem": "입력 매개Variable로 전달된 숫자 N의 절대값(abs)을 반환하는 Absolute라는 작업을 생각해 보세요. 작업은 언제 0을 반환합니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1whQveFFlesOJlkA1Qi4JMEV7-oUAZU1f/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. 절대.",
+        "B. 입력 매개Variable(N)가 0보다 작은 경우.",
+        "C. 입력 매개Variable(N)가 0인 경우.",
+        "D. 입력 매개Variable(N)가 0보다 큰 경우."
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0235",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "Entity와 Attribute은 Database에 다음과 같이 생성됩니다.",
+      "choices": [
+        "A. 테이블 및 열",
+        "B. 테이블 및 인덱스",
+        "C. 인덱스와 열",
+        "D. 테이블 및 제약 조건"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0236",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "REST API를 사용할 때 단일 REST 메서드를 사용할 수 있습니다.",
+      "choices": [
+        "A. 메서드의 URL을 제공하고, 매개Variable 값(있는 경우)을 입력하고, 테스트하여 JSON 응답을 얻고, JSON 응답을 본문에 복사합니다.",
+        "B. WSDL(엔드포인트 URL 또는 업로드 파일)을 제공하고 바인딩(둘 이상인 경우)을 선택한 다음 사용할 방법을 선택합니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0237",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "입력 Widget과 관련된 올바른 옵션을 선택하세요.",
+      "choices": [
+        "A. 모든 입력 Widget은 양식 Widget 내에 있어야 합니다.",
+        "B. Variable가 없어도 됩니다. 사용자가 입력한 데이터는 입력 Widget 자체에 저장됩니다.",
+        "C. 텍스트 데이터 유형의 Variable에만 연결할 수 있습니다.",
+        "D. 사용자가 입력한 값을 저장하려면 항상 Variable가 필요합니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0238",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "구조에는 다음 데이터 유형의 Attribute이 있을 수 있습니다.",
+      "choices": [
+        "A. 기본, 복합 및 기록",
+        "B. 기본, 문자열 및 객체",
+        "C. 기본, 구조, Entity 및 목록",
+        "D. 기본 및 목록만"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0239",
+      "topic": "SQL and Aggregate",
+      "difficulty": 3,
+      "stem": "우선순위당 주문 수를 반환하려면 다음 Aggregate를 어떻게 변경하시겠습니까?",
+      "stemImageUrl": "https://drive.google.com/file/d/1inmyBDK2wZlWDS-SzmSrzZ1B7gs6hlba/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Order와 Priority 간의 조인을 Only With로 변경하고 Priority.Id Attribute에 대한 개수를 만듭니다.",
+        "B. Priority.Id Attribute에 대해 Group By를 생성하고 Order.Id Attribute에 대해 Count를 생성합니다.",
+        "C. Order.Id Attribute에 대해 GroupBy를 만들고 Priority.Id Attribute에 대해 Count를 만듭니다.",
+        "D. Order와 OrderStatus 사이의 Join을 제거하고 Priority.Id Attribute에 대해 Count를 만듭니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0240",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "외부 시스템의 기능과 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. 서버 작업은 함수로 설정할 수 있습니다. 하나의 출력 매개Variable로 제한되며 표현식에서 사용 가능합니다.",
+        "B. 서버 작업은 함수로 설정할 수 있습니다. 하나의 출력 매개Variable로 제한되지 않으며 표현식에서 사용 가능합니다.",
+        "C. 서버 작업은 함수로 설정할 수 있습니다. 하나의 출력 매개Variable로 제한되며 표현식에서는 사용할 수 없습니다.",
+        "D. 서버 작업은 함수로 설정할 수 있습니다. 하나의 출력 매개Variable로 제한되지 않으며 표현식에서 사용할 수 없습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0241",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Screen 내부에는 어떤 유형의 Variable를 만들 수 있나요?",
+      "choices": [
+        "A. 지역 Variable만 해당됩니다.",
+        "B. 입력 매개Variable만 해당됩니다.",
+        "C. 입력 매개Variable, 출력 매개Variable 및 지역 Variable.",
+        "D. 입력 매개Variable 및 지역 Variable."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0242",
+      "topic": "Web Blocks",
+      "difficulty": 1,
+      "stem": "Screen 및 Web Block에는 출력 매개Variable가 없습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0243",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "양식의 유효한 Attribute과 관련하여 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 입력 필드가 유효하지 않은 경우 양식의 유효한 Attribute을 명시적으로 False로 설정해야 합니다(예: Assign 사용).",
+        "B. 마지막 사용자 지정 Validation 후에 양식의 유효한 Attribute을 확인해야 합니다.",
+        "C. 양식의 모든 입력 필드가 유효하지 않은 경우에만 False로 변경됩니다.",
+        "D. 기본 제공 Validation가 활성화되면 클라이언트 작업 논리를 실행하기 전에 양식의 Valid Attribute이 자동으로 확인됩니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0244",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "입력 매개Variable는 항상 필수입니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0245",
+      "topic": "Web Blocks",
+      "difficulty": 1,
+      "stem": "Web Block을 사용할 수 있습니다 ...",
+      "choices": [
+        "A. 자체를 제외한 웹 Screen 및 Web Block 내부.",
+        "B. 웹 Screen과 Web Block 내부, 심지어 그 자체에서도 마찬가지입니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0246",
+      "topic": "Screen 라이프사이클",
+      "difficulty": 2,
+      "stem": "외부 시스템 준비와 관련하여 참인 진술을 선택하십시오.",
+      "choices": [
+        "A. 준비 추가에는 여러 출력이 있을 수 있습니다.",
+        "B. 준비는 Screen과 webBlock의 강제 동작입니다.",
+        "C. 준비 작업에는 출력이 1개만 있을 수 있습니다.",
+        "D. Screen에는 준비가 필요하지 않을 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Screen 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0247",
+      "topic": "Data Modeling",
+      "difficulty": 1,
+      "stem": "Entity 식별자는 단순 Primary Key 또는 복합 키일 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0248",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Producer Module에 변경 사항이 있는 경우 Consumer Module에 대한 이후 설명 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 서버 작업의 출력을 추가할 때 생산자가 업데이트되지 않으면 소비자에게 오류가 발생합니다.",
+        "B. 입출력을 변경하지 않고 Server Action의 내부 로직을 변경할 때 Consumer는 여전히 최신 로직을 사용합니다.",
+        "C. 서버 작업의 입력을 삭제할 때 생산자가 업데이트되지 않으면 소비자에게 오류가 발생합니다.",
+        "D. 웹 Screen의 내용을 변경할 때 Producer를 업데이트하지 않아도 Consumer는 여전히 영향을 받지 않습니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0249",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "외부 시스템의 Static Entity와 관련하여 참인 진술을 선택하세요.",
+      "choices": [
+        "A. Static Entity에는 항상 Id, Label, Order, Is_Active 4가지 Attribute만 있습니다.",
+        "B. Static Entity에는 생성, 업데이트, 가져오기 기능이 있습니다.",
+        "C. Static Entity는 다른 모든 Entity의 기본 데이터 유형 및 식별자 데이터 유형을 사용하여 Attribute을 추가할 수 있습니다.",
+        "D. Static Entity는 기본 데이터 유형과 다른 Static Entity의 식별자 데이터 유형을 사용하여 Attribute을 추가할 수 있습니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0250",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 Entity A와 Entity B 사이에 일대일 관계를 생성하려면 어떤 단계가 필요합니까?",
+      "choices": [
+        "A. Entity B의 식별자 Attribute 데이터 유형을 Entity A 식별자로 설정합니다.",
+        "B. Entity A Identifier 및 Entity B U Identifier 유형의 두 가지 Reference Attribute을 사용하여 새 Entity C를 추가합니다.",
+        "C. Entity A에 Entity B 식별자 유형의 새 Reference 특성을 추가합니다.",
+        "D. Entity A 식별자와 Entity B 식별자 유형으로 구성된 식별자 Attribute을 사용하여 새 Entity C를 추가합니다."
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0251",
+      "topic": "Widgets",
+      "difficulty": 2,
+      "stem": "Widget 트리는 무엇을 나타냅니까?",
+      "choices": [
+        "A. Screen 수명 주기 흐름.",
+        "B. Screen에 있는 Widget의 계층 구조입니다.",
+        "C. 애플리케이션 Screen 목록입니다.",
+        "D. 기존 Screen 템플릿."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0252",
+      "topic": "Roles and Permissions",
+      "difficulty": 2,
+      "stem": "OutSystems의 사용자 및 Role을 고려할 때 다음 옵션 중 올바른 것은 무엇입니까?",
+      "choices": [
+        "A. 최종 사용자는 사용자 애플리케이션의 작업을 사용하여 프로그래밍 방식으로만 생성할 수 있습니다.",
+        "B. OutSystems에는 Anonymous, AppUser 및 Registered의 세 가지 기본 Role이 있습니다.",
+        "C. 로그인 유무에 관계없이 모든 사용자는 자동으로 등록된 Role을 갖게 됩니다.",
+        "D. 기본적으로 최종 사용자는 내장된 사용자 애플리케이션에서 관리됩니다."
+      ],
+      "answer": "D",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Roles and Permissions",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0253",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "Ajax를 사용하려면 On Click에서 Method를 선택해야 합니다.",
+      "choices": [
+        "A. 클라이언트 및 서버 제출",
+        "B. 아약스 제출",
+        "C. 서버 제출",
+        "D. Ajax 및 서버 제출"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0254",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "OutSystems에서 구현할 수 있는 모든 유형의 관계는 무엇입니까?",
+      "choices": [
+        "A. 일대다 및 다대다.",
+        "B. 일대일, 일대다, 다대다.",
+        "C. 일대일 및 일대다.",
+        "D. 다대다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0255",
+      "topic": "Web Blocks",
+      "difficulty": 2,
+      "stem": "어떤 Service Studio 레이어에서 Screen과 Block을 찾을 수 있나요?",
+      "choices": [
+        "A. 프로세스",
+        "B. 데이터",
+        "C. 인터페이스",
+        "D. 논리"
+      ],
+      "answer": "C",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Web Blocks",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0256",
+      "topic": "General",
+      "difficulty": 2,
+      "stem": "모바일 앱은 로컬 저장소에 액세스할 수 있으며 오프라인, 온라인 또는 두 가지 시나리오 모두에서 작동하도록 개발될 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. 어느 하나",
+        "D. 어느 것도 아니다"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "General",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0257",
+      "topic": "Variables and Properties",
+      "difficulty": 2,
+      "stem": "다음 옵션 중 클라이언트 Variable의 사용 사례가 될 수 없는 것은 무엇입니까?",
+      "choices": [
+        "A. 사용자 이름.",
+        "B. 비밀번호.",
+        "C. 검색 필터 키워드.",
+        "D. 사용자 세션의 ID입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Variables and Properties",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0258",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "웹 Screen에 대한 액세스를 제한하려면...",
+      "choices": [
+        "A. 사용자 애플리케이션으로 이동하여 웹 Screen을 특정 Role에 연결합니다.",
+        "B. 웹 Screen Attribute 창에서 Role을 선택하면 OutSystems가 런타임 시 자동으로 Role을 확인합니다.",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0259",
+      "topic": "Data Modeling",
+      "difficulty": 2,
+      "stem": "다음 중 Entity 및 Attribute에 대한 올바른 구문은 무엇입니까?",
+      "choices": [
+        "A. Entity.Attribute",
+        "B. {엔티티}.[Attribute]",
+        "C. [엔티티].{Attribute}",
+        "D. (엔티티).{Attribute}"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Data Modeling",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0260",
+      "topic": "Widgets",
+      "difficulty": 1,
+      "stem": "Screen은 Widget이라는 여러 요소의 조합으로 구성될 수 있습니다.",
+      "choices": [
+        "A. True",
+        "B. False",
+        "N/A option 3",
+        "N/A option 4"
+      ],
+      "answer": "A",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Widgets",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0261",
+      "topic": "Events",
+      "difficulty": 2,
+      "stem": "다음 중 스크린이나 Block에서 사용할 수 없는 이벤트는 무엇인가요?",
+      "choices": [
+        "A. 준비가 된",
+        "B. 가져온 후",
+        "C. 초기화",
+        "D. 세우다"
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "Events",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    },
+    {
+      "id": "OSARD-0262",
+      "topic": "SQL and Aggregate",
+      "difficulty": 2,
+      "stem": "개발자는 SELECT SQL Query의 출력에서 ​​Entity 대신 구조를 사용하는 것을 선호해야 합니다. 이 말에 동의하시나요?",
+      "choices": [
+        "A. 아니요, 구조 대신 Entity를 사용하는 것이 좋습니다.",
+        "B. 예, Query는 더 적은 수의 Attribute과 더 적은 데이터를 검색하기 때문입니다.",
+        "C. 아니요, 완전히 동일하기 때문입니다.",
+        "D. 예, Query를 유지 관리하기가 더 쉬워지기 때문입니다."
+      ],
+      "answer": "B",
+      "explanation": "No explanation provided.",
+      "tags": [
+        "SQL and Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer 시험 V9.02"
+    }
+  ]
+}

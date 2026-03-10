@@ -1,0 +1,5658 @@
+{
+  "setMeta": {
+    "title": "OutSystems 11 Associate Reactive Developer 덤프",
+    "description": "OutSystems 11 Associate Reactive Developer 자격증 시험 대비 문제집 (262문항)",
+    "versionLabel": "v9.02"
+  },
+  "questions": [
+    {
+      "id": "OSARD-0001",
+      "topic": "이벤트",
+      "difficulty": 1,
+      "stem": "Events only allow to communicate with the parent element.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0002",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 1,
+      "stem": "In an SQL Query, the Output Entities, structures must always be defined to known the output type",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0003",
+      "topic": "역할 및 권한",
+      "difficulty": 1,
+      "stem": "XXX screen only Registered role is checked, which of the following statements is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. User has not logged in, make request Screen XXX. As a result, can not permission",
+        "B. User logged , make request Screen XXX. As a result, can not permission"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0004",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding exposing elements in Producer modules...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Any element can be exposed, and reused, but only by modules of the same application.",
+        "B. Any element can be exposed, and reused by modules of any application.",
+        "C. Only elements with the Public property set to Yes can be exposed and reused by modules of any application.",
+        "D. Only elements with the Public property set to Yes can be exposed and reused, but only by modules of the same application."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0005",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "What is the Screen behavior when a widget is not valid (Valid property set to False)?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The widget does not appear on the Screen and the validation message appears in its place.",
+        "B. The Screen displays the widget greyed out, and displays the validation error message on the U input.",
+        "C. Displays the regular widget, applies a specific styling (e.g. red border), and displays the ^ validation error message.",
+        "D. Displays the regular widget and displays the validation error message when we hover the mouse."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0006",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "Attributes of static entities can be mandatory or not. A value is only required to be set if the attribute is mandatory.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0007",
+      "topic": "위젯",
+      "difficulty": 3,
+      "stem": "In the following scenario, we are implementing the ColorsDropdown widget which will allow a user to select a color. What should be set in the Options Text property to make sure that the names of the colors appear in the dropdown?",
+      "stemImageUrl": "https://drive.google.com/file/d/109nu1A-BslkBff1G1BtfJaxnvCRkfNUA/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Color.Id",
+        "B. GetColors.Color.Label",
+        "C. Color",
+        "D. Color.Label"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0008",
+      "topic": "변수 및 속성",
+      "difficulty": 1,
+      "stem": "The value of a Site Property can be modified in Service Center to change the application behavior at runtime.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. False",
+        "B. True"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0009",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Considering Aggregates and the SQL Tool, which of the following is the correct option?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The SQL Tool allows to write queries that contain sub-queries.",
+        "B. Joins between entities can only be defined in Aggregates.",
+        "C. All queries that can be written in an SQL Tool can be defined in an Aggregate.",
+        "D. Attribute grouping can only be done with the SQL Tool."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0010",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "For 4 Entity Customer, Order, OrderProduct, OrderReceipt are related to each other as shown in the image below.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When deleting information in Assubmit Order, all relevant information (being referent) in Customer and CustomerReceipt will also be deleted.",
+        "B. Cannot perform information deletion (being referenced in the OrderProduct table) in the Entiry Order. However, when deleting information being refenrent in Entity OrderReceipt, it will delete information in both Entity OrderReceipt and Entity Order.",
+        "C. Cannot perform information deletion (being referenced in the OrderProduct table) in the Entiry Order. however, when deleting information being refenrent in Entity Customer, it will delete information in both Entity Customer and Entity Order.",
+        "D. Cannot perform information deletion (being referenced in the OrderProduct table) in the Entiry Order. however, when deleting information being refenrent in Entity Customer, it will delete information in Entity Customer"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0011",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "A one-to-one relationship from Entity A to Entity B is created by ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. changing the Entity B identifier data type to <Entity A> Identifier.",
+        "B. changing the id attribute of Entity B to not be an auto-number and assigning a value to it programmatically, when creating a new record.",
+        "C. adding a new attribute to the Entity B with data type <Entity A> Identifier.",
+        "D. adding a new attribute to the Entity A with data type <Entity B> Identifier."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0012",
+      "topic": "이벤트",
+      "difficulty": 1,
+      "stem": "Event Handler can be defined at the Screen level.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0013",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding the If statement, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Both True and False branches are mandatory.",
+        "B. If statements can also be used to implement ad-hoc loops.",
+        "C. Only one of the branches is executed, depending on the If condition's outcome.",
+        "D. More branches may be added if needed."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0014",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "In Rich Widgets, the List_SortColumn widget ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Allows sorting by column in a Form by clicking on that column.",
+        "B. Allows sorting by column in a Table Records by clicking on that column."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0015",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Considering a Button in a Screen, which of the following options cannot be set as its On Click Destination?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Screen.",
+        "B. Client Action.",
+        "C. Block.",
+        "D. External Site."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0016",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Which of the following behaviors does not apply to Forms?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Form groups input widgets and allows displaying and editing data.",
+        "B. A Form is useful to validate data submitted by the user.",
+        "C. A Form has a Source property that will hold the values submitted by the user.",
+        "D. Besides input widgets, a Form can hold other widgets such as Links and Buttons."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0017",
+      "topic": "테마 및 스타일",
+      "difficulty": 2,
+      "stem": "A Theme defines the look and feel of application Screens and you can directly apply it to ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Module, a UI Flow, or an individual Screen or Web Block.",
+        "B. A Module, a UI Flow, or an individual Screen.",
+        "C. A Module or a UI Flow.",
+        "D. Only the Module."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "테마 및 스타일",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0018",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 1,
+      "stem": "When using aggregation functions, the output of the Aggregate will not include the columns at grey.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0019",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Regarding Web Blocks in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Web Block can only have 1 output",
+        "B. Web Block cannot have preparation action",
+        "C. Web Block can Preparation action",
+        "D. Web Block can have multiple outputs"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0020",
+      "topic": "웹 블록",
+      "difficulty": 1,
+      "stem": "Recusion is allowed when using blocks.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0021",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "Regarding On Change in Combo Box, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Screen action to be executed or a screen to navigate to when the value of the element changes.",
+        "B. Screen action to be executed and a screen to navigate to when the value of the element changes."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0022",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Regarding Blocks in OutSystems reactive apps, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Blocks can only be instantiated on Screens.",
+        "B. Blocks can be instantiated on Screens and other Blocks.",
+        "C. Blocks can be instantiated on Client Actions on the Screen.",
+        "D. Blocks can be instantiated on Screens and external HTML pages, using a special HTML tag."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0023",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Considering Aggregates and SQL Queries, which of the following statements is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. All SQL Queries can be replaced by an Aggregate.",
+        "B. Aggregates and SQL Queries have different output types.",
+        "C. Everything that can be define in Aggregate can also be written in a SQL Query.",
+        "D. Both SQL Queries and Aggregates are automatically optimized by the platform."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0024",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "In a Web Application, a Screen Action ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... can terminate with End, Destination, Download or Raise Exception Statements.",
+        "B. ... cannot have multiple termination statements.",
+        "C. ... can have multiple termination statements, but none of them can be a Destination statement.",
+        "D. ... must always terminate with an End statements."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0025",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "How is the data fetched by an Aggregate bound to a Table or a List widget?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. By setting the Source property of the widget to the output of the Aggregate.",
+        "B. By creating a Screen Action that programmatically assigns the widget to the data fetched by the Aggregate.",
+        "C. The binding is done automatically since the Aggregate is in the scope of the Screen.",
+        "D. By adding an Expression inside the widget that refers to an attribute of the data fetched by the Aggregate."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0026",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Business concepts that need to be stored and O Entity diagrams. accessed in our applications should be modeled as...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Database tables.",
+        "B. Entities.",
+        "C. Entity relationships.",
+        "D. accessed in our applications should be modeled as..."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0027",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "When columns are hidden in an Aggregate ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. They cease to be part of output of the Aggregate",
+        "B. They are still part of output of the Aggregate",
+        "C. They are the only columns on the output of Aggregate",
+        "D. It's because they are empty on the database"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0028",
+      "topic": "화면 라이프사이클",
+      "difficulty": 1,
+      "stem": "When Preparation is execute?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When the User Request web page, when pressing the button (with method Submit)",
+        "B. When the User Request web page, when pressing the button (with method Ajax Submit)"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0029",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Start -> If(Count < 3) True Count = Count + 1 , Result = Result + Count . If end loop Result is value = ?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. 5",
+        "B. 6",
+        "C. 7",
+        "D. 8"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0030",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "If an attribute is named \"TotalCount\", OutSystems will automatically set its data type to ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Text",
+        "B. Integer",
+        "C. Boolean",
+        "D. Date"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0031",
+      "topic": "디버깅",
+      "difficulty": 2,
+      "stem": "When debugging a consumer module, how do we guarantee that the execution stops on breakpo defined in the producer module?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. In the producer, set the Entry Module property to the consumer module.",
+        "B. We need to also start the debugger on the producer module.",
+        "C. Nothing, just leave Service Studio open.",
+        "D. We just need to set breakpoints in the producer module. The execution will stop on its breakpoints automatically."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0032",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "The content inside the Placeholder may be different for each instance.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0033",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Using a template to create a screen, the information on the screen is using sample data. When you want to perform replacing Sample Data with real data, which of the following expressions is correct",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When performing replacing, the field of sample data and real data is not mapping, the outsystem will automatically fix the database so that it can perform the replacing.",
+        "B. When performing replacing, the field of sample data and real data is not mapping, the outsystem will notify errors and warnings to the user",
+        "C. When replacing, the field of sample data and real data without mapping will not be able to replace",
+        "D. Out System does not support replacing sample data"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0034",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "To speed up application development, OutSystems has pre-built screens with logic and data for typical scenarios",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0035",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Indexes, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Custom indexes cannot be added to an Entity.",
+        "B. Unique indexes help prevent data duplication.",
+        "C. Indexes over referenced attributes cannot be deleted.",
+        "D. Indexes speed up data retrieval without any kind of impact."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0036",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "In an Aggregate, the Sources section is used for...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Defining values for testing the Aggregate's output records.",
+        "B. Defining conditions to get specific subsets of records.",
+        "C. Defining the Entities we want to retrieve records from.",
+        "D. Defining the order of the Aggregate's output records."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0037",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which HTTP request method does the Submit method use?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. PUT",
+        "B. POST",
+        "C. GET",
+        "D. PATCH"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0038",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "Inside the Preparation of Web Screen, the Destination statement...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. . cannot be used.",
+        "B. allows redirecting the user to a different Web Screen, without rendering the current Screen.",
+        "C. renders the Current Screen and afterwards the users is redirected to the Destination Screen.",
+        "D. . prompts the user before redirecting to the Destination Web Screen."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0039",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "What's the name of the web console that can be accessed to check log reports and environment health information?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Service Studio",
+        "B. Service Center",
+        "C. Log Center",
+        "D. Environment Center"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0040",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "What is the correct syntax for writing names of Entities and Entity Attributes in SQL Query",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. <Entity> and <Entity>.[Attribute]",
+        "B. {Entity} and {Entity}.<Attribute>",
+        "C. {Entity} and {Entity}.[Attribute]",
+        "D. <Entity> and <Entity>.<Attribute>"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0041",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding Static Entities in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When creating a new Static Entity, it will automatically create 4 attributes Id, Label, Order, Is_Active",
+        "B. Static Entity cannot Create, Update, Delete, Get",
+        "C. Attributes of Static Entity cannot be changed",
+        "D. Entity records can be created by calling Create <EntityName> or CreateOrUpdate <EntiryName>"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0042",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Some widgets can trigger Screen Actions with Ajax. That can be defined in a section in their properties that is called ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Special List",
+        "B. Events",
+        "C. On Refresh",
+        "D. On Click or On Change, depending on the widget."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0043",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "Client Actions and Server Actions can have the following variables:",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Input Parameters and Local Variables, but no Output Parameters.",
+        "B. Input and Output Parameters, but no Local variables.",
+        "C. Output Parameters and Local Variables, but no Input Parameters.",
+        "D. Input and Output Parameters, as well as Local Variables."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0044",
+      "topic": "웹 블록",
+      "difficulty": 1,
+      "stem": "In the Web Blocks section of the Theme properties, does changing the Layout web block mean changing the layout of existing screens?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Yes",
+        "B. No"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0045",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Consider a Web Screen with a Button that is associated to a Screen Action. An Ajax Refresh statement in that Screen Action allows to refresh part of that Web Screen, ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. if the button has Method Navigate.",
+        "B. regardless of the Button's Method.",
+        "C. if the Button has Method Ajax Submit.",
+        "D. if the Button has Method Submit."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0046",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "The recommended data types for Session Variables are...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Any data type can be used.",
+        "B. Basic and Structures Types.",
+        "C. Basic and Entity Identifier Types.",
+        "D. Basic and Entity Types."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0047",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding the Switch statement, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The Otherwise branch must exist.",
+        "B. Every branch that evaluates to True is executed.",
+        "C. The first branch that the condition evaluates to True is executed.",
+        "D. If no branch evaluates to True, the Otherwise branch is executed."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0048",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "Considering that Michael is a user of the Orders application, with only the OrdersAdmin Role assigned to him, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Michael has access to Screens with the Registered Role checked.",
+        "B. Michael does not have access to Screens with the Anonymous Role checked.",
+        "C. Michael has access to Screens that have the OrdersAdmin Role checked, but not to Screens with the Registered Role checked.",
+        "D. Michael has only access to Screens that have the OrdersAdmin Role checked."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0049",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding the Delete Rule property, which of the following options does not guarantee referential integrity?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ignore",
+        "B. Delete",
+        "C. Protect"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0050",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Regarding Block Events, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Events allow to pass information from the Block's scope to the parent scope.",
+        "B. Events are triggered by a Block and handled by its parent.",
+        "C. Events can be defined at the Block or Screen level.",
+        "D. Two instances of a Block may use the same handler for the same event."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0051",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 3,
+      "stem": "Consider the following Server Action. What happens if the GetEmployeeById Aggregate does not return any record?",
+      "stemImageUrl": "https://drive.google.com/file/d/1Q5JfXEu9L5OsY017HLrMbI8ZIsRl8BJ3/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The DatabaseException flow is executed.",
+        "B. The RecordNotFound flow is executed.",
+        "C. No exception flow is executed.",
+        "D. The module's global exception handler is executed."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0052",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following options is correct, when implementing pagination with Tables or Lists?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The Max Records property of the Pagination holds the number of records to show per page.",
+        "B. The Start Index property of the Pagination holds the current page number.",
+        "C. The Total Count input of the Pagination pattern should be set to the number of records per U page."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0053",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Considering that we can add several filters to an Aggregate, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Filters are concatenated with the AND operator.",
+        "B. A record is included in the output if it matches at least one of the filters.",
+        "C. Logical operators and some built-in functions can be used inside filters.",
+        "D. All filters are translated to SQL and included in the WHERE clause."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0054",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 3,
+      "stem": "Considering the following Aggregate, what will be the attributes of the GetOrdersShippingState.List.Current record?",
+      "stemImageUrl": "https://drive.google.com/file/d/11tUfXgUASyo932VISD6nB4Xmho342ZNn/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The two aggregation attributes: ShippingState and Count.",
+        "B. The two aggregation attributes (ShippingState and Count) plus all the attributes of the Source Entity.",
+        "C. Six attributes corresponding to the six visible columns in the Aggregate: ShippingState, Count, Description, DueDate, CreatedOn and Priority.",
+        "D. The two aggregation attributes (ShippingState and Count) plus the columns used to calculate these aggregations."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0055",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Consider an Aggregate with the Fetch property set to Only On Demand. When does that Aggregate run?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Automatically, when the Aggregates set to run \"At Start\" finish.",
+        "B. Programmatically, using a Server Action.",
+        "C. Programmatically, using a Refresh Data node in a Screen Action.",
+        "D. Automatically, when the Screen is initializing."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0056",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "When consuming a REST service, what callback action should be used to customize a request sent to the external service?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. On Consume",
+        "B. On Before Request",
+        "C. On After Response",
+        "D. On REST Request"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0057",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "OutSystems provides a built-in application to create and manage users and their roles in applications...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The UserMgmt application.",
+        "B. The Users application.",
+        "C. The Enterprise application.",
+        "D. The Company application."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0058",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "In Rich Widgets, the List_Navigation widget ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Is a navigator for a Table Records with multiple pages, showing a defined number of elements per page.",
+        "B. Is a navigator for a Form with multiple pages, showing a defined number of elements per page."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0059",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "When the user submits data in a Form to the server...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. a Screen Action runs with the data from the Form as Input parameter.",
+        "B. .. the Preparation runs then the Screen Action runs.",
+        "C. . the data is stored in the Form's Record implicit variable.",
+        "D. . the data in the Form is only available in the Preparation."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0060",
+      "topic": "테마 및 스타일",
+      "difficulty": 1,
+      "stem": "During the 1-Click Publish, your application data model, code, and interface is compiled and generates .NET code, HTML, JavaScript and CSS. True or False?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. False",
+        "B. True"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "테마 및 스타일",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0061",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "When doing a \"With or Without\" join between tow entities, it returns ..",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. All records from both entities (FULL OUTER JOIN)",
+        "B. Only records where there is match between the tow entities (INNER JOIN)",
+        "C. All records from the left entity even if there is no match in the right entity (LEFT JOIN)",
+        "D. All records from the right entity even if there is no match in the left entity (RIGHT JOIN)"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0062",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "Which of the following would be a good use case for a Client Variable?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Profile Picture",
+        "B. User Name",
+        "C. User Identifier",
+        "D. Credit Card Number"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0063",
+      "topic": "이벤트",
+      "difficulty": 3,
+      "stem": "Which of the following options is a valid usage of the Trigger Event node?",
+      "stemImageUrl": "https://drive.google.com/file/d/1R2cEa-XAB6XyZSbdHVbD8tVY_4E_h4ge/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The Trigger Event allows a Block to notify its parent (Screen or Block) that something relevant occurred in the scope of the Block.",
+        "B. The Trigger Event allows a Screen to notify its children (Blocks) that something relevant occurred in the scope of the Screen.",
+        "C. The Trigger Event allows a Block to notify its children (other Blocks) that something relevant occurred in the scope of the Block.",
+        "D. The Trigger Event allows a Screen to notify its parent (Screen or Block) that something relevant occurred in the scope of the Screen."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0064",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Different Exceptions are handled by different specific Handlers.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Either",
+        "D. Neither"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0065",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The On Click properties allow defining the behavior of Links and Buttons and ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Links can only Navigate to Screens.",
+        "B. Buttons can only Submit requests.",
+        "C. Links and Buttons can either Navigate to screens or Submit requests.",
+        "D. Links and Buttons can only Navigate to screens."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0066",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The Combo Box widget allows selecting one value out of possible alternatives in a drop-down list. Which of the following is NOT POSSIBLE",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Use the Source Entity property to get the alternatives from an Entity or a Static Entity.",
+        "B. Use the Source Record List property to get the alternatives from a List of Record.",
+        "C. Use the Special List section to get the alternatives from an Entity or a Static Entity.",
+        "D. Use the Special List section to manually set special alternatives"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0067",
+      "topic": "테마 및 스타일",
+      "difficulty": 2,
+      "stem": "Style load order",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Screen & Email -> Web block -> theme",
+        "B. theme -> Web block -> Screen & Email",
+        "C. Web block -> theme -> Screen & Email"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "테마 및 스타일",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0068",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The Image widget ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Only displays static images.",
+        "B. Only displays images given by a URL.",
+        "C. Only displays images stored in the database.",
+        "D. Displays static images, images in a URL, and images in the database."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0069",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "In a Many-to-Many relationship, the Junction Entity must have at least these attributes ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A composite key with reference to each parent Entity.",
+        "B. An identifier and foreign keys to each parent Entity.",
+        "C. Foreign keys to each parent Entity and the Count of the junction records.",
+        "D. Id, Label, Order, Is Active."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0070",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "For a record to be included in the output result it must be true for all filters defined.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0071",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding Table Records Widget, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Bound to a Source Record List",
+        "B. Bound to a Source List",
+        "C. Bound to a Source Record"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0072",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which of the following is the correct order of occurrence of events in a Screen?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready, Initialize, Render, Destroy.",
+        "B. Initialize, Destroy, Ready, Render.",
+        "C. Initialize, Ready, Render, Destroy.",
+        "D. Initialize, Render, Ready, Destroy."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0073",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "Considering the Function property in Client Actions, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Setting the Function property to Yes restricts the Action to have only one Output Parameter.",
+        "B. Setting the Function property to No ensures the Action can only be used in the module where it is defined.",
+        "C. Setting the Function property to Yes is not possible, if the Action is exposed to other modules as Public.",
+        "D. Setting the Function property to No ensures the Action can only be used in Screen Expressions."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0074",
+      "topic": "액션",
+      "difficulty": 1,
+      "stem": "Ending a Screen Action with an End element or a Destination to the '(Current Screen)' yields the same result.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0075",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 1,
+      "stem": "It is possible to see the SQL generated by an Aggregate?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0076",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following steps is necessary to create a many-to-many relationship between Entity A and Entity B?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Add a new Entity C, with two reference attributes of type Entity A Identifier and Entity B Identifier.",
+        "B. Set the data type of the identifier attribute of Entity B to Entity A Identifier.",
+        "C. Add a new reference attribute of type Entity B Identifier to Entity A and a new reference attribute of type Entity A Identifier to Entity B.",
+        "D. Add a new reference attribute of type Entity B Identifier to Entity A."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0077",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Considering that Aggregates can have hidden columns, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The hidden columns help optimizing the Aggregate.",
+        "B. Columns that are empty in the database are automatically hidden.",
+        "C. The hidden columns are not part of the output.",
+        "D. Hiding columns in the Aggregate only affects the preview of the output."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0078",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "What do you need to do to ensure that only authenticated users (with a username and password) can access your application?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Create a new Role in the Users application, change, its name to \"Authenticated Users\", and check it on all Screens.",
+        "B. Create a new Role in your application, change its name to \"Authenticated Users\", and check it on all Screens.",
+        "C. Uncheck the Anonymous role on all Screens.",
+        "D. Check the Anonymous role on all Screens."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0079",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Entities are created with a set of Entity Actions for CRUD operations, which ones?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Insert, Update, Delete",
+        "B. Create, CreateOrUpdate, Update, Get, GetForUpdate, Delete",
+        "C. GET, POST, DELETE",
+        "D. Add, Change, Remove"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0080",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "The Form widget only allows Input and Label widgets",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0081",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Which of the following behaviors is true for Links and Buttons?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Only Links can navigate to external URLs.",
+        "B. Links can only navigate to Screens.",
+        "C. Buttons can only have a Screen Action as an On Click Destination.",
+        "D. Links and Buttons can either Navigate to screens or trigger Screen Actions."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0082",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Static Entities are most similar to which other programming concept?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Enumeration.",
+        "B. Linked lists.",
+        "C. Hash Maps.",
+        "D. Static variables."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0083",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "An instance of a Web Block is a widget and when refreshing it with an Ajax Refresh ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The Ajax Refresh is ignored.",
+        "B. The whole screen is refreshed.",
+        "C. The Web Block Preparation is executed and the Web Block updated.",
+        "D. The Web Block stays the same because the Preparation is not executed."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0084",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Local Variables allow temporarily storing relevant information inside a Screen.",
+        "B. Input Parameters allow passing data between Screens when navigating between them.",
+        "C. When the value of a Local Variable changes the user interface reacts immediately.",
+        "D. Local Variables from a Screen may be directly accessed from another Screen."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0085",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following is a characteristic of a Static Entity?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It can't be extended with any new attributes.",
+        "B. It has two Entity Actions.",
+        "C. It can't be changed after the first publish.",
+        "D. It contains a set of Records."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0086",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "Is it possible to Expose a REST API in OutSystems?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Yes",
+        "B. No"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0087",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "Email, Phone number is Basic data type?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Yes",
+        "B. No"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0088",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 3,
+      "stem": "Considering the following Aggregate, where the Orders are fetched with their reviewers (Employees), which of the following options is correct?",
+      "stemImageUrl": "https://drive.google.com/file/d/1IRBcUVYjDN-h0tAlOhJ4ZOL4Nm2udq86/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The Aggregate only returns Orders with Priority, Status and Employee.",
+        "B. The Aggregate returns Orders without Employee and without Status.",
+        "C. The Aggregate returns Orders with Status and at least one Employee.",
+        "D. The Aggregate returns Orders with Priority and with zero or more Employees."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0089",
+      "topic": "디버깅",
+      "difficulty": 2,
+      "stem": "When debugging does not affect other people, what mode to use",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Personal Area",
+        "B. Public Area",
+        "C. Both (Personal Area or Public Area)"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0090",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "To create a List screen and then a Detail screen...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Drag and drop an Entity to the UI Flow and it automatically creates the List and Detail Screens.",
+        "B. Drag and drop an Entity to the UI Flow to create the List Screen and repeat it to create the Detail Screen."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0091",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Regarding Screen Aggregates, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Screen Aggregates can only be executed when explicitly called.",
+        "B. Screen Aggregates can only fetch data from the database.",
+        "C. Screen Aggregates only exist within the scope of the Screen where they were defined.",
+        "D. Screen Aggregates run asynchronously and in parallel."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0092",
+      "topic": "이벤트",
+      "difficulty": 1,
+      "stem": "On Parameters Changed is from Parent to Block while Event Handler is from Block to Parent.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0093",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding List_SortColumn, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Set the Column to \"{EntityName}.[AttributeName]\" & define a dynamic sort",
+        "B. Set the Column to \"{EntityName}.[AttributeName]\" & Automatic add a dynamic sort",
+        "C. Set the Column to \"{EntityName}.{AttributeName}\" & define a dynamic sort",
+        "D. Set the Column to \"{EntityName}.{AttributeName}\" & Automatic add a dynamic sort"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0094",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "When you want to display a widget in a certain role, what is the best way?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The widget's Visible property setting is Check <RoleName> Role (UserId) = True",
+        "B. Use Container to display control with Display property as Check <RoleName> Role (UserId) = True",
+        "C. Use the If condition to display control provided that Check <RoleName> Role (UserId) = True",
+        "D. Cannot perform the display in units of each widget, so it cannot be done"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0095",
+      "topic": "디버깅",
+      "difficulty": 3,
+      "stem": "Consider the following Action, that calculates the square root (sqrt) of a positive decimal number (N). Knowing that the function was called with N = 0, and the debugger is stopped at the Start node, what will happen when the developer selects the Continue (F9) option highlighted in the picture?",
+      "stemImageUrl": "https://drive.google.com/file/d/1L6qUwd2jjqWAluUB-Kv5gQghendWoMr2/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The Action will end, with sqrt = 0.",
+        "B. The Action will throw an exception and sqrt will have no value.",
+        "C. The debugger will stop in the N < 0 If node.",
+        "D. The debugger will stop at the breakpoint in the End node."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0096",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Which of the following elements can't be used to create calculated attributes in an Aggregate?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Variables.",
+        "B. Server Actions using Entity Attributes.",
+        "C. Built-in Functions that can be translated to SQL (e.g. Length(), Power()).",
+        "D. Value of the attributes of the Source Entities."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0097",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "A Refresh Data in the flow of a Screen Action is used for ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Refresh the data of a specific query is present in the Preparation.",
+        "B. Refresh the data of all queries in the Preparation.",
+        "C. Run the Preparation again.",
+        "D. Refresh a specific widget."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0098",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event is useful when aggregates depend on each other?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. Render",
+        "C. Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0099",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "Screens are composed of several elements called Widgets.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. False",
+        "B. True"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0100",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "To create a menu option for a Screen, just drag and drop that Screen onto the Menu",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0101",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "Regarding Screen lifecycle, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ajax submit, the preparation action will not be reloaded",
+        "B. Ajax submit, the preparation action will be reloaded",
+        "C. IsLoadingScreen () will return true when using ajax reload to reload a portion of the screen's html",
+        "D. IsLoadingScreen () will return false during the preparation step without starting to build screen html"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0102",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Regarding Web Blocks in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. You can instantiate Web Blocks on Web Screens and other Web Blocks.",
+        "B. You can instantiate Web Blocks on Web Screens and external HTML pages, by adding a special html tag.",
+        "C. You can instantiate Web Blocks on Screen Actions.",
+        "D. You can instantiate Web Blocks only on Web Screens."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0103",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "LifeTime allows you to manage IT users and teams.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Either",
+        "D. Neither"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0104",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "Regarding Session Variable, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Set persistent property to true, the session can be shared for the entire system to use",
+        "B. Session variables can only use basic data types (Integer, Text, Boolean, ...)",
+        "C. The session variable will expire when the session times out",
+        "D. Set Cache property to store session value after user log out"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0105",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Using an Ajax Refresh in the flow of a Screen Action allows refreshing a specific widget, but for it to work ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The widget needs to be a Table Records and the Screen Action must be executed with Ajax Submit.",
+        "B. The widget must have a Name and the Screen Action must be executed with Ajax Submit.",
+        "C. The widget must have a Name and the Screen Action must be executed with Submit.",
+        "D. The widget must have a Name and the Screen Action must be executed with Navigate."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0106",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Screen Actions can call other Screen Actions from a different screen.",
+        "B. Client Actions can call Screen Actions.",
+        "C. Server Actions can call Client Actions.",
+        "D. Client Actions can call Server Actions."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0107",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Considering the On Initialize lifecycle event, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The On Initialize event is triggered before the Screen or Block is rendered and before fetching any data.",
+        "B. The On Initialize event is triggered after the Screen or Block has been rendered, so you can use it to manipulate its structure.",
+        "C. The On Initialize event is triggered after an Aggregate finishes fetching data and can be used to act upon the retrieved data before it's used in the Screen.",
+        "D. The On Initialize event is triggered after the input parameter of a Block changes."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0108",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "OutSystems, an Entity Identifier ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... must have its Data Type set to Long Integer.",
+        "B. ... must be set to Auto Number.",
+        "C. ... can only be a single attribute.",
+        "D. ... is created automatically and cannot be modified."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0109",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event is needed for very specific use cases such as removing Javascript listeners or to clean the DOM that was previously changed in the ready event?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. Render",
+        "C. Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0110",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "When using a Template to create a Screen...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It makes a copy of the Template to create the screen with sample data that cannot be replaced.",
+        "B. It makes a copy of the Template to create the screen with sample data that can be replaced by real data."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0111",
+      "topic": "액션",
+      "difficulty": 1,
+      "stem": "It is possible to translate all Server Actions into SQL.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0112",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "List.Current in Aggregates will return the record at any position",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Returns an empty record",
+        "B. Returns record at position list.count -1",
+        "C. Returns record at position list.length - 1",
+        "D. Returns the first record"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0113",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding the Records of a Static Entity, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Records can only be added and removed during development.",
+        "B. The values for all 4 default attributes must be defined.",
+        "C. The Identifier attribute is required for all Static Entities.",
+        "D. The record identifier is the identifier of Static Entity."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0114",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "Following Ajax submit: Start -> Refresh Data -> xxx -> End. xxx is?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ajax Refresh widget",
+        "B. Refresh Data widget"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0115",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "What happens when a developer publishes a Module?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The browser opens.",
+        "B. The OutSystems platform compiles it and generates the HTML, CSS, and JavaScript.",
+        "C. Nothing.",
+        "D. The code is uploaded but only compiled when a user accesses the application."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0116",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "Select the correct option regarding Server Actions.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Setting the Function property to Yes requires the Server Action to have only one Output Parameter.",
+        "B. All Server Actions must have at least one Input or Output Parameter.",
+        "C. Setting the Public property to Yes requires the Server Action to have at least one Input or Output Parameter.",
+        "D. It is not possible to set both Public and Function properties to Yes at the same time."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0117",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Regarding Web Blocks in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Web Block cannot be placed recursively (recursion not allowed)",
+        "B. Web Block cannot contain other web blocks",
+        "C. Web Block has no preparation action",
+        "D. Web Block can only be shared for modules that belong to the same application"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0118",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The Checkbox or Switch Widgets are bound to a variable of which type?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Boolean",
+        "B. Text",
+        "C. Integer",
+        "D. Date"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0119",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Inside an Action flow...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... only one Exception Handler may exist.",
+        "B. ... it's mandatory to have at least one Exception Handler.",
+        "C. ... the Exception Handler flow can't intersect other flows."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0120",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding sorting in a Table, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. All header cells need to have the Sort Attribute property defined.",
+        "B. Only the Sort Attribute of the header cells needs to be defined. Data is refreshed automatically.",
+        "C. The On Sort event has an input parameter containing the clicked column."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0121",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "What is the main purpose of the Screen Preparation?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Decide what widgets will be rendered.",
+        "B. Fetch data from databases.",
+        "C. Submit the form data to the server.",
+        "D. Redirect the user to the proper screen."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0122",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding property Escape Content of Expression, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When set to No, the result returns exactly as the result of the formula",
+        "B. When set to Yes, the result returns exactly as the result of the formula",
+        "C. When the value is No, the special characters in the returned result have been replaced by characters that do not affect the protocol being used.",
+        "D. The default value is No"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0123",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "What is the output of an aggregate when no records meet the criteria?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Null List",
+        "B. Empty list",
+        "C. List has an empty record",
+        "D. List has a record with default data"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0124",
+      "topic": "데이터 모델링",
+      "difficulty": 3,
+      "stem": "Consider a Screen that contains a Form to collect Customer data. The Form has a Save Button with the On Click Destination set to a SaveOnClick Action, which sends the data to the server to store it in the database. What is the best way to make sure that we do not send the data to the server when the mandatory Customer data fields have not been filled in?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Just set the Built-in validations of the Save button to Yes.",
+        "B. Perform custom validations for all inputs. If one fails, set the Valid property of the Form to False.",
+        "C. Set the Built-in validations of the Save button to Yes and check if the Form's Valid property is True.",
+        "D. Set the Built-in validations of the Save button to Yes and add an Exception Handler flow to handle invalid inputs."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0125",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "For Aggregate as shown below, Ask filter to find the person whose name contains the string \"John\"",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Person.Name = \"John\"",
+        "B. Person.Name like \"John\"",
+        "C. Person.Name like \"%John%\"",
+        "D. Person.Name like 'John'"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0126",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Give 1 aggegate as shown. Ask how to display the average score of the group according to Point1 and sort the order of Point 2 with the highest score by year",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Use the GROUPBY function according to the Year attribute, then perform the AVERAGE function for the Point 1 attribute and MAX for the attribute for Point 2.",
+        "B. Use the GROUPBY function according to the Group attribute, then perform the AVERAGE function for the Point 1 attribute and MAX for the attribute for Point 2.",
+        "C. Use the GROUPBY function according to the Year attribute, then perform the AVERAGE function for the Point 2 attribute and MAX for the Point 1 attribute.",
+        "D. Use the GROUPBY function according to the Group attribute, then perform the AVERAGE function for the Point 2 attribute and MAX for the attribute for Point 1."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0127",
+      "topic": "디버깅",
+      "difficulty": 1,
+      "stem": "In OutSystems, it is possible to inspect the values of variables while debugging.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. False",
+        "B. True"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0128",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "In an Aggregate, the purpose of the Test Values section is...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. To define the order of its output records.",
+        "B. To define the Entities we want to get records from.",
+        "C. To define values for testing the preview of the Aggregate's output.",
+        "D. To set the conditions to get specific records, not all the records."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0129",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Inside an Action flow...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. the Exception Handler flow can't intersect other flows.",
+        "B. only one Exception Handler may exist.",
+        "C. it's mandatory to have at least one Exception Handler."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0130",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "In a module producer, something cannot be shared with other modules",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Session Variable",
+        "B. Server Action",
+        "C. Role",
+        "D. Process"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0131",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Placeholders, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Placeholder reserves space in the interface to be allocated when the block is instantiated.",
+        "B. Placeholders can be added to Screens and Blocks.",
+        "C. When a Block with Placeholders is instantiated, it is mandatory to place at least one widget inside the placeholders.",
+        "D. Only one placeholder may be added per Block."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0132",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "What type of Validation must be selected before the error is displayed directly below the defective item",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Client & Server",
+        "B. Server",
+        "C. Client",
+        "D. All right"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0133",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When you create a new Web Screen, it has a Header, Menu and Footer by default because...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. .. all Screens are created that way even in Blank modules.",
+        "B. all Screens must have a Header, Menu and Footer,",
+        "C. it is built with a layout Web Block, that has placeholders for those Web Blocks.",
+        "D. all Screen have three Containers for those Web Blocks."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0134",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "Regarding REST API in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The output of a method must have a text type",
+        "B. A REST API can have OnBeforeRequest, but OnAfterResponse is a call back action for the method",
+        "C. A REST API can both have OnBeforeRequest and can have OnAfterResponse",
+        "D. A REST API Method can both have an OnBeforeRequest action and an OnAfterResponse action"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0135",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following is not an Entity Action of the Customer Entity?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. DeleteCustomer.",
+        "B. UpdateCustomer.",
+        "C. CreateCustomer.",
+        "D. RetrieveCustomer."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0136",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which of the following options is not a built-in validation in OutSystems?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Maximum length of text fields",
+        "B. Mandatory Fields",
+        "C. Data types of input fields"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0137",
+      "topic": "기타",
+      "difficulty": 1,
+      "stem": "In sorting Adding Dynamic sort is ok?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Yes",
+        "B. No"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0138",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "In which of the following situations is it necessary to define a handler for a Block Event?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When the event has Input Parameters.",
+        "B. When the event Input Parameters are all mandatory.",
+        "C. When the Block has Placeholders.",
+        "D. When the Event is set to mandatory."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0139",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event is only available in Screen Aggregates and Data Actions and acts upon data fetched from the database or server.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. Render",
+        "C. Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0140",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "Considering the built-in Role Actions, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The CheckRole Action checks if a user has that particular Role.",
+        "B. The CreateUserWithRole Action creates an end-user and assigns it the Role.",
+        "C. The RevokeRole Action allows to remove a Role from a user programmatically.",
+        "D. The GrantRole Action allows to grant a Role to a user programmatically."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0141",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which of the following is not a Development Environment?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Service Center",
+        "B. Integration Studio",
+        "C. Service Studio"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0142",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "In which Service Studio layer can Entities be found?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Data",
+        "B. Logic",
+        "C. Processes",
+        "D. Interface"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0143",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "In OutSystems, a Block is a reusable UI component. Which of the following is NOT correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Block improves maintainability, i.e., change the design or functionality, affect all usages.",
+        "B. A Block promotes reusability, i.e. develop once, reuse many times.",
+        "C. A Block encapsulates its own logic.",
+        "D. A Block can only be reused once."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0144",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "Which of the following is a good use case for a Site Property?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. REST Web Service API Key",
+        "B. Total Stock Quantity of Products",
+        "C. Current user ID",
+        "D. Search Keyword"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0145",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following steps is necessary to create a 1-to-many relationship between a Master Entity A and a Detail Entity B?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Entity A must have a reference attribute of type Entity B Identifier.",
+        "B. Set the data type of the identifier attribute of Entity B to Entity A Identifier.",
+        "C. Add a new Entity C, with two reference attributes of type Entity A Identifier and Entity B Identifier.",
+        "D. Entity B must have a reference attribute of type Entity A Identifier."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0146",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Regarding the Container widget, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. By default, containers can span from 1 column up to 12 columns.",
+        "B. Containers allow grouping several widgets.",
+        "C. All containers must have at least one widget inside.",
+        "D. Containers can be placed inside other containers."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0147",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "Screen Actions can also call Server Actions.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Neither",
+        "D. Either"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0148",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding sorting Lists, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Lists have a built-in On Sort event.",
+        "B. Sort clauses cannot be changed dynamically at runtime when using Lists.",
+        "C. Other Widgets should be used to allow the end-user to define the sort criteria."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0149",
+      "topic": "데이터 모델링",
+      "difficulty": 3,
+      "stem": "Consider the following Pagination that is associated with an already implemented Table on a Screen. There are no errors in Service Studio, but when the user selects a new page (in the pagination widget) the results do not change on the Table. What is the reason for that behavior?",
+      "stemImageUrl": "https://drive.google.com/file/d/1r1xbok0WwGQ3MYyhGmj1oVDCz6rVfDA3/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. The GetMovies Aggregate is not being refreshed in the OnNavigate Action.",
+        "B. The Max. Records of the Aggregate should be equal to the total number of movies in the database.",
+        "C. The Table is not being refreshed on the OnNavigate Action.",
+        "D. The Max Records property of the Pagination should be set to GetMovies.Count and the TotalCount to RecordsPerPage."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0150",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "When deleting a record from an Entity, it deletes all records of an Entity with foreign key references. In this case, what the Delete Rule in use?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Protect",
+        "B. Delete",
+        "C. Ignore"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0151",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "What's the correct screen lifecycle order after clicking a Button with the Navigate method?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Run Preparation then render the destination Screen.",
+        "B. Run Screen Action, run Preparation and render the Destination Screen.",
+        "C. Render Destination Screen then run its Preparation.",
+        "D. Run Preparation then run the Screen Action."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0152",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 1,
+      "stem": "The SQL Query only allows executing SELECT statements",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0153",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "Which of the following options is correct regarding Client Variables?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Client Variables should be used to store confidential information.",
+        "B. Lists or Binary Data can also be stored on Client Variables.",
+        "C. The value of a Client Variable is shared among all logged-in users.",
+        "D. Client Variables are useful to cache frequently accessed information."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0154",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Which of the following options is false regarding Modules and applications?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Elements can be exposed and reused, but only within the same application.",
+        "B. A Module that reuses an element from another Module is called a Consumer.",
+        "C. An application is composed of a set of Modules.",
+        "D. Modules can be of different types, such as Reactive Web App, Blank, or Extension."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0155",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "The Table Records widget...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Displays records in a tabular layout, one per column.",
+        "B. Displays records in a tabular layout, one per row.",
+        "C. Displays records in a tabular layout, one per table.",
+        "D. Displays records in a free-form format."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0156",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The Check Box widget is bound to a Variable of type...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Text",
+        "B. Integer",
+        "C. Boolean",
+        "D. Date"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0157",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "The lifecycle of a User Session...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Starts when the user authenticates in the application and never ends.",
+        "B. Starts when the user authenticates in the application and ends with a logout or a timeout.",
+        "C. Starts on the first access to the application (even if anonymous) and never ends.",
+        "D. Starts on the first access to the application (even if anonymous) and ends with a logout or a timeout."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0158",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Which of the following options is false regarding Screen Aggregates?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Screen Aggregate can be triggered when a screen is initializing or only On Demand.",
+        "B. The On After Fetch Event is triggered for every Aggregate, regardless of its Fetch property.",
+        "C. The Render Event on the Screen is triggered when an Aggregate with the Fetch property set to \"only on demand\" finishes its execution.",
+        "D. All Aggregates, by default, have the Fetch property set to On Demand."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0159",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Style classes can be overriden, so if you have the same style class defined in a Web Block, a Screen, and the Theme, which definition is applied?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The one in the Web Block.",
+        "B. The one in the Screen.",
+        "C. The one in the Theme.",
+        "D. The one in the UI Flow."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0160",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "In Outsystems, the output parameters of a Consumed REST API Method cannot be mapped to...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... an Entity.",
+        "B. ... an Aggregate.",
+        "C. ... a Structure.",
+        "D. ... a Basic Type."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0161",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "If we have multiple Exception Handlers in an Action flow and an Exception is raised...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... the execution is always moved to the Global Exception Handler.",
+        "B. ... the execution is moved to all Exception Handlers of the Action.",
+        "C. ... a Switch statement is needed to select which Exception Handler will continue the execution.",
+        "D. ... the execution is moved to the Exception Handler that is most specific to the Exception."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0162",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Consider that you want to change your application Header, with new fonts, colors and an icon. What is the best approach to accomplish that in Outsystems?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Change the Common/Header Web Block, by adding a Container with the new icon. Add the new CSS to the Module Theme's Style Sheet.",
+        "B. Add the new CSS to the Style Sheet of every Web Screens in the application, overriding the Style Sheet of the Common/Header Web Block Replace the Header_Logo with the new icon.",
+        "C. Change the Style Sheet of the Common/Header Web Block, with the new CSS implemented and replace the Header_Logo with the new icon.",
+        "D. Replace the Common/Header Web Block on every Web Screen with a new Web Block containing the new icon and CSS in its Style Sheet."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0163",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Given 1 Aggregate with data source is 3 entities: A and B are related to With or Without A and C are related to Only With. Asked how the result will be?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A may not have B but there must be C",
+        "B. A may not have B or C",
+        "C. A must have B and C",
+        "D. A Must have B or C"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0164",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "When using a Popup_Editor, consider that you implement a Screen Action in the Popup Screen that requires Source Screen to be refreshed. How would you implement that Screen Action?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. You use the Popup_Editor_Close to close the Popup, followed by the Ajax Refresh to refresh the Source Screen.",
+        "B. You use the Popup_Editor_Notify for the Popup Screen to notify the Source Screen, followed by the Popup_Editor_ ... the Popup",
+        "C. You use the Popup_Editor_Notify for the Popup Screen to notify the Source Screen and close the Popup.",
+        "D. You use the Popup_Editor_Notify for the Popup Screen to notify the Source Screen, followed by the Popup_Editor__... the Popup and an Ajax Refresh to refresh the Source Screen."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0165",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "The \"Delete\" Delete Rule property option does not ensure referential integrity in the relationship and should be used with caution.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0166",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Considering the Dropdown and the Button Group, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Each Button Group Item within a Button Group has a Variable property to save the option chosen by the user.",
+        "B. The List property of the Dropdown defines the data that will appear as options to a user on a Screen.",
+        "C. The Variable property of the Dropdown will hold the value selected by the user. That value is defined in the Options Value property.",
+        "D. A Button Group needs a Button Group Item to represent each option that the user will have available to choose from."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0167",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Reactive Web Apps in OutSystems, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Reactive Web App is a cross-device app.",
+        "B. The code generated by OutSystems results in a single-page application.",
+        "C. A developer builds the Reactive Web App in Service Studio.",
+        "D. Data requests are executed synchronously."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0168",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When the desired data type is Currency, the following data type transmission does not occur(error)",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Decimal, Integer, Long Integer",
+        "B. Long Integer, Integer, Boolean, Entity Identifier(Integer)",
+        "C. Decimal, Long Integer, Boolean, Entity Identifier(Integer)",
+        "D. Decimal, Integer, Boolean, Entity Identifier(Integer)"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0169",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Business concepts that need to be stored and accessed in our applications should be modeled as...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Entities.",
+        "B. Entity diagrams.",
+        "C. Entity relationships.",
+        "D. Database tables."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0170",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event is used to set focus on one particular widget?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. Render",
+        "C. Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0171",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "How can we limit the number of records returned by an Aggregate?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Use the Max. Records property.",
+        "B. Use the Length value.",
+        "C. Use the Count value.",
+        "D. Use Sorting."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0172",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "What types of applications can be created in OutSystems?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Web, Mobile and Service",
+        "B. Web, Mobile, Service and Extension",
+        "C. Module and Extension",
+        "D. Only Web"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0173",
+      "topic": "REST/SOAP API",
+      "difficulty": 2,
+      "stem": "In OutSystems, how do we restrict access to a Screen?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Go to the Users application and associate the Screen to a specific role.",
+        "B. Use the CheckRole Action.",
+        "C. In the Screen Properties, untick roles to restrict their access.",
+        "D. We don't. Only users with a username and password can access."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0174",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "To consume a SOAP Web Service ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Provide the WSDL (the endpoint URL or upload file), choose the binding (if there's more than one), and all methods are automatically consumed.",
+        "B. Provide the WSDL (the endpoint URL or upload file), choose the binding (if there's more than one), and choose the methods to consume."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0175",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "In any case, should use Site property",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Minimum password length",
+        "B. Number of logged user",
+        "C. Search field value"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0176",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "In OutSystems, a Web Block is a reusable UI component. Which of the following is NOT TRUE?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It promotes re-usability, i.e. develop once, reuse many times.",
+        "B. It encapsulates its own logic.",
+        "C. It improves maintainability, i.e., change the design or functionality, affect all usages.",
+        "D. It can only be reused once."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0177",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "1 paging website per page 10 records. When clicking on the link [2], the next 10 records are displayed, but the link [2] is not in bold. The cause is right",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. In action handle On Notify of List Navigation can not execute refresh List Navigation.",
+        "B. In action handle On Notify of List Navigation can not execute Refresh Table.",
+        "C. In action handle On Notify of List Navigation can not execute Refresh Query"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0178",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "OutSystems provides two built-in Roles: Anonymous and Registered",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. No, there's only one role: Anonymous.",
+        "B. No, there's only one role: Registered.",
+        "C. Yes, Anonymous for unknown users and Registered for users registered in the Users application."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0179",
+      "topic": "이벤트",
+      "difficulty": 1,
+      "stem": "When the event is mandatory, a Block event such as the Client Action must be specified to handle the event. Although it may be empty.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0180",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Create unique customer index with 2 fields Name and Email. When performing any insert data below, an error will occur",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. (Jonh,jonh@gmail.com,1122),(Jonh_Hand,jonh@gmail.com,1122)",
+        "B. (Jonh,jonh@gmail.com,1122),(Jonh,jonh_hand@gmail.com,1122)",
+        "C. (Jonh,jonh@gmail.com,1122),(Jonh_Hand,jonh@gmail.com,3344)",
+        "D. (Jonh,jonh@gmail.com,1122),(Jonh,jonh@gmail.com,3344)"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0181",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Screens have Output Parameters.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. It depends on the setup of the developer",
+        "D. Producer module only"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0182",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Considering Inputs and Labels, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. To access the value submitted in an Input widget, we can simply use InputName.Value.",
+        "B. Labels associated with mandatory fields will display a visual cue on the Screen.",
+        "C. An input widget can only be used for the Text data type.",
+        "D. Every input must have a Label associated with."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0183",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "Regarding Session LifeCycle, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Default Session time out after 20 minutes. But can configure on service center.",
+        "B. The session starts (start) after the user logs in successfully",
+        "C. A Web Service session starts (start) when it is called and can last until time out when the value of the Persistent property is set to Yes.",
+        "D. Can send web session information via URL"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0184",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding All Exception Hanlder in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The All Exception handler can only be used in UI Flow",
+        "B. All Exception handler will handle all errors no matter how",
+        "C. The All Exception handler will handle all exceptions if no exception describes the error that is happening",
+        "D. The Abort Transaction property will be disabled when the Type Exception is selected for the exception handler"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0185",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Considering ListItem and List Actions, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When List Items have the full swiping option activated, the List Action is not necessary.",
+        "B. The List Action triggers a Screen Action that will have the logic to be executed on swipe.",
+        "C. List Actions can only be used inside List Items.",
+        "D. List Items can be used outside of Lists."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0186",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "The list of values displayed on the Combo Box widget can be a combination of Entity and Special List.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0187",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "Roles are created in applications and user authorizations are managed...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Manually in the Users application or programmatically.",
+        "B. Only manually in the Users application.",
+        "C. Only programmatically using the Grant... and Revoke... role actions."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0188",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "To replace data on a widget with automatic data replacement (Tables Records, List Records, Form, ...)",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Right-click on the widget and select Import Data from Entity",
+        "B. Delete the widget and create it again with the right Entities.",
+        "C. Drag your Entity and drop it onto the widget.",
+        "D. Right-click on the Entity and select Import Data from Excel."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0189",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Consider an Aggregate with a \"With or Without\" join between two entities. What is the expected output of the Aggregate?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. All records from the left entity even if there is no match in the right entity (LEFT JOIN).",
+        "B. All records from both Entities (FULL OUTER JOIN).",
+        "C. All records from the right entity even if there is no match in the left entity (RIGHT JOIN).",
+        "D. Only records where there is a match between the two Entities (INNER JOIN)."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0190",
+      "topic": "위젯",
+      "difficulty": 3,
+      "stem": "If you want to move from a webPage A to a WebPage B by clicking the Submit button, execute the Destination setting in the screen action of the Submit button as webpage B. Which of the following statements is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When you press the Submit button, you will perform the webpage B's preperation, then build the webpage of the webpage B, then perform the screen action of the Submit button.",
+        "B. When clicking the Submit button, it will perform the screen action of the Submit button, then perform the preperation of the webpage B and then build the webpage screen B",
+        "C. When the Submit button is pressed, perform the screen action of the Submit button and then build the screen of webpage B, the webpage's preperation will not be performed.",
+        "D. When clicking Submit button, it will immediately perform preperation of webpage B and then build screen of webpage B, screen action of Submit button will not be performed."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0191",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding non-SELECT queries, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It is mandatory to set the Output Entity or Structure.",
+        "B. It is not possible to use Query Parameters in Non-SELECT queries.",
+        "C. It is not possible to execute DELETE queries with the SQL Tool.",
+        "D. It is mandatory to specify all Attributes in an INSERT query."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0192",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "In an Aggregate, the Sources section is used for ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Define values for testing the output records of the Aggregate.",
+        "B. Define the Entities we want retrieve records from.",
+        "C. Define conditions to get specific subsets of records.",
+        "D. Define the order of the output records of the Aggregate."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0193",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "To design Screens with great UI patterns, OutSystems UI and Rich Widgets provide widgets that are available in the Service Studio toolbox",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0194",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 3,
+      "stem": "The following Screen has two Dropdowns, one to select a Country and one to select a City. The GetCountries and GetCities Aggregates provide the countries and the cities to be displayed in the respective dropdowns and are both set to be fetched At Start. Which of the following options is not a valid step if we want to just fetch the cities for the country selected in the respective dropdown?",
+      "stemImageUrl": "https://drive.google.com/file/d/1gm2xpbBQmE-KTAHtCdj4wT0jNLnpDzZX/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Set the Fetch property of the GetCities Aggregate to Only On Demand.",
+        "B. Refresh the GetCities Aggregate in the OnChange Action of the Country Dropdown.",
+        "C. Filter the GetCities Aggregate by the selected country.",
+        "D. Call the GetCities Aggregate in the GetCountries' On After Fetch Event handler."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0195",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "A Block can be used...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Only inside other Screens.",
+        "B. Only inside other Blocks.",
+        "C. Inside Screens and Blocks, including itself.",
+        "D. Inside Screens and Blocks, except on itself."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0196",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Immediately after creating an Entity and its attributes, what is the expected behavior when using the Bootstrap Data From Excel?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. You cannot use the bootstrap data from Excel. You are required to Publish the module first.",
+        "B. The bootstrap will try to automatically map the Entity attributes with the existing headers, in the first row of the Excel file.",
+        "C. The bootstrap only works all attributes match exactly the headers on the first row of the Excel file. Otherwise you get an error...",
+        "D. You cannot use the bootstrap data from Excel, because the structure of the Entity is already defined."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0197",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding data relationships, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. An Entity must have an identifier to allow relationships.",
+        "B. The Entity identifier must be an integer.",
+        "C. A reference attribute needs to be mandatory.",
+        "D. An Entity can only have one reference attribute."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0198",
+      "topic": "디버깅",
+      "difficulty": 2,
+      "stem": "Which of the following commands is not available in the OutSystems debugger?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Restart Debugging",
+        "B. Stop Debugging",
+        "C. Step Over",
+        "D. Continue Request"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0199",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When the validation is set to Client & Server ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Custom validations are checked on the server-side if all mandatory fields are empty.",
+        "B. Built-in validations are first checked on the client-side and, if not valid, the user gets error messages immediately.",
+        "C. Built-in validations are first checked on the client-side but the request goes to the server anyway to perform custom validations.",
+        "D. There is no Client & Server validation."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0200",
+      "topic": "화면 라이프사이클",
+      "difficulty": 1,
+      "stem": "In the Screen lifecycle, the Preparation runs on the browser.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0201",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The scope of Input Parameters and Local Variables is limited to the Screen where they are defined.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Varies depending on the module setup",
+        "D. Varies when using function."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0202",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding Mobile (Phone or Tablet) Apps in OutSystems, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Mobile Apps can be distributed as a PWA.",
+        "B. The programming model of Mobile Apps is similar to Reactive Web Apps.",
+        "C. Mobile Apps can run natively on iOS and Android.",
+        "D. Mobile Apps do not have offline capabilities."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0203",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event handler of the first aggregate can be used to refresh the query of the second aggregate?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. On Ready",
+        "B. On After Fetch",
+        "C. On Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0204",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "The flow of an action can have...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. one or more Start nodes but only one End node.",
+        "B. only one Start node and one End node.",
+        "C. only one Start node but multiple End nodes.",
+        "D. multiple Start and End nodes."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0205",
+      "topic": "액션",
+      "difficulty": 2,
+      "stem": "When designing the flow of a Server Action ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It can have multiple Start and End nodes.",
+        "B. It can have one or more Start nodes but only one End node.",
+        "C. It can have only one Start node but one or more End nodes.",
+        "D. It can have only one Start node and one End node."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "액션",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0206",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Regarding the If Widget, which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Functions can be used inside the Condition of an If.",
+        "B. Only one of the branches is shown at runtime.",
+        "C. Multiple widgets may be added inside each branch.",
+        "D. More branches may be added to an If Widget."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0207",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding a Consumer module ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. It can only reuse elements from Producer modules of the same application.",
+        "B. It can only reuse elements that are Public in their Producer modules.",
+        "C. It can reuse any element from any Producer module.",
+        "D. It can only reuse elements from Producer modules of other applications."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0208",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 1,
+      "stem": "When using an aggregate function like Sum, Average, Min, Max or Count on an attribute...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The resulting aggregate attribute is add to the Aggregate output alongside the rest of the entity attributes.",
+        "B. Only the resulting aggregated attribute is part of the Aggregate output"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0209",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "In a ReactiveWeb App, Data is requested asynchronously, thus allowing a more fluid experience.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Either",
+        "D. Neither"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0210",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Switch 1: (a<b) Action A 2: (a>b) Action B Otherwise Action C. Out put is true",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. If a = b then Action C execute",
+        "B. If a <= b then Action C execute",
+        "C. If a < b then Action B execute",
+        "D. If a <= b then Action B execute"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0211",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "The Expression widget...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... displays text calculated at runtime.",
+        "B. ... displays only the result of mathematical expressions.",
+        "C. ... displays only static text."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0212",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Inspect the values of variables when code execution is stopped..",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When using Debugging, it is possible to Inspect information about the value of all variables used at the time of stopping",
+        "B. When using Debugging, it is only possible to Inspect the value of local variables, not inspect the information of Site-property and Session variables.",
+        "C. When using Debugging, it is only possible to Inspect the value of local variables, not inspect the information of the logic being executed.",
+        "D. When using Debugging, Inspect can get information about screen state"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0213",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "Does OutSystems manage the underlying database tables for the developer?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Yes",
+        "B. No"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0214",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "Regarding Web Blocks in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When the web block is in one screen, the parent screen is required to have a screen action to handle the event of the child web block, but the case is in another web block.",
+        "B. When the web block is in a web block, the parent web block is required to have a screen action to handle the event of the child web block, but the case is in another screen.",
+        "C. When the web block is in one screen or another web block, the parent screen or web block is required to have a screen action to handle the event of the child web block.",
+        "D. When the web block is in one screen or another web block, the parent screen or web block is not required to take action to handle the event of the child web block."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0215",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "In OutSystems, User Groups allow you to ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. ... create new user Sessions for multiple users at the same time.",
+        "B. ... assign the same password to multiple users at the same time.",
+        "C. ... grant the access to the same Screens to multiple users at the same time.",
+        "D. ... assign and replace a Role to multiple users at the same time."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0216",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "A Screen Preparation...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. requires at least one Input Parameter to filter the queries to the database.",
+        "B. does not have Output Parameters.",
+        "C. cannot execute other Server Actions.",
+        "D. is mandatory for every Web Screen."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0217",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "When a Form is submitted, what are the built-in validations that Outsystems performs?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. If the data submitted by the user matches the data type of the variables associated with the respective Inputs.",
+        "B. If the Mandatory fields are filled in and if the data submitted by the user matches the data type of the variables associated Inputs.",
+        "C. If the Mandatory fields are filled in.",
+        "D. If the data submitted by the user matches the data type of the Source Record of the Form."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0218",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Output parameters are available ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Only inside their implementation scope.",
+        "B. Only outside their implementation scope.",
+        "C. Both inside and outside their implementation scope."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0219",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which event is needed if we do some logic over the result such as checking if it is empty?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. Render",
+        "C. Destroy",
+        "D. After Fetch"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0220",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Expression on the screen, which of the following options is true?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Expression can call server action and use the server action output to calculate",
+        "B. If the expression is empty, the value shown in the Example property will be displayed",
+        "C. The value of Expression will be calculated during the build screen and displayed on the screen",
+        "D. Expression cannot call server action and uses server action output to calculate"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0221",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "The order of the Entities in the join does not matter.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0222",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following mappings between OutSystems and the Database is NOT correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Reference attribute - Primary Key.",
+        "B. Index - Index.",
+        "C. Entities - Tables.",
+        "D. Attributes - Column."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0223",
+      "topic": "데이터 모델링",
+      "difficulty": 3,
+      "stem": "Considering the following Entities, what is required to create a many-to-many relationship between them?",
+      "stemImageUrl": "https://drive.google.com/file/d/1WsHUUMSgcx3NbwSMrshSTKe-SqnLCcRG/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Create a third Entity that contains two attributes of types Order Identifier and Product Identifier.",
+        "B. Create a third Entity with a primary key of type Order Identifier and an attribute of type Product Identifier.",
+        "C. Create an attribute of type Order Identifier in the Product Entity and an attribute of type Product Identifier in the Order Entity.",
+        "D. Create an attribute of type Product Identifier in the Order Entity."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0224",
+      "topic": "위젯",
+      "difficulty": 3,
+      "stem": "Consider a Form with a Save button with the Built-in Validations property set to Yes. When a user clicks on the Save button, some validations over the data submitted to the Form are automatically performed by OutSystems by default. Which validations are those?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Check if the mandatory fields are filled in.",
+        "B. Check if the mandatory fields are filled in and if the non-mandatory fields, that are later used in the logic, are also filled in.",
+        "C. Check if the mandatory fields are filled in and if the data submitted by the user matches the data type expected in the input fields.",
+        "D. Check if the mandatory fields are filled in and if the data submitted by the user matches the data type of the Form's data source."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0225",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Consider that we want to apply aggregation functions in an Aggregate. Which of the following options is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The output of the Aggregate will contain all attributes from the Source Entities plus the aggregation columns.",
+        "B. The output of the Aggregate will not include the columns at grey.",
+        "C. We can apply the following functions on attributes of integer data type: sum, max, min, count and average.",
+        "D. We can apply multiple aggregation functions inside an Aggregate."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0226",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "One of the following Tools allows you to manage the application's lifecycle across an infrastructure. Which one?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. LifeTime",
+        "B. Service Studio",
+        "C. Integration Studio",
+        "D. Service Center"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0227",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "In which of the following situations is the On Parameters Changed Event triggered?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The On Parameters Changed must be explicitly triggered by the parent of the Block",
+        "B. If the value of a Block Input Parameters changes inside a Client Action of the Block.",
+        "C. When the parent of the Block changes the value of at least one of the Block Input Parameters."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0228",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "Regarding Sorting in Aggregates, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Aggregates only support one sorting criterion.",
+        "B. It is only possible to set multiple sorting criteria if duplicate records exist in the entity.",
+        "C. If more than one sorting criterion is defined, all of them must have the same direction (ascending or descending).",
+        "D. It is mandatory to set the direction for all sorting criteria (ascending or descending)."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0229",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When data is sent to the server with the Submit method, OutSystems has built-in validations that validate ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Mandatory values, correct Data Types, and Business Rules.",
+        "B. Mandatory values and correct Data types.",
+        "C. Correct Data Types and Business Rules.",
+        "D. Mandatory values and Business Rules."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0230",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following statements about Entities is false?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Entities do not require an identifier.",
+        "B. Entities are only stored in memory.",
+        "C. Entities have attributes.",
+        "D. Entities can be created, updated, and deleted."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0231",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Considering the Initialize event of a Screen, which of the following would be the best use case for that event?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Manipulate the DOM.",
+        "B. Set the default value of a Local Variable.",
+        "C. Act on data returned by a Data Action.",
+        "D. Retrieve data from the server database."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0232",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "If an Entity Attribute named HouseNumber is created, what needs to be done about its Data Type?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Nothing, it will automatically be set to Integer.",
+        "B. It should be set to Decimal.",
+        "C. It should be set to Integer.",
+        "D. Nothing, it will automatically be set to Identifier."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0233",
+      "topic": "디버깅",
+      "difficulty": 2,
+      "stem": "In OutSystems, where can we place breakpoints?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Server-side logic only",
+        "B. In Actions only (Client-side and Server-Side)",
+        "C. Client-side logic only",
+        "D. In Actions and Variables"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "디버깅",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0234",
+      "topic": "위젯",
+      "difficulty": 3,
+      "stem": "Consider the Action called Absolute which returns an absolute value (abs) of a number N passed as Input Parameter. When does the Action return 0?",
+      "stemImageUrl": "https://drive.google.com/file/d/1whQveFFlesOJlkA1Qi4JMEV7-oUAZU1f/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Never.",
+        "B. When the input parameter (N) is less than zero.",
+        "C. When the input parameter (N) is zero.",
+        "D. When the input parameter (N) is greater than zero."
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0235",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Entities and Attributes are created in the database as ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Tables and Columns",
+        "B. Tables and Indexes",
+        "C. Indexes and Columns",
+        "D. Tables and Constraints"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0236",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "When consuming a REST API, we can consume a single REST method ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Provide the method's URL, fill the parameter values (if any), test it to get the JSON response, and copy the JSON response to the Body.",
+        "B. Provide the WSDL (the endpoint URL or upload file), choose the binding (if there's more than one), and choose the method to consume."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0237",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Select the correct option regarding the Input Widget.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. All input widgets must be inside a Form widget.",
+        "B. You don't need to have a variable. The data typed by the user is saved in the Input widget itself.",
+        "C. It can only be associated to variables of Text data type.",
+        "D. You always need to have a variable to store the value typed by the user."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0238",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "A Structure can have attributes of the following data types:",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Basic, Complex, and Record",
+        "B. Basic, String, and Object",
+        "C. Basic, Structure, Entity, and List",
+        "D. Basic and List only"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0239",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 3,
+      "stem": "How would you change the following Aggregate to return the number of orders per priority?",
+      "stemImageUrl": "https://drive.google.com/file/d/1inmyBDK2wZlWDS-SzmSrzZ1B7gs6hlba/view?usp=sharing",
+      "stemImageAlt": "관련 다이어그램",
+      "choices": [
+        "A. Change the Join between the Order and the Priority to Only With and create a Count over the Priority.Id attribute.",
+        "B. Create a Group By over the Priority.Id attribute and a Count over the Order.Id attribute.",
+        "C. Create a GroupBy over the Order.Id attribute and a Count over the Priority.Id attribute.",
+        "D. Remove the Join between the Order and the OrderStatus and create a Count over the Priority.Id attribute."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0240",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Regarding Function in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Server Actions can be set as a Function: Restricted to one Output Parameter, Available in Expressions.",
+        "B. Server Actions can be set as a Function: No Restricted to one Output Parameter, Available in Expressions.",
+        "C. Server Actions can be set as a Function: Restricted to one Output Parameter, No Available in Expressions.",
+        "D. Server Actions can be set as a Function: No Restricted to one Output Parameter, No Available in Expressions."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0241",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "What type of variables can be created inside a Screen?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Local Variables only.",
+        "B. Input Parameters only.",
+        "C. Input Parameters, Output Parameters, and Local Variables.",
+        "D. Input Parameters and Local Variables."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0242",
+      "topic": "웹 블록",
+      "difficulty": 1,
+      "stem": "Screen and Web Block has no output parameter ?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0243",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "Which of the following options is correct regarding the Valid property of the Form?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The Valid property of the Form should be explicitly set to False (e.g. with an Assign) when an input field is not valid.",
+        "B. The Valid property of the Form should be checked after the last custom validation.",
+        "C. ally changed to False only when all the input fields of the Form are not valid.",
+        "D. When built-in validations are enabled, the Valid property of the Form is automatically checked before executing the client action logic."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0244",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "Input parameters are always mandatory",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0245",
+      "topic": "웹 블록",
+      "difficulty": 1,
+      "stem": "A Web Block can be used ...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Inside Web Screens and Web Blocks, except on itself.",
+        "B. Inside Web Screens and Web Blocks, even on itself."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0246",
+      "topic": "화면 라이프사이클",
+      "difficulty": 2,
+      "stem": "Regarding Preparation in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Preparation adtion may have multiple outputs",
+        "B. Preparation is a forced action of Screen and webBlock",
+        "C. The preparation action can only have 1 output",
+        "D. Screen may not need Preparation"
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "화면 라이프사이클",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0247",
+      "topic": "데이터 모델링",
+      "difficulty": 1,
+      "stem": "Entity Identifiers can be simple primary keys or composite keys",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. TRUE",
+        "B. FALSE"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0248",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When there is a change in the Producer module, which statement later about the Consumer module is correct.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. When adding the output of Server action, the consumer will get an error if the Producer is not updated",
+        "B. When changing the internal logic of a server action without changing the input-output, Consumer still uses the latest logic",
+        "C. When deleting the input of the Server action, the consumer will get an error if the Producer is not updated",
+        "D. When changing the content of the web screen, the Consumer is still not affected even without updating Producer"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0249",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Regarding Static Entities in Outsystems, select to statement that is true.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. A Static Entity always has only 4 attributes Id, Label, Order, Is_Active",
+        "B. A Static Entity has the functions Create, Update, Get",
+        "C. A Static Entity can add attributes with the basic data type and identifier data type of all other entities.",
+        "D. A Static Entity can add attributes with the basic data type and the identifier data type of other static entity."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0250",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following steps is necessary to create a 1-to-l relationship between Entity A and Entity B?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Set the data type of the identifier attribute of Entity B to Entity A Identifier.",
+        "B. Add a new Entity C, with two reference attributes of type Entity A Identifier and Entity B U Identifier.",
+        "C. Add a new reference attribute of type Entity B Identifier to Entity A.",
+        "D. Add a new Entity C, with the identifier attribute being a composition of types Entity A Identifier and Entity B Identifier."
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0251",
+      "topic": "위젯",
+      "difficulty": 2,
+      "stem": "What does the Widget Tree represent?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. The Screen lifecycle flow.",
+        "B. The hierarchy of the widgets on the screen.",
+        "C. A list of the application screens.",
+        "D. The existing screen templates."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0252",
+      "topic": "역할 및 권한",
+      "difficulty": 2,
+      "stem": "Considering Users and Roles in OutSystems, which of the following options is correct?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. End-users can only be created programmatically, using Actions from the Users application.",
+        "B. There are three built-in roles in OutSystems: Anonymous, AppUser and Registered.",
+        "C. All users, with or without a login, have automatically the Registered Role.",
+        "D. By default, end-users are managed in the built-in Users application."
+      ],
+      "answer": "D",
+      "explanation": "",
+      "tags": [
+        "역할 및 권한",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0253",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "When you want to use Ajax, you have to choose Method in On Click",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Client & Server Submit",
+        "B. Ajax Submit",
+        "C. Server Submit",
+        "D. Ajax & Server Submit"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0254",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "What are ALL the types of relationships that can be implemented in OutSystems?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. 1-to-Many and Many-to-Many.",
+        "B. 1-to-1, 1-to-Many, and Many-to-Many.",
+        "C. 1-to-1 and 1-to-Many.",
+        "D. Many-to-Many."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0255",
+      "topic": "웹 블록",
+      "difficulty": 2,
+      "stem": "In which Service Studio layer can Screens and Blocks be found?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Processes",
+        "B. Data",
+        "C. Interface",
+        "D. Logic"
+      ],
+      "answer": "C",
+      "explanation": "",
+      "tags": [
+        "웹 블록",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0256",
+      "topic": "기타",
+      "difficulty": 2,
+      "stem": "Mobile Apps have access to local storage and can be developed to work offline, online, or in both scenarios.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False",
+        "C. Either",
+        "D. Neither"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "기타",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0257",
+      "topic": "변수 및 속성",
+      "difficulty": 2,
+      "stem": "Which of the following options should not be a use case of client variables?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Username.",
+        "B. Password.",
+        "C. Search filter keyword.",
+        "D. ID of a user session."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "변수 및 속성",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0258",
+      "topic": "REST/SOAP API",
+      "difficulty": 1,
+      "stem": "To restrict access to a Web Screen...",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Go to the Users application and associate the Web Screen to a specific role.",
+        "B. Select the Role in the Web Screen Properties pane and OutSystems will automatically check the Role at runtime."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "REST/SOAP API",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0259",
+      "topic": "데이터 모델링",
+      "difficulty": 2,
+      "stem": "Which of the following is the correct syntax for Entities and Attributes?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Entity.Attribute",
+        "B. {Entity}.[Attribute]",
+        "C. [Entity].{Attribute}",
+        "D. (Entity).{Attribute}"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "데이터 모델링",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0260",
+      "topic": "위젯",
+      "difficulty": 1,
+      "stem": "Screens can be composed of a combination of several elements called Widgets.",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. True",
+        "B. False"
+      ],
+      "answer": "A",
+      "explanation": "",
+      "tags": [
+        "위젯",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0261",
+      "topic": "이벤트",
+      "difficulty": 2,
+      "stem": "Which of the following events is not available in Screens or Blocks?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. Ready",
+        "B. After Fetch",
+        "C. Initialize",
+        "D. Render"
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "이벤트",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    },
+    {
+      "id": "OSARD-0262",
+      "topic": "SQL 및 Aggregate",
+      "difficulty": 2,
+      "stem": "A developer should favor using a Structure instead of the Entity in the output of a SELECT SQL Query. Do you agree with this statement?",
+      "stemImageUrl": "",
+      "stemImageAlt": "",
+      "choices": [
+        "A. No, it is preferable to use the Entity instead of the Structure.",
+        "B. Yes, because queries will retrieve fewer Attributes and less data.",
+        "C. No, since it is exactly the same.",
+        "D. Yes, because queries become easier to maintain."
+      ],
+      "answer": "B",
+      "explanation": "",
+      "tags": [
+        "SQL 및 Aggregate",
+        "OutSystems",
+        "O11"
+      ],
+      "source": "OutSystems 11 Associate Reactive Developer Exam V9.02"
+    }
+  ]
+}
