@@ -26,6 +26,15 @@ export default function AdminPage() {
   const [adminPassword, setAdminPassword] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
   const [uploadingQuestionId, setUploadingQuestionId] = useState<string | null>(null);
+  const [showOnlyNotUploaded, setShowOnlyNotUploaded] = useState(false);
+  const [editingQuestionId, setEditingQuestionId] = useState<string | null>(null);
+  const [editStem, setEditStem] = useState('');
+  const [editChoices, setEditChoices] = useState<string[]>([]);
+  const [savingQuestionId, setSavingQuestionId] = useState<string | null>(null);
+
+  const isUploadedImageUrl = (url?: string) => {
+    return typeof url === 'string' && url.startsWith('/api/images/uploaded/');
+  };
 
   useEffect(() => {
     // Check if already authenticated
@@ -180,6 +189,64 @@ export default function AdminPage() {
     }
   };
 
+  const startEditQuestion = (q: any) => {
+    if (!q?.id) {
+      alert('문제 ID가 없어 수정할 수 없습니다.');
+      return;
+    }
+    setEditingQuestionId(q.id);
+    setEditStem(String(q.stem || ''));
+    setEditChoices(Array.isArray(q.choices) ? q.choices.map((c: string) => String(c || '')) : []);
+  };
+
+  const cancelEditQuestion = () => {
+    setEditingQuestionId(null);
+    setEditStem('');
+    setEditChoices([]);
+  };
+
+  const saveEditQuestion = async (questionId: string) => {
+    try {
+      const trimmedStem = editStem.trim();
+      const trimmedChoices = editChoices.map((c) => c.trim());
+
+      if (!trimmedStem) {
+        alert('문제 본문은 비어 있을 수 없습니다.');
+        return;
+      }
+      if (trimmedChoices.some((c) => !c)) {
+        alert('보기는 비어 있을 수 없습니다.');
+        return;
+      }
+
+      setSavingQuestionId(questionId);
+      const response = await fetch(`/api/questions/${questionId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-password': adminPassword,
+        },
+        body: JSON.stringify({
+          stem: trimmedStem,
+          choices: trimmedChoices,
+        }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || '문제 저장 실패');
+      }
+
+      await refreshExpandedQuestions();
+      cancelEditQuestion();
+      alert('문제가 저장되었습니다.');
+    } catch (err) {
+      alert(err instanceof Error ? err.message : '문제 저장 실패');
+    } finally {
+      setSavingQuestionId(null);
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -308,9 +375,24 @@ export default function AdminPage() {
 
                       {expandedSetId === set.setId && questions.length > 0 && (
                         <div className="mt-4 pt-4 border-t border-gray-200">
-                          <h4 className="font-semibold mb-3">문제 목록 ({questions.length}개)</h4>
+                          <div className="mb-3 flex items-center justify-between gap-3">
+                            <h4 className="font-semibold">
+                              문제 목록 ({questions.filter((q) => !showOnlyNotUploaded || !isUploadedImageUrl(q.stemImageUrl)).length}개)
+                            </h4>
+                            <label className="inline-flex items-center gap-2 text-xs text-gray-700">
+                              <input
+                                type="checkbox"
+                                checked={showOnlyNotUploaded}
+                                onChange={(e) => setShowOnlyNotUploaded(e.target.checked)}
+                                className="h-4 w-4"
+                              />
+                              업로드 안된 문제만 보기
+                            </label>
+                          </div>
                           <div className="space-y-3 max-h-96 overflow-y-auto">
-                            {questions.map((q, idx) => (
+                            {questions
+                              .filter((q) => !showOnlyNotUploaded || !isUploadedImageUrl(q.stemImageUrl))
+                              .map((q, idx) => (
                               <div key={q.id || idx} className="p-3 bg-gray-50 rounded text-sm">
                                 <div className="flex justify-between items-start mb-2">
                                   <span className="font-medium">#{idx + 1}</span>
@@ -323,7 +405,45 @@ export default function AdminPage() {
                                     </span>
                                   </div>
                                 </div>
-                                <p className="text-gray-800 mb-2">{q.stem}</p>
+                                {editingQuestionId === q.id ? (
+                                  <div className="mb-2 space-y-2">
+                                    <textarea
+                                      value={editStem}
+                                      onChange={(e) => setEditStem(e.target.value)}
+                                      className="w-full rounded border border-gray-300 px-2 py-1 text-sm"
+                                      rows={3}
+                                    />
+                                    <div className="space-y-2">
+                                      {editChoices.map((choice, i) => (
+                                        <input
+                                          key={`edit-choice-${i}`}
+                                          value={choice}
+                                          onChange={(e) => {
+                                            const next = [...editChoices];
+                                            next[i] = e.target.value;
+                                            setEditChoices(next);
+                                          }}
+                                          className="w-full rounded border border-gray-300 px-2 py-1 text-xs"
+                                        />
+                                      ))}
+                                    </div>
+                                    <div className="flex gap-2">
+                                      <Button
+                                        size="sm"
+                                        variant="primary"
+                                        onClick={() => void saveEditQuestion(q.id)}
+                                        disabled={savingQuestionId === q.id}
+                                      >
+                                        {savingQuestionId === q.id ? '저장 중...' : '저장'}
+                                      </Button>
+                                      <Button size="sm" variant="secondary" onClick={cancelEditQuestion}>
+                                        취소
+                                      </Button>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <p className="text-gray-800 mb-2">{q.stem}</p>
+                                )}
                                 {q.stemImageUrl && (
                                   <div className="mb-2 overflow-hidden rounded border border-gray-200 bg-white">
                                     <img
@@ -363,7 +483,17 @@ export default function AdminPage() {
                                       }}
                                     />
                                   </label>
+                                  {editingQuestionId !== q.id && (
+                                    <Button
+                                      size="sm"
+                                      variant="secondary"
+                                      onClick={() => startEditQuestion(q)}
+                                    >
+                                      문제/보기 수정
+                                    </Button>
+                                  )}
                                 </div>
+                                {editingQuestionId !== q.id && (
                                 <div className="space-y-1 ml-4">
                                   {q.choices.map((choice: string, i: number) => (
                                     <p key={i} className={`text-xs ${
@@ -375,6 +505,7 @@ export default function AdminPage() {
                                     </p>
                                   ))}
                                 </div>
+                                )}
                                 <p className="text-xs text-gray-600 mt-2 italic">
                                   💡 {q.explanation}
                                 </p>
