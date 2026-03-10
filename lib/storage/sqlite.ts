@@ -45,7 +45,11 @@ export class SQLiteStorage {
   async findQuestionSetByMeta(title: string, description: string): Promise<QuestionSet | null> {
     const set = await prisma.questionSet.findFirst({
       where: { title, description },
-      include: { questions: true },
+      include: {
+        questions: {
+          orderBy: { id: 'asc' },
+        },
+      },
       orderBy: { createdAt: 'desc' },
     });
 
@@ -111,7 +115,9 @@ export class SQLiteStorage {
   async getQuestionSets(search?: string, sortBy: 'date' | 'title' | 'count' = 'date'): Promise<QuestionSet[]> {
     const sets = await prisma.questionSet.findMany({
       include: {
-        questions: true,
+        questions: {
+          orderBy: { id: 'asc' },
+        },
       },
       where: search
         ? {
@@ -158,7 +164,11 @@ export class SQLiteStorage {
   async getQuestionSet(setId: string): Promise<QuestionSet | null> {
     const set = await prisma.questionSet.findUnique({
       where: { setId },
-      include: { questions: true },
+      include: {
+        questions: {
+          orderBy: { id: 'asc' },
+        },
+      },
     });
 
     if (!set) return null;
