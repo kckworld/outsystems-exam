@@ -11,6 +11,9 @@ type CachedMeta = {
   contentType: string;
 };
 
+const FETCH_TIMEOUT_MS = 20000;
+const FETCH_RETRIES = 2;
+
 function extractGoogleDriveFileId(url: URL): string | undefined {
   if (url.hostname !== 'drive.google.com') return undefined;
 
@@ -58,6 +61,31 @@ function buildImageFetchCandidates(rawUrl: string): string[] {
     `https://drive.google.com/uc?export=view&id=${id}`,
     `https://drive.google.com/uc?export=download&id=${id}`,
   ];
+}
+
+async function fetchWithRetry(url: string): Promise<Response> {
+  let lastError: unknown;
+
+  for (let attempt = 0; attempt <= FETCH_RETRIES; attempt += 1) {
+    try {
+      return await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; OutSystemsExamBot/1.0)',
+          Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+        },
+        cache: 'no-store',
+        signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      });
+    } catch (error) {
+      lastError = error;
+      if (attempt < FETCH_RETRIES) {
+        // Retry transient DNS/connect timeout errors.
+        await new Promise((resolve) => setTimeout(resolve, 400 * (attempt + 1)));
+      }
+    }
+  }
+
+  throw lastError;
 }
 
 function getSafeExt(contentType: string): string {
@@ -138,14 +166,16 @@ export async function GET(req: NextRequest) {
     }
 
     let lastStatus = 0;
+    let lastErrorCode = '';
     for (const candidate of candidates) {
-      const upstream = await fetch(candidate, {
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; OutSystemsExamBot/1.0)',
-          Accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
-        },
-        cache: 'no-store',
-      });
+      let upstream: Response;
+      try {
+        upstream = await fetchWithRetry(candidate);
+      } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : String(error);
+        lastErrorCode = message;
+        continue;
+      }
 
       lastStatus = upstream.status;
       if (!upstream.ok) {
@@ -172,11 +202,11 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    const status = lastStatus > 0 ? 502 : 415;
+    const status = lastStatus > 0 || lastErrorCode ? 502 : 415;
     const message =
       lastStatus > 0
         ? `Failed to fetch image from source (${lastStatus})`
-        : 'URL did not return an image';
+        : lastErrorCode || 'URL did not return an image';
     return NextResponse.json({ error: message }, { status });
   } catch (error) {
     console.error('Image proxy error:', error);
