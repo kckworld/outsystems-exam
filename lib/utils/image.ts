@@ -1,4 +1,4 @@
-function extractGoogleDriveFileId(url: URL): string | undefined {
+export function extractGoogleDriveFileId(url: URL): string | undefined {
   if (url.hostname !== 'drive.google.com') return undefined;
 
   const pathMatch = url.pathname.match(/\/file\/d\/([^/]+)/);
@@ -20,10 +20,32 @@ export function normalizeExternalImageUrl(rawUrl: string): string {
 
   const driveId = extractGoogleDriveFileId(parsed);
   if (driveId) {
-    return `https://drive.google.com/uc?export=download&id=${encodeURIComponent(driveId)}`;
+    // Prefer thumbnail endpoint for image rendering (often more reliable than download URL).
+    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w2000`;
   }
 
   return parsed.toString();
+}
+
+export function buildImageFetchCandidates(rawUrl: string): string[] {
+  let parsed: URL;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return [rawUrl];
+  }
+
+  const driveId = extractGoogleDriveFileId(parsed);
+  if (!driveId) {
+    return [parsed.toString()];
+  }
+
+  const id = encodeURIComponent(driveId);
+  return [
+    `https://drive.google.com/thumbnail?id=${id}&sz=w2000`,
+    `https://drive.google.com/uc?export=view&id=${id}`,
+    `https://drive.google.com/uc?export=download&id=${id}`,
+  ];
 }
 
 export function toDisplayImageUrl(rawUrl?: string): string | undefined {

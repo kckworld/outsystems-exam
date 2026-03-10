@@ -426,6 +426,16 @@ export class SQLiteStorage {
       createdAt: q.createdAt,
     }));
   }
+
+  async updateQuestionImage(questionId: string, stemImageUrl: string, stemImageAlt?: string): Promise<void> {
+    await prisma.question.update({
+      where: { id: questionId },
+      data: {
+        stemImageUrl,
+        stemImageAlt: stemImageAlt ?? '',
+      },
+    });
+  }
 }
 
 export const storage = new SQLiteStorage();

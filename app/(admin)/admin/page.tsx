@@ -25,6 +25,7 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [adminPassword, setAdminPassword] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
+  const [uploadingQuestionId, setUploadingQuestionId] = useState<string | null>(null);
 
   useEffect(() => {
     // Check if already authenticated
@@ -133,6 +134,49 @@ export default function AdminPage() {
       setExpandedSetId(id);
     } catch (err) {
       alert(err instanceof Error ? err.message : '문제 로드 실패');
+    }
+  };
+
+  const refreshExpandedQuestions = async () => {
+    if (!expandedSetId) return;
+    try {
+      const response = await fetch(`/api/sets/${expandedSetId}`);
+      if (!response.ok) throw new Error('문제 새로고침 실패');
+      const data = await response.json();
+      setQuestions(data.questions);
+    } catch (err) {
+      alert(err instanceof Error ? err.message : '문제 새로고침 실패');
+    }
+  };
+
+  const handleUploadQuestionImage = async (questionId: string, file?: File | null) => {
+    if (!file) return;
+    try {
+      setUploadingQuestionId(questionId);
+
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('alt', '문제 참고 이미지');
+
+      const response = await fetch(`/api/questions/${questionId}/image`, {
+        method: 'POST',
+        headers: {
+          'x-admin-password': adminPassword,
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error || '이미지 업로드 실패');
+      }
+
+      await refreshExpandedQuestions();
+      alert('이미지가 업로드되었습니다.');
+    } catch (err) {
+      alert(err instanceof Error ? err.message : '이미지 업로드 실패');
+    } finally {
+      setUploadingQuestionId(null);
     }
   };
 
@@ -289,6 +333,37 @@ export default function AdminPage() {
                                     />
                                   </div>
                                 )}
+                                <div className="mb-2 flex flex-wrap items-center gap-2">
+                                  {q.stemImageUrl ? (
+                                    <a
+                                      href={q.stemImageUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="inline-flex items-center rounded border border-blue-200 bg-blue-50 px-2 py-1 text-xs text-blue-700 hover:bg-blue-100"
+                                    >
+                                      이미지 링크 열기
+                                    </a>
+                                  ) : (
+                                    <span className="text-xs text-gray-500">이미지 없음</span>
+                                  )}
+
+                                  <label className="inline-flex cursor-pointer items-center rounded border border-gray-300 bg-white px-2 py-1 text-xs text-gray-700 hover:bg-gray-100">
+                                    {uploadingQuestionId === q.id ? '업로드 중...' : '이미지 업로드'}
+                                    <input
+                                      type="file"
+                                      accept="image/png,image/jpeg,image/webp,image/gif"
+                                      className="hidden"
+                                      disabled={uploadingQuestionId === q.id || !q.id}
+                                      onChange={(e) => {
+                                        const file = e.target.files?.[0] || null;
+                                        if (q.id) {
+                                          void handleUploadQuestionImage(q.id, file);
+                                        }
+                                        e.currentTarget.value = '';
+                                      }}
+                                    />
+                                  </label>
+                                </div>
                                 <div className="space-y-1 ml-4">
                                   {q.choices.map((choice: string, i: number) => (
                                     <p key={i} className={`text-xs ${
