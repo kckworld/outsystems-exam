@@ -256,7 +256,7 @@ export function QuestionCard({
                 </div>
               </div>
             ) : (
-              <p className="text-gray-700">{question.explanation || '해설이 없습니다.'}</p>
+              <p className="text-gray-700 whitespace-pre-wrap break-words">{question.explanation || '해설이 없습니다.'}</p>
             )}
           </div>
         )}

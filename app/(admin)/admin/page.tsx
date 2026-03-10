@@ -519,7 +519,7 @@ export default function AdminPage() {
                                   ))}
                                 </div>
                                 )}
-                                <p className="text-xs text-gray-600 mt-2 italic">
+                                <p className="text-xs text-gray-600 mt-2 italic whitespace-pre-wrap break-words">
                                   💡 {q.explanation}
                                 </p>
                               </div>

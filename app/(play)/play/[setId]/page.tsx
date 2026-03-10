@@ -271,7 +271,7 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
                         </div>
                         <div className="p-3 bg-blue-50 border border-blue-200 rounded">
                           <p className="text-sm font-medium text-blue-900 mb-1">💡 해설</p>
-                          <p className="text-sm text-blue-800">{q.explanation}</p>
+                          <p className="text-sm text-blue-800 whitespace-pre-wrap break-words">{q.explanation}</p>
                         </div>
                       </div>
                     );
