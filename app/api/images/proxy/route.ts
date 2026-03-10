@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { mkdir, readFile, stat, writeFile } from 'fs/promises';
 import path from 'path';
-import { buildImageFetchCandidates, normalizeExternalImageUrl } from '@/lib/utils/image';
 
 const CACHE_DIR = path.join(process.cwd(), 'data', 'image-cache');
 const CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 14; // 14 days
@@ -11,6 +10,55 @@ type CachedMeta = {
   filePath: string;
   contentType: string;
 };
+
+function extractGoogleDriveFileId(url: URL): string | undefined {
+  if (url.hostname !== 'drive.google.com') return undefined;
+
+  const pathMatch = url.pathname.match(/\/file\/d\/([^/]+)/);
+  if (pathMatch?.[1]) return pathMatch[1];
+
+  const idParam = url.searchParams.get('id');
+  if (idParam) return idParam;
+
+  return undefined;
+}
+
+function normalizeExternalImageUrl(rawUrl: string): string {
+  let parsed: URL;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return rawUrl;
+  }
+
+  const driveId = extractGoogleDriveFileId(parsed);
+  if (driveId) {
+    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(driveId)}&sz=w2000`;
+  }
+
+  return parsed.toString();
+}
+
+function buildImageFetchCandidates(rawUrl: string): string[] {
+  let parsed: URL;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    return [rawUrl];
+  }
+
+  const driveId = extractGoogleDriveFileId(parsed);
+  if (!driveId) {
+    return [parsed.toString()];
+  }
+
+  const id = encodeURIComponent(driveId);
+  return [
+    `https://drive.google.com/thumbnail?id=${id}&sz=w2000`,
+    `https://drive.google.com/uc?export=view&id=${id}`,
+    `https://drive.google.com/uc?export=download&id=${id}`,
+  ];
+}
 
 function getSafeExt(contentType: string): string {
   if (contentType.includes('png')) return 'png';
