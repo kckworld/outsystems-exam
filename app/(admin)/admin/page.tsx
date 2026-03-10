@@ -36,6 +36,10 @@ export default function AdminPage() {
     return typeof url === 'string' && url.startsWith('/api/images/uploaded/');
   };
 
+  const shouldShowNotUploadedImageOnly = (q: any) => {
+    return Boolean(q?.stemImageUrl) && !isUploadedImageUrl(q.stemImageUrl);
+  };
+
   useEffect(() => {
     // Check if already authenticated
     const storedPassword = localStorage.getItem('adminPassword') || localStorage.getItem('adminKey');
@@ -377,7 +381,7 @@ export default function AdminPage() {
                         <div className="mt-4 pt-4 border-t border-gray-200">
                           <div className="mb-3 flex items-center justify-between gap-3">
                             <h4 className="font-semibold">
-                              문제 목록 ({questions.filter((q) => !showOnlyNotUploaded || !isUploadedImageUrl(q.stemImageUrl)).length}개)
+                              문제 목록 ({questions.filter((q) => !showOnlyNotUploaded || shouldShowNotUploadedImageOnly(q)).length}개)
                             </h4>
                             <label className="inline-flex items-center gap-2 text-xs text-gray-700">
                               <input
@@ -386,12 +390,12 @@ export default function AdminPage() {
                                 onChange={(e) => setShowOnlyNotUploaded(e.target.checked)}
                                 className="h-4 w-4"
                               />
-                              업로드 안된 문제만 보기
+                              이미지 링크 있고 업로드 안된 문제만 보기
                             </label>
                           </div>
                           <div className="space-y-3 max-h-96 overflow-y-auto">
                             {questions
-                              .filter((q) => !showOnlyNotUploaded || !isUploadedImageUrl(q.stemImageUrl))
+                              .filter((q) => !showOnlyNotUploaded || shouldShowNotUploadedImageOnly(q))
                               .map((q, idx) => (
                               <div key={q.id || idx} className="p-3 bg-gray-50 rounded text-sm">
                                 <div className="flex justify-between items-start mb-2">

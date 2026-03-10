@@ -26,8 +26,32 @@ function requireAdminKey(req: NextRequest) {
   return false;
 }
 
+function stripChoicePrefix(choice: string, index: number): string {
+  const expected = String.fromCharCode(65 + index); // A, B, C...
+  let value = choice.trim();
+
+  for (let i = 0; i < 3; i += 1) {
+    const match = value.match(/^([A-Fa-f])\s*[\.)]\s+/);
+    if (!match) break;
+
+    const label = match[1].toUpperCase();
+    if (label !== expected) break;
+    value = value.slice(match[0].length).trim();
+  }
+
+  return value || choice;
+}
+
+function normalizeQuestionChoices(questions: Question[]): Question[] {
+  return questions.map((q) => ({
+    ...q,
+    choices: q.choices.map((choice, index) => stripChoicePrefix(choice, index)),
+  }));
+}
+
 function withQuestionIds(questions: Question[]): Question[] {
-  return questions.map((q, index) => ({
+  const normalized = normalizeQuestionChoices(questions);
+  return normalized.map((q, index) => ({
     ...q,
     id: q.id || `${randomUUID()}-${index}`,
   }));
