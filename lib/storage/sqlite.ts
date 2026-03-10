@@ -457,6 +457,15 @@ export class SQLiteStorage {
       },
     });
   }
+
+  async updateQuestionExplanation(questionId: string, explanation: string): Promise<void> {
+    await prisma.question.update({
+      where: { id: questionId },
+      data: {
+        explanation,
+      },
+    });
+  }
 }
 
 export const storage = new SQLiteStorage();

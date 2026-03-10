@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import type { ChangeEvent } from 'react';
 import { Question } from '@/lib/schema';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
@@ -14,6 +16,7 @@ interface QuestionCardProps {
   onNext?: () => void;
   isSubmitted?: boolean;
   showTopics?: boolean;
+  onSaveExplanation?: (questionId: string, explanation: string) => Promise<void>;
 }
 
 export function QuestionCard({
@@ -25,11 +28,45 @@ export function QuestionCard({
   onNext,
   isSubmitted = false,
   showTopics = true,
+  onSaveExplanation,
 }: QuestionCardProps) {
   const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(question.answer);
   const isCorrect = selectedChoice === correctAnswerIndex;
   const hasSelected = selectedChoice !== undefined;
   const displayImageUrl = toDisplayImageUrl(question.stemImageUrl);
+  const [copied, setCopied] = useState(false);
+  const [isEditingExplanation, setIsEditingExplanation] = useState(false);
+  const [editedExplanation, setEditedExplanation] = useState(question.explanation || '');
+  const [isSavingExplanation, setIsSavingExplanation] = useState(false);
+
+  const handleCopyText = async () => {
+    const lines = [
+      `문제: ${question.stem}`,
+      '',
+      ...question.choices.map((choice: string, idx: number) => `${String.fromCharCode(65 + idx)}. ${choice}`),
+    ];
+    const payload = lines.join('\n');
+    await navigator.clipboard.writeText(payload);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  const handleSaveExplanation = async () => {
+    if (!question.id || !onSaveExplanation) return;
+    if (!editedExplanation.trim()) {
+      alert('해설은 비어 있을 수 없습니다.');
+      return;
+    }
+    try {
+      setIsSavingExplanation(true);
+      await onSaveExplanation(question.id, editedExplanation.trim());
+      setIsEditingExplanation(false);
+    } catch (error) {
+      alert(error instanceof Error ? error.message : '해설 저장 실패');
+    } finally {
+      setIsSavingExplanation(false);
+    }
+  };
 
   return (
     <Card className="w-full">
@@ -61,6 +98,12 @@ export function QuestionCard({
       </CardHeader>
 
       <CardContent>
+        <div className="mb-4 flex justify-end">
+          <Button size="sm" variant="secondary" onClick={() => void handleCopyText()}>
+            {copied ? '복사됨' : '문제+보기 복사'}
+          </Button>
+        </div>
+
         {displayImageUrl && (
           <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
             <img
@@ -74,7 +117,7 @@ export function QuestionCard({
 
         {/* Choices */}
         <div className="space-y-3 mb-6">
-          {question.choices.map((choice, index) => {
+          {question.choices.map((choice: string, index: number) => {
             const isSelected = selectedChoice === index;
             const isCorrectChoice = correctAnswerIndex === index;
             const showCorrect = showAnswer && isCorrectChoice;
@@ -132,10 +175,43 @@ export function QuestionCard({
         )}
 
         {/* Explanation */}
-        {showAnswer && question.explanation && (
+        {showAnswer && (
           <div className="mt-4 p-4 bg-gray-100 rounded-lg">
-            <h4 className="font-semibold text-gray-900 mb-2">Explanation</h4>
-            <p className="text-gray-700">{question.explanation}</p>
+            <div className="mb-2 flex items-center justify-between">
+              <h4 className="font-semibold text-gray-900">Explanation</h4>
+              {question.id && onSaveExplanation && !isEditingExplanation && (
+                <Button size="sm" variant="secondary" onClick={() => setIsEditingExplanation(true)}>
+                  해설 수정
+                </Button>
+              )}
+            </div>
+            {isEditingExplanation ? (
+              <div className="space-y-2">
+                <textarea
+                  value={editedExplanation}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setEditedExplanation(e.target.value)}
+                  className="w-full rounded border border-gray-300 px-2 py-1 text-sm"
+                  rows={4}
+                />
+                <div className="flex gap-2">
+                  <Button size="sm" variant="primary" onClick={() => void handleSaveExplanation()} disabled={isSavingExplanation}>
+                    {isSavingExplanation ? '저장 중...' : '저장'}
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => {
+                      setEditedExplanation(question.explanation || '');
+                      setIsEditingExplanation(false);
+                    }}
+                  >
+                    취소
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <p className="text-gray-700">{question.explanation || '해설이 없습니다.'}</p>
+            )}
           </div>
         )}
 

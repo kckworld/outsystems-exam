@@ -143,6 +143,21 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
     }
   };
 
+  const handleSaveExplanation = async (questionId: string, explanation: string) => {
+    const response = await fetch(`/api/questions/${questionId}/explanation`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ explanation }),
+    });
+    if (!response.ok) {
+      const body = await response.json().catch(() => ({}));
+      throw new Error(body.error || '해설 저장 실패');
+    }
+    setQuestions((prev) =>
+      prev.map((q) => (q.id === questionId ? { ...q, explanation } : q))
+    );
+  };
+
   useQuestionNavigation(
     currentIndex,
     questions.length,
@@ -355,6 +370,7 @@ export default function TrainSessionPage({ params }: { params: { sessionId: stri
           onSubmit={handleSubmit}
           onNext={handleNext}
           isSubmitted={isSubmitted}
+          onSaveExplanation={handleSaveExplanation}
         />
 
         <div className="mt-6 flex justify-between items-center gap-4">
