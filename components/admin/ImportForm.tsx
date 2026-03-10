@@ -22,6 +22,32 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
   const [success, setSuccess] = useState<string | null>(null);
   const [progress, setProgress] = useState({ current: 0, total: 0 });
 
+  const parseApiResponse = async (response: Response) => {
+    const raw = await response.text();
+    try {
+      return { data: raw ? JSON.parse(raw) : null, raw };
+    } catch {
+      return { data: null, raw };
+    }
+  };
+
+  const buildApiErrorMessage = (response: Response, payload: any, raw: string) => {
+    if (payload?.error) {
+      return payload.error as string;
+    }
+
+    // If upstream/proxy returns an HTML error page, show concise hint.
+    if (raw.trim().startsWith('<!DOCTYPE') || raw.trim().startsWith('<html')) {
+      return `서버가 JSON이 아닌 HTML 오류 페이지를 반환했습니다 (HTTP ${response.status}). 서버 로그를 확인해주세요.`;
+    }
+
+    if (raw.trim()) {
+      return `HTTP ${response.status}: ${raw.slice(0, 180)}`;
+    }
+
+    return `HTTP ${response.status}: Import failed`;
+  };
+
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFiles: File[] = Array.from(e.target.files || []);
     if (selectedFiles.length > 0) {
@@ -74,19 +100,22 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
             body: JSON.stringify(data),
           });
 
+          const { data: responseData, raw } = await parseApiResponse(response);
+
           if (!response.ok) {
-            const errorData = await response.json();
             results.push({
               success: false,
               filename: file.name,
-              error: errorData.error || 'Import failed',
+              error: buildApiErrorMessage(response, responseData, raw),
             });
           } else {
-            const result = await response.json();
+            if (!responseData || !responseData.set) {
+              throw new Error(`서버 응답 파싱 실패 (HTTP ${response.status})`);
+            }
             results.push({
               success: true,
               filename: file.name,
-              title: result.set.title,
+              title: responseData.set.title,
             });
           }
         } catch (err) {
@@ -128,19 +157,22 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
           body: JSON.stringify(payload),
         });
 
+        const { data: responseData, raw } = await parseApiResponse(response);
+
         if (!response.ok) {
-          const errorData = await response.json();
           results.push({
             success: false,
             filename: 'pasted-json',
-            error: errorData.error || 'Import failed',
+            error: buildApiErrorMessage(response, responseData, raw),
           });
         } else {
-          const result = await response.json();
+          if (!responseData || !responseData.set) {
+            throw new Error(`서버 응답 파싱 실패 (HTTP ${response.status})`);
+          }
           results.push({
             success: true,
             filename: 'pasted-json',
-            title: result.set.title,
+            title: responseData.set.title,
           });
         }
       } catch (err) {
