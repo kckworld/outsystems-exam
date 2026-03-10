@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { Question } from '@/lib/schema';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
@@ -16,7 +16,10 @@ interface QuestionCardProps {
   onNext?: () => void;
   isSubmitted?: boolean;
   showTopics?: boolean;
-  onSaveExplanation?: (questionId: string, explanation: string) => Promise<void>;
+  onSaveQuestionEdit?: (
+    questionId: string,
+    payload: { stem: string; choices: string[]; explanation: string }
+  ) => Promise<void>;
 }
 
 export function QuestionCard({
@@ -28,16 +31,25 @@ export function QuestionCard({
   onNext,
   isSubmitted = false,
   showTopics = true,
-  onSaveExplanation,
+  onSaveQuestionEdit,
 }: QuestionCardProps) {
   const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(question.answer);
   const isCorrect = selectedChoice === correctAnswerIndex;
   const hasSelected = selectedChoice !== undefined;
   const displayImageUrl = toDisplayImageUrl(question.stemImageUrl);
   const [copied, setCopied] = useState(false);
-  const [isEditingExplanation, setIsEditingExplanation] = useState(false);
+  const [isEditingQuestion, setIsEditingQuestion] = useState(false);
+  const [editedStem, setEditedStem] = useState(question.stem || '');
+  const [editedChoices, setEditedChoices] = useState<string[]>(question.choices || []);
   const [editedExplanation, setEditedExplanation] = useState(question.explanation || '');
-  const [isSavingExplanation, setIsSavingExplanation] = useState(false);
+  const [isSavingQuestion, setIsSavingQuestion] = useState(false);
+
+  useEffect(() => {
+    setEditedStem(question.stem || '');
+    setEditedChoices(question.choices || []);
+    setEditedExplanation(question.explanation || '');
+    setIsEditingQuestion(false);
+  }, [question.id, question.stem, question.choices, question.explanation]);
 
   const handleCopyText = async () => {
     const lines = [
@@ -51,20 +63,32 @@ export function QuestionCard({
     setTimeout(() => setCopied(false), 1500);
   };
 
-  const handleSaveExplanation = async () => {
-    if (!question.id || !onSaveExplanation) return;
+  const handleSaveQuestion = async () => {
+    if (!question.id || !onSaveQuestionEdit) return;
+    if (!editedStem.trim()) {
+      alert('문제 본문은 비어 있을 수 없습니다.');
+      return;
+    }
+    if (editedChoices.some((c) => !String(c).trim())) {
+      alert('보기는 비어 있을 수 없습니다.');
+      return;
+    }
     if (!editedExplanation.trim()) {
       alert('해설은 비어 있을 수 없습니다.');
       return;
     }
     try {
-      setIsSavingExplanation(true);
-      await onSaveExplanation(question.id, editedExplanation.trim());
-      setIsEditingExplanation(false);
+      setIsSavingQuestion(true);
+      await onSaveQuestionEdit(question.id, {
+        stem: editedStem.trim(),
+        choices: editedChoices.map((c) => String(c).trim()),
+        explanation: editedExplanation.trim(),
+      });
+      setIsEditingQuestion(false);
     } catch (error) {
-      alert(error instanceof Error ? error.message : '해설 저장 실패');
+      alert(error instanceof Error ? error.message : '문항 저장 실패');
     } finally {
-      setIsSavingExplanation(false);
+      setIsSavingQuestion(false);
     }
   };
 
@@ -179,14 +203,34 @@ export function QuestionCard({
           <div className="mt-4 p-4 bg-gray-100 rounded-lg">
             <div className="mb-2 flex items-center justify-between">
               <h4 className="font-semibold text-gray-900">Explanation</h4>
-              {question.id && onSaveExplanation && !isEditingExplanation && (
-                <Button size="sm" variant="secondary" onClick={() => setIsEditingExplanation(true)}>
-                  해설 수정
+              {question.id && onSaveQuestionEdit && !isEditingQuestion && (
+                <Button size="sm" variant="secondary" onClick={() => setIsEditingQuestion(true)}>
+                  문제/보기/해설 수정
                 </Button>
               )}
             </div>
-            {isEditingExplanation ? (
+            {isEditingQuestion ? (
               <div className="space-y-2">
+                <textarea
+                  value={editedStem}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setEditedStem(e.target.value)}
+                  className="w-full rounded border border-gray-300 px-2 py-1 text-sm"
+                  rows={3}
+                />
+                <div className="space-y-2">
+                  {editedChoices.map((choice: string, idx: number) => (
+                    <input
+                      key={`q-edit-choice-${idx}`}
+                      value={choice}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        const next = [...editedChoices];
+                        next[idx] = e.target.value;
+                        setEditedChoices(next);
+                      }}
+                      className="w-full rounded border border-gray-300 px-2 py-1 text-xs"
+                    />
+                  ))}
+                </div>
                 <textarea
                   value={editedExplanation}
                   onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setEditedExplanation(e.target.value)}
@@ -194,15 +238,17 @@ export function QuestionCard({
                   rows={4}
                 />
                 <div className="flex gap-2">
-                  <Button size="sm" variant="primary" onClick={() => void handleSaveExplanation()} disabled={isSavingExplanation}>
-                    {isSavingExplanation ? '저장 중...' : '저장'}
+                  <Button size="sm" variant="primary" onClick={() => void handleSaveQuestion()} disabled={isSavingQuestion}>
+                    {isSavingQuestion ? '저장 중...' : '저장'}
                   </Button>
                   <Button
                     size="sm"
                     variant="secondary"
                     onClick={() => {
+                      setEditedStem(question.stem || '');
+                      setEditedChoices(question.choices || []);
                       setEditedExplanation(question.explanation || '');
-                      setIsEditingExplanation(false);
+                      setIsEditingQuestion(false);
                     }}
                   >
                     취소

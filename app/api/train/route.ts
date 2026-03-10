@@ -5,7 +5,7 @@ import { randomUUID } from 'crypto';
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { topics, difficulties, questionCount } = body;
+    const { topics, difficulties, questionCount, sourceSetId } = body;
 
     if (!topics || topics.length === 0) {
       return NextResponse.json({ error: 'At least one topic required' }, { status: 400 });
@@ -18,6 +18,7 @@ export async function POST(req: NextRequest) {
     const allQuestions = await storage.getAllQuestions({
       topics,
       difficulties,
+      sourceSetIds: sourceSetId ? [sourceSetId] : undefined,
     });
 
     if (allQuestions.length === 0) {
@@ -36,6 +37,7 @@ export async function POST(req: NextRequest) {
       config: {
         topics,
         difficulties,
+        sourceSetId: sourceSetId || null,
         questionCount: selectedQuestions.length,
       },
     });

@@ -5,9 +5,16 @@ import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 
+interface QuestionSet {
+  setId: string;
+  title: string;
+}
+
 export default function TrainPage() {
   const router = useRouter();
   const [topics, setTopics] = useState<string[]>([]);
+  const [sets, setSets] = useState<QuestionSet[]>([]);
+  const [selectedSetId, setSelectedSetId] = useState('');
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([1, 2, 3]);
   const [questionCount, setQuestionCount] = useState(20);
@@ -15,20 +22,32 @@ export default function TrainPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchTopics = async () => {
+    const fetchConfigData = async () => {
       try {
-        const response = await fetch('/api/topics');
-        if (!response.ok) throw new Error('토픽을 가져오는데 실패했습니다');
-        const data = await response.json();
-        setTopics(data.topics);
-        setSelectedTopics(data.topics); // Select all by default
+        const [topicsResponse, setsResponse] = await Promise.all([
+          fetch('/api/topics'),
+          fetch('/api/sets'),
+        ]);
+
+        if (!topicsResponse.ok) throw new Error('토픽을 가져오는데 실패했습니다');
+        if (!setsResponse.ok) throw new Error('문제 세트를 가져오는데 실패했습니다');
+
+        const topicsData = await topicsResponse.json();
+        const setsData = await setsResponse.json();
+
+        setTopics(topicsData.topics);
+        setSelectedTopics(topicsData.topics); // Select all by default
+        setSets((setsData.sets ?? []).map((set: { setId: string; title: string }) => ({
+          setId: set.setId,
+          title: set.title,
+        })));
       } catch (err) {
-        console.error('Error fetching topics:', err);
-        setError('토픽을 불러오는데 실패했습니다');
+        console.error('Error fetching train config data:', err);
+        setError('설정 정보를 불러오는데 실패했습니다');
       }
     };
 
-    fetchTopics();
+    fetchConfigData();
   }, []);
 
   const handleTopicToggle = (topic: string) => {
@@ -69,6 +88,7 @@ export default function TrainPage() {
           topics: selectedTopics,
           difficulties: selectedDifficulties,
           questionCount,
+          sourceSetId: selectedSetId || undefined,
         }),
       });
 
@@ -117,6 +137,24 @@ export default function TrainPage() {
             )}
 
             <div className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  문제 세트
+                </label>
+                <select
+                  value={selectedSetId}
+                  onChange={(e) => setSelectedSetId(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">전체</option>
+                  {sets.map((set) => (
+                    <option key={set.setId} value={set.setId}>
+                      {set.title}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   문제 수

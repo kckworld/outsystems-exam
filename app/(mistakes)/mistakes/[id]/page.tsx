@@ -146,18 +146,21 @@ export default function MistakePracticePage({ params }: { params: { id: string }
     }
   };
 
-  const handleSaveExplanation = async (questionId: string, explanation: string) => {
+  const handleSaveQuestionEdit = async (
+    questionId: string,
+    payload: { stem: string; choices: string[]; explanation: string }
+  ) => {
     const response = await fetch(`/api/questions/${questionId}/explanation`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ explanation }),
+      body: JSON.stringify(payload),
     });
     if (!response.ok) {
       const body = await response.json().catch(() => ({}));
       throw new Error(body.error || '해설 저장 실패');
     }
     setQuestions((prev) =>
-      prev.map((q) => (q.id === questionId ? { ...q, explanation } : q))
+      prev.map((q) => (q.id === questionId ? { ...q, ...payload } : q))
     );
   };
 
@@ -285,7 +288,7 @@ export default function MistakePracticePage({ params }: { params: { id: string }
         showAnswer={showAnswer}
         onSubmit={handleSubmit}
         onNext={handleNext}
-        onSaveExplanation={handleSaveExplanation}
+        onSaveQuestionEdit={handleSaveQuestionEdit}
       />
 
       {snapshot && currentQuestion.id && (
