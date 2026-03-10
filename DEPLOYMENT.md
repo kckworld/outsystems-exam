@@ -47,7 +47,9 @@ sudo nano .env
 
 내용:
 ```bash
-ADMIN_KEY=your-production-secret-key
+ADMIN_PASSWORD=your-production-secret-password
+# 선택: 기존 하위 호환
+# ADMIN_KEY=your-production-secret-key
 STORAGE_MODE=sqlite
 DATABASE_URL=file:/app/data/prod.db
 NODE_ENV=production
@@ -58,12 +60,12 @@ NEXT_PUBLIC_PASS_THRESHOLD=70
 
 ```bash
 # Docker 이미지 빌드 및 실행
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 
 # 상태 확인
-docker-compose ps
-docker-compose logs -f
+docker compose ps
+docker compose logs -f
 ```
 
 ### 4. 접속
@@ -143,7 +145,9 @@ sudo nano .env
 
 `.env` 내용:
 ```bash
-ADMIN_KEY=production-secret-key-change-this
+ADMIN_PASSWORD=production-secret-password-change-this
+# 선택: 기존 하위 호환
+# ADMIN_KEY=production-secret-key-change-this
 STORAGE_MODE=sqlite
 DATABASE_URL=file:/app/data/prod.db
 NODE_ENV=production
@@ -289,9 +293,9 @@ tail -f /volume1/docker/outsystems-exam/logs/deploy-*.log
 1. **로그 생성**: `logs/deploy-YYYYMMDD-HHMMSS.log`
 2. **Git Pull**: 최신 코드 가져오기
 3. **DB 백업**: `backups/prod-db-YYYYMMDD-HHMMSS.db` (최근 5개만 유지)
-4. **컨테이너 중지**: `docker-compose down`
-5. **이미지 빌드**: `docker-compose build --no-cache`
-6. **컨테이너 시작**: `docker-compose up -d`
+4. **컨테이너 중지**: `docker compose down`
+5. **이미지 빌드**: `docker compose build --no-cache`
+6. **컨테이너 시작**: `docker compose up -d`
 7. **Health Check**: HTTP 200 응답 확인
 8. **정리**: 사용하지 않는 Docker 이미지 삭제, 오래된 로그 삭제
 
@@ -305,8 +309,9 @@ sudo cp backups/prod-db-XXXXXXXX-XXXXXX.db data/prod.db
 
 # 이전 Git 커밋으로 복원
 git log --oneline
-git reset --hard <commit-hash>
+git checkout <commit-hash>
 ./deploy.sh
+git checkout main
 ```
 
 ## 문제 해결
@@ -339,17 +344,37 @@ tail -f /volume1/docker/outsystems-exam/logs/webhook.log
 ls -lt /volume1/docker/outsystems-exam/logs/deploy-*.log | head -1 | xargs cat
 
 # Docker 로그 확인
-docker-compose logs -f
+docker compose logs -f
 
 # 컨테이너 상태 확인
-docker-compose ps
+docker compose ps
 
 # 수동으로 각 단계 실행
 cd /volume1/docker/outsystems-exam
 git pull origin main
-docker-compose build
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
+
+### 관리자 로그인 실패
+
+```bash
+# 현재 컨테이너에 전달된 환경 변수 확인
+cd /volume1/docker/outsystems-exam
+docker compose exec app printenv | grep ADMIN
+```
+
+- 권장 변수는 `ADMIN_PASSWORD` 입니다.
+- 구버전 호환이 필요할 때만 `ADMIN_KEY`를 함께 설정하세요.
+
+### 대용량 Import 시 504/타임아웃
+
+- 증상: 브라우저에서 import 요청이 HTML 에러(예: 504)로 보임.
+- 원인: Reverse Proxy 타임아웃 또는 대량 insert 처리 시간 초과.
+- 대응:
+    - `docker compose logs -f app` 로 앱 처리 완료 여부를 먼저 확인합니다.
+    - 프록시(nginx/DSM Reverse Proxy) `proxy_read_timeout` 값을 늘립니다.
+    - 가능하면 import 파일을 분할하거나 `mergeByMeta=true`로 나눠서 업로드합니다.
 
 ### Git Pull 권한 오류
 
@@ -398,7 +423,7 @@ docker system prune -a
 
 # 수동 빌드로 오류 확인
 cd /volume1/docker/outsystems-exam
-docker-compose build --no-cache
+docker compose build --no-cache
 ```
 
 ## 모니터링
@@ -425,7 +450,7 @@ tail -f /volume1/docker/outsystems-exam/logs/webhook.log
 ls -lt /volume1/docker/outsystems-exam/logs/deploy-*.log | head -1 | xargs tail -f
 
 # Docker 컨테이너 로그
-docker-compose logs -f
+docker compose logs -f
 
 # 시스템 리소스
 htop
