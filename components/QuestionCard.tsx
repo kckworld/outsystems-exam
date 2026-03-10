@@ -59,6 +59,17 @@ export function QuestionCard({
       </CardHeader>
 
       <CardContent>
+        {question.stemImageUrl && (
+          <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
+            <img
+              src={question.stemImageUrl}
+              alt={question.stemImageAlt || 'Question reference image'}
+              className="max-h-[420px] w-full object-contain"
+              loading="lazy"
+            />
+          </div>
+        )}
+
         {/* Choices */}
         <div className="space-y-3 mb-6">
           {question.choices.map((choice, index) => {

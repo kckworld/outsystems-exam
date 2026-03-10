@@ -13,6 +13,48 @@ function requireAdminKey(req: NextRequest) {
   return providedKey === adminKey;
 }
 
+function withQuestionIds<T extends { id?: string }>(questions: T[]): T[] {
+  return questions.map((q, index) => ({
+    ...q,
+    id: q.id || `${randomUUID()}-${index}`,
+  }));
+}
+
+function validateQuestions(
+  questions: Array<{ id?: string }>,
+  existingIds: Set<string> = new Set()
+) {
+  const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
+  const questionIds = new Set<string>(existingIds);
+
+  for (const q of questions) {
+    const result = QuestionSchema.safeParse(q);
+    if (!result.success) {
+      result.error.issues.forEach((issue) => {
+        validationErrors.push({
+          questionId: q.id || 'unknown',
+          field: issue.path.join('.'),
+          message: issue.message,
+        });
+      });
+    }
+
+    if (q.id && questionIds.has(q.id)) {
+      validationErrors.push({
+        questionId: q.id,
+        field: 'id',
+        message: 'Duplicate question ID',
+      });
+    }
+
+    if (q.id) {
+      questionIds.add(q.id);
+    }
+  }
+
+  return validationErrors;
+}
+
 export async function POST(req: NextRequest) {
   try {
     if (!requireAdminKey(req)) {
@@ -20,44 +62,28 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
+    const mergeByMeta = req.nextUrl.searchParams.get('mergeByMeta') === 'true';
 
     // Try Format A (with setMeta)
     const formatAResult = ImportFormatASchema.safeParse(body);
     if (formatAResult.success) {
       const { setMeta, questions } = formatAResult.data;
 
-      // Generate IDs for questions without one
-      const questionsWithIds = questions.map((q, index) => ({
-        ...q,
-        id: q.id || `${randomUUID()}-${index}`,
-      }));
+      const questionsWithIds = withQuestionIds(questions);
+      let existingSetId: string | null = null;
+      let existingCount = 0;
+      let existingIds = new Set<string>();
 
-      // Validate all questions
-      const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
-      const questionIds = new Set<string>();
-
-      for (const q of questionsWithIds) {
-        const result = QuestionSchema.safeParse(q);
-        if (!result.success) {
-          result.error.issues.forEach((issue) => {
-            validationErrors.push({
-              questionId: q.id || 'unknown',
-              field: issue.path.join('.'),
-              message: issue.message,
-            });
-          });
+      if (mergeByMeta) {
+        const existing = await storage.findQuestionSetByMeta(setMeta.title, setMeta.description);
+        if (existing) {
+          existingSetId = existing.setId;
+          existingCount = existing.questionCount;
+          existingIds = new Set(existing.questions.map((q) => q.id).filter((id): id is string => Boolean(id)));
         }
-
-        // Check duplicate IDs
-        if (questionIds.has(q.id)) {
-          validationErrors.push({
-            questionId: q.id,
-            field: 'id',
-            message: 'Duplicate question ID',
-          });
-        }
-        questionIds.add(q.id);
       }
+
+      const validationErrors = validateQuestions(questionsWithIds, existingIds);
 
       if (validationErrors.length > 0) {
         return NextResponse.json(
@@ -67,6 +93,21 @@ export async function POST(req: NextRequest) {
           },
           { status: 400 }
         );
+      }
+
+      if (existingSetId) {
+        await storage.appendQuestionsToSet(existingSetId, questionsWithIds);
+
+        return NextResponse.json({
+          success: true,
+          merged: true,
+          setId: existingSetId,
+          set: {
+            title: setMeta.title,
+            questionCount: existingCount + questionsWithIds.length,
+            addedCount: questionsWithIds.length,
+          },
+        });
       }
 
       // Create question set
@@ -96,11 +137,7 @@ export async function POST(req: NextRequest) {
     if (formatBResult.success) {
       const questions = formatBResult.data;
 
-      // Generate IDs for questions without one
-      const questionsWithIds = questions.map((q, index) => ({
-        ...q,
-        id: q.id || `${randomUUID()}-${index}`,
-      }));
+      const questionsWithIds = withQuestionIds(questions);
 
       // Auto-generate metadata from questions
       const topics = Array.from(new Set(questions.map((q) => q.topic)));
@@ -114,31 +151,20 @@ export async function POST(req: NextRequest) {
         versionLabel: `v${new Date().toISOString().split('T')[0]}`,
       };
 
-      // Validate all questions
-      const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
-      const questionIds = new Set<string>();
+      let existingSetId: string | null = null;
+      let existingCount = 0;
+      let existingIds = new Set<string>();
 
-      for (const q of questionsWithIds) {
-        const result = QuestionSchema.safeParse(q);
-        if (!result.success) {
-          result.error.issues.forEach((issue) => {
-            validationErrors.push({
-              questionId: q.id || 'unknown',
-              field: issue.path.join('.'),
-              message: issue.message,
-            });
-          });
+      if (mergeByMeta) {
+        const existing = await storage.findQuestionSetByMeta(autoMeta.title, autoMeta.description);
+        if (existing) {
+          existingSetId = existing.setId;
+          existingCount = existing.questionCount;
+          existingIds = new Set(existing.questions.map((q) => q.id).filter((id): id is string => Boolean(id)));
         }
-
-        if (questionIds.has(q.id)) {
-          validationErrors.push({
-            questionId: q.id,
-            field: 'id',
-            message: 'Duplicate question ID',
-          });
-        }
-        questionIds.add(q.id);
       }
+
+      const validationErrors = validateQuestions(questionsWithIds, existingIds);
 
       if (validationErrors.length > 0) {
         return NextResponse.json(
@@ -148,6 +174,21 @@ export async function POST(req: NextRequest) {
           },
           { status: 400 }
         );
+      }
+
+      if (existingSetId) {
+        await storage.appendQuestionsToSet(existingSetId, questionsWithIds);
+
+        return NextResponse.json({
+          success: true,
+          merged: true,
+          setId: existingSetId,
+          set: {
+            title: autoMeta.title,
+            questionCount: existingCount + questionsWithIds.length,
+            addedCount: questionsWithIds.length,
+          },
+        });
       }
 
       // Create question set with auto-generated metadata
@@ -200,37 +241,8 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    // Generate IDs for questions without one
-    const questionsWithIds = questions.map((q: any, index: number) => ({
-      ...q,
-      id: q.id || `${randomUUID()}-${index}`,
-    }));
-
-    // Validate all questions
-    const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
-    const questionIds = new Set<string>();
-
-    for (const q of questionsWithIds) {
-      const result = QuestionSchema.safeParse(q);
-      if (!result.success) {
-        result.error.issues.forEach((issue) => {
-          validationErrors.push({
-            questionId: q.id || 'unknown',
-            field: issue.path.join('.'),
-            message: issue.message,
-          });
-        });
-      }
-
-      if (questionIds.has(q.id)) {
-        validationErrors.push({
-          questionId: q.id,
-          field: 'id',
-          message: 'Duplicate question ID',
-        });
-      }
-      questionIds.add(q.id);
-    }
+    const questionsWithIds = withQuestionIds(questions);
+    const validationErrors = validateQuestions(questionsWithIds);
 
     if (validationErrors.length > 0) {
       return NextResponse.json(

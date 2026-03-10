@@ -278,6 +278,15 @@ export default function AdminPage() {
                                   </div>
                                 </div>
                                 <p className="text-gray-800 mb-2">{q.stem}</p>
+                                {q.stemImageUrl && (
+                                  <div className="mb-2 overflow-hidden rounded border border-gray-200 bg-white">
+                                    <img
+                                      src={q.stemImageUrl}
+                                      alt={q.stemImageAlt || 'Question image'}
+                                      className="max-h-60 w-full object-contain"
+                                    />
+                                  </div>
+                                )}
                                 <div className="space-y-1 ml-4">
                                   {q.choices.map((choice: string, i: number) => (
                                     <p key={i} className={`text-xs ${

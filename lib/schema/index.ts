@@ -13,6 +13,8 @@ export const QuestionSchema = z.object({
   topic: z.string().min(1, 'Topic is required'),
   difficulty: DifficultySchema,
   stem: z.string().min(1, 'Question stem is required'),
+  stemImageUrl: z.string().min(1, 'Image URL cannot be empty').optional(),
+  stemImageAlt: z.string().default('').optional(),
   choices: z.array(z.string().min(1, 'Choice cannot be empty')).length(4, 'Exactly 4 choices are required'),
   answer: AnswerSchema,
   explanation: z.string().min(1, 'Explanation is required'),

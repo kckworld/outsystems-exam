@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
 
@@ -10,14 +10,20 @@ interface ImportFormProps {
 }
 
 export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
+  const [mode, setMode] = useState<'file' | 'paste'>('file');
   const [files, setFiles] = useState<File[]>([]);
+  const [jsonInput, setJsonInput] = useState('');
+  const [metaTitle, setMetaTitle] = useState('');
+  const [metaDescription, setMetaDescription] = useState('');
+  const [metaVersionLabel, setMetaVersionLabel] = useState(`v${new Date().toISOString().split('T')[0]}`);
+  const [mergeByMeta, setMergeByMeta] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [progress, setProgress] = useState({ current: 0, total: 0 });
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFiles = Array.from(e.target.files || []);
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const selectedFiles: File[] = Array.from(e.target.files || []);
     if (selectedFiles.length > 0) {
       const invalidFiles = selectedFiles.filter(f => f.type !== 'application/json');
       if (invalidFiles.length > 0) {
@@ -30,56 +36,117 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (files.length === 0) {
+
+    if (mode === 'file' && files.length === 0) {
       setError('파일을 선택해주세요');
+      return;
+    }
+
+    if (mode === 'paste' && !jsonInput.trim()) {
+      setError('JSON을 붙여넣어 주세요');
       return;
     }
 
     setLoading(true);
     setError(null);
     setSuccess(null);
-    setProgress({ current: 0, total: files.length });
+    setProgress({ current: 0, total: mode === 'file' ? files.length : 1 });
 
     const results: { success: boolean; filename: string; title?: string; error?: string }[] = [];
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      setProgress({ current: i + 1, total: files.length });
+    if (mode === 'file') {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        setProgress({ current: i + 1, total: files.length });
+
+        try {
+          const text = await file.text();
+          const data = JSON.parse(text);
+
+          const response = await fetch(`/api/sets/import?mergeByMeta=${mergeByMeta}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'x-admin-key': adminKey,
+            },
+            body: JSON.stringify(data),
+          });
+
+          if (!response.ok) {
+            const errorData = await response.json();
+            results.push({
+              success: false,
+              filename: file.name,
+              error: errorData.error || 'Import failed',
+            });
+          } else {
+            const result = await response.json();
+            results.push({
+              success: true,
+              filename: file.name,
+              title: result.set.title,
+            });
+          }
+        } catch (err) {
+          results.push({
+            success: false,
+            filename: file.name,
+            error: err instanceof Error ? err.message : 'Unknown error',
+          });
+        }
+      }
+    } else {
+      setProgress({ current: 1, total: 1 });
 
       try {
-        const text = await file.text();
-        const data = JSON.parse(text);
+        const parsed = JSON.parse(jsonInput);
+        const hasMeta = parsed && typeof parsed === 'object' && !Array.isArray(parsed) && 'setMeta' in parsed && 'questions' in parsed;
 
-        const response = await fetch('/api/sets/import', {
+        const payload = Array.isArray(parsed) && metaTitle.trim()
+          ? {
+              setMeta: {
+                title: metaTitle.trim(),
+                description: metaDescription.trim(),
+                versionLabel: metaVersionLabel.trim() || `v${new Date().toISOString().split('T')[0]}`,
+              },
+              questions: parsed,
+            }
+          : parsed;
+
+        if (Array.isArray(parsed) && !metaTitle.trim() && !hasMeta) {
+          throw new Error('질문 배열만 붙여넣을 때는 title을 입력해 주세요.');
+        }
+
+        const response = await fetch(`/api/sets/import?mergeByMeta=${mergeByMeta}`, {
           method: 'POST',
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
             'x-admin-key': adminKey,
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
           const errorData = await response.json();
           results.push({
             success: false,
-            filename: file.name,
+            filename: 'pasted-json',
             error: errorData.error || 'Import failed',
           });
         } else {
           const result = await response.json();
           results.push({
             success: true,
-            filename: file.name,
+            filename: 'pasted-json',
             title: result.set.title,
           });
         }
       } catch (err) {
         results.push({
           success: false,
-          filename: file.name,
+          filename: 'pasted-json',
           error: err instanceof Error ? err.message : 'Unknown error',
         });
       }
@@ -90,10 +157,11 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
     const failCount = results.filter(r => !r.success).length;
 
     if (successCount > 0) {
-      const successMsg = `${successCount}개 파일 import 성공`;
+      const successMsg = `${successCount}건 import 성공`;
       const titles = results.filter(r => r.success).map(r => r.title).join(', ');
       setSuccess(`${successMsg}: ${titles}`);
       setFiles([]);
+      setJsonInput('');
       
       // Reset file input
       const fileInput = document.getElementById('file-input') as HTMLInputElement;
@@ -105,7 +173,7 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
     if (failCount > 0) {
       const failedFiles = results.filter(r => !r.success);
       const errorMsg = failedFiles.map(f => `${f.filename}: ${f.error}`).join('\n');
-      setError(`${failCount}개 파일 실패:\n${errorMsg}`);
+      setError(`${failCount}건 실패:\n${errorMsg}`);
     }
 
     setLoading(false);
@@ -116,11 +184,38 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
       <CardHeader>
         <CardTitle>Import Question Set</CardTitle>
         <CardDescription>
-          Upload a JSON file containing questions. Supports Format A (with setMeta) or Format B (questions only).
+          JSON 파일 업로드 또는 JSON 붙여넣기로 문제를 import할 수 있습니다.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex gap-2">
+            <Button
+              type="button"
+              variant={mode === 'file' ? 'primary' : 'secondary'}
+              onClick={() => setMode('file')}
+            >
+              파일 업로드
+            </Button>
+            <Button
+              type="button"
+              variant={mode === 'paste' ? 'primary' : 'secondary'}
+              onClick={() => setMode('paste')}
+            >
+              JSON 붙여넣기
+            </Button>
+          </div>
+
+          <label className="flex items-center gap-2 text-sm text-gray-700">
+            <input
+              type="checkbox"
+              checked={mergeByMeta}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setMergeByMeta(e.target.checked)}
+            />
+            같은 title + description이면 기존 세트에 문제 추가
+          </label>
+
+          {mode === 'file' && (
           <div>
             <label
               htmlFor="file-input"
@@ -155,6 +250,60 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
               </div>
             )}
           </div>
+          )}
+
+          {mode === 'paste' && (
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  JSON 입력
+                </label>
+                <textarea
+                  value={jsonInput}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setJsonInput(e.target.value)}
+                  rows={10}
+                  className="w-full rounded-lg border border-gray-300 p-3 text-sm font-mono"
+                  placeholder='{"setMeta": {"title": "...", "description": "...", "versionLabel": "v2026-03-10"}, "questions": [...]}'
+                />
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-2">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    title (배열 JSON일 때 사용)
+                  </label>
+                  <input
+                    value={metaTitle}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setMetaTitle(e.target.value)}
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+                    placeholder="예: Integration Practice"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    versionLabel
+                  </label>
+                  <input
+                    value={metaVersionLabel}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setMetaVersionLabel(e.target.value)}
+                    className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  description (배열 JSON일 때 사용)
+                </label>
+                <input
+                  value={metaDescription}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setMetaDescription(e.target.value)}
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm"
+                  placeholder="예: 이미지 포함 문제 모음"
+                />
+              </div>
+            </div>
+          )}
 
           {loading && progress.total > 0 && (
             <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
@@ -189,7 +338,7 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
 
           <Button
             type="submit"
-            disabled={files.length === 0 || loading}
+            disabled={(mode === 'file' ? files.length === 0 : !jsonInput.trim()) || loading}
             variant="primary"
           >
             {loading ? `Importing... (${progress.current}/${progress.total})` : 'Import'}
@@ -202,10 +351,13 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
           </h4>
           <div className="text-xs text-gray-600 space-y-2">
             <p>
-              <strong>Format A (with metadata):</strong> Include setMeta object with name, description, tags
+              <strong>Format A (권장):</strong> <code>{`{ setMeta: { title, description, versionLabel }, questions: [...] }`}</code>
             </p>
             <p>
-              <strong>Format B (questions only):</strong> Array of questions, metadata will be collected via UI
+              <strong>Format B:</strong> <code>{`[ { topic, stem, stemImageUrl?, choices, answer, ... } ]`}</code>
+            </p>
+            <p>
+              이미지 위치는 문제(stem)와 보기(choices) 사이에 표시되며 필드명은 <code>stemImageUrl</code>, <code>stemImageAlt</code> 입니다.
             </p>
           </div>
         </div>

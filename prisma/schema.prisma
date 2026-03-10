@@ -13,6 +13,8 @@ model Question {
   topic       String
   difficulty  Int      // 1, 2, or 3
   stem        String
+  stemImageUrl String?
+  stemImageAlt String?
   choices     String   // JSON array: string[4]
   answer      String   // "A", "B", "C", or "D"
   explanation String

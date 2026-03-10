@@ -26,6 +26,8 @@ export class SQLiteStorage {
           topic: q.topic,
           difficulty: q.difficulty,
           stem: q.stem,
+          stemImageUrl: q.stemImageUrl,
+          stemImageAlt: q.stemImageAlt,
           choices: JSON.stringify(q.choices),
           answer: q.answer,
           explanation: q.explanation,
@@ -38,6 +40,72 @@ export class SQLiteStorage {
     }
 
     return set;
+  }
+
+  async findQuestionSetByMeta(title: string, description: string): Promise<QuestionSet | null> {
+    const set = await prisma.questionSet.findFirst({
+      where: { title, description },
+      include: { questions: true },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    if (!set) return null;
+
+    return {
+      setId: set.setId,
+      title: set.title,
+      description: set.description,
+      versionLabel: set.versionLabel,
+      createdAt: set.createdAt,
+      questionCount: set.questionCount,
+      isLocked: set.isLocked,
+      parentSetId: set.parentSetId || undefined,
+      questions: set.questions.map((q) => ({
+        id: q.id as string,
+        topic: q.topic,
+        difficulty: q.difficulty as 1 | 2 | 3,
+        stem: q.stem,
+        stemImageUrl: q.stemImageUrl || undefined,
+        stemImageAlt: q.stemImageAlt || undefined,
+        choices: JSON.parse(q.choices) as [string, string, string, string],
+        answer: q.answer as 'A' | 'B' | 'C' | 'D',
+        explanation: q.explanation,
+        tags: JSON.parse(q.tags) as string[],
+        source: q.source,
+        createdAt: q.createdAt,
+      })),
+    };
+  }
+
+  async appendQuestionsToSet(setId: string, questions: Question[]): Promise<void> {
+    for (const q of questions) {
+      await prisma.question.create({
+        data: {
+          id: q.id || `${setId}-${Math.random().toString(36).substring(2, 15)}`,
+          topic: q.topic,
+          difficulty: q.difficulty,
+          stem: q.stem,
+          stemImageUrl: q.stemImageUrl,
+          stemImageAlt: q.stemImageAlt,
+          choices: JSON.stringify(q.choices),
+          answer: q.answer,
+          explanation: q.explanation,
+          tags: JSON.stringify(q.tags),
+          source: q.source,
+          createdAt: q.createdAt || new Date().toISOString(),
+          setId,
+        },
+      });
+    }
+
+    await prisma.questionSet.update({
+      where: { setId },
+      data: {
+        questionCount: {
+          increment: questions.length,
+        },
+      },
+    });
   }
 
   async getQuestionSets(search?: string, sortBy: 'date' | 'title' | 'count' = 'date'): Promise<QuestionSet[]> {
@@ -75,6 +143,8 @@ export class SQLiteStorage {
         topic: q.topic,
         difficulty: q.difficulty as 1 | 2 | 3,
         stem: q.stem,
+        stemImageUrl: q.stemImageUrl || undefined,
+        stemImageAlt: q.stemImageAlt || undefined,
         choices: JSON.parse(q.choices) as [string, string, string, string],
         answer: q.answer as 'A' | 'B' | 'C' | 'D',
         explanation: q.explanation,
@@ -107,6 +177,8 @@ export class SQLiteStorage {
         topic: q.topic,
         difficulty: q.difficulty as 1 | 2 | 3,
         stem: q.stem,
+        stemImageUrl: q.stemImageUrl || undefined,
+        stemImageAlt: q.stemImageAlt || undefined,
         choices: JSON.parse(q.choices) as [string, string, string, string],
         answer: q.answer as 'A' | 'B' | 'C' | 'D',
         explanation: q.explanation,

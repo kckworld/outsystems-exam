@@ -230,6 +230,8 @@ Git에 Push하면 자동으로 NAS에 배포됩니다.
       "topic": "Client Variables",
       "difficulty": 2,
       "stem": "클라이언트 변수란 무엇인가?",
+      "stemImageUrl": "https://example.com/question-0001.png",
+      "stemImageAlt": "화면 구성도",
       "choices": ["옵션 A", "옵션 B", "옵션 C", "옵션 D"],
       "answer": "A",
       "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다...",
@@ -248,6 +250,8 @@ Git에 Push하면 자동으로 NAS에 배포됩니다.
     "topic": "Client Variables",
     "difficulty": 2,
     "stem": "클라이언트 변수란 무엇인가?",
+    "stemImageUrl": "https://example.com/question-0001.png",
+    "stemImageAlt": "화면 구성도",
     "choices": ["옵션 A", "옵션 B", "옵션 C", "옵션 D"],
     "answer": "A",
     "explanation": "클라이언트 변수는 클라이언트측 데이터를 저장합니다...",
@@ -256,7 +260,11 @@ Git에 Push하면 자동으로 NAS에 배포됩니다.
   }
 ]
 ```
-*참고: 형식 B는 업로드 후 UI를 통해 setMeta 입력이 필요합니다*
+*참고: 형식 B를 JSON 붙여넣기로 사용할 때는 Admin UI에서 title/description/versionLabel을 입력하면 형식 A로 감싸서 import 됩니다.*
+
+### 반복 업로드 묶기
+- Admin Import 화면에서 `같은 title + description이면 기존 세트에 문제 추가` 옵션을 켜면, 여러 번 나눠 올려도 같은 메타데이터 세트로 누적됩니다.
+- API로 직접 호출할 때는 `POST /api/sets/import?mergeByMeta=true` 를 사용하면 같은 동작을 수행합니다.
 
 ## 빌드 최적화
 
@@ -286,6 +294,7 @@ Webhook 배포는 기본적으로 캐시를 사용합니다 (빠름).
 
 ### 문제 세트
 - `POST /api/sets/import` - 문제 세트 가져오기
+- `POST /api/sets/import?mergeByMeta=true` - 동일 title/description 세트에 누적 import
 - `GET /api/sets` - 모든 세트 목록 (쿼리: search, sortBy)
 - `GET /api/sets/:id` - 세트 세부정보
 - `DELETE /api/sets/:id` - 세트 삭제
