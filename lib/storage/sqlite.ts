@@ -436,6 +436,17 @@ export class SQLiteStorage {
       },
     });
   }
+
+  async updateQuestionContent(questionId: string, stem: string, choices: string[]): Promise<void> {
+    const serializedChoices = JSON.stringify(choices);
+    await prisma.question.update({
+      where: { id: questionId },
+      data: {
+        stem,
+        choices: serializedChoices,
+      },
+    });
+  }
 }
 
 export const storage = new SQLiteStorage();
