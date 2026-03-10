@@ -19,9 +19,9 @@ export class SQLiteStorage {
       },
     });
 
-    for (const q of set.questions) {
-      await prisma.question.create({
-        data: {
+    if (set.questions.length > 0) {
+      await prisma.question.createMany({
+        data: set.questions.map((q) => ({
           id: q.id || `${set.setId}-${Math.random().toString(36).substring(2, 15)}`,
           topic: q.topic,
           difficulty: q.difficulty,
@@ -35,7 +35,7 @@ export class SQLiteStorage {
           source: q.source,
           createdAt: q.createdAt || new Date().toISOString(),
           setId: set.setId,
-        },
+        })),
       });
     }
 
@@ -78,9 +78,9 @@ export class SQLiteStorage {
   }
 
   async appendQuestionsToSet(setId: string, questions: Question[]): Promise<void> {
-    for (const q of questions) {
-      await prisma.question.create({
-        data: {
+    if (questions.length > 0) {
+      await prisma.question.createMany({
+        data: questions.map((q) => ({
           id: q.id || `${setId}-${Math.random().toString(36).substring(2, 15)}`,
           topic: q.topic,
           difficulty: q.difficulty,
@@ -94,7 +94,7 @@ export class SQLiteStorage {
           source: q.source,
           createdAt: q.createdAt || new Date().toISOString(),
           setId,
-        },
+        })),
       });
     }
 
