@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { storage } from '@/lib/storage/sqlite';
 import { QuestionSchema, QuestionSetMetaSchema, ImportFormatASchema, ImportFormatBSchema } from '@/lib/schema';
+import type { Question } from '@/lib/schema';
 import { randomUUID } from 'crypto';
 
 function requireAdminKey(req: NextRequest) {
@@ -13,7 +14,7 @@ function requireAdminKey(req: NextRequest) {
   return providedKey === adminKey;
 }
 
-function withQuestionIds<T extends { id?: string }>(questions: T[]): T[] {
+function withQuestionIds(questions: Question[]): Question[] {
   return questions.map((q, index) => ({
     ...q,
     id: q.id || `${randomUUID()}-${index}`,
@@ -21,7 +22,7 @@ function withQuestionIds<T extends { id?: string }>(questions: T[]): T[] {
 }
 
 function validateQuestions(
-  questions: Array<{ id?: string }>,
+  questions: Question[],
   existingIds: Set<string> = new Set()
 ) {
   const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
@@ -241,7 +242,44 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    const questionsWithIds = withQuestionIds(questions);
+    if (!Array.isArray(questions)) {
+      return NextResponse.json(
+        {
+          error: 'Invalid questions payload',
+        },
+        { status: 400 }
+      );
+    }
+
+    const parsedQuestions: Question[] = [];
+    const questionParseErrors: Array<{ questionId: string; field: string; message: string }> = [];
+
+    questions.forEach((q: unknown, index: number) => {
+      const parsed = QuestionSchema.safeParse(q);
+      if (!parsed.success) {
+        parsed.error.issues.forEach((issue) => {
+          questionParseErrors.push({
+            questionId: (q as { id?: string })?.id || `index-${index}`,
+            field: issue.path.join('.'),
+            message: issue.message,
+          });
+        });
+        return;
+      }
+      parsedQuestions.push(parsed.data);
+    });
+
+    if (questionParseErrors.length > 0) {
+      return NextResponse.json(
+        {
+          error: 'Validation failed',
+          details: questionParseErrors,
+        },
+        { status: 400 }
+      );
+    }
+
+    const questionsWithIds = withQuestionIds(parsedQuestions);
     const validationErrors = validateQuestions(questionsWithIds);
 
     if (validationErrors.length > 0) {
