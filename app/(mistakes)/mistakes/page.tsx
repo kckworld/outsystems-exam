@@ -22,6 +22,7 @@ export default function MistakesPage() {
   const [snapshots, setSnapshots] = useState<MistakeSnapshot[]>([]);
   const [loading, setLoading] = useState(true);
   const [showArchived, setShowArchived] = useState(false);
+  const [downloadingPdfId, setDownloadingPdfId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchSnapshots();
@@ -58,6 +59,22 @@ export default function MistakesPage() {
     } catch (error) {
       console.error('Error deleting snapshot:', error);
       alert('삭제 중 오류가 발생했습니다.');
+    }
+  };
+
+  const handleDownloadPdf = async (snapshotId: string) => {
+    try {
+      setDownloadingPdfId(snapshotId);
+      const printUrl = `/api/mistakes/${snapshotId}/pdf`;
+      const popup = window.open(printUrl, '_blank', 'noopener,noreferrer');
+      if (!popup) {
+        throw new Error('Popup blocked');
+      }
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+      alert('PDF 페이지를 열지 못했습니다. 팝업 차단을 해제하고 다시 시도해주세요.');
+    } finally {
+      setDownloadingPdfId(null);
     }
   };
 
@@ -129,6 +146,14 @@ export default function MistakesPage() {
                       <div className="flex gap-2">
                         <Button
                           size="sm"
+                          variant="secondary"
+                          onClick={() => handleDownloadPdf(snapshot.snapshotId)}
+                          disabled={downloadingPdfId === snapshot.snapshotId}
+                        >
+                          {downloadingPdfId === snapshot.snapshotId ? 'PDF 생성 중...' : 'PDF 다운로드'}
+                        </Button>
+                        <Button
+                          size="sm"
                           variant="primary"
                           onClick={() => handleStartPractice(snapshot.snapshotId)}
                         >
@@ -192,7 +217,15 @@ export default function MistakesPage() {
                       전체 {snapshot.wrongQuestionIds.length}문제
                     </p>
                     {!snapshot.deletedAt && (
-                      <div className="mt-3">
+                      <div className="mt-3 flex gap-2">
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => handleDownloadPdf(snapshot.snapshotId)}
+                          disabled={downloadingPdfId === snapshot.snapshotId}
+                        >
+                          {downloadingPdfId === snapshot.snapshotId ? 'PDF 생성 중...' : 'PDF 다운로드'}
+                        </Button>
                         <Button
                           size="sm"
                           variant="secondary"

@@ -5,6 +5,7 @@ import { ImportForm } from '@/components/admin/ImportForm';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { formatDate } from '@/lib/utils/format';
+import { toDisplayImageUrl } from '@/lib/utils/image';
 
 interface QuestionSet {
   setId: string;
@@ -282,7 +283,7 @@ export default function AdminPage() {
                                 {q.stemImageUrl && (
                                   <div className="mb-2 overflow-hidden rounded border border-gray-200 bg-white">
                                     <img
-                                      src={q.stemImageUrl}
+                                      src={toDisplayImageUrl(q.stemImageUrl)}
                                       alt={q.stemImageAlt || 'Question image'}
                                       className="max-h-60 w-full object-contain"
                                     />

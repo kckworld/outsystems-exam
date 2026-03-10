@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 import { getDifficultyLabel, getDifficultyColor } from '@/lib/utils/format';
+import { toDisplayImageUrl } from '@/lib/utils/image';
 
 interface QuestionCardProps {
   question: Question;
@@ -28,6 +29,7 @@ export function QuestionCard({
   const correctAnswerIndex = ['A', 'B', 'C', 'D'].indexOf(question.answer);
   const isCorrect = selectedChoice === correctAnswerIndex;
   const hasSelected = selectedChoice !== undefined;
+  const displayImageUrl = toDisplayImageUrl(question.stemImageUrl);
 
   return (
     <Card className="w-full">
@@ -59,10 +61,10 @@ export function QuestionCard({
       </CardHeader>
 
       <CardContent>
-        {question.stemImageUrl && (
+        {displayImageUrl && (
           <div className="mb-6 overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
             <img
-              src={question.stemImageUrl}
+              src={displayImageUrl}
               alt={question.stemImageAlt || 'Question reference image'}
               className="max-h-[420px] w-full object-contain"
               loading="lazy"
