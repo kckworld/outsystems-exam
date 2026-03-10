@@ -32,7 +32,7 @@ export async function PATCH(
 
     const body = await req.json();
     const stem = String(body?.stem || '').trim();
-    const rawChoices = Array.isArray(body?.choices) ? body.choices : null;
+    const rawChoices: unknown[] | null = Array.isArray(body?.choices) ? body.choices : null;
 
     if (!stem) {
       return NextResponse.json({ error: 'Stem is required' }, { status: 400 });
@@ -42,7 +42,7 @@ export async function PATCH(
       return NextResponse.json({ error: 'Choices array is required' }, { status: 400 });
     }
 
-    const choices = rawChoices.map((c) => String(c || '').trim());
+    const choices = rawChoices.map((c: unknown) => String(c || '').trim());
     if (choices.length < 2 || choices.length > 6) {
       return NextResponse.json({ error: 'Choices must be between 2 and 6 items' }, { status: 400 });
     }
