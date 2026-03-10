@@ -33,11 +33,20 @@ export default function AdminPage() {
   const [savingQuestionId, setSavingQuestionId] = useState<string | null>(null);
 
   const isUploadedImageUrl = (url?: string) => {
-    return typeof url === 'string' && url.startsWith('/api/images/uploaded/');
+    return typeof url === 'string' && url.includes('/api/images/uploaded/');
   };
 
   const shouldShowNotUploadedImageOnly = (q: any) => {
     return Boolean(q?.stemImageUrl) && !isUploadedImageUrl(q.stemImageUrl);
+  };
+
+  const getQuestionDisplayNumber = (q: any, fallbackIndex: number) => {
+    const id = String(q?.id || '');
+    const match = id.match(/(\d+)$/);
+    if (match) {
+      return String(parseInt(match[1], 10));
+    }
+    return String(fallbackIndex + 1);
   };
 
   useEffect(() => {
@@ -399,7 +408,7 @@ export default function AdminPage() {
                               .map((q, idx) => (
                               <div key={q.id || idx} className="p-3 bg-gray-50 rounded text-sm">
                                 <div className="flex justify-between items-start mb-2">
-                                  <span className="font-medium">#{idx + 1}</span>
+                                  <span className="font-medium">#{getQuestionDisplayNumber(q, idx)}</span>
                                   <div className="flex gap-2">
                                     <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs">
                                       {q.topic}
