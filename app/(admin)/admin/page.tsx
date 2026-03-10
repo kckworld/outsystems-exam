@@ -22,34 +22,35 @@ export default function AdminPage() {
   const [expandedSetId, setExpandedSetId] = useState<string | null>(null);
   const [questions, setQuestions] = useState<any[]>([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [adminKey, setAdminKey] = useState('');
+  const [adminPassword, setAdminPassword] = useState('');
   const [authError, setAuthError] = useState<string | null>(null);
 
   useEffect(() => {
     // Check if already authenticated
-    const storedKey = localStorage.getItem('adminKey');
-    if (storedKey) {
-      setAdminKey(storedKey);
+    const storedPassword = localStorage.getItem('adminPassword') || localStorage.getItem('adminKey');
+    if (storedPassword) {
+      setAdminPassword(storedPassword);
       setIsAuthenticated(true);
     }
   }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!adminKey.trim()) {
-      setAuthError('Admin Key를 입력해주세요');
+    if (!adminPassword.trim()) {
+      setAuthError('관리자 비밀번호를 입력해주세요');
       return;
     }
     // Store in localStorage
-    localStorage.setItem('adminKey', adminKey);
+    localStorage.setItem('adminPassword', adminPassword);
     setIsAuthenticated(true);
     setAuthError(null);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('adminKey');
+    localStorage.removeItem('adminPassword');
+    localStorage.removeItem('adminKey'); // Backward compatibility cleanup
     setIsAuthenticated(false);
-    setAdminKey('');
+    setAdminPassword('');
   };
 
   const fetchSets = async () => {
@@ -146,15 +147,15 @@ export default function AdminPage() {
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
                   <label htmlFor="adminKey" className="block text-sm font-medium mb-2">
-                    Admin Key
+                    관리자 비밀번호
                   </label>
                   <input
                     type="password"
                     id="adminKey"
-                    value={adminKey}
-                    onChange={(e) => setAdminKey(e.target.value)}
+                    value={adminPassword}
+                    onChange={(e) => setAdminPassword(e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Admin Key를 입력하세요"
+                    placeholder="관리자 비밀번호를 입력하세요"
                   />
                   {authError && (
                     <p className="text-red-600 text-sm mt-1">{authError}</p>
@@ -183,7 +184,7 @@ export default function AdminPage() {
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Import Form */}
         <div>
-          <ImportForm onSuccess={fetchSets} adminKey={adminKey} />
+          <ImportForm onSuccess={fetchSets} adminPassword={adminPassword} />
         </div>
 
         {/* Question Sets List */}

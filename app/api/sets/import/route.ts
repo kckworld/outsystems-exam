@@ -5,13 +5,25 @@ import type { Question } from '@/lib/schema';
 import { randomUUID } from 'crypto';
 
 function requireAdminKey(req: NextRequest) {
+  const adminPassword = process.env.ADMIN_PASSWORD;
   const adminKey = process.env.ADMIN_KEY;
-  if (!adminKey) {
+
+  if (!adminPassword && !adminKey) {
     return true; // No admin key set, allow all
   }
 
-  const providedKey = req.headers.get('x-admin-key') || req.nextUrl.searchParams.get('adminKey');
-  return providedKey === adminKey;
+  const providedPassword =
+    req.headers.get('x-admin-password') ||
+    req.nextUrl.searchParams.get('adminPassword') ||
+    req.headers.get('x-admin-key') ||
+    req.nextUrl.searchParams.get('adminKey');
+
+  if (!providedPassword) return false;
+
+  if (adminPassword && providedPassword === adminPassword) return true;
+  if (adminKey && providedPassword === adminKey) return true;
+
+  return false;
 }
 
 function withQuestionIds(questions: Question[]): Question[] {

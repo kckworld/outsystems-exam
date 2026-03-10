@@ -6,10 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 
 interface ImportFormProps {
   onSuccess?: () => void;
-  adminKey: string;
+  adminPassword: string;
 }
 
-export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
+export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
   const [mode, setMode] = useState<'file' | 'paste'>('file');
   const [files, setFiles] = useState<File[]>([]);
   const [jsonInput, setJsonInput] = useState('');
@@ -95,7 +95,8 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'x-admin-key': adminKey,
+              'x-admin-password': adminPassword,
+              'x-admin-key': adminPassword,
             },
             body: JSON.stringify(data),
           });
@@ -152,7 +153,8 @@ export function ImportForm({ onSuccess, adminKey }: ImportFormProps) {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-admin-key': adminKey,
+            'x-admin-password': adminPassword,
+            'x-admin-key': adminPassword,
           },
           body: JSON.stringify(payload),
         });

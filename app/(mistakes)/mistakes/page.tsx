@@ -191,6 +191,17 @@ export default function MistakesPage() {
                     <p className="text-sm text-gray-600">
                       전체 {snapshot.wrongQuestionIds.length}문제
                     </p>
+                    {!snapshot.deletedAt && (
+                      <div className="mt-3">
+                        <Button
+                          size="sm"
+                          variant="secondary"
+                          onClick={() => handleStartPractice(snapshot.snapshotId)}
+                        >
+                          다시 풀기
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
