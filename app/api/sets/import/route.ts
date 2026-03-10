@@ -22,11 +22,10 @@ function withQuestionIds(questions: Question[]): Question[] {
 }
 
 function validateQuestions(
-  questions: Question[],
-  existingIds: Set<string> = new Set()
+  questions: Question[]
 ) {
   const validationErrors: Array<{ questionId: string; field: string; message: string }> = [];
-  const questionIds = new Set<string>(existingIds);
+  const questionIds = new Set<string>();
 
   for (const q of questions) {
     const result = QuestionSchema.safeParse(q);
@@ -84,7 +83,11 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      const validationErrors = validateQuestions(questionsWithIds, existingIds);
+      const questionsToImport = existingSetId
+        ? questionsWithIds.filter((q) => !existingIds.has(q.id || ''))
+        : questionsWithIds;
+
+      const validationErrors = validateQuestions(questionsToImport);
 
       if (validationErrors.length > 0) {
         return NextResponse.json(
@@ -97,7 +100,7 @@ export async function POST(req: NextRequest) {
       }
 
       if (existingSetId) {
-        await storage.appendQuestionsToSet(existingSetId, questionsWithIds);
+        await storage.appendQuestionsToSet(existingSetId, questionsToImport);
 
         return NextResponse.json({
           success: true,
@@ -105,8 +108,9 @@ export async function POST(req: NextRequest) {
           setId: existingSetId,
           set: {
             title: setMeta.title,
-            questionCount: existingCount + questionsWithIds.length,
-            addedCount: questionsWithIds.length,
+            questionCount: existingCount + questionsToImport.length,
+            addedCount: questionsToImport.length,
+            skippedDuplicateCount: questionsWithIds.length - questionsToImport.length,
           },
         });
       }
@@ -116,9 +120,9 @@ export async function POST(req: NextRequest) {
         setId: randomUUID(),
         ...setMeta,
         createdAt: new Date().toISOString(),
-        questionCount: questionsWithIds.length,
+        questionCount: questionsToImport.length,
         isLocked: true,
-        questions: questionsWithIds,
+        questions: questionsToImport,
       };
 
       await storage.createQuestionSet(newSet);
@@ -128,7 +132,7 @@ export async function POST(req: NextRequest) {
         setId: newSet.setId,
         set: {
           title: newSet.title,
-          questionCount: questionsWithIds.length,
+          questionCount: questionsToImport.length,
         },
       });
     }
@@ -165,7 +169,11 @@ export async function POST(req: NextRequest) {
         }
       }
 
-      const validationErrors = validateQuestions(questionsWithIds, existingIds);
+      const questionsToImport = existingSetId
+        ? questionsWithIds.filter((q) => !existingIds.has(q.id || ''))
+        : questionsWithIds;
+
+      const validationErrors = validateQuestions(questionsToImport);
 
       if (validationErrors.length > 0) {
         return NextResponse.json(
@@ -178,7 +186,7 @@ export async function POST(req: NextRequest) {
       }
 
       if (existingSetId) {
-        await storage.appendQuestionsToSet(existingSetId, questionsWithIds);
+        await storage.appendQuestionsToSet(existingSetId, questionsToImport);
 
         return NextResponse.json({
           success: true,
@@ -186,8 +194,9 @@ export async function POST(req: NextRequest) {
           setId: existingSetId,
           set: {
             title: autoMeta.title,
-            questionCount: existingCount + questionsWithIds.length,
-            addedCount: questionsWithIds.length,
+            questionCount: existingCount + questionsToImport.length,
+            addedCount: questionsToImport.length,
+            skippedDuplicateCount: questionsWithIds.length - questionsToImport.length,
           },
         });
       }
@@ -197,9 +206,9 @@ export async function POST(req: NextRequest) {
         setId: randomUUID(),
         ...autoMeta,
         createdAt: new Date().toISOString(),
-        questionCount: questionsWithIds.length,
+        questionCount: questionsToImport.length,
         isLocked: true,
-        questions: questionsWithIds,
+        questions: questionsToImport,
       };
 
       await storage.createQuestionSet(newSet);
@@ -209,7 +218,7 @@ export async function POST(req: NextRequest) {
         setId: newSet.setId,
         set: {
           title: newSet.title,
-          questionCount: questionsWithIds.length,
+          questionCount: questionsToImport.length,
         },
       });
     }
