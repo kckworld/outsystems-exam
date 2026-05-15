@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { storage } from '@/lib/storage/sqlite';
 import { v4 as uuidv4 } from 'uuid';
+import { requireAdminAuth } from '@/lib/auth/admin';
 
 export async function POST(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
+    const auth = requireAdminAuth(request);
+    if (!auth.ok) {
+      return NextResponse.json({ error: auth.error }, { status: auth.status });
+    }
+
     const originalSet = await storage.getQuestionSet(params.id);
     if (!originalSet) {
       return NextResponse.json(

@@ -1,9 +1,38 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 export function Navigation() {
   const { t, language, setLanguage } = useLanguage();
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  useEffect(() => {
+    const verifyAdmin = async () => {
+      const storedPassword = localStorage.getItem('adminPassword') || localStorage.getItem('adminKey');
+      if (!storedPassword) {
+        setShowAdmin(false);
+        return;
+      }
+
+      const response = await fetch('/api/admin/session', {
+        headers: {
+          'x-admin-password': storedPassword,
+          'x-admin-key': storedPassword,
+        },
+      });
+
+      if (response.ok) {
+        setShowAdmin(true);
+      } else {
+        localStorage.removeItem('adminPassword');
+        localStorage.removeItem('adminKey');
+        setShowAdmin(false);
+      }
+    };
+
+    void verifyAdmin();
+  }, []);
 
   return (
     <nav className="bg-white shadow-sm border-b">
@@ -19,7 +48,9 @@ export function Navigation() {
             <a href="/train" className="text-gray-700 hover:text-primary">{t('train')}</a>
             <a href="/mistakes" className="text-gray-700 hover:text-primary">{t('mistakes')}</a>
             <a href="/stats" className="text-gray-700 hover:text-primary">{t('stats')}</a>
-            <a href="/admin" className="text-gray-700 hover:text-primary">{t('admin')}</a>
+            {showAdmin && (
+              <a href="/admin" className="text-gray-700 hover:text-primary">{t('admin')}</a>
+            )}
             
             {/* Language Switcher */}
             <div className="flex gap-2 ml-4 pl-4 border-l border-gray-300">

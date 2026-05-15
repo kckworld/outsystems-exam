@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useState, type ChangeEvent, type FormEvent } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
 
@@ -10,6 +10,18 @@ interface ImportFormProps {
 }
 
 export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
+  interface StoredImportFile {
+    name: string;
+    size: number;
+    createdAt: string;
+    updatedAt: string;
+    originalName?: string;
+    source?: 'file-upload' | 'json-paste';
+    importStatus?: 'saved' | 'imported' | 'failed';
+    importError?: string;
+    importedAt?: string;
+  }
+
   const [mode, setMode] = useState<'file' | 'paste'>('file');
   const [files, setFiles] = useState<File[]>([]);
   const [jsonInput, setJsonInput] = useState('');
@@ -21,6 +33,14 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [progress, setProgress] = useState({ current: 0, total: 0 });
+  const [storedFiles, setStoredFiles] = useState<StoredImportFile[]>([]);
+  const [storedFilesLoading, setStoredFilesLoading] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState<string | null>(null);
+  const [selectedFileContent, setSelectedFileContent] = useState('');
+  const [selectedFileLoading, setSelectedFileLoading] = useState(false);
+  const [fileSearch, setFileSearch] = useState('');
+  const [fileSortBy, setFileSortBy] = useState<'updatedAt' | 'name' | 'size'>('updatedAt');
+  const [fileSortOrder, setFileSortOrder] = useState<'asc' | 'desc'>('desc');
 
   const parseApiResponse = async (response: Response) => {
     const raw = await response.text();
@@ -30,6 +50,149 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
       return { data: null, raw };
     }
   };
+
+  const authHeaders = {
+    'x-admin-password': adminPassword,
+    'x-admin-key': adminPassword,
+  };
+
+  const fetchStoredFiles = async () => {
+    if (!adminPassword) return;
+    setStoredFilesLoading(true);
+    try {
+      const params = new URLSearchParams({
+        search: fileSearch,
+        sortBy: fileSortBy,
+        sortOrder: fileSortOrder,
+      });
+
+      const response = await fetch(`/api/admin/import-files?${params.toString()}`, {
+        headers: authHeaders,
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.error || '저장된 파일 목록 조회 실패');
+      }
+      setStoredFiles(Array.isArray(payload.files) ? payload.files : []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '저장된 파일 목록 조회 실패');
+    } finally {
+      setStoredFilesLoading(false);
+    }
+  };
+
+  const saveImportSourceFile = async (content: string, filename: string) => {
+    const response = await fetch('/api/admin/import-files', {
+      method: 'POST',
+      headers: {
+        ...authHeaders,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        filename,
+        content,
+        source: mode === 'file' ? 'file-upload' : 'json-paste',
+      }),
+    });
+
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(payload.error || 'JSON 원본 파일 저장 실패');
+    }
+
+    return String(payload?.file?.name || '');
+  };
+
+  const updateStoredFileStatus = async (
+    storedName: string,
+    status: 'imported' | 'failed',
+    importError?: string
+  ) => {
+    if (!storedName) return;
+
+    await fetch(`/api/admin/import-files/${encodeURIComponent(storedName)}`, {
+      method: 'PATCH',
+      headers: {
+        ...authHeaders,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        importStatus: status,
+        importError: importError || null,
+        importedAt: status === 'imported' ? new Date().toISOString() : null,
+      }),
+    });
+  };
+
+  const readStoredFile = async (filename: string) => {
+    setSelectedFileLoading(true);
+    try {
+      const response = await fetch(`/api/admin/import-files/${encodeURIComponent(filename)}`, {
+        headers: authHeaders,
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.error || '파일 읽기 실패');
+      }
+      const content = String(payload?.file?.content || '');
+      setSelectedFileName(filename);
+      setSelectedFileContent(content);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '파일 읽기 실패');
+    } finally {
+      setSelectedFileLoading(false);
+    }
+  };
+
+  const downloadStoredFile = async (filename: string) => {
+    try {
+      const response = await fetch(`/api/admin/import-files/${encodeURIComponent(filename)}/download`, {
+        headers: authHeaders,
+      });
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.error || '파일 다운로드 실패');
+      }
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '파일 다운로드 실패');
+    }
+  };
+
+  const deleteStoredFile = async (filename: string) => {
+    if (!confirm(`파일을 삭제하시겠습니까?\n${filename}`)) return;
+
+    try {
+      const response = await fetch(`/api/admin/import-files/${encodeURIComponent(filename)}`, {
+        method: 'DELETE',
+        headers: authHeaders,
+      });
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload.error || '파일 삭제 실패');
+      }
+
+      if (selectedFileName === filename) {
+        setSelectedFileName(null);
+        setSelectedFileContent('');
+      }
+
+      await fetchStoredFiles();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '파일 삭제 실패');
+    }
+  };
+
+  useEffect(() => {
+    if (!adminPassword) return;
+    void fetchStoredFiles();
+  }, [adminPassword, fileSearch, fileSortBy, fileSortOrder]);
 
   const buildApiErrorMessage = (response: Response, payload: any, raw: string) => {
     if (payload?.error) {
@@ -51,7 +214,7 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     const selectedFiles: File[] = Array.from(e.target.files || []);
     if (selectedFiles.length > 0) {
-      const invalidFiles = selectedFiles.filter(f => f.type !== 'application/json');
+      const invalidFiles = selectedFiles.filter((f) => !f.name.toLowerCase().endsWith('.json'));
       if (invalidFiles.length > 0) {
         setError('모든 파일은 JSON 형식이어야 합니다');
         return;
@@ -81,22 +244,25 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
     setProgress({ current: 0, total: mode === 'file' ? files.length : 1 });
 
     const results: { success: boolean; filename: string; title?: string; error?: string }[] = [];
+    let savedCount = 0;
 
     if (mode === 'file') {
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         setProgress({ current: i + 1, total: files.length });
+        let storedName = '';
 
         try {
           const text = await file.text();
+          storedName = await saveImportSourceFile(text, file.name || `upload-${i + 1}.json`);
+          savedCount += 1;
           const data = JSON.parse(text);
 
           const response = await fetch(`/api/sets/import?mergeByMeta=${mergeByMeta}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'x-admin-password': adminPassword,
-              'x-admin-key': adminPassword,
+              ...authHeaders,
             },
             body: JSON.stringify(data),
           });
@@ -104,15 +270,18 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
           const { data: responseData, raw } = await parseApiResponse(response);
 
           if (!response.ok) {
+            const message = buildApiErrorMessage(response, responseData, raw);
+            await updateStoredFileStatus(storedName, 'failed', message);
             results.push({
               success: false,
               filename: file.name,
-              error: buildApiErrorMessage(response, responseData, raw),
+              error: message,
             });
           } else {
             if (!responseData || !responseData.set) {
               throw new Error(`서버 응답 파싱 실패 (HTTP ${response.status})`);
             }
+            await updateStoredFileStatus(storedName, 'imported');
             results.push({
               success: true,
               filename: file.name,
@@ -120,17 +289,32 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
             });
           }
         } catch (err) {
+          const message = err instanceof Error ? err.message : 'Unknown error';
+          try {
+            if (!storedName) {
+              const text = await file.text();
+              storedName = await saveImportSourceFile(text, file.name || `upload-${i + 1}.json`);
+              savedCount += 1;
+            }
+            await updateStoredFileStatus(storedName, 'failed', message);
+          } catch {
+            // Ignore secondary save failures and keep primary error.
+          }
           results.push({
             success: false,
             filename: file.name,
-            error: err instanceof Error ? err.message : 'Unknown error',
+            error: message,
           });
         }
       }
     } else {
       setProgress({ current: 1, total: 1 });
+      let storedName = '';
 
       try {
+        storedName = await saveImportSourceFile(jsonInput, `pasted-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
+        savedCount += 1;
+
         const parsed = JSON.parse(jsonInput);
         const hasMeta = parsed && typeof parsed === 'object' && !Array.isArray(parsed) && 'setMeta' in parsed && 'questions' in parsed;
 
@@ -153,8 +337,7 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'x-admin-password': adminPassword,
-            'x-admin-key': adminPassword,
+            ...authHeaders,
           },
           body: JSON.stringify(payload),
         });
@@ -162,15 +345,18 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
         const { data: responseData, raw } = await parseApiResponse(response);
 
         if (!response.ok) {
+          const message = buildApiErrorMessage(response, responseData, raw);
+          await updateStoredFileStatus(storedName, 'failed', message);
           results.push({
             success: false,
             filename: 'pasted-json',
-            error: buildApiErrorMessage(response, responseData, raw),
+            error: message,
           });
         } else {
           if (!responseData || !responseData.set) {
             throw new Error(`서버 응답 파싱 실패 (HTTP ${response.status})`);
           }
+          await updateStoredFileStatus(storedName, 'imported');
           results.push({
             success: true,
             filename: 'pasted-json',
@@ -178,10 +364,20 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
           });
         }
       } catch (err) {
+        const message = err instanceof Error ? err.message : 'Unknown error';
+        try {
+          if (!storedName) {
+            storedName = await saveImportSourceFile(jsonInput, `pasted-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
+            savedCount += 1;
+          }
+          await updateStoredFileStatus(storedName, 'failed', message);
+        } catch {
+          // Ignore secondary save failures and keep primary error.
+        }
         results.push({
           success: false,
           filename: 'pasted-json',
-          error: err instanceof Error ? err.message : 'Unknown error',
+          error: message,
         });
       }
     }
@@ -193,7 +389,7 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
     if (successCount > 0) {
       const successMsg = `${successCount}건 import 성공`;
       const titles = results.filter(r => r.success).map(r => r.title).join(', ');
-      setSuccess(`${successMsg}: ${titles}`);
+      setSuccess(`${successMsg}: ${titles}${savedCount > 0 ? ` (원본 ${savedCount}건 저장)` : ''}`);
       setFiles([]);
       setJsonInput('');
       
@@ -207,7 +403,11 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
     if (failCount > 0) {
       const failedFiles = results.filter(r => !r.success);
       const errorMsg = failedFiles.map(f => `${f.filename}: ${f.error}`).join('\n');
-      setError(`${failCount}건 실패:\n${errorMsg}`);
+      setError(`${failCount}건 실패:\n${errorMsg}${savedCount > 0 ? `\n(원본 ${savedCount}건은 저장됨)` : ''}`);
+    }
+
+    if (savedCount > 0) {
+      await fetchStoredFiles();
     }
 
     setLoading(false);
@@ -394,6 +594,92 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
               이미지 위치는 문제(stem)와 보기(choices) 사이에 표시되며 필드명은 <code>stemImageUrl</code>, <code>stemImageAlt</code> 입니다.
             </p>
           </div>
+        </div>
+
+        <div className="mt-6 p-4 bg-white border border-gray-200 rounded-lg">
+          <h4 className="font-semibold text-sm text-gray-900 mb-3">
+            저장된 JSON 원본 파일
+          </h4>
+
+          <div className="mb-3 grid gap-2 md:grid-cols-3">
+            <input
+              value={fileSearch}
+              onChange={(e) => setFileSearch(e.target.value)}
+              placeholder="파일명 검색"
+              className="rounded border border-gray-300 px-2 py-1 text-xs"
+            />
+            <select
+              value={fileSortBy}
+              onChange={(e) => setFileSortBy(e.target.value as 'updatedAt' | 'name' | 'size')}
+              className="rounded border border-gray-300 px-2 py-1 text-xs"
+            >
+              <option value="updatedAt">수정일</option>
+              <option value="name">이름</option>
+              <option value="size">크기</option>
+            </select>
+            <select
+              value={fileSortOrder}
+              onChange={(e) => setFileSortOrder(e.target.value as 'asc' | 'desc')}
+              className="rounded border border-gray-300 px-2 py-1 text-xs"
+            >
+              <option value="desc">내림차순</option>
+              <option value="asc">오름차순</option>
+            </select>
+          </div>
+
+          {storedFilesLoading && <p className="text-sm text-gray-500">목록 로딩 중...</p>}
+
+          {!storedFilesLoading && storedFiles.length === 0 && (
+            <p className="text-sm text-gray-500">아직 저장된 파일이 없습니다.</p>
+          )}
+
+          {!storedFilesLoading && storedFiles.length > 0 && (
+            <div className="space-y-2">
+              {storedFiles.map((file) => (
+                <div key={file.name} className="rounded border border-gray-200 p-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                      <p className="text-xs font-medium text-gray-800 break-all">{file.name}</p>
+                      <p className="text-xs text-gray-500">{(file.size / 1024).toFixed(2)} KB · {new Date(file.updatedAt).toLocaleString()}</p>
+                      <p className="text-xs text-gray-500">
+                        소스: {file.source === 'json-paste' ? '붙여넣기' : '파일업로드'} · 상태: {file.importStatus || 'saved'}
+                      </p>
+                      {file.importError && (
+                        <p className="text-xs text-red-600 break-all">오류: {file.importError}</p>
+                      )}
+                    </div>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="secondary" type="button" onClick={() => void readStoredFile(file.name)}>
+                        읽기
+                      </Button>
+                      <Button size="sm" variant="secondary" type="button" onClick={() => void downloadStoredFile(file.name)}>
+                        다운로드
+                      </Button>
+                      <Button size="sm" variant="danger" type="button" onClick={() => void deleteStoredFile(file.name)}>
+                        삭제
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {(selectedFileLoading || selectedFileName) && (
+            <div className="mt-3 rounded border border-gray-200 bg-gray-50 p-3">
+              <p className="mb-2 text-xs font-medium text-gray-700">
+                {selectedFileLoading ? '파일 읽는 중...' : `미리보기: ${selectedFileName}`}
+              </p>
+              {!selectedFileLoading && (
+                <textarea
+                  value={selectedFileContent}
+                  readOnly
+                  rows={10}
+                  className="w-full rounded border border-gray-300 bg-white p-2 text-xs font-mono"
+                />
+              )}
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>

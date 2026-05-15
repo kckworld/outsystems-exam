@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { storage } from '@/lib/storage/sqlite';
+import { requireAdminAuth } from '@/lib/auth/admin';
 
 export async function GET(
   request: NextRequest,
@@ -32,6 +33,11 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    const auth = requireAdminAuth(request);
+    if (!auth.ok) {
+      return NextResponse.json({ error: auth.error }, { status: auth.status });
+    }
+
     await storage.deleteQuestionSet(params.id);
     return NextResponse.json({ success: true });
   } catch (error) {

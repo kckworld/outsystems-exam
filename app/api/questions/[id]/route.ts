@@ -1,33 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { storage } from '@/lib/storage/sqlite';
-
-function requireAdminKey(req: NextRequest) {
-  const adminPassword = process.env.ADMIN_PASSWORD;
-  const adminKey = process.env.ADMIN_KEY;
-
-  if (!adminPassword && !adminKey) {
-    return true;
-  }
-
-  const providedPassword =
-    req.headers.get('x-admin-password') ||
-    req.nextUrl.searchParams.get('adminPassword') ||
-    req.headers.get('x-admin-key') ||
-    req.nextUrl.searchParams.get('adminKey');
-
-  if (!providedPassword) return false;
-  if (adminPassword && providedPassword === adminPassword) return true;
-  if (adminKey && providedPassword === adminKey) return true;
-  return false;
-}
+import { requireAdminAuth } from '@/lib/auth/admin';
 
 export async function PATCH(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    if (!requireAdminKey(req)) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const auth = requireAdminAuth(req);
+    if (!auth.ok) {
+      return NextResponse.json({ error: auth.error }, { status: auth.status });
     }
 
     const body = await req.json();

@@ -32,6 +32,33 @@ export default function AdminPage() {
   const [editChoices, setEditChoices] = useState<string[]>([]);
   const [savingQuestionId, setSavingQuestionId] = useState<string | null>(null);
 
+  const getAuthHeaders = () => ({
+    'x-admin-password': adminPassword,
+    'x-admin-key': adminPassword,
+  });
+
+  const verifyAdminSession = async (password: string) => {
+    const response = await fetch('/api/admin/session', {
+      headers: {
+        'x-admin-password': password,
+        'x-admin-key': password,
+      },
+    });
+
+    let payload: any = null;
+    try {
+      payload = await response.json();
+    } catch {
+      payload = null;
+    }
+
+    return {
+      ok: response.ok,
+      status: response.status,
+      error: payload?.error as string | undefined,
+    };
+  };
+
   const isUploadedImageUrl = (url?: string) => {
     return typeof url === 'string' && url.includes('/api/images/uploaded/');
   };
@@ -50,21 +77,44 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    // Check if already authenticated
-    const storedPassword = localStorage.getItem('adminPassword') || localStorage.getItem('adminKey');
-    if (storedPassword) {
-      setAdminPassword(storedPassword);
-      setIsAuthenticated(true);
-    }
+    const checkStoredAuth = async () => {
+      const storedPassword = localStorage.getItem('adminPassword') || localStorage.getItem('adminKey');
+      if (!storedPassword) return;
+
+      const verified = await verifyAdminSession(storedPassword);
+      if (verified.ok) {
+        setAdminPassword(storedPassword);
+        setIsAuthenticated(true);
+        setAuthError(null);
+      } else {
+        localStorage.removeItem('adminPassword');
+        localStorage.removeItem('adminKey');
+        setIsAuthenticated(false);
+        setAdminPassword('');
+      }
+    };
+
+    void checkStoredAuth();
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!adminPassword.trim()) {
       setAuthError('관리자 비밀번호를 입력해주세요');
       return;
     }
-    // Store in localStorage
+
+    const verified = await verifyAdminSession(adminPassword);
+    if (!verified.ok) {
+      if (verified.status === 503) {
+        setAuthError('서버 관리자 인증이 아직 설정되지 않았습니다. .env의 ADMIN_PASSWORD(또는 ADMIN_KEY)를 먼저 설정해주세요.');
+      } else {
+        setAuthError('관리자 비밀번호가 올바르지 않습니다.');
+      }
+      setIsAuthenticated(false);
+      return;
+    }
+
     localStorage.setItem('adminPassword', adminPassword);
     setIsAuthenticated(true);
     setAuthError(null);
@@ -80,7 +130,9 @@ export default function AdminPage() {
   const fetchSets = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/sets');
+      const response = await fetch('/api/sets', {
+        headers: getAuthHeaders(),
+      });
       if (!response.ok) throw new Error('Failed to fetch sets');
       const data = await response.json();
       setSets(data.sets);
@@ -92,8 +144,9 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    fetchSets();
-  }, []);
+    if (!isAuthenticated) return;
+    void fetchSets();
+  }, [isAuthenticated]);
 
   const handleDelete = async (id: string) => {
     if (!confirm('이 세트를 삭제하시겠습니까?')) return;
@@ -101,6 +154,7 @@ export default function AdminPage() {
     try {
       const response = await fetch(`/api/sets/${id}`, {
         method: 'DELETE',
+        headers: getAuthHeaders(),
       });
       if (!response.ok) throw new Error('세트 삭제 실패');
       await fetchSets();
@@ -113,6 +167,7 @@ export default function AdminPage() {
     try {
       const response = await fetch(`/api/sets/${id}/clone`, {
         method: 'POST',
+        headers: getAuthHeaders(),
       });
       if (!response.ok) throw new Error('세트 복제 실패');
       await fetchSets();
@@ -123,7 +178,9 @@ export default function AdminPage() {
 
   const handleExport = async (id: string) => {
     try {
-      const response = await fetch(`/api/sets/${id}/export`);
+      const response = await fetch(`/api/sets/${id}/export`, {
+        headers: getAuthHeaders(),
+      });
       if (!response.ok) throw new Error('세트 내보내기 실패');
       const data = await response.json();
       
@@ -183,7 +240,7 @@ export default function AdminPage() {
       const response = await fetch(`/api/questions/${questionId}/image`, {
         method: 'POST',
         headers: {
-          'x-admin-password': adminPassword,
+          ...getAuthHeaders(),
         },
         body: formData,
       });
@@ -237,7 +294,7 @@ export default function AdminPage() {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'x-admin-password': adminPassword,
+          ...getAuthHeaders(),
         },
         body: JSON.stringify({
           stem: trimmedStem,
