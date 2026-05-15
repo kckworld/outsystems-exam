@@ -39,12 +39,12 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          cat >> ~/.ssh/config << EOF
-Host ssh.kckworld.com
-  ProxyCommand cloudflared access ssh --hostname %h
-  User ${{ secrets.NAS_USER }}
-  StrictHostKeyChecking no
-EOF
+          cat >> ~/.ssh/config <<-EOF
+          Host ssh.kckworld.com
+            ProxyCommand cloudflared access ssh --hostname %h
+            User ${{ secrets.NAS_USER }}
+            StrictHostKeyChecking no
+          EOF
 
       - name: Pull and restart on NAS
         run: |
