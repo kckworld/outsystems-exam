@@ -30,6 +30,32 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
   const [loading, setLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const [savingToMistakes, setSavingToMistakes] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  // 관리자 인증 확인
+  useEffect(() => {
+    const checkAdmin = async () => {
+      const storedPassword =
+        typeof window !== 'undefined'
+          ? localStorage.getItem('adminPassword') || localStorage.getItem('adminKey')
+          : '';
+      if (!storedPassword) {
+        setIsAdmin(false);
+        return;
+      }
+      try {
+        const response = await fetch('/api/admin/session', {
+          headers: {
+            'x-admin-password': storedPassword,
+            'x-admin-key': storedPassword,
+          },
+        });
+        setIsAdmin(response.ok);
+      } catch {
+        setIsAdmin(false);
+      }
+    };
+    checkAdmin();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -352,7 +378,7 @@ export default function PlaySetPage({ params }: { params: { setId: string } }) {
           onSubmit={handleSubmit}
           onNext={handleNext}
           isSubmitted={isSubmitted}
-          onSaveQuestionEdit={handleSaveQuestionEdit}
+          {...(isAdmin ? { onSaveQuestionEdit: handleSaveQuestionEdit } : {})}
         />
 
         <div className="mt-6 flex justify-between items-center gap-4">
