@@ -52,3 +52,7 @@ backups/
 !deploy.sh
 !webhook-server.js
 !test-webhook.sh
+
+# Data (DB, uploads - runtime generated)
+/data/prod.db
+/data/uploads/
