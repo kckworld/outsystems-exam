@@ -5,19 +5,22 @@ on:
     branches:
       - main
 
+concurrency:
+  group: outsystems-exam-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -27,7 +30,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/outsystems-exam:latest
+          tags: kck9010/outsystems-exam:latest
 
       - name: Install cloudflared
         run: |
@@ -39,13 +42,13 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          cat >> ~/.ssh/config <<-EOF
+          cat >> ~/.ssh/config << EOF
           Host ssh.kckworld.com
-            ProxyCommand cloudflared access ssh --hostname %h
-            User ${{ secrets.NAS_USER }}
-            StrictHostKeyChecking no
+              ProxyCommand cloudflared access ssh --hostname %h
+              User kck9010
+              StrictHostKeyChecking no
           EOF
 
       - name: Pull and restart on NAS
         run: |
-          ssh ssh.kckworld.com "cd ${{ secrets.NAS_DEPLOY_PATH }} && sudo /usr/local/bin/docker compose pull && sudo /usr/local/bin/docker compose up -d"
+          ssh ssh.kckworld.com "cd /volume1/docker/outsystems-exam && sudo /usr/local/bin/docker compose pull outsystems-exam && sudo /usr/local/bin/docker compose up -d outsystems-exam"
