@@ -35,4 +35,4 @@ jobs:
 
       - name: Pull and restart on NAS
         run: |
-          ssh ssh.kckworld.com "cd /volume1/docker/outsystems-exam && git pull origin main && sudo /usr/local/bin/docker compose up -d --build app"
+          ssh ssh.kckworld.com "git config --global --add safe.directory /volume1/docker/outsystems-exam && cd /volume1/docker/outsystems-exam && git pull origin main && sudo /usr/local/bin/docker compose up -d --build app"
