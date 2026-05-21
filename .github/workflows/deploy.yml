@@ -44,6 +44,9 @@ jobs:
               User kck9010
               StrictHostKeyChecking no
           EOF
+      - name: Copy docker-compose.yml to NAS
+        run: |
+          scp docker-compose.yml kck9010@ssh.kckworld.com:/volume1/docker/outsystems-exam/docker-compose.yml
       - name: Pull and restart on NAS
         run: |
-          ssh ssh.kckworld.com "sudo /usr/local/bin/docker pull kck9010/outsystems-exam:latest && cd /volume1/docker/outsystems-exam && sudo /usr/local/bin/docker compose up -d app"
+          ssh ssh.kckworld.com "cd /volume1/docker/outsystems-exam && sudo /usr/local/bin/docker compose pull app && sudo /usr/local/bin/docker compose up -d app"
