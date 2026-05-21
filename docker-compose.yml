@@ -3,9 +3,6 @@ version: '3.8'
 services:
   app:
     image: kck9010/outsystems-exam:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
       - "3651:3000"
     environment:
