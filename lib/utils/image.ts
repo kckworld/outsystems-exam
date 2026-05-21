@@ -48,7 +48,7 @@ export function buildImageFetchCandidates(rawUrl: string): string[] {
   ];
 }
 
-export function toDisplayImageUrl(rawUrl?: string): string | undefined {
+export function toDisplayImageUrl(rawUrl?: string | null): string | undefined {
   if (!rawUrl) return undefined;
   if (rawUrl.startsWith('/')) return rawUrl;
 

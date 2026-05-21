@@ -580,19 +580,80 @@ export function ImportForm({ onSuccess, adminPassword }: ImportFormProps) {
         </form>
 
         <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-          <h4 className="font-semibold text-sm text-gray-900 mb-2">
-            Format Examples
+          <h4 className="font-semibold text-sm text-gray-900 mb-3">
+            JSON 포맷 안내 (AI에게 문제 생성 요청 시 참고)
           </h4>
-          <div className="text-xs text-gray-600 space-y-2">
-            <p>
-              <strong>Format A (권장):</strong> <code>{`{ setMeta: { title, description, versionLabel }, questions: [...] }`}</code>
-            </p>
-            <p>
-              <strong>Format B:</strong> <code>{`[ { topic, stem, stemImageUrl?, choices, answer, ... } ]`}</code>
-            </p>
-            <p>
-              이미지 위치는 문제(stem)와 보기(choices) 사이에 표시되며 필드명은 <code>stemImageUrl</code>, <code>stemImageAlt</code> 입니다.
-            </p>
+          <div className="text-xs text-gray-600 space-y-4">
+            <div>
+              <p className="font-semibold text-gray-800 mb-1">✅ Format A (권장) — setMeta + questions</p>
+              <pre className="bg-white border border-gray-200 rounded p-3 overflow-x-auto text-xs leading-relaxed whitespace-pre">{`{
+  "setMeta": {
+    "title": "OutSystems Architecture Sample Exam",
+    "description": "아키텍처 설계 및 검증 관련 샘플 시험 문제",
+    "versionLabel": "v1.0"
+  },
+  "questions": [
+    {
+      "id": "OSAD-0001",
+      "topic": "Architecture Canvas",
+      "difficulty": 2,
+      "stem": "Which of the following describes a benefit of the Architecture Canvas?",
+      "stemImageUrl": null,
+      "stemImageAlt": null,
+      "choices": [
+        "It provides a systematic approach to architecture design.",
+        "It automatically fixes all architecture violations.",
+        "It promotes collaboration with business users only.",
+        "It speeds up design by skipping validation."
+      ],
+      "answer": "A",
+      "explanation": "A ✅ Canvas는 검증 도구와 함께 체계적인 설계를 지원합니다.\nB ❌ 자동 수정 기능은 없습니다.\nC ❌ 비즈니스 사용자 협업이 주목적이 아닙니다.\nD ❌ 검증 생략은 이점이 아닙니다.",
+      "tags": ["Architecture Canvas", "Architecture Framework"],
+      "source": "Designing Apps Using an Architecture Framework"
+    }
+  ]
+}`}</pre>
+            </div>
+
+            <div>
+              <p className="font-semibold text-gray-800 mb-1">📋 필드 설명</p>
+              <table className="w-full border-collapse text-xs">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="border border-gray-300 px-2 py-1 text-left font-semibold">필드</th>
+                    <th className="border border-gray-300 px-2 py-1 text-left font-semibold">타입</th>
+                    <th className="border border-gray-300 px-2 py-1 text-left font-semibold">필수</th>
+                    <th className="border border-gray-300 px-2 py-1 text-left font-semibold">설명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['id', 'string', '선택', '문제 고유 ID (예: OSAD-0001). 없으면 자동 생성'],
+                    ['topic', 'string', '필수', '주제/카테고리 (예: Architecture Canvas)'],
+                    ['difficulty', '1 | 2 | 3', '필수', '난이도 (1=쉬움, 2=보통, 3=어려움)'],
+                    ['stem', 'string', '필수', '문제 본문'],
+                    ['stemImageUrl', 'string | null', '선택', '문제 이미지 URL. 없으면 null'],
+                    ['stemImageAlt', 'string | null', '선택', '이미지 대체 텍스트. 없으면 null'],
+                    ['choices', 'string[]', '필수', '보기 배열 (2~6개). A. B. 접두사 자동 제거됨'],
+                    ['answer', 'A~F', '필수', '정답 보기 알파벳 (A, B, C, D 중 하나)'],
+                    ['explanation', 'string', '선택', '해설. 각 보기별 ✅/❌ 설명 권장'],
+                    ['tags', 'string[]', '선택', '태그 배열 (예: ["Architecture", "Layer"])'],
+                    ['source', 'string', '필수', '출처 또는 참고 문서명'],
+                  ].map(([field, type, required, desc]) => (
+                    <tr key={field} className="even:bg-gray-50">
+                      <td className="border border-gray-300 px-2 py-1 font-mono">{field}</td>
+                      <td className="border border-gray-300 px-2 py-1 text-blue-700">{type}</td>
+                      <td className="border border-gray-300 px-2 py-1">{required}</td>
+                      <td className="border border-gray-300 px-2 py-1">{desc}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-yellow-50 border border-yellow-200 rounded p-2 text-xs text-yellow-800">
+              💡 <strong>AI 문제 생성 요청 시 팁:</strong> 위 Format A 예시를 그대로 붙여넣고 <em>"이 포맷으로 [주제] 관련 객관식 문제 N개를 JSON으로 만들어줘"</em>라고 요청하세요. <code>difficulty</code>는 반드시 숫자(1/2/3)로, <code>answer</code>는 알파벳 대문자(A/B/C/D)로 생성하도록 명시하세요.
+            </div>
           </div>
         </div>
 

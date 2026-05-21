@@ -59,7 +59,7 @@ export default function AdminPage() {
     };
   };
 
-  const isUploadedImageUrl = (url?: string) => {
+  const isUploadedImageUrl = (url?: string | null) => {
     return typeof url === 'string' && url.includes('/api/images/uploaded/');
   };
 
